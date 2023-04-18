@@ -160,7 +160,9 @@ noisd tx staking create-validator \
 --pubkey=$(noisd tendermint show-validator) \
 --moniker $NOIS_NODENAME \
 --chain-id $NOIS_CHAIN_ID \
---gas-prices 0.025unois \
 --from $NOIS_WALLET \
+--gas-prices 0.1unois \
+--gas-adjustment 1.5 \
+--gas auto \
 --yes
 ```
