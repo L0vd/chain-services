@@ -1,4 +1,4 @@
-# Nois wallet bot by L0vd.com
+# Wallet-bot
 
 https://t.me/L0vdBot
 
