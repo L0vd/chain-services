@@ -25,7 +25,9 @@ API <br />
 
 
 ##### Other services
-[State Sync]() <br />
+[Installation-guide](https://github.com/L0vd/chain-services/tree/main/testnets/andromeda/installation-guide) <br />
+[State Sync](https://github.com/L0vd/chain-services/tree/main/testnets/andromeda/state-sync) <br />
 [Snapshot]() <br />
+[Useful commands]() <br />
 [Monitoring]() <br />
-[Telegram wallet bot]() <br />
+[Telegram wallet bot](https://github.com/L0vd/chain-services/tree/main/testnets/andromeda/wallet-bot) <br />
