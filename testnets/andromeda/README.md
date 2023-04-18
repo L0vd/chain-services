@@ -5,10 +5,9 @@
 Andromeda is an application platform layer that connects all public blockchains in the Cosmos ecosystem. Through our vast library of no-code smart contracts, users can harness the power of web3.
 
 ##### Official links
-[Website](https://www.andromedaprotocol.io/) | [Twitter](https://twitter.com/andromedaprot) |[Discord](https://discord.gg/EtSRGbPEXP) | [Github](https://github.com/andromedaprotocol)
+[Website](https://www.andromedaprotocol.io/) | [Twitter](https://twitter.com/andromedaprot) | [Discord](https://discord.gg/EtSRGbPEXP) | [Github](https://github.com/andromedaprotocol)
 
 ##### Chain info
-#
 |  |  |
 | ------ | ------ |
 | Chain-id | galileo-3 |
