@@ -1,7 +1,7 @@
 # State sync
 ## Info
-#### Public RPC endpoint: https://nois-testnet.rpc.l0vd.com
-#### Public API: https://nois-testnet.api.l0vd.com
+#### Public RPC endpoint: [https://nois-testnet.rpc.l0vd.com](https://nois-testnet.rpc.l0vd.com)
+#### Public API: [https://nois-testnet.api.l0vd.com](https://nois-testnet.api.l0vd.com)
 
 ## Guide to sync your node using State Sync:
 
