@@ -1,5 +1,5 @@
 # Wallet bot
-https://t.me/L0vdBot
+[https://t.me/L0vdBot](https://t.me/L0vdBot)
 
 ## Telegram Bot
 The bot does several useful things.
