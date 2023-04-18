@@ -124,7 +124,7 @@ sudo systemctl restart noisd && sudo journalctl -u noisd -f -o cat
 
 ### (OPTIONAL) Use State Sync
 
-#### [State Sync guide](https://github.com/L0vd/chain-services/tree/main/testnets/nois/state-sync)
+#### [State Sync](testnets/nois/state-sync/README.md)
 
 
 ### Starting a validator
