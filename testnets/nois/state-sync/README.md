@@ -1,4 +1,4 @@
-# Nois State Sync
+# State sync
 
 ## Info
 #### Public RPC endpoint: https://nois-testnet.rpc.l0vd.com
