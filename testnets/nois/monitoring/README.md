@@ -1,4 +1,4 @@
-# Nois node monitoring tool
+# Monitorting
 ## Community dashboard by L0vd.com: [Dashboard link](https://l0vd.notion.site/Projects-5510908598c245bda48313372271cd84)
 
 
