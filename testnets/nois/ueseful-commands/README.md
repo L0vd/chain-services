@@ -21,7 +21,7 @@ noisd keys delete <key_name>
 
 ## Set custom port
 
-port 56 was taken as an example, you can use numbers from 1 to 64 to set custom node port
+*port 56 was taken as an example, you can use numbers from 1 to 64 to set custom node port*
 
 ```
 NOIS_PORT=56
