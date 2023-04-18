@@ -1,5 +1,4 @@
 # State sync
-
 ## Info
 #### Public RPC endpoint: https://nois-testnet.rpc.l0vd.com
 #### Public API: https://nois-testnet.api.l0vd.com
