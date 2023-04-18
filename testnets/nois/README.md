@@ -18,13 +18,11 @@ Nois is a Proof of Stake blockchain protocol that allows developers to use secur
 
 ##### Public Endpoints
 RPC <br />
-```
-[https://nois-testnet.rpc.l0vd.com](https://nois-testnet.rpc.l0vd.com)
-```
+[https://nois-testnet.rpc.l0vd.com](https://nois-testnet.rpc.l0vd.com) <br />
+
 API <br />
-```
 [https://nois-testnet.api.l0vd.com](https://nois-testnet.rpc.l0vd.com) <br />
-```
+
 
 
 ##### Other services
