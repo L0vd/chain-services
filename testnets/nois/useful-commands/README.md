@@ -1,3 +1,6 @@
+{% hint style="info" %}
+Please note that the values in <> must be changed to your own values
+{% endhint %}
 # Keys
 
 ## Add new key
@@ -75,7 +78,7 @@ noisd tx staking create-validator \
 ## Edit validator
 ```
 noisd tx staking edit-validator \
---new-moniker "NOIS_NODENAME" \
+--new-moniker <NOIS_NODENAME> \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
 --website <YOUR_WEBSITE> \
