@@ -152,6 +152,10 @@ noisd keys add $NOIS_WALLET --recover
 
 ### 2. Request tokens from [faucet](https://discord.com/channels/1007329761229545512/1025144166117814404)
 
+{% hint style="info" %}
+Wait until the node is synchronized.
+{% endhint %}
+
 ### 3. Create validator
 ```
 noisd tx staking create-validator \
