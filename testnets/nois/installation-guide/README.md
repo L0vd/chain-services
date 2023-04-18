@@ -1,11 +1,3 @@
-## Table of contents <br />
-[Node setup](#node_setup) <br />
-[State Sync](#state_sync) <br />
-[Starting a validator](#starting_validator) <br />
-
-
-
-<a name="node_setup"></a>
 ## Manual node setup
 If you want to setup Nois fullnode manually follow the steps below
 
@@ -130,13 +122,11 @@ noisd tendermint unsafe-reset-all --home $HOME/.noisd --keep-addr-book
 sudo systemctl restart noisd && sudo journalctl -u noisd -f -o cat
 ```
 
-<a name="state_sync"></a>
 ### (OPTIONAL) Use State Sync
 
 #### [State Sync guide](https://github.com/L0vd/chain-services/tree/main/testnets/nois/state-sync)
 
 
-<a name="starting_validator"></a>
 ### Starting a validator
 
 #### 1. Add a new key
