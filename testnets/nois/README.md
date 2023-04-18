@@ -5,7 +5,7 @@
 Nois is a Proof of Stake blockchain protocol that allows developers to use secure, unbiased and cost efficient randomness via IBC.
 
 ##### Official links
-[Website](https://nois.network/) | [Twitter](https://twitter.com/NoisRNG) |[Discord](https://chat.nois.network/) | [Github](https://github.com/noislabs)
+[Website](https://nois.network/) | [Twitter](https://twitter.com/NoisRNG) | [Discord](https://chat.nois.network/) | [Github](https://github.com/noislabs)
 
 ##### Chain info
 |  |  |
