@@ -6,15 +6,15 @@
 
 
 <a name="node_setup"></a>
-# Manual node setup
+## Manual node setup
 If you want to setup Nois fullnode manually follow the steps below
 
-## Update and upgrade
+### Update and upgrade
 ```
 sudo apt update && sudo apt upgrade -y
 ```
 
-## Install GO
+### Install GO
 ```
 if ! [ -x "$(command -v go)" ]; then
   ver="1.19.3"
@@ -28,7 +28,7 @@ if ! [ -x "$(command -v go)" ]; then
 fi
 ```
 
-## Install node
+### Install node
 ```
 cd $HOME
 git clone https://github.com/noislabs/noisd
@@ -38,7 +38,7 @@ make install
 ```
 
 
-## Setting up vars
+### Setting up vars
 You should replace values in <> <br />
 <YOUR_MONIKER> Here you should put name of your moniker (validator) that will be visible in explorer <br />
 <YOUR_WALLET> Here you shoud put the name of your wallet
@@ -51,24 +51,24 @@ source $HOME/.bash_profile
 ```
 
 
-## Configure your node
+### Configure your node
 ```
 noisd config chain-id $NOIS_CHAIN_ID
 ```
 
-## Initialize your node
+### Initialize your node
 ```
 noisd init $NODENAME --chain-id $CHAIN_ID
 ```
 
-## Download genesis
+### Download genesis
 ```
-wget -O "$HOME/.noisd/config/genesis.json" https://raw.githubusercontent.com/noislabs/testnets/main/nois-testnet-003/genesis.json
+wget -O "$HOME/.noisd/config/genesis.json" https://raw.githubusercontent.com/noislabs/testnets/main/nois-testnet-005/genesis.json
 ```
 
-## (OPTIONAL) Set custom ports
+### (OPTIONAL) Set custom ports
 
-### If you want to use non-default ports
+#### If you want to use non-default ports
 ```
 NOIS_PORT=<SET_CUSTOM_PORT> #Example: NOIS_PORT=56 (numbers from 1 to 64)
 ```
@@ -78,14 +78,14 @@ sed -i.bak -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:${N
 ```
 
 
-## Set seeds and peers
+### Set seeds and peers
 ```
 SEEDS=""
 PEERS="3aa7f66499a700625056b674bf26d4f457dc38da@95.216.2.219:28656"
 sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.noisd/config/config.toml
 ```
 
-## Config pruning
+### Config pruning
 ```
 pruning="custom"
 pruning_keep_recent="100"
@@ -97,13 +97,13 @@ sed -i -e "s/^pruning-keep-every *=.*/pruning-keep-every = \"$pruning_keep_every
 sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"$pruning_interval\"/" $HOME/.noisd/config/app.toml
 ```
 
-## Set minimum gas price and null indexer
+### Set minimum gas price and null indexer
 ```
 sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0unois\"/" $HOME/.noisd/config/app.toml
 sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.noisd/config/config.toml
 ```
 
-## Create Service
+### Create Service
 ```
 sudo tee /etc/systemd/system/noisd.service > /dev/null <<EOF
 [Unit]
@@ -122,7 +122,7 @@ WantedBy=multi-user.target
 EOF
 ```
 
-## Reset blockchain info and restart your node
+### Reset blockchain info and restart your node
 ```
 sudo systemctl daemon-reload
 sudo systemctl enable noisd
@@ -131,32 +131,32 @@ sudo systemctl restart noisd && sudo journalctl -u noisd -f -o cat
 ```
 
 <a name="state_sync"></a>
-## (OPTIONAL) Use State Sync
+### (OPTIONAL) Use State Sync
 
-### [State Sync guide](https://github.com/L0vd/chain-services/tree/main/testnets/nois/state-sync)
+#### [State Sync guide](https://github.com/L0vd/chain-services/tree/main/testnets/nois/state-sync)
 
 
 <a name="starting_validator"></a>
-## Starting a validator
+### Starting a validator
 
-### 1. Add a new key
+#### 1. Add a new key
 ```
 noisd keys add $NOIS_WALLET
 ```
-#### (OR)
+##### (OR)
 
-### 1. Recover your key
+#### 1. Recover your key
 ```
 noisd keys add $NOIS_WALLET --recover
 ```
 
-### 2. Request tokens from [faucet](https://discord.com/channels/1007329761229545512/1025144166117814404)
+#### 2. Request tokens from [faucet](https://discord.com/channels/1007329761229545512/1025144166117814404)
 
+
+#### 3. Create validator
 {% hint style="info" %}
 Wait until the node is synchronized.
 {% endhint %}
-
-### 3. Create validator
 ```
 noisd tx staking create-validator \
 --amount 1000000unois \
