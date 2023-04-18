@@ -2,7 +2,6 @@
 [Node setup](#node_setup) <br />
 [State Sync](#state_sync) <br />
 [Starting a validator](#starting_validator) <br />
-[Useful commands](#useful_commands)
 
 
 
@@ -168,46 +167,4 @@ noisd tx staking create-validator \
 --gas-prices 0.025unois \
 --from $NOIS_WALLET \
 --yes
-```
-<a name="useful_commands"></a>
-## Useful commands
-
-### Check status
-```
-noisd status | jq
-```
-
-### Check logs
-```
-sudo journalctl -u noisd -f
-```
-
-### Check wallets
-```
-noisd keys list
-```
-
-### Check balance
-```
-noisd q bank balances $NOIS_WALLET
-```
-
-### Send tokens
-```
-noisd tx bank send <FROM_WALLET_ADDRESS> <TO_WALLET_ADDRESS> <AMOUNT>unois --fees 0unois
-```
-
-### Delegate tokens to validator
-```
-noisd tx staking delegate <MONIKER> <AMOUNT>unois --from $NOIS_WALLET --chain-id $NOIS_CHAIN_ID --fees 0unois
-```
-
-### Vote for proposal
-#### Yes
-```
-noisd tx gov vote <PROPOSAL_NUMBER> yes --from $NOIS_WALLET --chain-id $NOIS_CHAIN_ID --fees 0unois
-```
-#### No
-```
-noisd tx gov vote <PROPOSAL_NUMBER> no --from $NOIS_WALLET --chain-id $NOIS_CHAIN_ID --fees 0unois
 ```
