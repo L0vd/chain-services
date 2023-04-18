@@ -144,9 +144,11 @@ noisd keys add $NOIS_WALLET --recover
 
 
 #### 3. Create validator
+
 {% hint style="info" %}
 Wait until the node is synchronized.
 {% endhint %}
+
 ```
 noisd tx staking create-validator \
 --amount 1000000unois \
