@@ -1,28 +1,29 @@
 {% hint style="info" %}
 Please note that the values in <> must be changed to your own values
 {% endhint %}
-# Keys
 
-## Add new key
+## Keys
+
+### Add new key
 ```
 noisd keys add <key_name>
 ```
-## Recover keys from seed
+### Recover keys from seed
 ```
 noisd keys add <key_name> --recover
 ```
-## Show all keys
+### Show all keys
 ```
 noisd keys list
 ```
-## Delete key
+### Delete key
 ```
 noisd keys delete <key_name>
 ```
 
-# Node configuration
+## Node configuration
 
-## Set custom port
+### Set custom port
 
 *port 56 was taken as an example, you can use numbers from 1 to 64 to set custom node port*
 
@@ -33,7 +34,7 @@ NOIS_PORT=56
 sed -i.bak -e "s%^proxy_app = \"tcp://127.0.0.1:26658\"%proxy_app = \"tcp://127.0.0.1:${NOIS_PORT}658\"%; s%^laddr = \"tcp://127.0.0.1:26657\"%laddr = \"tcp://127.0.0.1:${NOIS_PORT}657\"%; s%^pprof_laddr = \"localhost:6060\"%pprof_laddr = \"localhost:${NOIS_PORT}060\"%; s%^laddr = \"tcp://0.0.0.0:26656\"%laddr = \"tcp://0.0.0.0:${NOIS_PORT}656\"%; s%^prometheus_listen_addr = \":26660\"%prometheus_listen_addr = \":${NOIS_PORT}660\"%" $HOME/.noisd/config/config.toml
 sed -i.bak -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:${NOIS_PORT}317\"%; s%^address = \":8080\"%address = \":${NOIS_PORT}080\"%; s%^address = \"0.0.0.0:9090\"%address = \"0.0.0.0:${NOIS_PORT}090\"%; s%^address = \"0.0.0.0:9091\"%address = \"0.0.0.0:${NOIS_PORT}091\"%; s%^address = \"0.0.0.0:8545\"%address = \"0.0.0.0:${NOIS_PORT}545\"%; s%^ws-address = \"0.0.0.0:8546\"%ws-address = \"0.0.0.0:${NOIS_PORT}546\"%" $HOME/.noisd/config/app.toml
 ```
-## Config pruning
+### Config pruning
 ```
 pruning="custom"
 pruning_keep_recent="100"
@@ -44,18 +45,18 @@ sed -i -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \"$pruning_keep_rec
 sed -i -e "s/^pruning-keep-every *=.*/pruning-keep-every = \"$pruning_keep_every\"/" $HOME/.noisd/config/app.toml
 sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"$pruning_interval\"/" $HOME/.noisd/config/app.toml
 ```
-## Disable indexing
+### Disable indexing
 ```
 sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.noisd/config/config.toml
 ```
-## Set minimum gas prices
+### Set minimum gas prices
 ```
 sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0unois\"/" $HOME/.noisd/config/app.toml
 ```
 
-# Validator configuration
+## Validator configuration
 
-## Create validator
+### Create validator
 ```
 noisd tx staking create-validator \
 --amount 1000000unois \
@@ -75,7 +76,7 @@ noisd tx staking create-validator \
 --gas auto
 --yes
 ```
-## Edit validator
+### Edit validator
 ```
 noisd tx staking edit-validator \
 --new-moniker <NOIS_NODENAME> \
@@ -90,94 +91,94 @@ noisd tx staking edit-validator \
 --gas auto
 --yes
 ```
-## View validator info
+### View validator info
 ```
 noisd q staking validator $(noisd keys show <NOIS_WALLET> --bech val -a)
 ```
-## Unjail validator
+### Unjail validator
 ```
 noisd tx slashing unjail --from <NOIS_WALLET> --chain-id nois-testnet-005 --gas-prices 0.1unois --gas-adjustment 1.5 --gas auto --yes 
 ```
-## Signing info
+### Signing info
 ```
 noisd query slashing signing-info $(noisd tendermint show-validator)
 ```
 
-# Token operations
+## Token operations
 
-## Send tokens
+### Send tokens
 ```
 noisd tx bank send wallet <DEST_WALLET_ADDRESS> 100unois --from <NOIS_WALLET> --chain-id nois-testnet-005 --gas-prices 0.1unois --gas-adjustment 1.5 --gas auto --yes
 ```
-## Delegate token to your validator
+### Delegate token to your validator
 ```
 noisd tx staking delegate $(noisd keys show <NOIS_WALLET> --bech val -a) 100unois --from <NOIS_WALLET> --chain-id nois-testnet-005 --gas-prices 0.1unois --gas-adjustment 1.5 --gas auto --yes
 ```
-## Delegate token to another validator
+### Delegate token to another validator
 ```
 noisd tx staking delegate <VALOPER_ADDRESS> 100unois --from <NOIS_WALLET> --chain-id nois-testnet-005 --gas-prices 0.1unois --gas-adjustment 1.5 --gas auto --yes
 ```
-## Redelegate tokens to another validator
+### Redelegate tokens to another validator
 ```
 noisd tx staking redelegate <FROM_VALOPER_ADDRESS> <TO_VALOPER_ADDRESS> 100unois --from <NOIS_WALLET> --chain-id nois-testnet-005 --gas-prices 0.1unois --gas-adjustment 1.5 --gas auto --yes
 ```
-## Unbond tokens from staking
+### Unbond tokens from staking
 ```
 noisd tx staking unbond <VALOPER_ADDRESS> 100unois --from <NOIS_WALLET> --chain-id nois-testnet-005 --gas-prices 0.1unois --gas-adjustment 1.5 --gas auto --yes
 ```
-## Withdraw all rewards from staking
+### Withdraw all rewards from staking
 ```
 noisd tx distribution withdraw-all-rewards --from <NOIS_WALLET> --chain-id nois-testnet-005 --gas-prices 0.1unois --gas-adjustment 1.5 --gas auto --yes
 ```
 
-# Governance
-## Vote "YES"
+## Governance
+### Vote "YES"
 ```
 noisd tx gov vote <proposal_id> yes --from <NOIS_WALLET> --chain-id nois-testnet-005 --gas-prices 0.1unois --gas-adjustment 1.5 --gas auto --yes
 ```
-## Vote "NO"
+### Vote "NO"
 ```
 noisd tx gov vote <proposal_id> no --from <NOIS_WALLET> --chain-id nois-testnet-005 --gas-prices 0.1unois --gas-adjustment 1.5 --gas auto --yes
 ```
-## Abstain from voting
+### Abstain from voting
 ```
 noisd tx gov vote <proposal_id> abstain --from <NOIS_WALLET> --chain-id nois-testnet-005 --gas-adjustment 1.5 --gas auto --gas-prices 0.1unois -y
 ```
 
-# General commands
-## Check node status
+## General commands
+### Check node status
 ```
 noisd status | jq
 ```
-## Check service status
+### Check service status
 ```
 sudo systemctl status noisd
 ```
-## Check logs
+### Check logs
 ```
 sudo journalctl -u noisd -f --no-hostname -o cat
 ```
-## Restart service
+### Restart service
 ```
 sudo systemctl restart noisd
 ```
-## Stop service
+### Stop service
 ```
 sudo systemctl stop noisd
 ```
-## Start service
+### Start service
 ```
 sudo systemctl start noisd
 ```
-## Disable service
+### Disable service
 ```
 sudo systemctl disable noisd
 ```
-## Enable service
+### Enable service
 ```
 sudo systemctl enable noisd
 ```
-## Reload service after changes
+### Reload service after changes
 ```
 sudo systemctl daemon-reload
 ```
