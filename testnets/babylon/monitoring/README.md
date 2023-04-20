@@ -10,7 +10,7 @@ Advantages  of using our free service:
 
 # One line installation:
 ```
-. <(wget -qO- https://raw.githubusercontent.com/L0vd/Babylon/main/Monitoring/babylon-monitoring-install.sh)
+. <(wget -qO- https://raw.githubusercontent.com/L0vd/chain-services/main/testnets/babylon/monitoring/babylon-monitoring-install.sh)
 ```
 
 # OR Manual installation of telegraf and monitoring script
@@ -48,9 +48,9 @@ Get files from this project repo and copy variable script template
 cd $HOME
 mkdir babylon-monitoring
 cd babylon-monitoring
-wget https://raw.githubusercontent.com/L0vd/Babylon/main/Monitoring/monitor.sh
-wget https://raw.githubusercontent.com/L0vd/Babylon/main/Monitoring/telegraf.conf
-wget https://raw.githubusercontent.com/L0vd/Babylon/main/Monitoring/variables.sh
+wget https://raw.githubusercontent.com/L0vd/chain-services/main/testnets/babylon/monitoring/monitor.sh
+wget https://raw.githubusercontent.com/L0vd/chain-services/main/testnets/babylon/monitoring/telegraf.conf
+wget https://raw.githubusercontent.com/L0vd/chain-services/main/testnets/babylon/monitoring/variables.sh
 ```
 
 ```
