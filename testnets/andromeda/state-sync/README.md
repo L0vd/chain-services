@@ -1,4 +1,4 @@
-# Andromeda State Sync
+# State Sync
 
 ## Info
 #### Public RPC endpoint: [https://andromeda-testnet.rpc.l0vd.com](https://andromeda-testnet.rpc.l0vd.com)
