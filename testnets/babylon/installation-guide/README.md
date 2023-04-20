@@ -56,7 +56,7 @@ babylond init $BABYLON_NODENAME --chain-id $BABYLON_CHAIN_ID
 
 ## Download genesis
 ```
-wget -O $HOME/.babylond/config/genesis.json "https://raw.githubusercontent.com/L0vd/Babylon/main/Node_installation_guide/genesis.json"
+wget -O $HOME/.babylond/config/genesis.json "https://raw.githubusercontent.com/L0vd/chain-services/main/testnets/babylon/installation-guide/genesis.json"
 ```
 
 ## (OPTIONAL) Set custom ports
