@@ -28,11 +28,11 @@ andromedad keys delete <key_name>
 *port 56 was taken as an example, you can use numbers from 1 to 64 to set custom node port*
 
 ```
-ANDOMEDA_PORT=56
+ANDROMEDA_PORT=56
 ```
 ```
-sed -i.bak -e "s%^proxy_app = \"tcp://127.0.0.1:26658\"%proxy_app = \"tcp://127.0.0.1:${ANDOMEDA_PORT}658\"%; s%^laddr = \"tcp://127.0.0.1:26657\"%laddr = \"tcp://127.0.0.1:${ANDOMEDA_PORT}657\"%; s%^pprof_laddr = \"localhost:6060\"%pprof_laddr = \"localhost:${ANDOMEDA_PORT}060\"%; s%^laddr = \"tcp://0.0.0.0:26656\"%laddr = \"tcp://0.0.0.0:${ANDOMEDA_PORT}656\"%; s%^prometheus_listen_addr = \":26660\"%prometheus_listen_addr = \":${ANDOMEDA_PORT}660\"%" $HOME/.andromedad/config/config.toml
-sed -i.bak -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:${ANDOMEDA_PORT}317\"%; s%^address = \":8080\"%address = \":${ANDOMEDA_PORT}080\"%; s%^address = \"0.0.0.0:9090\"%address = \"0.0.0.0:${ANDOMEDA_PORT}090\"%; s%^address = \"0.0.0.0:9091\"%address = \"0.0.0.0:${ANDOMEDA_PORT}091\"%; s%^address = \"0.0.0.0:8545\"%address = \"0.0.0.0:${ANDOMEDA_PORT}545\"%; s%^ws-address = \"0.0.0.0:8546\"%ws-address = \"0.0.0.0:${ANDOMEDA_PORT}546\"%" $HOME/.andromedad/config/app.toml
+sed -i.bak -e "s%^proxy_app = \"tcp://127.0.0.1:26658\"%proxy_app = \"tcp://127.0.0.1:${ANDROMEDA_PORT}658\"%; s%^laddr = \"tcp://127.0.0.1:26657\"%laddr = \"tcp://127.0.0.1:${ANDROMEDA_PORT}657\"%; s%^pprof_laddr = \"localhost:6060\"%pprof_laddr = \"localhost:${ANDROMEDA_PORT}060\"%; s%^laddr = \"tcp://0.0.0.0:26656\"%laddr = \"tcp://0.0.0.0:${ANDROMEDA_PORT}656\"%; s%^prometheus_listen_addr = \":26660\"%prometheus_listen_addr = \":${ANDROMEDA_PORT}660\"%" $HOME/.andromedad/config/config.toml
+sed -i.bak -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:${ANDROMEDA_PORT}317\"%; s%^address = \":8080\"%address = \":${ANDROMEDA_PORT}080\"%; s%^address = \"0.0.0.0:9090\"%address = \"0.0.0.0:${ANDROMEDA_PORT}090\"%; s%^address = \"0.0.0.0:9091\"%address = \"0.0.0.0:${ANDROMEDA_PORT}091\"%; s%^address = \"0.0.0.0:8545\"%address = \"0.0.0.0:${ANDROMEDA_PORT}545\"%; s%^ws-address = \"0.0.0.0:8546\"%ws-address = \"0.0.0.0:${ANDROMEDA_PORT}546\"%" $HOME/.andromedad/config/app.toml
 ```
 ### Config pruning
 ```
@@ -65,9 +65,9 @@ andromedad tx staking create-validator \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
 --pubkey=$(andromedad tendermint show-validator) \
---moniker <ANDOMEDA_NODENAME> \
+--moniker <ANDROMEDA_NODENAME> \
 --chain-id galileo-3 \
---from <ANDOMEDA_WALLET> \
+--from <ANDROMEDA_WALLET> \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
 --website <YOUR_WEBSITE> \
@@ -79,13 +79,13 @@ andromedad tx staking create-validator \
 ### Edit validator
 ```
 andromedad tx staking edit-validator \
---new-moniker <ANDOMEDA_NODENAME> \
+--new-moniker <ANDROMEDA_NODENAME> \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
 --website <YOUR_WEBSITE> \
 --chain-id galileo-3 \
 --commission-rate 0.05 \
---from <ANDOMEDA_WALLET> \
+--from <ANDROMEDA_WALLET> \
 --gas-prices 0.1uandr \
 --gas-adjustment 1.5
 --gas auto
@@ -93,11 +93,11 @@ andromedad tx staking edit-validator \
 ```
 ### View validator info
 ```
-andromedad q staking validator $(andromedad keys show <ANDOMEDA_WALLET> --bech val -a)
+andromedad q staking validator $(andromedad keys show <ANDROMEDA_WALLET> --bech val -a)
 ```
 ### Unjail validator
 ```
-andromedad tx slashing unjail --from <ANDOMEDA_WALLET> --chain-id galileo-3 --gas-prices 0.1uandr --gas-adjustment 1.5 --gas auto --yes 
+andromedad tx slashing unjail --from <ANDROMEDA_WALLET> --chain-id galileo-3 --gas-prices 0.1uandr --gas-adjustment 1.5 --gas auto --yes 
 ```
 ### Signing info
 ```
@@ -108,41 +108,41 @@ andromedad query slashing signing-info $(andromedad tendermint show-validator)
 
 ### Send tokens
 ```
-andromedad tx bank send wallet <DEST_WALLET_ADDRESS> 100uandr --from <ANDOMEDA_WALLET> --chain-id galileo-3 --gas-prices 0.1uandr --gas-adjustment 1.5 --gas auto --yes
+andromedad tx bank send wallet <DEST_WALLET_ADDRESS> 100uandr --from <ANDROMEDA_WALLET> --chain-id galileo-3 --gas-prices 0.1uandr --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to your validator
 ```
-andromedad tx staking delegate $(andromedad keys show <ANDOMEDA_WALLET> --bech val -a) 100uandr --from <ANDOMEDA_WALLET> --chain-id galileo-3 --gas-prices 0.1uandr --gas-adjustment 1.5 --gas auto --yes
+andromedad tx staking delegate $(andromedad keys show <ANDROMEDA_WALLET> --bech val -a) 100uandr --from <ANDROMEDA_WALLET> --chain-id galileo-3 --gas-prices 0.1uandr --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to another validator
 ```
-andromedad tx staking delegate <VALOPER_ADDRESS> 100uandr --from <ANDOMEDA_WALLET> --chain-id galileo-3 --gas-prices 0.1uandr --gas-adjustment 1.5 --gas auto --yes
+andromedad tx staking delegate <VALOPER_ADDRESS> 100uandr --from <ANDROMEDA_WALLET> --chain-id galileo-3 --gas-prices 0.1uandr --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Redelegate tokens to another validator
 ```
-andromedad tx staking redelegate <FROM_VALOPER_ADDRESS> <TO_VALOPER_ADDRESS> 100uandr --from <ANDOMEDA_WALLET> --chain-id galileo-3 --gas-prices 0.1uandr --gas-adjustment 1.5 --gas auto --yes
+andromedad tx staking redelegate <FROM_VALOPER_ADDRESS> <TO_VALOPER_ADDRESS> 100uandr --from <ANDROMEDA_WALLET> --chain-id galileo-3 --gas-prices 0.1uandr --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Unbond tokens from staking
 ```
-andromedad tx staking unbond <VALOPER_ADDRESS> 100uandr --from <ANDOMEDA_WALLET> --chain-id galileo-3 --gas-prices 0.1uandr --gas-adjustment 1.5 --gas auto --yes
+andromedad tx staking unbond <VALOPER_ADDRESS> 100uandr --from <ANDROMEDA_WALLET> --chain-id galileo-3 --gas-prices 0.1uandr --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Withdraw all rewards from staking
 ```
-andromedad tx distribution withdraw-all-rewards --from <ANDOMEDA_WALLET> --chain-id galileo-3 --gas-prices 0.1uandr --gas-adjustment 1.5 --gas auto --yes
+andromedad tx distribution withdraw-all-rewards --from <ANDROMEDA_WALLET> --chain-id galileo-3 --gas-prices 0.1uandr --gas-adjustment 1.5 --gas auto --yes
 ```
 
 ## Governance
 ### Vote "YES"
 ```
-andromedad tx gov vote <proposal_id> yes --from <ANDOMEDA_WALLET> --chain-id galileo-3 --gas-prices 0.1uandr --gas-adjustment 1.5 --gas auto --yes
+andromedad tx gov vote <proposal_id> yes --from <ANDROMEDA_WALLET> --chain-id galileo-3 --gas-prices 0.1uandr --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Vote "NO"
 ```
-andromedad tx gov vote <proposal_id> no --from <ANDOMEDA_WALLET> --chain-id galileo-3 --gas-prices 0.1uandr --gas-adjustment 1.5 --gas auto --yes
+andromedad tx gov vote <proposal_id> no --from <ANDROMEDA_WALLET> --chain-id galileo-3 --gas-prices 0.1uandr --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Abstain from voting
 ```
-andromedad tx gov vote <proposal_id> abstain --from <ANDOMEDA_WALLET> --chain-id galileo-3 --gas-adjustment 1.5 --gas auto --gas-prices 0.1uandr -y
+andromedad tx gov vote <proposal_id> abstain --from <ANDROMEDA_WALLET> --chain-id galileo-3 --gas-adjustment 1.5 --gas auto --gas-prices 0.1uandr -y
 ```
 
 ## General commands
