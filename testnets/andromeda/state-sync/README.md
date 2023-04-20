@@ -1,8 +1,8 @@
 # Andromeda State Sync
 
 ## Info
-#### Public RPC endpoint: https://andromeda-testnet.rpc.l0vd.com
-#### Public API: https://andromeda-testnet.api.l0vd.com
+#### Public RPC endpoint: [https://andromeda-testnet.rpc.l0vd.com](https://andromeda-testnet.rpc.l0vd.com)
+#### Public API: [https://andromeda-testnet.api.l0vd.com](https://andromeda-testnet.api.l0vd.com)
 
 ## Guide to sync your node using State Sync:
 
