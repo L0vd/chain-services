@@ -27,7 +27,7 @@ API <br />
 
 ##### Other services
 [Installation guide](https://github.com/L0vd/chain-services/tree/main/testnets/nois/installation-guide) <br />
-[State Sync](https://github.com/L0vd/chain-services/tree/main/testnets/nois/state-sync) <br />
+[State Sync](testnets/nois/state-sync/README.md) <br />
 [Snapshot]() <br />
 [Useful commands]()<br />
 [Monitoring](https://github.com/L0vd/chain-services/tree/main/testnets/nois/monitoring) <br />
