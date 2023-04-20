@@ -1,8 +1,8 @@
 # Babylon State Sync
 
 ## Info
-#### Public RPC endpoint: https://babylon-testnet.rpc.l0vd.com
-#### Public API: https://babylon-testnet.api.l0vd.com
+#### Public RPC endpoint: [https://babylon-testnet.rpc.l0vd.com](https://babylon-testnet.rpc.l0vd.com)
+#### Public API: [https://babylon-testnet.api.l0vd.com](https://babylon-testnet.api.l0vd.com)
 
 ## Guide to sync your node using State Sync:
 
