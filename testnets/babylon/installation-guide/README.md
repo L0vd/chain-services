@@ -1,19 +1,3 @@
-<p style="font-size:14px" align="right">
-<a href="https://t.me/L0vd_staking" target="_blank">Join our telegram <img src="https://raw.githubusercontent.com/L0vd/screenshots/main/Telegram_logo.png" width="30"/></a>
-<a href="https://l0vd.com/" target="_blank">Visit our website <img src="https://raw.githubusercontent.com/L0vd/screenshots/main/L0vd.png" width="30"/></a>
-</p>
-
-
-
-# Table of contents <br />
-[Node setup](#node_setup) <br />
-[State Sync](#state_sync) <br />
-[Starting a validator](#starting_validator) <br />
-[Useful commands](#useful_commands)
-
-
-
-<a name="node_setup"></a>
 # Manual node setup
 If you want to setup Babylon fullnode manually follow the steps below
 
@@ -143,13 +127,12 @@ babylond tendermint unsafe-reset-all --home $HOME/.babylond --keep-addr-book
 sudo systemctl restart babylond && sudo journalctl -u babylond -f -o cat
 ```
 
-<a name="state_sync"></a>
+
 ## (OPTIONAL) Use State Sync
 
-### [State Sync guide](https://github.com/L0vd/Babylon/tree/main/StateSync)
+### [State Sync guide]()
 
 
-<a name="starting_validator"></a>
 ## Starting a validator
 
 ### 1. Add a new key
@@ -187,50 +170,10 @@ babylond tx checkpointing create-validator \
 --pubkey=$(babylond tendermint show-validator) \
 --moniker $BABYLON_NODENAME \
 --chain-id $BABYLON_CHAIN_ID \
---fees=0ubbn\
 --keyring-backend=test \
 --from $BABYLON_WALLET \
+--gas-prices 0.1ubbn \
+--gas-adjustment 1.5
+--gas auto
 --yes
-```
-<a name="useful_commands"></a>
-## Useful commands
-
-### Check status
-```
-babylond status | jq
-```
-
-### Check logs
-```
-sudo journalctl -u babylond -f
-```
-
-### Check wallets
-```
-babylond keys list
-```
-
-### Check balance
-```
-babylond q bank balances $BABYLON_WALLET
-```
-
-### Send tokens
-```
-babylond tx bank send <FROM_WALLET_ADDRESS> <TO_WALLET_ADDRESS> <AMOUNT>ubbn --fees 0ubbn
-```
-
-### Delegate tokens to validator
-```
-babylond tx staking delegate <MONIKER> <AMOUNT>ubbn --from $BABYLON_WALLET --chain-id $BABYLON_CHAIN_ID --fees 0ubbn
-```
-
-### Vote for proposal
-#### Yes
-```
-babylond tx gov vote <PROPOSAL_NUMBER> yes --from $BABYLON_WALLET --chain-id $BABYLON_CHAIN_ID --fees 0ubbn
-```
-#### No
-```
-babylond tx gov vote <PROPOSAL_NUMBER> no --from $BABYLON_WALLET --chain-id $BABYLON_CHAIN_ID --fees 0ubbn
 ```
