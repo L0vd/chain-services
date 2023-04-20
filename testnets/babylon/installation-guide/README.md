@@ -1,12 +1,12 @@
-# Manual node setup
+## Manual node setup
 If you want to setup Babylon fullnode manually follow the steps below
 
-## Update and upgrade
+### Update and upgrade
 ```
 sudo apt update && sudo apt upgrade -y
 ```
 
-## Install GO
+### Install GO
 ```
 if ! [ -x "$(command -v go)" ]; then
   ver="1.19.3"
@@ -20,7 +20,7 @@ if ! [ -x "$(command -v go)" ]; then
 fi
 ```
 
-## Install node
+### Install node
 ```
 cd $HOME && rm -rf babylon
 git clone https://github.com/babylonchain/babylon.git
@@ -30,7 +30,7 @@ make install
 ```
 
 
-## Setting up vars
+### Setting up vars
 You should replace values in <> <br />
 <YOUR_MONIKER> Here you should put name of your moniker (validator) that will be visible in explorer <br />
 <YOUR_WALLET> Here you shoud put the name of your wallet
@@ -43,25 +43,25 @@ source $HOME/.bash_profile
 ```
 
 
-## Configure your node
+### Configure your node
 ```
 babylond config chain-id $BABYLON_CHAIN_ID
 babylond config keyring-backend test
 ```
 
-## Initialize your node
+### Initialize your node
 ```
 babylond init $BABYLON_NODENAME --chain-id $BABYLON_CHAIN_ID
 ```
 
-## Download genesis
+### Download genesis
 ```
 wget -O $HOME/.babylond/config/genesis.json "https://raw.githubusercontent.com/L0vd/chain-services/main/testnets/babylon/installation-guide/genesis.json"
 ```
 
-## (OPTIONAL) Set custom ports
+### (OPTIONAL) Set custom ports
 
-### If you want to use non-default ports
+#### If you want to use non-default ports
 ```
 BABYLON_PORT=<SET_CUSTOM_PORT> #Example: BABYLON_PORT=56 (numbers from 1 to 64)
 ```
@@ -71,14 +71,14 @@ sed -i.bak -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:${B
 ```
 
 
-## Set seeds and peers
+### Set seeds and peers
 ```
 SEEDS="03ce5e1b5be3c9a81517d415f65378943996c864@18.207.168.204:26656,a5fabac19c732bf7d814cf22e7ffc23113dc9606@34.238.169.221:26656"
 PEERS=""
 sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.babylond/config/config.toml
 ```
 
-## Config pruning
+### Config pruning
 ```
 pruning="custom"
 pruning_keep_recent="100"
@@ -90,17 +90,17 @@ sed -i -e "s/^pruning-keep-every *=.*/pruning-keep-every = \"$pruning_keep_every
 sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"$pruning_interval\"/" $HOME/.babylond/config/app.toml
 ```
 
-## Set minimum gas price and null indexer
+### Set minimum gas price and null indexer
 ```
 sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0ubbn\"/" $HOME/.babylond/config/app.toml
 sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.babylond/config/config.toml
 ```
 
-## Change btc-network and btc-tag in app.toml file.
-### Values specified here https://github.com/babylonchain/networks/tree/main/bbn-test1
+### Change btc-network and btc-tag in app.toml file.
+#### Values specified here https://github.com/babylonchain/networks/tree/main/bbn-test1
 
 
-## Create Service
+### Create Service
 ```
 sudo tee /etc/systemd/system/babylond.service > /dev/null <<EOF
 [Unit]
@@ -119,7 +119,7 @@ WantedBy=multi-user.target
 EOF
 ```
 
-## Reset blockchain info and restart your node
+### Reset blockchain info and restart your node
 ```
 sudo systemctl daemon-reload
 sudo systemctl enable babylond
@@ -128,37 +128,41 @@ sudo systemctl restart babylond && sudo journalctl -u babylond -f -o cat
 ```
 
 
-## (OPTIONAL) Use State Sync
+### (OPTIONAL) Use State Sync
 
-### [State Sync guide]()
+#### [State Sync guide]()
 
 
-## Starting a validator
+### Starting a validator
 
-### 1. Add a new key
+#### 1. Add a new key
 ```
 babylond keys add $BABYLON_WALLET
 ```
-#### (OR)
+##### (OR)
 
-### 1. Recover your key
+#### 1. Recover your key
 ```
 babylond keys add $BABYLON_WALLET --recover
 ```
 
-### 2. Request tokens from [faucet](https://discord.com/channels/1046686458070700112/1075371070493831259)
+#### 2. Request tokens from [faucet](https://discord.com/channels/1046686458070700112/1075371070493831259)
 
-### 3. Create a BLS key
+#### 3. Create a BLS key
 ```
 babylond create-bls-key $(babylond keys show $BABYLON_WALLET -a)
 ```
 
-### 4. Restart your node
+#### 4. Restart your node
 ```
 systemctl restart babylond
 ```
 
-### 5. Create validator
+#### 5. Create validator
+{% hint style="info" %}
+Wait until the node is synchronized.
+{% endhint %}
+
 ```
 babylond tx checkpointing create-validator \
 --amount 1ubbn \
