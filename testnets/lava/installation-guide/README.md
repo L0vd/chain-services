@@ -1,17 +1,12 @@
-<p style="font-size:14px" align="right">
-<a href="https://t.me/L0vd_staking" target="_blank">Join our telegram <img src="https://raw.githubusercontent.com/L0vd/screenshots/main/Telegram_logo.png" width="30"/></a>
-<a href="https://l0vd.com/" target="_blank">Visit our website <img src="https://raw.githubusercontent.com/L0vd/screenshots/main/L0vd.png" width="30"/></a>
-</p>
-
-# Manual node setup
+## Manual node setup
 If you want to setup Lava fullnode manually follow the steps below
 
-## Update and upgrade
+### Update and upgrade
 ```
 sudo apt update && sudo apt upgrade -y
 ```
 
-## Install GO
+### Install GO
 ```
 if ! [ -x "$(command -v go)" ]; then
   ver="1.18.3"
@@ -25,41 +20,51 @@ if ! [ -x "$(command -v go)" ]; then
 fi
 ```
 
-## Install node
+### Install node
 ```
 cd $HOME
 rm -rf lava
 git clone https://github.com/lavanet/lava.git
 cd lava
-git checkout v0.8.1
+git checkout v0.9.8
 make build
 lavad version
-# You should see 0.8.1
+# You should see 0.9.8
 mv build/lavad $HOME/go/bin/
 ```
 
 
-## Setting up vars
-Here you have to put name of your moniker (validator) that will be visible in explorer
+### Setting up vars
+You should replace values in <> <br />
+<YOUR_MONIKER> Here you should put name of your moniker (validator) that will be visible in explorer <br />
+<YOUR_WALLET> Here you shoud put the name of your wallet
+
 ```
-NODENAME=<YOUR_MONIKER_NAME_GOES_HERE>
+echo "export LAVA_WALLET="<YOUR_WALLET_NAME>"" >> $HOME/.bash_profile
+echo "export LAVA_NODENAME="<YOUR_MONIKER>"" >> $HOME/.bash_profile
+echo "export LAVA_CHAIN_ID="lava-testnet-1"" >> $HOME/.bash_profile
+source $HOME/.bash_profile
 ```
 
-## Initialize your node
+### Configure your node
 ```
-CHAIN_ID=lava-testnet-1
-lavad init $NODENAME --chain-id $CHAIN_ID
-```
-
-## Download genesis and addrbook
-```
-wget -O $HOME/.lava/config/genesis.json "https://raw.githubusercontent.com/L0vd/Lava/main/Node_installation_guide/genesis.json"
-wget -O $HOME/.lava/config/addrbook.json "https://raw.githubusercontent.com/L0vd/Lava/main/Node_installation_guide/addrbook.json"
+lavad config chain-id $LAVA_CHAIN_ID
 ```
 
-## (OPTIONAL) Set custom ports
+### Initialize your node
+```
+humansd init $HUMANS_NODENAME --chain-id $LAVA_CHAIN_ID
+```
 
-### If you want to use non-default ports
+### Download genesis and addrbook
+```
+wget -O $HOME/.lava/config/genesis.json "https://raw.githubusercontent.com/L0vd/chain-services/main/testnets/lava/installation-guide/genesis.json"
+wget -O $HOME/.lava/config/addrbook.json "https://raw.githubusercontent.com/L0vd/chain-services/main/testnets/lava/installation-guide/addrbook.json"
+```
+
+### (OPTIONAL) Set custom ports
+
+#### If you want to use non-default ports
 ```
 LAVA_PORT=<SET_CUSTOM_PORT> #Example: LAVA_PORT=56
 ```
@@ -68,14 +73,14 @@ sed -i.bak -e "s%^proxy_app = \"tcp://127.0.0.1:26658\"%proxy_app = \"tcp://127.
 sed -i.bak -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:${LAVA_PORT}317\"%; s%^address = \":8080\"%address = \":${LAVA_PORT}080\"%; s%^address = \"0.0.0.0:9090\"%address = \"0.0.0.0:${LAVA_PORT}090\"%; s%^address = \"0.0.0.0:9091\"%address = \"0.0.0.0:${LAVA_PORT}091\"%; s%^address = \"0.0.0.0:8545\"%address = \"0.0.0.0:${LAVA_PORT}545\"%; s%^ws-address = \"0.0.0.0:8546\"%ws-address = \"0.0.0.0:${LAVA_PORT}546\"%" $HOME/.lava/config/app.toml
 ```
 
-## Set seeds and peers
+### Set seeds and peers
 ```
 SEEDS="3a445bfdbe2d0c8ee82461633aa3af31bc2b4dc0@prod-pnet-seed-node.lavanet.xyz:26656,e593c7a9ca61f5616119d6beb5bd8ef5dd28d62d@prod-pnet-seed-node2.lavanet.xyz:26656"
 PEERS=""
 sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.lava/config/config.toml
 ```
 
-## Config pruning
+### Config pruning
 ```
 pruning="custom"
 pruning_keep_recent="100"
@@ -87,12 +92,12 @@ sed -i -e "s/^pruning-keep-every *=.*/pruning-keep-every = \"$pruning_keep_every
 sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"$pruning_interval\"/" $HOME/.lava/config/app.toml
 ```
 
-## Set minimum gas price and timeout commit
+### Set minimum gas price and timeout commit
 ```
 sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0ulava\"/" $HOME/.lava/config/app.toml
 ```
 
-## Create Service
+### Create Service
 ```
 sudo tee /etc/systemd/system/lavad.service > /dev/null <<EOF
 [Unit]
@@ -111,7 +116,7 @@ WantedBy=multi-user.target
 EOF
 ```
 
-## Reset blockchain info and restart your node
+### Reset blockchain info and restart your node
 ```
 sudo systemctl daemon-reload
 sudo systemctl enable lavad
@@ -119,3 +124,42 @@ lavad tendermint unsafe-reset-all --home $HOME/.lava --keep-addr-book
 sudo systemctl restart lavad && sudo journalctl -u lavad -f -o cat
 ```
 
+### (OPTIONAL) Use State Sync
+
+#### [State Sync guide]()
+
+
+### Starting a validator
+
+#### 1. Add a new key
+```
+lavad keys add $HUMANS_WALLET
+```
+##### (OR)
+
+#### 1. Recover your key
+```
+lavad keys add $HUMANS_WALLET --recover
+```
+
+#### 2. Request tokens from [faucet](https://discord.com/channels/963778337904427018/1059851367717556314)
+
+#### 3. Create validator
+```
+lavad tx staking create-validator \
+--amount 900000ulava \
+--commission-max-change-rate "0.1" \
+--commission-max-rate "0.20" \
+--commission-rate "0.1" \
+--min-self-delegation "1" \
+--details "" \
+--pubkey=$(lavad tendermint show-validator) \
+--moniker $LAVA_NODENAME \
+--chain-id $LAVA_CHAIN_ID \
+--gas-prices 0.025uheart \
+--from $HUMANS_WALLET \
+--gas-prices 0.1ulava\
+--gas-adjustment 1.5 \
+--gas auto \
+--yes
+```
