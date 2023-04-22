@@ -78,7 +78,7 @@ echo ''
 cd $HOME
 mkdir defund-monitoring
 cd defund-monitoring
-wget https://raw.githubusercontent.com/L0vd/DeFund/main/Monitoring/monitor.sh >/dev/null 2>&1
+wget https://raw.githubusercontent.com/L0vd/chain-services/main/testnets/defund/monitoring/monitor.sh >/dev/null 2>&1
 
 COS_BIN=defundd
 COS_BIN_NAME=$(which $COS_BIN)
