@@ -39,7 +39,7 @@ You should replace values in <> <br />
 ```
 echo "export HAQQ_WALLET="<YOUR_WALLET_NAME>"" >> $HOME/.bash_profile
 echo "export HAQQ_NODENAME="<YOUR_MONIKER>"" >> $HOME/.bash_profile
-echo "export HAQQ_CHAIN_ID="galileo-3"" >> $HOME/.bash_profile
+echo "export HAQQ_CHAIN_ID="haqq_54211-3"" >> $HOME/.bash_profile
 source $HOME/.bash_profile
 ```
 
@@ -73,8 +73,8 @@ sed -i.bak -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:${H
 
 ### Set seeds and peers
 ```
-SEEDS=""
-PEERS="77c04ed628aa56322c45b8da14b8567c1bf322e5@65.108.98.53:11056,d22bf273fc96fd6b184333271aa1e979e10876ff@188.40.140.51:21000"
+SEEDS="62bf004201a90ce00df6f69390378c3d90f6dd7e@seed2.testedge2.haqq.network:26656,23a1176c9911eac442d6d1bf15f92eeabb3981d5@seed1.testedge2.haqq.network:26656"
+PEERS=""
 sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.haqqd/config/config.toml
 ```
 
