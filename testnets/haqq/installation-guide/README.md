@@ -1,5 +1,5 @@
 ## Manual node setup
-If you want to setup Andromeda fullnode manually follow the steps below
+If you want to setup HAQQ fullnode manually follow the steps below
 
 ### Update and upgrade
 ```
