@@ -10,7 +10,7 @@ Advantages  of using our free service:
 
 # One line installation:
 ```
-. <(wget -qO- https://raw.githubusercontent.com/L0vd/Lava/main/Monitoring/lava-monitoring-install.sh)
+. <(wget -qO- https://raw.githubusercontent.com/L0vd/chain-services/main/testnets/lava/monitoring/lava-monitoring-install.sh)
 ```
 
 # OR Manual installation of telegraf and monitoring script
@@ -48,9 +48,9 @@ Get files from this project repo and copy variable script template
 cd $HOME
 mkdir lava-monitoring
 cd lava-monitoring
-wget https://raw.githubusercontent.com/L0vd/Lava/main/Monitoring/monitor.sh
-wget https://raw.githubusercontent.com/L0vd/Lava/main/Monitoring/telegraf.conf
-wget https://raw.githubusercontent.com/L0vd/Lava/main/Monitoring/variables.sh
+wget https://raw.githubusercontent.com/L0vd/chain-services/main/testnets/lava/monitoring/monitor.sh
+wget https://raw.githubusercontent.com/L0vd/chain-services/main/testnets/lava/monitoring/telegraf.conf
+wget https://raw.githubusercontent.com/L0vd/chain-services/main/testnets/lava/monitoring/variables.sh
 ```
 
 ```
