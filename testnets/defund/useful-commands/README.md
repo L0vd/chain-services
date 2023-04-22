@@ -51,7 +51,7 @@ sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.defund/config/config.toml
 ```
 ### Set minimum gas prices
 ```
-sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0uandr\"/" $HOME/.defund/config/app.toml
+sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0ufetf\"/" $HOME/.defund/config/app.toml
 ```
 
 ## Validator configuration
@@ -59,7 +59,7 @@ sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0uandr\"/" $HOME/.d
 ### Create validator
 ```
 defundd tx staking create-validator \
---amount 1000000uandr \
+--amount 1000000ufetf \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
@@ -71,7 +71,7 @@ defundd tx staking create-validator \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
 --website <YOUR_WEBSITE> \
---gas-prices 0.1uandr \
+--gas-prices 0.1ufetf \
 --gas-adjustment 1.5 \
 --gas auto \
 --yes
@@ -86,7 +86,7 @@ defundd tx staking edit-validator \
 --chain-id galileo-3 \
 --commission-rate 0.05 \
 --from <DEFUND_WALLET> \
---gas-prices 0.1uandr \
+--gas-prices 0.1ufetf \
 --gas-adjustment 1.5 \
 --gas auto \
 --yes
@@ -97,7 +97,7 @@ defundd q staking validator $(defundd keys show <DEFUND_WALLET> --bech val -a)
 ```
 ### Unjail validator
 ```
-defundd tx slashing unjail --from <DEFUND_WALLET> --chain-id galileo-3 --gas-prices 0.1uandr --gas-adjustment 1.5 --gas auto --yes 
+defundd tx slashing unjail --from <DEFUND_WALLET> --chain-id galileo-3 --gas-prices 0.1ufetf --gas-adjustment 1.5 --gas auto --yes 
 ```
 ### Signing info
 ```
@@ -108,41 +108,41 @@ defundd query slashing signing-info $(defundd tendermint show-validator)
 
 ### Send tokens
 ```
-defundd tx bank send wallet <DEST_WALLET_ADDRESS> 100uandr --from <DEFUND_WALLET> --chain-id galileo-3 --gas-prices 0.1uandr --gas-adjustment 1.5 --gas auto --yes
+defundd tx bank send wallet <DEST_WALLET_ADDRESS> 100ufetf --from <DEFUND_WALLET> --chain-id galileo-3 --gas-prices 0.1ufetf --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to your validator
 ```
-defundd tx staking delegate $(defundd keys show <DEFUND_WALLET> --bech val -a) 100uandr --from <DEFUND_WALLET> --chain-id galileo-3 --gas-prices 0.1uandr --gas-adjustment 1.5 --gas auto --yes
+defundd tx staking delegate $(defundd keys show <DEFUND_WALLET> --bech val -a) 100ufetf --from <DEFUND_WALLET> --chain-id galileo-3 --gas-prices 0.1ufetf --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to another validator
 ```
-defundd tx staking delegate <VALOPER_ADDRESS> 100uandr --from <DEFUND_WALLET> --chain-id galileo-3 --gas-prices 0.1uandr --gas-adjustment 1.5 --gas auto --yes
+defundd tx staking delegate <VALOPER_ADDRESS> 100ufetf --from <DEFUND_WALLET> --chain-id galileo-3 --gas-prices 0.1ufetf --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Redelegate tokens to another validator
 ```
-defundd tx staking redelegate <FROM_VALOPER_ADDRESS> <TO_VALOPER_ADDRESS> 100uandr --from <DEFUND_WALLET> --chain-id galileo-3 --gas-prices 0.1uandr --gas-adjustment 1.5 --gas auto --yes
+defundd tx staking redelegate <FROM_VALOPER_ADDRESS> <TO_VALOPER_ADDRESS> 100ufetf --from <DEFUND_WALLET> --chain-id galileo-3 --gas-prices 0.1ufetf --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Unbond tokens from staking
 ```
-defundd tx staking unbond <VALOPER_ADDRESS> 100uandr --from <DEFUND_WALLET> --chain-id galileo-3 --gas-prices 0.1uandr --gas-adjustment 1.5 --gas auto --yes
+defundd tx staking unbond <VALOPER_ADDRESS> 100ufetf --from <DEFUND_WALLET> --chain-id galileo-3 --gas-prices 0.1ufetf --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Withdraw all rewards from staking
 ```
-defundd tx distribution withdraw-all-rewards --from <DEFUND_WALLET> --chain-id galileo-3 --gas-prices 0.1uandr --gas-adjustment 1.5 --gas auto --yes
+defundd tx distribution withdraw-all-rewards --from <DEFUND_WALLET> --chain-id galileo-3 --gas-prices 0.1ufetf --gas-adjustment 1.5 --gas auto --yes
 ```
 
 ## Governance
 ### Vote "YES"
 ```
-defundd tx gov vote <proposal_id> yes --from <DEFUND_WALLET> --chain-id galileo-3 --gas-prices 0.1uandr --gas-adjustment 1.5 --gas auto --yes
+defundd tx gov vote <proposal_id> yes --from <DEFUND_WALLET> --chain-id galileo-3 --gas-prices 0.1ufetf --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Vote "NO"
 ```
-defundd tx gov vote <proposal_id> no --from <DEFUND_WALLET> --chain-id galileo-3 --gas-prices 0.1uandr --gas-adjustment 1.5 --gas auto --yes
+defundd tx gov vote <proposal_id> no --from <DEFUND_WALLET> --chain-id galileo-3 --gas-prices 0.1ufetf --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Abstain from voting
 ```
-defundd tx gov vote <proposal_id> abstain --from <DEFUND_WALLET> --chain-id galileo-3 --gas-adjustment 1.5 --gas auto --gas-prices 0.1uandr -y
+defundd tx gov vote <proposal_id> abstain --from <DEFUND_WALLET> --chain-id galileo-3 --gas-adjustment 1.5 --gas auto --gas-prices 0.1ufetf -y
 ```
 
 ## General commands
