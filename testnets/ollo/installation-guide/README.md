@@ -50,7 +50,7 @@ ollod config chain-id $OLLO_CHAIN_ID
 
 ### Initialize your node
 ```
-ollod init $NODENAME --chain-id $CHAIN_ID
+ollod init $OLLO_NODENAME --chain-id $OLLO_CHAIN_ID
 ```
 
 ### Download genesis
