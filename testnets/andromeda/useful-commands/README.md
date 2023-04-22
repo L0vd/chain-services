@@ -87,8 +87,8 @@ andromedad tx staking edit-validator \
 --commission-rate 0.05 \
 --from <ANDROMEDA_WALLET> \
 --gas-prices 0.1uandr \
---gas-adjustment 1.5
---gas auto
+--gas-adjustment 1.5 \
+--gas auto \
 --yes
 ```
 ### View validator info
