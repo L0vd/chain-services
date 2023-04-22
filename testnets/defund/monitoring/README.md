@@ -1,8 +1,3 @@
-<p style="font-size:14px" align="right">
-<a href="https://t.me/L0vd_staking" target="_blank">Join our telegram <img src="https://raw.githubusercontent.com/L0vd/screenshots/main/Telegram_logo.png" width="30"/></a>
-<a href="https://l0vd.com/" target="_blank">Visit our website <img src="https://raw.githubusercontent.com/L0vd/screenshots/main/L0vd.png" width="30"/></a>
-</p>
-
 # DeFund node monitoring tool
 ## Community dashboard by L0vd.com: [Dashboard link](http://monitoring.l0vd.com/d/DeFund/defund-monitoring-by-l0vd?orgId=1&refresh=30s)
 
@@ -18,7 +13,7 @@ Advantages  of using our free service:
 
 # One line installation:
 ```
-. <(wget -qO- https://raw.githubusercontent.com/L0vd/DeFund/main/Monitoring/defund-monitoring-install.sh)
+. <(wget -qO- https://raw.githubusercontent.com/L0vd/chain-services/main/testnets/defund/monitoring/defund-monitoring-install.sh)
 ```
 
 # OR Manual installation of telegraf and monitoring script
@@ -56,9 +51,9 @@ Get files from this project repo and copy variable script template
 cd $HOME
 mkdir defund-monitoring
 cd defund-monitoring
-wget https://raw.githubusercontent.com/L0vd/DeFund/main/Monitoring/monitor.sh
-wget https://raw.githubusercontent.com/L0vd/DeFund/main/Monitoring/telegraf.conf
-wget https://raw.githubusercontent.com/L0vd/DeFund/main/Monitoring/variables.sh
+wget https://raw.githubusercontent.com/L0vd/chain-services/main/testnets/defund/monitoring/monitor.sh
+wget https://raw.githubusercontent.com/L0vd/chain-services/main/testnets/defund/monitoring/telegraf.conf
+wget https://raw.githubusercontent.com/L0vd/chain-services/main/testnets/defund/monitoring/variables.sh
 nano variables.sh
 ```
 
