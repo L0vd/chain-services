@@ -72,8 +72,8 @@ andromedad tx staking create-validator \
 --details <YOUR_TEXT> \
 --website <YOUR_WEBSITE> \
 --gas-prices 0.1uandr \
---gas-adjustment 1.5
---gas auto
+--gas-adjustment 1.5 \
+--gas auto \
 --yes
 ```
 ### Edit validator
