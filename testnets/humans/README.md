@@ -5,7 +5,7 @@
 HUMANS is creating an all-in-one platform for AI-based creation and governance at scale, beginning an initial focus on synthetic media.
 
 ##### Official links
-[Website](https://humans.ai/#ai) | [Twitter](https://twitter.com/humansdotai) |[Discord](https://discord.gg/humansdotai) | [Github](https://github.com/humansdotai)
+[Website](https://humans.ai/#ai) | [Twitter](https://twitter.com/humansdotai) | [Discord](https://discord.gg/humansdotai) | [Github](https://github.com/humansdotai)
 
 ##### Chain info
 
