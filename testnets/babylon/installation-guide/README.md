@@ -177,7 +177,7 @@ babylond tx checkpointing create-validator \
 --keyring-backend=test \
 --from $BABYLON_WALLET \
 --gas-prices 0.1ubbn \
---gas-adjustment 1.5
---gas auto
+--gas-adjustment 1.5 \
+--gas auto \
 --yes
 ```
