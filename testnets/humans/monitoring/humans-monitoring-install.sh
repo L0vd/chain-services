@@ -78,7 +78,7 @@ echo ''
 cd $HOME
 mkdir humans-monitoring
 cd humans-monitoring
-wget https://raw.githubusercontent.com/L0vd/Humans/main/Monitoring/monitor.sh >/dev/null 2>&1
+wget https://raw.githubusercontent.com/L0vd/chain-services/main/testnets/humans/monitoring/monitor.sh >/dev/null 2>&1
 
 COS_BIN=humansd
 COS_BIN_NAME=$(which $COS_BIN)
