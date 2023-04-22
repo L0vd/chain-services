@@ -50,7 +50,7 @@ noisd config chain-id $NOIS_CHAIN_ID
 
 ### Initialize your node
 ```
-noisd init $NODENAME --chain-id $CHAIN_ID
+noisd init $NOIS_NODENAME --chain-id $NOIS_CHAIN_ID
 ```
 
 ### Download genesis
