@@ -72,8 +72,8 @@ noisd tx staking create-validator \
 --details <YOUR_TEXT> \
 --website <YOUR_WEBSITE> \
 --gas-prices 0.1unois \
---gas-adjustment 1.5
---gas auto
+--gas-adjustment 1.5 \
+--gas auto \
 --yes
 ```
 ### Edit validator
@@ -87,8 +87,8 @@ noisd tx staking edit-validator \
 --commission-rate 0.05 \
 --from <NOIS_WALLET> \
 --gas-prices 0.1unois \
---gas-adjustment 1.5
---gas auto
+--gas-adjustment 1.5 \
+--gas auto \
 --yes
 ```
 ### View validator info
