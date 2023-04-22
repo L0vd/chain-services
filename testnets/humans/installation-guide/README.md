@@ -51,7 +51,7 @@ humansd config chain-id $HUMANS_CHAIN_ID
 
 ### Initialize your node
 ```
-humansd init $NODENAME --chain-id $CHAIN_ID
+humansd init $HUMANS_NODENAME --chain-id $HUMANS_CHAIN_ID
 ```
 
 ### Download genesis and addrbook
