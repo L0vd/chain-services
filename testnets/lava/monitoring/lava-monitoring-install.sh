@@ -78,7 +78,7 @@ echo ''
 cd $HOME
 mkdir lava-monitoring
 cd lava-monitoring
-wget https://raw.githubusercontent.com/L0vd/Lava/main/Monitoring/monitor.sh >/dev/null 2>&1
+wget https://raw.githubusercontent.com/L0vd/chain-services/main/testnets/lava/monitoring/monitor.sh >/dev/null 2>&1
 
 COS_BIN=lavad
 COS_BIN_NAME=$(which $COS_BIN)
