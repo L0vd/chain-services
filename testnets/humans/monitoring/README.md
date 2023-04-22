@@ -10,7 +10,7 @@ Advantages  of using our free service:
 
 # One line installation:
 ```
-. <(wget -qO- https://raw.githubusercontent.com/L0vd/Humans/main/Monitoring/humans-monitoring-install.sh)
+. <(wget -qO- https://raw.githubusercontent.com/L0vd/chain-services/main/testnets/humans/monitoring/humans-monitoring-install.sh)
 ```
 
 # OR Manual installation of telegraf and monitoring script
@@ -48,9 +48,9 @@ Get files from this project repo and copy variable script template
 cd $HOME
 mkdir humans-monitoring
 cd humans-monitoring
-wget https://raw.githubusercontent.com/L0vd/Humans/main/Monitoring/monitor.sh
-wget https://raw.githubusercontent.com/L0vd/Humans/main/Monitoring/telegraf.conf
-wget https://raw.githubusercontent.com/L0vd/Humans/main/Monitoring/variables.sh
+wget https://raw.githubusercontent.com/L0vd/chain-services/main/testnets/humans/monitoring/monitor.sh
+wget https://raw.githubusercontent.com/L0vd/chain-services/main/testnets/humans/monitoring/telegraf.conf
+wget https://raw.githubusercontent.com/L0vd/chain-services/main/testnets/humans/monitoring/variables.sh
 ```
 
 ```
