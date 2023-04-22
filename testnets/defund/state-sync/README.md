@@ -1,14 +1,6 @@
-<p style="font-size:14px" align="right">
-<a href="https://t.me/L0vd_staking" target="_blank">Join our telegram <img src="https://raw.githubusercontent.com/L0vd/screenshots/main/Telegram_logo.png" width="30"/></a>
-<a href="https://l0vd.com/" target="_blank">Visit our website <img src="https://raw.githubusercontent.com/L0vd/screenshots/main/L0vd.png" width="30"/></a>
-</p>
-
-
-# DeFund State Sync
-
 ## Info
-#### Public RPC endpoint: https://defund-testnet.rpc.l0vd.com/
-#### Public API: https://defund-testnet.api.l0vd.com/
+#### Public RPC endpoint: [https://defund-testnet.rpc.l0vd.com](https://defund-testnet.rpc.l0vd.com)
+#### Public API: [https://defund-testnet.api.l0vd.com](https://defund-testnet.api.l0vd.com)
 
 ## Guide to sync your node using State Sync:
 
