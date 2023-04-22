@@ -1,8 +1,8 @@
 # Lava State Sync
 
 ## Info
-#### Public RPC endpoint: https://lava-testnet.rpc.l0vd.com
-#### Public API: https://lava-testnet.api.l0vd.com
+#### Public RPC endpoint: [https://lava-testnet.rpc.l0vd.com](https://lava-testnet.rpc.l0vd.com)
+#### Public API: [https://lava-testnet.api.l0vd.com](https://lava-testnet.api.l0vd.com)
 
 ## Guide to sync your node using State Sync:
 
