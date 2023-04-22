@@ -1,5 +1,5 @@
 ## Info
-#### Public RPC endpoint: [https://humans-testnet.rpc.l0vd.comhttps://humans-testnet.rpc.l0vd.co]()
+#### Public RPC endpoint: [https://humans-testnet.rpc.l0vd.com](https://humans-testnet.rpc.l0vd.com)
 #### Public API: [https://humans-testnet.api.l0vd.com](https://humans-testnet.api.l0vd.com)
 
 ## Guide to sync your node using State Sync:
