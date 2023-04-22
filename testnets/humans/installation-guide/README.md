@@ -56,8 +56,8 @@ humansd init $NODENAME --chain-id $CHAIN_ID
 
 ### Download genesis and addrbook
 ```
-wget -O $HOME/.humans/config/genesis.json "https://raw.githubusercontent.com/L0vd/Humans/main/Node_installation_guide/genesis.json"
-wget -O $HOME/.humans/config/addrbook.json "https://raw.githubusercontent.com/L0vd/Humans/main/Node_installation_guide/addrbook.json"
+wget -O $HOME/.humans/config/genesis.json "https://raw.githubusercontent.com/L0vd/chain-services/main/testnets/humans/installation-guide/genesis.json"
+wget -O $HOME/.humans/config/addrbook.json "https://raw.githubusercontent.com/L0vd/chain-services/main/testnets/humans/installation-guide/addrbook.json"
 ```
 
 ### (OPTIONAL) Set custom ports
