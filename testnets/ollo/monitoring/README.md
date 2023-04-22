@@ -13,7 +13,7 @@ Advantages  of using our free service:
 
 # One line installation:
 ```
-. <(wget -qO- https://raw.githubusercontent.com/L0vd/Ollo/main/Monitoring/ollo-monitoring-install.sh)
+. <(wget -qO- https://raw.githubusercontent.com/L0vd/chain-services/main/testnets/ollo/monitoring/ollo-monitoring-install.sh)
 ```
 
 # OR Manual installation of telegraf and monitoring script
@@ -51,9 +51,9 @@ Get files from this project repo and copy variable script template
 cd $HOME
 mkdir ollo-monitoring
 cd ollo-monitoring
-wget https://raw.githubusercontent.com/L0vd/Ollo/main/Monitoring/monitor.sh
-wget https://raw.githubusercontent.com/L0vd/Ollo/main/Monitoring/telegraf.conf
-wget https://raw.githubusercontent.com/L0vd/Ollo/main/Monitoring/variables.sh
+wget https://raw.githubusercontent.com/L0vd/chain-services/main/testnets/ollo/monitoring/monitor.sh
+wget https://raw.githubusercontent.com/L0vd/chain-services/main/testnets/ollo/monitoring/telegraf.conf
+wget https://raw.githubusercontent.com/L0vd/chain-services/main/testnets/ollo/monitoring/variables.sh
 ```
 
 ```
