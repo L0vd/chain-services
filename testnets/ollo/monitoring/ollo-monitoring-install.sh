@@ -78,7 +78,7 @@ echo ''
 cd $HOME
 mkdir ollo-monitoring
 cd ollo-monitoring
-wget https://raw.githubusercontent.com/L0vd/Ollo/main/Monitoring/monitor.sh >/dev/null 2>&1
+wget https://raw.githubusercontent.com/L0vd/chain-services/main/testnets/ollo/monitoring/monitor.sh >/dev/null 2>&1
 
 COS_BIN=ollod
 COS_BIN_NAME=$(which $COS_BIN)
