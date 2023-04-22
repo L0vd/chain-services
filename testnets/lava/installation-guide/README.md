@@ -53,7 +53,7 @@ lavad config chain-id $LAVA_CHAIN_ID
 
 ### Initialize your node
 ```
-humansd init $HUMANS_NODENAME --chain-id $LAVA_CHAIN_ID
+lavad init $LAVA_NODENAME --chain-id $LAVA_CHAIN_ID
 ```
 
 ### Download genesis and addrbook
@@ -133,13 +133,13 @@ sudo systemctl restart lavad && sudo journalctl -u lavad -f -o cat
 
 #### 1. Add a new key
 ```
-lavad keys add $HUMANS_WALLET
+lavad keys add $LAVA_WALLET
 ```
 ##### (OR)
 
 #### 1. Recover your key
 ```
-lavad keys add $HUMANS_WALLET --recover
+lavad keys add $LAVA_WALLET --recover
 ```
 
 #### 2. Request tokens from [faucet](https://discord.com/channels/963778337904427018/1059851367717556314)
@@ -157,7 +157,7 @@ lavad tx staking create-validator \
 --moniker $LAVA_NODENAME \
 --chain-id $LAVA_CHAIN_ID \
 --gas-prices 0.025uheart \
---from $HUMANS_WALLET \
+--from $LAVA_WALLET \
 --gas-prices 0.1ulava\
 --gas-adjustment 1.5 \
 --gas auto \
