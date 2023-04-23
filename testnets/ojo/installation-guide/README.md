@@ -217,7 +217,7 @@ mv $HOME/price-feeder/price-feeder.example.toml $HOME/.ojo-price-feeder-config/c
 
 #### Set values in price-feeder config.toml
 ```
-sed -i "s/^address *=.*/address = \"$OJO_MAIN_WALLET_ADDRESS\"/;\
+sed -i "s/^address *=.*/address = \"$OJO_PFD_ADDRESS\"/;\
 s/^chain_id *=.*/chain_id = \"$OJO_CHAIN_ID\"/;\
 s/^validator *=.*/validator = \"$OJO_VALIDATOR_ADDRESS\"/;\
 s/^backend *=.*/backend = \"$OJO_KEYRING\"/;\
