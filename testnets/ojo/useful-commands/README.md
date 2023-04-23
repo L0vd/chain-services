@@ -151,6 +151,11 @@ ojod tx gov vote <proposal_id> abstain --from <OJO_WALLET> --chain-id ojo-devnet
 sudo journalctl -u ojo-price-feeder -f --no-hostname -o cat
 ```
 
+### Restart price-feeder
+```
+sudo systemctl restart ojo-price-feeder
+```
+
 ### Delegate pfd rights to different wallet than the one used to create a validator
 ```
 ojod tx oracle delegate-feed-consent <MAIN_WALLET_ADDRESS> <PFD_WALLET_ADDRESS> --from $OJO_WALLET --gas-adjustment 1.5 --gas auto --gas-prices 0.1uojo --yes
