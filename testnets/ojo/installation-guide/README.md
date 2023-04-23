@@ -229,7 +229,7 @@ s|^service-name *=.*|service-name = \"ojo-price-feeder\"|;" $HOME/.ojo-price-fee
 
 #### Delegate price-feeder rights to pfd_wallet
 ```
-ojod tx oracle delegate-feed-consent $MAIN_WALLET_ADDRESS $PFD_ADDRESS --from $OJO_WALLET --gas-adjustment 1.5 --gas auto --gas-prices 0.1uojo --yes
+ojod tx oracle delegate-feed-consent $OJO_MAIN_WALLET_ADDRESS $OJO_PFD_ADDRESS --from $OJO_WALLET --gas-adjustment 1.5 --gas auto --gas-prices 0.1uojo --yes
 ```
 
 #### Create Service File for ojo-price-feeder
