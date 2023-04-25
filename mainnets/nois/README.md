@@ -33,8 +33,8 @@ PEER
 ```
 
 ##### Other services
-[Installation guide]() <br />
-[State Sync]() <br />
-[Monitoring]() <br />
-[Telegram wallet bot]() <br />
+[State Sync](mainnets/nois/state-sync/) <br />
+[Useful commands](mainnets/nois/useful-commands/)
+[Monitoring](mainnets/nois/monitoring/) <br />
+
 
