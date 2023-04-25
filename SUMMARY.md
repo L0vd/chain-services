@@ -2,6 +2,16 @@
 
 * [Main](README.md)
 
+## MAINNETS
+* [Nois](mainnets/nois/README.md)
+  * [State sync](mainnets/nois/state-sync/README.md)
+  * [Useful commands](mainnets/nois/useful-commands/README.md)
+  * [Monitoring](mainnets/nois/monitoring/README.md)
+* [Umee](mainnets/umee/README.md)
+  * [State sync](mainnets/umee/state-sync/README.md)
+  * [Useful commands](mainnets/umee/useful-commands/README.md)
+  * [Monitoring](mainnets/umee/monitoring/README.md)
+
 ## TESTNETS
 
 * [Andromeda](testnets/andromeda/README.md)
