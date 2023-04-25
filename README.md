@@ -5,11 +5,11 @@
 
 ## Networks we support
 
-### Mainnets
+### :heart: Mainnets
 [Nois](mainnets/nois/) </br>
 [Umee](mainnets/umee/)
 
-### Testnets
+### :heart: Testnets
 [Andromeda](testnets/andromeda/) </br>
 [Babylon](testnets/babylon/) </br>
 [Defund](testnets/defund/) </br>
