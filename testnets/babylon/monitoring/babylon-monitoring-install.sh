@@ -54,11 +54,9 @@ then echo -e '\n\e[42mTelegraf is already installed\e[0m\n';
 else 
 echo -e '\n\e[42mInstalling telegraf\e[0m\n'
 
-sudo cat <<EOF | sudo tee /etc/apt/sources.list.d/influxdata.list
-deb https://repos.influxdata.com/ubuntu bionic stable
-EOF
+wget https://dl.influxdata.com/telegraf/releases/telegraf_1.14.1-1_amd64.deb
+dpkg -i telegraf_*.deb
 
-sudo apt update && sudo apt -y install telegraf
 sudo systemctl enable --now telegraf
 sudo systemctl is-enabled telegraf
 
