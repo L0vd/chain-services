@@ -24,7 +24,7 @@ API <br />
 
 
 ##### Other services
-[Installation-guide](https://github.com/L0vd/chain-services/tree/main/testnets/andromeda/installation-guide) <br />
+[Installation-guide](testnets/andromeda/installation-guide/) <br />
 [State Sync](https://github.com/L0vd/chain-services/tree/main/testnets/andromeda/state-sync) <br />
 [Snapshot]() <br />
 [Useful commands]() <br />
