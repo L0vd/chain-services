@@ -24,10 +24,8 @@ sudo apt update
 sudo apt -y install curl jq bc
 
 # install telegraf
-sudo cat <<EOF | sudo tee /etc/apt/sources.list.d/influxdata.list
-deb https://repos.influxdata.com/ubuntu bionic stable
-EOF
-sudo curl -sL https://repos.influxdata.com/influxdb.key | sudo apt-key add -
+wget https://dl.influxdata.com/telegraf/releases/telegraf_1.14.1-1_amd64.deb
+dpkg -i telegraf_*.deb
 
 sudo apt update
 sudo apt -y install telegraf
