@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Main](README.md)
+* [Chain services](README.md)
 
 ## MAINNETS
 * [Nois](mainnets/nois/README.md)
