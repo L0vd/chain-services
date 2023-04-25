@@ -1,4 +1,6 @@
 # L0vd.com chain services 
 
-> L0vd.com is a team of experienced PoS blockchain validators with a passion for cryptocurrency and a deep understanding of IT. We are committed to supporting the blockchain ecosystem through technical contributions and providing high-quality chain services. Our team members are highly skilled in their areas of expertise, with a wealth of knowledge and experience in blockchain development, infrastructure management, and network security.
-At L0vd.com, we take pride in our reputation for excellence and our dedication to providing reliable and secure services to our clients. Our team is always on the cutting edge of technology, constantly exploring new ways to improve the performance and security of blockchain networks. With our expertise and commitment to innovation, we are confident that we can help our clients achieve their goals in the rapidly evolving world of cryptocurrency.
+> L0vd.com is a team of experienced PoS blockchain validators with a passion for cryptocurrency and a deep understanding of IT. We are committed to supporting the blockchain ecosystem through technical contributions and providing high-quality chain services. 
+> Our team members are highly skilled in their areas of expertise, with a wealth of knowledge and experience in blockchain development, infrastructure management, and network security.
+
+
