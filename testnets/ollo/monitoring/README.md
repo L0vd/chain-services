@@ -27,9 +27,6 @@ sudo apt -y install curl jq bc
 wget https://dl.influxdata.com/telegraf/releases/telegraf_1.14.1-1_amd64.deb
 dpkg -i telegraf_*.deb
 
-sudo apt update
-sudo apt -y install telegraf
-
 sudo systemctl enable --now telegraf
 sudo systemctl is-enabled telegraf
 
