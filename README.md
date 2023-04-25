@@ -6,7 +6,7 @@
 ## Networks we support
 
 ### Mainnets
-[Nois](mainnets/nois) </br>
+[Nois](mainnets/nois/) </br>
 [Umee](mainnets/umee/)
 
 ### Testnets
