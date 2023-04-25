@@ -8,7 +8,6 @@ Nois is a Proof of Stake blockchain protocol that allows developers to use secur
 [Website](https://nois.network/) | [Twitter](https://twitter.com/NoisRNG) |[Discord](https://chat.nois.network/) | [Github](https://github.com/noislabs)
 
 ##### Chain info
-#
 |  |  |
 | ------ | ------ |
 | Chain-id | nois-1 |
