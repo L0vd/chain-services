@@ -16,12 +16,12 @@ version=$(${COS_BIN_NAME} version 2>&1)
 # health is great by default
 health=0
 
-#if [ -z "$version" ];
-#then
-#    echo "ERROR: can't find binary ${COS_BIN_NAME}">&2 ;
-#    health=1
-#    echo $logentry" health=$health $now"
-#else
+if [ -z "$version" ];
+then
+    echo "ERROR: can't find binary ${COS_BIN_NAME}">&2 ;
+    health=1
+    echo $logentry" health=$health $now"
+else
     # Get node status
     status=$(curl -s localhost:$COS_PORT_RPC/status)
     if [ -z "$status" ];
@@ -86,4 +86,4 @@ health=0
         echo "$logentry,health=$health $now"
         #echo "$logentry_header $logentry,health=$health $now"
     fi # rpc check
-#fi # binary check
+fi # binary check
