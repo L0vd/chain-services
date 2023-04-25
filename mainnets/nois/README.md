@@ -34,7 +34,7 @@ PEER
 
 ##### Other services
 [State Sync](mainnets/nois/state-sync/) <br />
-[Useful commands](mainnets/nois/useful-commands/)
+[Useful commands](mainnets/nois/useful-commands/) <br />
 [Monitoring](mainnets/nois/monitoring/) <br />
 
 
