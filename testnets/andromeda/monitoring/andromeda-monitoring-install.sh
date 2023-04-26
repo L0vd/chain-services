@@ -76,7 +76,7 @@ echo ''
 cd $HOME
 mkdir andromeda-monitoring
 cd andromeda-monitoring
-wget https://github.com/L0vd/chain-services/blob/main/testnets/andromeda/monitoring/monitor.sh
+wget https://raw.githubusercontent.com/L0vd/chain-services/main/testnets/andromeda/monitoring/monitor.sh
 
 COS_BIN=andromedad
 COS_BIN_NAME=$(which $COS_BIN)
