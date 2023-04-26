@@ -1,8 +1,5 @@
 # Monitoring
 
-## Community dashboard by L0vd.com: [Dashboard link](https://l0vd.notion.site/Projects-5510908598c245bda48313372271cd84)
-
-
 Advantages  of using our free service:
 * Our monitoring service is working on dedicated server (24/7 online)
 * No need to install database  (InfluxDB)
