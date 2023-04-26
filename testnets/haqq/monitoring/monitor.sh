@@ -12,6 +12,7 @@ if [ -n "${COS_VALOPER}" ]; then logentry=$logentry",valoper=${COS_VALOPER}"; fi
 
 # Get defund version
 version=$(${COS_BIN_NAME} version 2>&1)
+version="${version//\"}"
 
 # health is great by default
 health=0
