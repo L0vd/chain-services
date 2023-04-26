@@ -21,13 +21,3 @@
 [Ollo](testnets/ollo/) </br>
 [Source](testnets/source/) </br>
 [Umee](testnets/umee/)
-
-
-:::row:::
-   :::column span="1":::
-      Content...
-   :::column-end:::
-   :::column span="1":::
-      More content...
-   :::column-end:::
-:::row-end:::
