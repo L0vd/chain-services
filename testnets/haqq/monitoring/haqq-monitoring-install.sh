@@ -76,7 +76,7 @@ echo ''
 cd $HOME
 mkdir haqq-monitoring
 cd haqq-monitoring
-wget https://github.com/L0vd/chain-services/blob/main/testnets/haqq/monitoring/monitor.sh
+wget https://raw.githubusercontent.com/L0vd/chain-services/main/testnets/haqq/monitoring/monitor.sh
 
 COS_BIN=haqqd
 COS_BIN_NAME=$(which $COS_BIN)
