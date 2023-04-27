@@ -24,9 +24,9 @@ API <br />
 
 
 ##### Other services
-[Installation-guide](testnets/andromeda/installation-guide/) <br />
-[State Sync]() <br />
-[Snapshot]() <br />
-[Useful commands]() <br />
-[Monitoring]() <br />
-[Telegram wallet bot]() <br />
+[Installation-guide](installation-guide/) <br />
+[State Sync](state-sync/) <br />
+[Snapshot](snapshot/) <br />
+[Useful commands](useful-commands/) <br />
+[Monitoring](monitoring/) <br />
+[Telegram wallet bot](wallet-bot/) <br />
