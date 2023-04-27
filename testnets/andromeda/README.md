@@ -1,4 +1,4 @@
-# Andromeda
+# Andromeda protocol
 
 
 ##### Overview
