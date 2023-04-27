@@ -5,14 +5,14 @@
 
 <br/><br/>
 
-## :heart: Mainnet Support
+## :heart: Cosmos Mainnet Support
 
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/nois.svg" data-size="line"> [Nois](mainnet/nois/)
 
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/umee.svg" data-size="line"> [Umee](mainnet/umee/)
 
 
-## :heart: Testnet Support
+## :heart: Cosmos Testnet Support
 
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/andromeda.png" data-size="line"> [Andromeda](testnet/andromeda/)
 
