@@ -8,7 +8,7 @@ Advantages  of using our free service:
 
 # One line installation:
 ```
-. <(wget -qO- https://raw.githubusercontent.com/L0vd/Nois/main/Monitoring/nois-monitoring-install.sh)
+. <(wget -qO- https://raw.githubusercontent.com/L0vd/chain-services/main/mainnets/nois/monitoring/nois-monitoring-install.sh)
 ```
 
 # OR Manual installation of telegraf and monitoring script
@@ -41,9 +41,9 @@ Get files from this project repo and copy variable script template
 cd $HOME
 mkdir nois-monitoring
 cd nois-monitoring
-wget https://raw.githubusercontent.com/L0vd/chain-services/main/testnets/nois/monitoring/monitor.sh
-wget https://raw.githubusercontent.com/L0vd/chain-services/main/testnets/nois/monitoring/telegraf.conf
-wget https://raw.githubusercontent.com/L0vd/chain-services/main/testnets/nois/monitoring/variables.sh
+wget https://raw.githubusercontent.com/L0vd/chain-services/main/mainnets/nois/monitoring/monitor.sh
+wget https://raw.githubusercontent.com/L0vd/chain-services/main/mainnets/nois/monitoring/telegraf.conf
+wget https://raw.githubusercontent.com/L0vd/chain-services/main/mainnets/nois/monitoring/variables.sh
 ```
 
 ```
