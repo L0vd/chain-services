@@ -76,7 +76,7 @@ echo ''
 cd $HOME
 mkdir umee-monitoring
 cd umee-monitoring
-wget https://raw.githubusercontent.com/L0vd/chain-services/main/mainnets/umee/monitoring/monitor.sh
+wget https://raw.githubusercontent.com/L0vd/chain-services/main/testnets/umee/monitoring/monitor.sh
 
 COS_BIN=umeed
 COS_BIN_NAME=$(which $COS_BIN)
