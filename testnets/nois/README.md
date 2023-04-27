@@ -26,9 +26,8 @@ API <br />
 
 
 ##### Other services
-[Installation guide](https://github.com/L0vd/chain-services/tree/main/testnets/nois/installation-guide) <br />
-[State Sync](testnets/nois/state-sync/README.md) <br />
-[Snapshot]() <br />
-[Useful commands]()<br />
-[Monitoring](https://github.com/L0vd/chain-services/tree/main/testnets/nois/monitoring) <br />
-[Telegram wallet bot](https://github.com/L0vd/chain-services/tree/main/testnets/nois/wallet-bot) <br />
+[Installation guide](installation-guide/) <br />
+[Snapshot](snapshot/) <br />
+[State Sync](state-sync/) <br />
+[Monitoring](monitoring/) <br />
+[Telegram wallet bot](wallet-bot/) <br />
