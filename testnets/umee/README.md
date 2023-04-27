@@ -25,6 +25,6 @@ API <br />
 
 
 ##### Other services
-[State Sync](testnets/umee/state-sync/) <br />
-[Useful commands](testnets/umee/useful-commands/)
-[Monitoring](testnets/umee/monitoring/) <br />
+[State Sync](state-sync/) <br />
+[Useful commands](useful-commands/) <br />
+[Monitoring](monitoring/) <br />
