@@ -8,7 +8,7 @@ Advantages  of using our free service:
 
 # One line installation:
 ```
-. <(wget -qO- https://raw.githubusercontent.com/L0vd/chain-services/main/mainnets/umee/monitoring/umee-monitoring-install.sh)
+. <(wget -qO- https://raw.githubusercontent.com/L0vd/chain-services/main/testnets/umee/monitoring/umee-monitoring-install.sh)
 ```
 
 # OR Manual installation of telegraf and monitoring script
@@ -41,9 +41,9 @@ Get files from this project repo and copy variable script template
 cd $HOME
 mkdir umee-monitoring
 cd umee-monitoring
-wget https://raw.githubusercontent.com/L0vd/chain-services/main/mainnets/umee/monitoring/monitor.sh
-wget https://raw.githubusercontent.com/L0vd/chain-services/main/mainnets/umee/monitoring/telegraf.conf
-wget https://raw.githubusercontent.com/L0vd/chain-services/main/mainnets/umee/monitoring/variables.sh
+wget https://raw.githubusercontent.com/L0vd/chain-services/main/testnets/umee/monitoring/monitor.sh
+wget https://raw.githubusercontent.com/L0vd/chain-services/main/testnets/umee/monitoring/telegraf.conf
+wget https://raw.githubusercontent.com/L0vd/chain-services/main/testnets/umee/monitoring/variables.sh
 ```
 
 ```
