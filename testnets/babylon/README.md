@@ -25,9 +25,8 @@ API <br />
 
 
 ##### Other services
-[Installation guide]() <br />
-[State Sync]() <br />
-[Monitoring]() <br />
-[Telegram wallet bot]() <br />
-
-
+[Installation guide](installation-guide/) <br />
+[Snapshot](snapshot/) <br />
+[State Sync](state-sync/) <br />
+[Monitoring](monitoring/) <br />
+[Telegram wallet bot](wallet-bot/) <br />
