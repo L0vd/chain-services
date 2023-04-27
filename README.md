@@ -7,31 +7,31 @@
 
 ## :heart: Mainnet Support
 
-<img src="https://raw.githubusercontent.com/ShKmTr/test2/main/nois.svg" alt="" data-size="line"> [Nois](mainnet/nois/)
+<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/nois.svg" data-size="line"> [Nois](mainnet/nois/)
 
-<img src="https://raw.githubusercontent.com/ShKmTr/test2/main/umee.svg" alt="" data-size="line"> [Umee](mainnet/umee/)
+<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/umee.svg" alt="" data-size="line"> [Umee](mainnet/umee/)
 
 
 ## :heart: Testnet Support
 
-<img src="https://raw.githubusercontent.com/ShKmTr/test2/main/andromeda.png" alt="" data-size="line"> [Andromeda](testnet/andromeda/)
+<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/andromeda.png" alt="" data-size="line"> [Andromeda](testnet/andromeda/)
 
 <img src="https://raw.githubusercontent.com/ShKmTr/test2/main/babylon.png" alt="" data-size="line"> [Babylon](testnet/babylon/)
 
-<img src="https://raw.githubusercontent.com/ShKmTr/test2/main/defund.svg" alt="" data-size="line"> [Defund](testnet/defund/)
+<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/defund.svg" alt="" data-size="line"> [Defund](testnet/defund/)
 
-<img src="https://raw.githubusercontent.com/ShKmTr/test2/main/haqq.svg" alt="" data-size="line"> [HAQQ](testnet/haqq/)
+<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/haqq.svg" alt="" data-size="line"> [HAQQ](testnet/haqq/)
 
-<img src="https://raw.githubusercontent.com/ShKmTr/test2/main/humans.png" alt="" data-size="line"> [Humans](testnet/humans/)
+<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/humans.png" alt="" data-size="line"> [Humans](testnet/humans/)
 
-<img src="https://raw.githubusercontent.com/ShKmTr/test2/main/lava.svg" alt="" data-size="line"> [Lava](testnet/lava/)
+<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/lava.svg" alt="" data-size="line"> [Lava](testnet/lava/)
 
-<img src="https://raw.githubusercontent.com/ShKmTr/test2/main/nois.svg" alt="" data-size="line"> [Nois](testnet/nois/)
+<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/nois.svg" alt="" data-size="line"> [Nois](testnet/nois/)
 
-<img src="https://raw.githubusercontent.com/ShKmTr/test2/main/ojo.png" alt="" data-size="line"> [Ojo](testnet/ojo/)
+<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/ojo.png" alt="" data-size="line"> [Ojo](testnet/ojo/)
 
-<img src="https://raw.githubusercontent.com/ShKmTr/test2/main/ollo.png" alt="" data-size="line"> [Ollo](testnet/ollo/)
+<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/ollo.png" alt="" data-size="line"> [Ollo](testnet/ollo/)
 
-<img src="https://raw.githubusercontent.com/ShKmTr/test2/main/source.png" alt="" data-size="line"> [Source](testnet/source/)
+<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/source.png" alt="" data-size="line"> [Source](testnet/source/)
 
-<img src="https://raw.githubusercontent.com/ShKmTr/test2/main/umee.svg" alt="" data-size="line"> [Umee](testnet/umee/)
+<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/umee.svg" alt="" data-size="line"> [Umee](testnet/umee/)
