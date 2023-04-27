@@ -14,8 +14,6 @@ Umee is the most programmable, safety-first lending algorithm built as a blockch
 | Chain-id | umee-1 |
 | Binary version | v3.2.0-255-g38bb99ec |
 
-##### Explorer
-[https://explorers.l0vd.com/umee-mainnet](https://explorers.l0vd.com/umee-mainnet)
 
 ##### Public Endpoints
 RPC <br />
