@@ -7,31 +7,31 @@
 
 ## :heart: Cosmos Mainnet Support
 
-<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/nois.svg" data-size="line"> [Nois](mainnet/nois/)
+<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/nois.svg" data-size="line"> [Nois](mainnets/nois/)
 
-<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/umee.svg" data-size="line"> [Umee](mainnet/umee/)
+<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/umee.svg" data-size="line"> [Umee](mainnets/umee/)
 
 
 ## :heart: Cosmos Testnet Support
 
-<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/andromeda.png" data-size="line"> [Andromeda](testnet/andromeda/)
+<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/andromeda.png" data-size="line"> [Andromeda](testnets/andromeda/)
 
-<img src="https://raw.githubusercontent.com/ShKmTr/test2/main/babylon.png" alt="" data-size="line"> [Babylon](testnet/babylon/)
+<img src="https://raw.githubusercontent.com/ShKmTr/test2/main/babylon.png" alt="" data-size="line"> [Babylon](testnets/babylon/)
 
-<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/defund.svg" data-size="line"> [Defund](testnet/defund/)
+<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/defund.svg" data-size="line"> [Defund](testnets/defund/)
 
-<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/haqq.svg" data-size="line"> [HAQQ](testnet/haqq/)
+<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/haqq.svg" data-size="line"> [HAQQ](testnets/haqq/)
 
-<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/humans.png" data-size="line"> [Humans](testnet/humans/)
+<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/humans.png" data-size="line"> [Humans](testnets/humans/)
 
-<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/lava.svg" data-size="line"> [Lava](testnet/lava/)
+<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/lava.svg" data-size="line"> [Lava](testnets/lava/)
 
-<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/nois.svg" data-size="line"> [Nois](testnet/nois/)
+<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/nois.svg" data-size="line"> [Nois](testnets/nois/)
 
-<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/ojo.png" data-size="line"> [Ojo](testnet/ojo/)
+<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/ojo.png" data-size="line"> [Ojo](testestnetstnet/ojo/)
 
-<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/ollo.png" data-size="line"> [Ollo](testnet/ollo/)
+<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/ollo.png" data-size="line"> [Ollo](testnets/ollo/)
 
-<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/source.png" width="20" data-size="line"> [Source](testnet/source/)
+<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/source.png" width="20" data-size="line"> [Source](testnets/source/)
 
-<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/umee.svg" data-size="line"> [Umee](testnet/umee/)
+<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/umee.svg" data-size="line"> [Umee](testnets/umee/)
