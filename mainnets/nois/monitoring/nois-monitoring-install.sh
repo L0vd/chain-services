@@ -76,7 +76,7 @@ echo ''
 cd $HOME
 mkdir nois-monitoring
 cd nois-monitoring
-wget https://github.com/L0vd/chain-services/blob/main/testnets/nois/monitoring/monitor.sh
+wget https://github.com/L0vd/chain-services/blob/main/mainnets/nois/monitoring/monitor.sh
 
 COS_BIN=noisd
 COS_BIN_NAME=$(which $COS_BIN)
