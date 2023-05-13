@@ -22,7 +22,6 @@ RPC <br />
 [https://archway-testnet.rpc.l0vd.com/](https://archway-testnet.rpc.l0vd.com/) <br />
 API <br />
 [https://archway-testnet.api.l0vd.com/](https://archway-testnet.api.l0vd.com/) <br />
-
 GRPC
 ```
 archway-testnet.grpc.l0vd.com:20090
