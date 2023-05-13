@@ -25,7 +25,7 @@ API <br />
 
 
 ##### Other services
-[Installation-guide](installation-guide/) <br />
+[Installation guide](installation-guide/) <br />
 [State Sync](state-sync/) <br />
 [Useful commands](useful-commands/) <br />
 [Monitoring](monitoring/) <br />
