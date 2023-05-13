@@ -23,6 +23,11 @@ RPC <br />
 API <br />
 [https://archway-testnet.api.l0vd.com/](https://archway-testnet.api.l0vd.com/) <br />
 
+GRPC
+```
+archway-testnet.grpc.l0vd.com:20090
+```
+
 
 ##### Other services
 [Installation guide](installation-guide/) <br />
