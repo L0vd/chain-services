@@ -3,10 +3,13 @@
 * [Chain services](README.md)
 
 ## MAINNETS
+* [Axelar](mainnets/axelar/README.md)
+* [Juno](mainnets/juno/README.md)
 * [Nois](mainnets/nois/README.md)
   * [State sync](mainnets/nois/state-sync/README.md)
   * [Useful commands](mainnets/nois/useful-commands/README.md)
   * [Monitoring](mainnets/nois/monitoring/README.md)
+* [Stride](mainnets/stride/README.md)
 * [Umee](mainnets/umee/README.md)
   * [State sync](mainnets/umee/state-sync/README.md)
   * [Useful commands](mainnets/umee/useful-commands/README.md)
