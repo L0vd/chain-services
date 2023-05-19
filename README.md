@@ -7,9 +7,15 @@
 
 ## :heart: Cosmos Mainnet Support
 
+<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/axelar.svg" data-size="line"> [Axelar](mainnets/axelar/)
+
+<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/juno.svg" data-size="line"> [Juno](mainnets/juno/)
+
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/nois.svg" data-size="line"> [Nois](mainnets/nois/)
 
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/umee.svg" data-size="line"> [Umee](mainnets/umee/)
+
+
 
 
 ## :heart: Cosmos Testnet Support
