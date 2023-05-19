@@ -13,6 +13,8 @@
 
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/nois.svg" data-size="line"> [Nois](mainnets/nois/)
 
+<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/stride.png" data-size="line"> [Stride](mainnets/stride/)
+
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/umee.svg" data-size="line"> [Umee](mainnets/umee/)
 
 
