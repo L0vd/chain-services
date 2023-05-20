@@ -2,7 +2,7 @@
 
 
 ##### Overview
-BitCanna will provide a decentralized payment network and supply chain for the legal cannabis industry. 
+BitCanna provides a decentralized payment network and supply chain for the legal cannabis industry. 
 
 
 ##### Official links
