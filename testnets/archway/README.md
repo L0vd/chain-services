@@ -12,7 +12,7 @@ Archway is an incentivized smart contract chain for the Cosmos ecosystem that al
 |  |  |
 | ------ | ------ |
 | Chain-id | constantine-3 |
-| Binary version | v0.5.1 |
+| Binary version | v0.5.2 |
 
 ##### Explorer
 [https://explorers.l0vd.com/archway-testnet](https://explorers.l0vd.com/archway%20testnet)
