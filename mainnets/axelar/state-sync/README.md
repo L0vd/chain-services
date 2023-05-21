@@ -21,7 +21,7 @@ s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" $HOME/.axelar/co
 peers="ba30dded0636b0e8bb3ed911c915cef9e76d8af7@axelar-mainnet.peers.l0vd.com:11656" \
 && sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/.axelar/config/config.toml 
 
-axelard tendermint unsafe-reset-all --home ~/.axelar && sudo systemctl restart axelard && journalctl -u bcnad -f --output cat
+axelard tendermint unsafe-reset-all --home ~/.axelar && sudo systemctl restart axelard && journalctl -u axelard -f --output cat
 ```
 
 ### Turn off State Sync Mode after synchronization
