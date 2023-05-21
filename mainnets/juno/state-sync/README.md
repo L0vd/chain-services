@@ -6,7 +6,7 @@
 
 ### Copy the entire command
 ```
-sudo systemctl stop bcnad
+sudo systemctl stop junod
 SNAP_RPC="https://juno-mainnet.rpc.l0vd.com:443"; \
 LATEST_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height); \
 BLOCK_HEIGHT=$((LATEST_HEIGHT - 2000)); \
@@ -21,7 +21,7 @@ s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" $HOME/.juno/conf
 peers="0f4b18e968875583857baab9a506d7735bfd4596@juno-mainnet.peers.l0vd.com:14656" \
 && sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/.juno/config/config.toml 
 
-bcnad tendermint unsafe-reset-all --home ~/.juno && sudo systemctl restart bcnad && journalctl -u bcnad -f --output cat
+junod tendermint unsafe-reset-all --home ~/.juno && sudo systemctl restart junod && journalctl -u junod -f --output cat
 ```
 
 ### Turn off State Sync Mode after synchronization
