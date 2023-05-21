@@ -20,9 +20,11 @@ RPC <br />
 [https://umee-mainnet.rpc.l0vd.com/](https://umee-mainnet.rpc.l0vd.com/) <br />
 API <br />
 [https://umee-mainnet.api.l0vd.com/](https://umee-mainnet.api.l0vd.com/) <br />
-
-
-##### Other services
-[State Sync](state-sync/) <br />
-[Useful commands](useful-commands/) <br />
-[Monitoring](monitoring/)
+GRPC
+```
+umee-mainnet.grpc.l0vd.com:80
+```
+Peer
+```
+109443243e1f2dc873b38de11bcdd6195143179f@umee-mainnet.peers.l0vd.com:10656
+```
