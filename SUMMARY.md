@@ -4,6 +4,12 @@
 
 ## MAINNETS
 * [Axelar](mainnets/axelar/README.md)
+* [Bitcanna](mainnets/bitcanna/README.md)
+  * [Installation](mainnets/bitcanna/installation-guide/README.md)
+  * [Snapshot](mainnets/bitcanna/snapshot/README.md)
+  * [State sync](mainnets/bitcanna/state-sync/README.md)
+  * [Useful commands](mainnets/bitcanna/useful-commands/README.md)
+  * [Monitoring](mainnets/bitcanna/monitoring/README.md)
 * [Juno](mainnets/juno/README.md)
 * [Nois](mainnets/nois/README.md)
   * [State sync](mainnets/nois/state-sync/README.md)
