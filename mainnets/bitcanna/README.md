@@ -27,10 +27,3 @@ GRPC
 ```
 bitcanna-mainnet.grpc.l0vd.com:80
 ```
-
-##### Other services
-[Installation-guide](installation-guide/) <br />
-[State Sync](state-sync/) <br />
-[Snapshot](snapshot/) <br />
-[Useful commands](useful-commands/) <br />
-[Monitoring](monitoring/) <br />
