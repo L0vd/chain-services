@@ -4,6 +4,7 @@
 
 ## MAINNETS
 * [Axelar](mainnets/axelar/README.md)
+  * [State sync](mainnets/axelar/state-sync/README.md)
 * [Bitcanna](mainnets/bitcanna/README.md)
   * [Installation](mainnets/bitcanna/installation-guide/README.md)
   * [Snapshot](mainnets/bitcanna/snapshot/README.md)
@@ -11,11 +12,13 @@
   * [Useful commands](mainnets/bitcanna/useful-commands/README.md)
   * [Monitoring](mainnets/bitcanna/monitoring/README.md)
 * [Juno](mainnets/juno/README.md)
+  * [State sync](mainnets/juno/state-sync/README.md)
 * [Nois](mainnets/nois/README.md)
   * [State sync](mainnets/nois/state-sync/README.md)
   * [Useful commands](mainnets/nois/useful-commands/README.md)
   * [Monitoring](mainnets/nois/monitoring/README.md)
 * [Stride](mainnets/stride/README.md)
+  * [State sync](mainnets/stride/state-sync/README.md)
 * [Umee](mainnets/umee/README.md)
   * [State sync](mainnets/umee/state-sync/README.md)
   * [Useful commands](mainnets/umee/useful-commands/README.md)
