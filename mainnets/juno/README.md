@@ -28,3 +28,7 @@ GRPC
 ```
 juno-mainnet.grpc.l0vd.com:80
 ```
+Peer
+```
+0f4b18e968875583857baab9a506d7735bfd4596@juno-mainnet.peers.l0vd.com:14656
+```
