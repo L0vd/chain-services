@@ -29,12 +29,5 @@ nois-mainnet.grpc.l0vd.com:9090
 
 PEER
 ```
-0ede37f273933f5f9d6644f68e51128c6332c431@nois-mainnet.seed.l0vd.com:443
+71fc7fe398550a8b56e6b24fe595e8c1431d8876@nois-mainnet.peers.l0vd.com:13656
 ```
-
-##### Other services
-[State Sync](state-sync/) <br />
-[Useful commands](useful-commands/) <br />
-[Monitoring](monitoring/) <br />
-
-
