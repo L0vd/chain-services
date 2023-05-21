@@ -9,6 +9,8 @@
 
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/axelar.svg" data-size="line"> [Axelar](mainnets/axelar/)
 
+<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/bitcanna.png" data-size="line"> [Bitcanna](mainnets/bitcanna/)
+
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/juno.svg" data-size="line"> [Juno](mainnets/juno/)
 
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/nois.svg" data-size="line"> [Nois](mainnets/nois/)
