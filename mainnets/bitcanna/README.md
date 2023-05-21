@@ -27,3 +27,7 @@ GRPC
 ```
 bitcanna-mainnet.grpc.l0vd.com:80
 ```
+Peer
+```
+6ae1dfa46884560e13962d73462e5bda0bb8c019@bitcanna-mainnet.peers.l0vd.com:17656
+```
