@@ -1,5 +1,7 @@
 # Snapshot
 
+## Updates every 4 hours
+
 ## Install dependencies, if needed
 ```
 sudo apt update
@@ -9,7 +11,7 @@ sudo apt install lz4 -y
 ## Sync from Snapshot  
 | Height  | Size | Pruning | Indexer | Creation Time (UTC+3) |
 | --------- | --------- | --------- | --------- | --------- |
-| 8657384  | 0.35 GB  | custom/100/0/10 | null | 2023-05-22_21:02:38 |
+| 8657899  | 0.43 GB  | custom/100/0/10 | null | 2023-05-22_21:53:26 |
 
 ```
 sudo systemctl stop bcnad
