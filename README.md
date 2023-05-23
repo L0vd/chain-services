@@ -30,6 +30,8 @@
 
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/babylon.png" data-size="line"> [Babylon](testnets/babylon/)
 
+<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/bonusblock.jpg" data-size="line"> [BonusBlock](testnets/bonusblock/)
+
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/defund.svg" data-size="line"> [Defund](testnets/defund/)
 
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/haqq.svg" data-size="line"> [HAQQ](testnets/haqq/)
