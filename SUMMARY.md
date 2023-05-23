@@ -49,6 +49,7 @@
 * [BonusBlock](testnets/bonusblock/README.md)
   * [Installation](testnets/bonusblock/installation-guide/README.md)
   * [Snapshot](testnets/bonusblock/snapshot/README.md)
+  * [State sync](testnets/bonusblock/state-sync/README.md)
   * [Useful commands](testnets/bonusblock/useful-commands/README.md)
   * [Monitoring](testnets/bonusblock/monitoring/README.md)
 * [Defund](testnets/defund/README.md)
