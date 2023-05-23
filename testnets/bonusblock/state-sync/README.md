@@ -1,5 +1,5 @@
 {% hint style="info" %}
-Please note that the values in <> must be changed to your own values
+State Sync is currently not supported by bonusblock network
 {% endhint %}
 
 ## Info
