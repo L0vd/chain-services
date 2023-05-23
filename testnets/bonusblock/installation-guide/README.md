@@ -121,10 +121,7 @@ bonus-blockd tendermint unsafe-reset-all --home $HOME/.bonusblock --keep-addr-bo
 sudo systemctl restart bonus-blockd && sudo journalctl -u bonus-blockd -f -o cat
 ```
 
-### (OPTIONAL) Use State Sync
-
-#### [State Sync]()
-
+### (OPTIONAL) Use State Sync OR Snapshot
 
 ### Starting a validator
 
