@@ -11,7 +11,7 @@ Nois is a Proof of Stake blockchain protocol that allows developers to use secur
 |  |  |
 | ------ | ------ |
 | Chain-id | nois-testnet-005 |
-| Binary version | v1.0.0 |
+| Binary version | v1.0.3 |
 
 ##### Explorer
 [https://explorers.l0vd.com/nois-testnet](https://explorers.l0vd.com/nois-testnet)
