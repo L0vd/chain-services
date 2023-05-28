@@ -54,6 +54,7 @@
   * [Monitoring](testnets/bonusblock/monitoring/README.md)
 * [Composable](testnets/composable/README.md)
   * [Installation](testnets/composable/installation-guide/README.md)
+  * [Snapshot](testnets/composable/snapshot/README.md)
   * [State sync](testnets/composable/state-sync/README.md)
   * [Useful commands](testnets/composable/useful-commands/README.md)
   * [Monitoring](testnets/composable/monitoring/README.md)
