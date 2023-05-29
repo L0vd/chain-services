@@ -72,7 +72,7 @@ sed -i.bak -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:${B
 
 ### Set seeds and peers
 ```
-PEERS="8dc332a8cfff6c349374244303ae0c856681bb83@composable-testnet-3.peers.l0vd.com:21656,d5519e378247dfb61dfe90652d1fe3e2b3005a5b@composable-testnet.rpc.kjnodes.com:15956"
+PEERS="8390e4faca502620c177edcb8ee6ef7e57b5fcab@composable-testnet-3.peers.l0vd.com:21656,d5519e378247dfb61dfe90652d1fe3e2b3005a5b@composable-testnet.rpc.kjnodes.com:15956"
 sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.banksy/config/config.toml
 ```
 
