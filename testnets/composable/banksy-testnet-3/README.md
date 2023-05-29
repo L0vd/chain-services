@@ -1,5 +1,4 @@
 # Composable
-composable-testnet-3
 
 ##### Overview
 The complete infrastructure for cross-chain smart contracts, applications, and modular functionality.
