@@ -11,6 +11,8 @@
 
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/bitcanna.png" data-size="line"> [Bitcanna](mainnets/bitcanna/)
 
+<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/gitopia.svg" data-size="line"> [Gitopia](mainnets/gitopia/)
+
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/juno.svg" data-size="line"> [Juno](mainnets/juno/)
 
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/nois.svg" data-size="line"> [Nois](mainnets/nois/)
