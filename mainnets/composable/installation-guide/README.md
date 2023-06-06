@@ -51,7 +51,7 @@ banksyd config chain-id ${COMPOSABLE_CHAIN_ID}
 
 ### Initialize your node
 ```
-banksyd init ${COMPOSABLE_NODENAME} --chain-id $"COMPOSABLE_CHAIN_ID"
+banksyd init ${COMPOSABLE_NODENAME} --chain-id ${COMPOSABLE_CHAIN_ID}
 ```
 
 ### Download genesis
