@@ -56,7 +56,7 @@ banksyd init ${COMPOSABLE_NODENAME} --chain-id ${COMPOSABLE_CHAIN_ID}
 
 ### Download genesis
 ```
-wget "$HOME/.banksy/config/genesis.json" "http://snapshots.l0vd.com/composable/genesis.json" 
+wget "$HOME/.banksy/config/genesis.json" "https://raw.githubusercontent.com/notional-labs/composable-networks/main/mainnet/genesis.json" 
 ```
 
 ### (OPTIONAL) Set custom ports
