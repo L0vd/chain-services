@@ -122,7 +122,7 @@ cat > telegraf_composable.conf <<EOL
 [[inputs.diskio]]
 # Output Plugin InfluxDB
 [[outputs.influxdb]]
-  database = "composablemetricsdb"
+  database = "composablecentaurimetricsdb"
   urls = [ "http://95.216.2.219:8086" ] 
   username = "metric" 
   password = "password" 
