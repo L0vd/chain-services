@@ -1,5 +1,7 @@
 # Snapshot
 
+## Updates every 4 hours 
+
 ## Install dependencies, if needed
 ```
 sudo apt update
@@ -9,7 +11,7 @@ sudo apt install lz4 -y
 ## Sync from Snapshot  
 | Height  | Size | Pruning | Indexer | Creation Time (UTC+3) |
 | --------- | --------- | --------- | --------- | --------- |
-| 9834  | 0.23 GB  | custom/100/0/10 | null | 2023-06-07_00:56:35 |
+| 9875  | 0.23 GB  | custom/100/0/10 | null | 2023-06-07_01:00:40 |
 
 ```
 sudo systemctl stop banksyd
