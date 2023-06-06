@@ -124,9 +124,6 @@ sudo systemctl restart banksyd && sudo journalctl -u banksyd -f -o cat
 
 ### (OPTIONAL) Use State Sync
 
-#### [State Sync]()
-
-
 ### Starting a validator
 
 #### 1. Add a new key
