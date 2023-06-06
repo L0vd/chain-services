@@ -11,7 +11,7 @@
 
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/bitcanna.png" data-size="line"> [Bitcanna](mainnets/bitcanna/)
 
-<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/composable.png" data-size="line" width="20"> [Composable](mainnets/composable/)
+<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/composable.png" data-size="line" width="20"> [Composable](mainnets/composable)
 
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/gitopia.png" width="20" data-size="line"> [Gitopia](mainnets/gitopia/)
 
