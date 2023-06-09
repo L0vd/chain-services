@@ -11,7 +11,7 @@ sudo apt install lz4 -y
 ## Sync from Snapshot  
 | Height  | Size | Pruning | Indexer | Creation Time (UTC+3) |
 | --------- | --------- | --------- | --------- | --------- |
-| 436820  | 1.7GB  | custom/100/0/10 | null | 2023-06-09_01:00:27 |
+| 437284  | 1.7GB  | custom/100/0/10 | null | 2023-06-09_05:00:27 |
 
 ```
 sudo systemctl stop bonus-blockd
