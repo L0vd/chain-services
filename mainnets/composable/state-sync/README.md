@@ -18,7 +18,7 @@ s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"$SNAP_RPC,$SNAP_RPC\"| ; \
 s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT| ; \
 s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" $HOME/.banksy/config/config.toml
 
-peers="253f190c96d14ce98da8b7596385c1593a7be982@composable-mainnet.peers.l0vd.com:23657" \
+peers="253f190c96d14ce98da8b7596385c1593a7be982@composable-mainnet.peers.l0vd.com:23656" \
 && sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/.banksy/config/config.toml 
 
 banksyd tendermint unsafe-reset-all --home ~/.banksy && sudo systemctl restart banksyd && journalctl -u banksyd -f --output cat
