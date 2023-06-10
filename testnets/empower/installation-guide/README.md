@@ -25,7 +25,7 @@ fi
 cd $HOME
 rm -rf empowerchain
 git clone https://github.com/EmpowerPlastic/empowerchain
-cd empowerchain
+cd empowerchain/chain
 git checkout v1.0.0-rc2
 make install
 ```
