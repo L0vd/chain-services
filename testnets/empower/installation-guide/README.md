@@ -9,7 +9,7 @@ sudo apt update && sudo apt upgrade -y
 ### Install GO
 ```
 if ! [ -x "$(command -v go)" ]; then
-  ver="1.19.3"
+  ver="1.20.1"
   cd $HOME
   wget "https://golang.org/dl/go$ver.linux-amd64.tar.gz"
   sudo rm -rf /usr/local/go
