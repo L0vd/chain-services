@@ -32,5 +32,5 @@ http://empower-testnet.grpc.l0vd.com:80
 
 PEER
 ```
-5e8a0ef0c941f7b68f45610cf280ccc1a208e6d0@empower-testnet.peers.l0vd.com:24657
+5e8a0ef0c941f7b68f45610cf280ccc1a208e6d0@empower-testnet.peers.l0vd.com:24656
 ```
