@@ -40,6 +40,8 @@
 
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/defund.svg" data-size="line"> [Defund](testnets/defund/)
 
+<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/empower.png" width="20" data-size="line"> [Empower](testnets/empower/)
+
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/haqq.svg" data-size="line"> [HAQQ](testnets/haqq/)
 
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/humans.png" data-size="line"> [Humans](testnets/humans/)
