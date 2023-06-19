@@ -37,9 +37,18 @@ You should replace values in <> <br />
 <YOUR_WALLET> Here you shoud put the name of your wallet
 
 ```
-echo "export UMEE_WALLET="<YOUR_WALLET_NAME>"" >> $HOME/.bash_profile
-echo "export UMEE_NODENAME="<YOUR_MONIKER>"" >> $HOME/.bash_profile
-echo "export UMEE_CHAIN_ID="canon-3"" >> $HOME/.bash_profile
+UMEE_WALLET="<YOUR_WALLET_NAME>"
+UMEE_NODENAME="<YOUR_MONIKER>"
+UMEE_CHAIN_ID="canon-3"
+```
+
+```
+echo "
+export UMEE_WALLET=${UMEE_WALLET}
+export UMEE_NODENAME=${UMEE_NODENAME}
+export UMEE_CHAIN_ID=${UMEE_CHAIN_ID}
+" >> $HOME/.bash_profile
+
 source $HOME/.bash_profile
 ```
 
@@ -138,7 +147,9 @@ umeed keys add $UMEE_WALLET --recover
 ```
 
 ```
-echo "export UMEE_WALLET_ADDR=(umeed keys show $UMEE_WALLET -a)" >> $HOME/.bash_profile
+UMEE_WALLET_ADDR=$(umeed keys show $UMEE_WALLET -a)
+echo "export UMEE_WALLET_ADDR=${UMEE_WALLET_ADDR}" >> $HOME/.bash_profile
+
 source $HOME/.bash_profile
 ```
 
@@ -162,7 +173,7 @@ umeed tx staking create-validator \
 --pubkey=$(umeed tendermint show-validator) \
 --moniker $UMEE_NODENAME \
 --chain-id $UMEE_CHAIN_ID \
---from $UMEE_WALLET \
+--from $UMEE_WALLET_ADDR \
 --gas-prices 0.1uumee \
 --gas-adjustment 1.5 \
 --gas auto \
@@ -199,7 +210,7 @@ UMEE_KEYRING_PASS="xxxxxxxxx"
 UMEE_GRPC_PORT="${UMEE_PORT}090"
 UMEE_RPC_PORT="${UMEE_PORT}657"
 UMEE_HOME="$HOME/.umee"
-UMEE_VALOPER=$(umeed keys show $UMEE_WALLET --bech val -a)
+UMEE_VALOPER=$(umeed keys show $UMEE_WALLET_ADDR --bech val -a)
 ```
 
 ```
@@ -222,8 +233,8 @@ ALCHEMY_ENDPOINT="wss://eth-goerli.g.alchemy.com/v2/xxxxxxxxxxxxxxxxxxxxxxxxx"
 echo "
 export UMEE_KEYRING=${UMEE_KEYRING}
 export UMEE_KEYRING_PASS=${UMEE_KEYRING_PASS}
-export UMEE_GRPC_PORT=${UMEE_GRPC}
-export UMEE_RPC_PORT=${UMEE_RPC}
+export UMEE_GRPC_PORT=${UMEE_GRPC_PORT}
+export UMEE_RPC_PORT=${UMEE_RPC_PORT}
 export UMEE_PEGGO_ETH_ADDR=${UMEE_PEGGO_ETH_ADDR}
 export UMEE_ORCH_ADDR=${UMEE_ORCH_ADDR}
 export UMEE_HOME=${UMEE_HOME}
@@ -251,7 +262,7 @@ ExecStart=$(which peggo) orchestrator 0x36D61fF14e4A2FcC3aF6813edE3F0Ce244026b69
   --cosmos-chain-id="${UMEE_CHAIN_ID}" \
   --cosmos-keyring-dir="${UMEE_HOME}" \
   --cosmos-keyring="${UMEE_KEYRING}" \
-  --cosmos-from="${UMEE_ORCH_WALLET}" \
+  --cosmos-from="${UMEE_ORCH_ADDR}" \
   --cosmos-from-passphrase="${UMEE_KEYRING_PASS}" \
   --cosmos-grpc="tcp://localhost:${UMEE_GRPC_PORT}" \
   --tendermint-rpc="tcp://localhost:${UMEE_RPC_PORT}" \
@@ -275,7 +286,7 @@ sudo systemctl enable peggod
 ### Set orchestrator address
 
 ```
-umeed tx gravity set-orchestrator-address $UMEE_VALOPER $UMEE_ORCH_ADDR $UMEE_PEGGO_ETH_ADDR --from $UMEE_WALLET --chain-id $UMEE_CHAIN_ID  --fees 40000uumee
+umeed tx gravity set-orchestrator-address $UMEE_VALOPER $UMEE_ORCH_ADDR $UMEE_PEGGO_ETH_ADDR --from $UMEE_WALLET_ADDR --chain-id $UMEE_CHAIN_ID  --fees 40000uumee
 ```
 
 ### Run peggo
@@ -314,8 +325,10 @@ umeed keys add UMEE_PFD_WALLET
 
 ```
 echo "
-export UMEE_PFD_WALLET=$(umeed keys show UMEE_ORCH_WALLET -a)
+export UMEE_PFD_WALLET=$(umeed keys show UMEE_PFD_WALLET -a)
 " >> $HOME/.bash_profile
+
+source $HOME/.bash_profile
 ```
 
 ### Fund price-feeder wallet
@@ -330,8 +343,8 @@ s/^validator *=.*/validator = \"$UMEE_VALOPER\"/;\
 s/^backend *=.*/backend = \"os\"/;\
 s|^dir *=.*|dir = \"${UMEE_HOME}\"|;\
 s|^pass *=.*|pass = \"${UMEE_KEYRING_PASS}\"|;\
-s|^grpc_endpoint *=.*|grpc_endpoint = \"localhost:${UMEE_GRPC_PORT}090\"|;\
-s|^tmrpc_endpoint *=.*|tmrpc_endpoint = \"http://${UMEE_GRPC_PORT}657\"|;\
+s|^grpc_endpoint *=.*|grpc_endpoint = \"localhost:${UMEE_GRPC_PORT}\"|;\
+s|^tmrpc_endpoint *=.*|tmrpc_endpoint = \"http://localhost:${UMEE_RPC_PORT}\"|;\
 s|^global-labels *=.*|global-labels = [[\"chain_id\", \"$UMEE_CHAIN_ID\"]]|;" $HOME/umee-price-feeder/price-feeder.toml
 ```
 
@@ -363,7 +376,7 @@ sudo systemctl enable price-feeder
 ### Delegate price-feeder
 
 ```
-umeed tx oracle delegate-feed-consent $UMEE_WALLET $UMEE_PFD_WALLET --fees 40000uumee
+umeed tx oracle delegate-feed-consent $UMEE_WALLET_ADDR $UMEE_PFD_WALLET --fees 40000uumee
 ```
 
 ### Start price-feeder
