@@ -154,7 +154,7 @@ source $HOME/.bash_profile
 ```
 
 #### Use faucet
-https://faucet.umee.cc/
+[https://faucet.umee.cc/](https://faucet.umee.cc/)
 
 ### 2. Create validator
 
