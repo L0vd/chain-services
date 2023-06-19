@@ -1,5 +1,5 @@
 ## Manual node setup
-If you want to setup Gitopia fullnode manually follow the steps below
+If you want to setup Umee fullnode manually follow the steps below
 
 ### Update and upgrade
 ```
