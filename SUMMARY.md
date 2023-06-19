@@ -133,6 +133,7 @@
   * [Monitoring](testnets/ollo/monitoring/README.md)
   * [Wallet bot](testnets/ollo/wallet-bot/README.md)
 * [Umee](testnets/umee/README.md)
+  * [Installation](testnets/umee/installation-guide/README.md)
   * [State sync](testnets/umee/state-sync/README.md)
   * [Useful commands](testnets/umee/useful-commands/README.md)
   * [Monitoring](testnets/umee/monitoring/README.md)
