@@ -137,6 +137,11 @@ umeed keys add $UMEE_WALLET
 umeed keys add $UMEE_WALLET --recover
 ```
 
+```
+echo "export UMEE_WALLET_ADDR=(umeed keys show $UMEE_WALLET -a)" >> $HOME/.bash_profile
+source $HOME/.bash_profile
+```
+
 #### Use faucet
 https://faucet.umee.cc/
 
