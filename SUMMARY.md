@@ -90,6 +90,7 @@
   * [State sync](testnets/empower/state-sync/README.md)
   * [Useful commands](testnets/empower/useful-commands/README.md)
   * [Monitoring](testnets/empower/monitoring/README.md)
+  * [Wallet bot](testnets/empower/wallet-bot/README.md)
 * [HAQQ](testnets/haqq/README.md)
   * [Installation](testnets/haqq/installation-guide/README.md)
   * [Snapshot](testnets/haqq/snapshot/README.md)
