@@ -37,9 +37,18 @@ You should replace values in <> <br />
 <YOUR_WALLET> Here you shoud put the name of your wallet
 
 ```
-echo "export HAQQ_WALLET="<YOUR_WALLET_NAME>"" >> $HOME/.bash_profile
-echo "export HAQQ_NODENAME="<YOUR_MONIKER>"" >> $HOME/.bash_profile
-echo "export HAQQ_CHAIN_ID="haqq_11235-1"" >> $HOME/.bash_profile
+HAQQ_WALLET="<YOUR_WALLET_NAME>"
+HAQQ_NODENAME="<YOUR_MONIKER>"
+HAQQ_CHAIN_ID="haqq_11235-1"
+```
+
+```
+echo "
+export HAQQ_WALLET=${HAQQ_WALLET}
+export HAQQ_NODENAME=${HAQQ_NODENAME}
+export HAQQ_CHAIN_ID=${HAQQ_CHAIN_ID}
+" >> $HOME/.bash_profile
+
 source $HOME/.bash_profile
 ```
 
@@ -56,7 +65,7 @@ haqqd init ${HAQQ_NODENAME} --chain-id ${HAQQ_CHAIN_ID}
 
 ### Download genesis
 ```
-wget "$HOME/.haqqd/config/genesis.json" "http://snapshots.l0vd.com/haqq/genesis.json" 
+wget "$HOME/.haqqd/config/genesis.json" "https://raw.githubusercontent.com/haqq-network/mainnet/master/genesis.json" 
 ```
 
 ### (OPTIONAL) Set custom ports
@@ -140,6 +149,12 @@ haqqd keys add ${HAQQ_WALLET}
 haqqd keys add ${HAQQ_WALLET} --recover
 ```
 
+```
+HAQQ_WALLET_ADDR=$(haqqd keys show HAQQ_WALLET -a)
+echo "export HAQQ_WALLET_ADDR=${HAQQ_WALLET_ADDR}" >> $HOME/.bash_profile
+
+source $HOME/.bash_profile
+```
 
 
 ### 2. Create validator
@@ -159,7 +174,7 @@ haqqd tx staking create-validator \
 --pubkey=$(haqqd tendermint show-validator) \
 --moniker ${HAQQ_NODENAME} \
 --chain-id ${HAQQ_CHAIN_ID} \
---from ${HAQQ_WALLET} \
+--from ${HAQQ_WALLET_ADDR} \
 --gas-prices 0.1aislm \
 --gas-adjustment 1.5 \
 --gas auto \
