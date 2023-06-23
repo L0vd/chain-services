@@ -15,7 +15,7 @@
 
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/gitopia.png" width="20" data-size="line"> [Gitopia](mainnets/gitopia/)
 
-<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/haqq.svg" data-size="line"> [HAQQ](mainnets/haqq)
+<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/haqq.svg" data-size="line"> [HAQQ](mainnets/haqq/)
 
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/juno.svg" data-size="line"> [Juno](mainnets/juno/)
 
