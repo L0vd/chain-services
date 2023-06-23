@@ -27,7 +27,7 @@ API
 
 GRPC
 ```
-http://haqq-mainnet.grpc.l0vd.com:80
+haqq-mainnet.grpc.l0vd.com:80
 ```
 
 PEER
