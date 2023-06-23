@@ -32,5 +32,5 @@ http://haqq-mainnet.grpc.l0vd.com:80
 
 PEER
 ```
-@haqq-mainnet.peers.l0vd.com:
+e04d814cf820c498e64153c27b021be1a70b6f6b@haqq-mainnet.peers.l0vd.com:25656
 ```
