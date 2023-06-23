@@ -27,7 +27,7 @@ API
 
 GRPC
 ```
-http://composable-mainnet.grpc.l0vd.com:80
+composable-mainnet.grpc.l0vd.com:80
 ```
 
 PEER
