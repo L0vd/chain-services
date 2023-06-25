@@ -11,7 +11,7 @@ sudo apt install lz4 -y
 ## Sync from Snapshot  
 | Height  | Size | Pruning | Indexer | Creation Time (UTC+3) |
 | --------- | --------- | --------- | --------- | --------- |
-| 387010  | 12GB  | custom/100/0/10 | null | 2023-06-25_13:28:05 |
+| 389609  | 12GB  | custom/100/0/10 | null | 2023-06-25_17:28:16 |
 
 ```
 sudo systemctl stop empowerd
