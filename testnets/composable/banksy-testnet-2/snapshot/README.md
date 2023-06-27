@@ -9,7 +9,7 @@ sudo apt install lz4 -y
 ## Sync from Snapshot  
 | Height  | Size | Pruning | Indexer | Creation Time (UTC+3) |
 | --------- | --------- | --------- | --------- | --------- |
-| 580428  | 0.02 GB  | custom/100/0/10 | null | 2023-06-27_05:20:44 |
+| 582948  | 0.02 GB  | custom/100/0/10 | null | 2023-06-27_09:21:13 |
 
 ```
 sudo systemctl stop banksyd
