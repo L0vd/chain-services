@@ -162,6 +162,6 @@ archwayd tx staking create-validator \
 --moniker $ARCHWAY_NODENAME \
 --chain-id $ARCHWAY_CHAIN_ID \
 --from $ARCHWAY_WALLET \
---fees 100000000000000000000aarch \
+--fees 180000000000000000000aconst \
 --yes
 ```
