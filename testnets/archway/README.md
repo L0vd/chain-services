@@ -15,7 +15,7 @@ Archway is an incentivized smart contract chain for the Cosmos ecosystem that al
 | Binary version | v0.5.2 |
 
 ##### Explorer
-[https://explorers.l0vd.com/archway-testnet](https://explorers.l0vd.com/Archway-testnet)
+[https://explorers.l0vd.com/archway-testnet](https://explorers.l0vd.com/archway%20testnet)
 
 ##### Public Endpoints
 RPC <br />
