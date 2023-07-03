@@ -16,7 +16,7 @@
 | Binary version | v1.0.0 |
 
 ##### Explorer
-[https://explorers.l0vd.com/archway-mainnet](https://explorers.l0vd.com/archway-mainnet)
+[https://explorers.l0vd.com/archway-mainnet](https://explorers.l0vd.com/archway%20mainnet/staking/archwayvaloper1n7ucxt0afdd2cny94p7syu22chvfttx6le2k80)
 
 ##### Public Endpoints
 RPC
