@@ -3,6 +3,12 @@
 * [Chain services](README.md)
 
 ## MAINNETS
+* [Archway](mainnets/archway/README.md)
+  * [Installation](mainnets/archway/installation-guide/README.md)
+  * [Snapshot](mainnets/archway/snapshot/README.md)
+  * [State sync](mainnets/archway/state-sync/README.md)
+  * [Useful commands](mainnets/archway/useful-commands/README.md)
+  * [Monitoring](mainnets/archway/monitoring/README.md)
 * [Axelar](mainnets/axelar/README.md)
   * [State sync](mainnets/axelar/state-sync/README.md)
 * [Bitcanna](mainnets/bitcanna/README.md)
