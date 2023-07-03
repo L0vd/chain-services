@@ -162,8 +162,6 @@ archwayd tx staking create-validator \
 --moniker $ARCHWAY_NODENAME \
 --chain-id $ARCHWAY_CHAIN_ID \
 --from $ARCHWAY_WALLET \
---gas-prices 0.1aconst \
---gas-adjustment 1.5 \
---gas auto \
+--fees 100000000000000000000aarch \
 --yes
 ```
