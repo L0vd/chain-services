@@ -7,7 +7,7 @@
 
 ## :heart: Cosmos Mainnet Support
 
-<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/archway.png" width="20" data-size="line"> [Archway](mainnets/archway/)
+<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/archway.png" data-size="line"> [Archway](mainnets/archway/)
 
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/axelar.svg" data-size="line"> [Axelar](mainnets/axelar/)
 
