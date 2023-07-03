@@ -7,7 +7,7 @@
 
 ## :heart: Cosmos Mainnet Support
 
-<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/archway.png" data-size="line"> [Archway](mainnets/archway/)
+<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/archway.svg" data-size="line"> [Archway](mainnets/archway/)
 
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/axelar.svg" data-size="line"> [Axelar](mainnets/axelar/)
 
@@ -34,7 +34,7 @@
 
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/andromeda.png" data-size="line"> [Andromeda](testnets/andromeda/)
 
-<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/archway.png" width="20" data-size="line"> [Archway](testnets/archway/)
+<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/archway.svg" width="20" data-size="line"> [Archway](testnets/archway/)
 
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/babylon.png" data-size="line"> [Babylon](testnets/babylon/)
 
