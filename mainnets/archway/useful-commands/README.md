@@ -71,9 +71,7 @@ archwayd tx staking create-validator \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
 --website <YOUR_WEBSITE> \
---gas-prices 0.1aarch \
---gas-adjustment 1.5 \
---gas auto \
+--fees 100000000000000000000aarch \
 --yes
 ```
 ### Edit validator
@@ -86,9 +84,7 @@ archwayd tx staking edit-validator \
 --chain-id archway-1 \
 --commission-rate 0.05 \
 --from <ARCHWAY_WALLET> \
---gas-prices 0.1aarch \
---gas-adjustment 1.5 \
---gas auto \
+--fees 100000000000000000000aarch \
 --yes
 ```
 ### View validator info
@@ -97,7 +93,7 @@ archwayd q staking validator $(archwayd keys show <ARCHWAY_WALLET> --bech val -a
 ```
 ### Unjail validator
 ```
-archwayd tx slashing unjail --from <ARCHWAY_WALLET> --chain-id archway-1 --gas-prices 0.1aarch --gas-adjustment 1.5 --gas auto --yes 
+archwayd tx slashing unjail --from <ARCHWAY_WALLET> --chain-id archway-1 --fees 100000000000000000000aarch --yes 
 ```
 ### Signing info
 ```
@@ -108,41 +104,41 @@ archwayd query slashing signing-info $(archwayd tendermint show-validator)
 
 ### Send tokens
 ```
-archwayd tx bank send wallet <DEST_WALLET_ADDRESS> 100aarch --from <ARCHWAY_WALLET> --chain-id archway-1 --gas-prices 0.1aarch --gas-adjustment 1.5 --gas auto --yes
+archwayd tx bank send wallet <DEST_WALLET_ADDRESS> 100aarch --from <ARCHWAY_WALLET> --chain-id archway-1 --fees 100000000000000000000aarch --yes
 ```
 ### Delegate token to your validator
 ```
-archwayd tx staking delegate $(archwayd keys show <ARCHWAY_WALLET> --bech val -a) 100aarch --from <ARCHWAY_WALLET> --chain-id archway-1 --gas-prices 0.1aarch --gas-adjustment 1.5 --gas auto --yes
+archwayd tx staking delegate $(archwayd keys show <ARCHWAY_WALLET> --bech val -a) 100aarch --from <ARCHWAY_WALLET> --chain-id archway-1 --fees 100000000000000000000aarch --yes
 ```
 ### Delegate token to another validator
 ```
-archwayd tx staking delegate <VALOPER_ADDRESS> 100aarch --from <ARCHWAY_WALLET> --chain-id archway-1 --gas-prices 0.1aarch --gas-adjustment 1.5 --gas auto --yes
+archwayd tx staking delegate <VALOPER_ADDRESS> 100aarch --from <ARCHWAY_WALLET> --chain-id archway-1 --fees 100000000000000000000aarch --yes
 ```
 ### Redelegate tokens to another validator
 ```
-archwayd tx staking redelegate <FROM_VALOPER_ADDRESS> <TO_VALOPER_ADDRESS> 100aarch --from <ARCHWAY_WALLET> --chain-id archway-1 --gas-prices 0.1aarch --gas-adjustment 1.5 --gas auto --yes
+archwayd tx staking redelegate <FROM_VALOPER_ADDRESS> <TO_VALOPER_ADDRESS> 100aarch --from <ARCHWAY_WALLET> --chain-id archway-1 --fees 100000000000000000000aarch --yes
 ```
 ### Unbond tokens from staking
 ```
-archwayd tx staking unbond <VALOPER_ADDRESS> 100aarch --from <ARCHWAY_WALLET> --chain-id archway-1 --gas-prices 0.1aarch --gas-adjustment 1.5 --gas auto --yes
+archwayd tx staking unbond <VALOPER_ADDRESS> 100aarch --from <ARCHWAY_WALLET> --chain-id archway-1 --fees 100000000000000000000aarch --yes
 ```
 ### Withdraw all rewards from staking
 ```
-archwayd tx distribution withdraw-all-rewards --from <ARCHWAY_WALLET> --chain-id archway-1 --gas-prices 0.1aarch --gas-adjustment 1.5 --gas auto --yes
+archwayd tx distribution withdraw-all-rewards --from <ARCHWAY_WALLET> --chain-id archway-1 --fees 100000000000000000000aarch --yes
 ```
 
 ## Governance
 ### Vote "YES"
 ```
-archwayd tx gov vote <proposal_id> yes --from <ARCHWAY_WALLET> --chain-id archway-1 --gas-prices 0.1aarch --gas-adjustment 1.5 --gas auto --yes
+archwayd tx gov vote <proposal_id> yes --from <ARCHWAY_WALLET> --chain-id archway-1 --fees 100000000000000000000aarch --yes
 ```
 ### Vote "NO"
 ```
-archwayd tx gov vote <proposal_id> no --from <ARCHWAY_WALLET> --chain-id archway-1 --gas-prices 0.1aarch --gas-adjustment 1.5 --gas auto --yes
+archwayd tx gov vote <proposal_id> no --from <ARCHWAY_WALLET> --chain-id archway-1 --fees 100000000000000000000aarch --yes
 ```
 ### Abstain from voting
 ```
-archwayd tx gov vote <proposal_id> abstain --from <ARCHWAY_WALLET> --chain-id archway-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.1aarch -y
+archwayd tx gov vote <proposal_id> abstain --from <ARCHWAY_WALLET> --chain-id archway-1 --fees 100000000000000000000aarch --yes
 ```
 
 
