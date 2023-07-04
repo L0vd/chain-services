@@ -13,10 +13,10 @@
 |  |  |
 | ------ | ------ |
 | Chain-id | archway-1 |
-| Binary version | v1.0.0 |
+| Binary version | v1.0.1 |
 
 ##### Explorer
-[https://explorers.l0vd.com/archway-mainnet](https://explorers.l0vd.com/Archway-mainnet)
+[https://explorers.l0vd.com/archway-mainnet](https://explorers.l0vd.com/archway-mainnet)
 
 ##### Public Endpoints
 RPC
