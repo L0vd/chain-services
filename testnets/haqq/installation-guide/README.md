@@ -1,5 +1,5 @@
 ## Manual node setup
-If you want to setup HAQQ fullnode manually follow the steps below
+If you want to setup Haqq fullnode manually follow the steps below
 
 ### Update and upgrade
 ```
@@ -23,11 +23,11 @@ fi
 ### Install node
 ```
 cd $HOME
+rm -rf haqq
 git clone https://github.com/haqq-network/haqq.git
 cd haqq
-git checkout v1.3.1 
+git checkout v1.4.4
 make install
-haqqd version #"1.3.1"
 ```
 
 
@@ -37,26 +37,35 @@ You should replace values in <> <br />
 <YOUR_WALLET> Here you shoud put the name of your wallet
 
 ```
-echo "export HAQQ_WALLET="<YOUR_WALLET_NAME>"" >> $HOME/.bash_profile
-echo "export HAQQ_NODENAME="<YOUR_MONIKER>"" >> $HOME/.bash_profile
-echo "export HAQQ_CHAIN_ID="haqq_54211-3"" >> $HOME/.bash_profile
+HAQQ_WALLET="<YOUR_WALLET_NAME>"
+HAQQ_NODENAME="<YOUR_MONIKER>"
+HAQQ_CHAIN_ID="haqq_54211-3"
+```
+
+```
+echo "
+export HAQQ_WALLET=${HAQQ_WALLET}
+export HAQQ_NODENAME=${HAQQ_NODENAME}
+export HAQQ_CHAIN_ID=${HAQQ_CHAIN_ID}
+" >> $HOME/.bash_profile
+
 source $HOME/.bash_profile
 ```
 
 
 ### Configure your node
 ```
-haqqd config chain-id $HAQQ_CHAIN_ID
+haqqd config chain-id ${HAQQ_CHAIN_ID}
 ```
 
 ### Initialize your node
 ```
-haqqd init $HAQQ_NODENAME --chain-id $HAQQ_CHAIN_ID
+haqqd init ${HAQQ_NODENAME} --chain-id ${HAQQ_CHAIN_ID}
 ```
 
 ### Download genesis
 ```
-wget "$HOME/.haqqd/config/genesis.json" https://storage.googleapis.com/haqq-testedge-snapshots/genesis.json
+wget "$HOME/.haqqd/config/genesis.json" "http://snapshots.l0vd.com/haqq/testnet/genesis.json" 
 ```
 
 ### (OPTIONAL) Set custom ports
@@ -66,15 +75,14 @@ wget "$HOME/.haqqd/config/genesis.json" https://storage.googleapis.com/haqq-test
 HAQQ_PORT=<SET_CUSTOM_PORT> #Example: HAQQ_PORT=56 (numbers from 1 to 64)
 ```
 ```
-sed -i.bak -e "s%^proxy_app = \"tcp://127.0.0.1:26658\"%proxy_app = \"tcp://127.0.0.1:${HAQQ_PORT}658\"%; s%^laddr = \"tcp://127.0.0.1:26657\"%laddr = \"tcp://127.0.0.1:${HAQQ_PORT}657\"%; s%^pprof_laddr = \"localhost:6060\"%pprof_laddr = \"localhost:${HAQQ_PORT}060\"%; s%^laddr = \"tcp://0.0.0.0:26656\"%laddr = \"tcp://0.0.0.0:${HAQQ_PORT}656\"%; s%^prometheus_listen_addr = \":26660\"%prometheus_listen_addr = \":${HAQQ_PORT}660\"%" $HOME/.haqqd/config/config.toml
-sed -i.bak -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:${HAQQ_PORT}317\"%; s%^address = \":8080\"%address = \":${HAQQ_PORT}080\"%; s%^address = \"0.0.0.0:9090\"%address = \"0.0.0.0:${HAQQ_PORT}090\"%; s%^address = \"0.0.0.0:9091\"%address = \"0.0.0.0:${HAQQ_PORT}091\"%; s%^address = \"0.0.0.0:8545\"%address = \"0.0.0.0:${HAQQ_PORT}545\"%; s%^ws-address = \"0.0.0.0:8546\"%ws-address = \"0.0.0.0:${HAQQ_PORT}546\"%" $HOME/.haqqd/config/app.toml
+sed -i.bak -e "s%^proxy_app = \"tcp://127.0.0.1:26658\"%proxy_app = \"tcp://127.0.0.1:$"HAQQ_PORT"658\"%; s%^laddr = \"tcp://127.0.0.1:26657\"%laddr = \"tcp://127.0.0.1:$"HAQQ_PORT"657\"%; s%^pprof_laddr = \"localhost:6060\"%pprof_laddr = \"localhost:$"HAQQ_PORT"060\"%; s%^laddr = \"tcp://0.0.0.0:26656\"%laddr = \"tcp://0.0.0.0:$"HAQQ_PORT"656\"%; s%^prometheus_listen_addr = \":26660\"%prometheus_listen_addr = \":$"HAQQ_PORT"660\"%" $HOME/.haqqd/config/config.toml
+sed -i.bak -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:$"HAQQ_PORT"317\"%; s%^address = \":8080\"%address = \":$"HAQQ_PORT"080\"%; s%^address = \"0.0.0.0:9090\"%address = \"0.0.0.0:$"HAQQ_PORT"090\"%; s%^address = \"0.0.0.0:9091\"%address = \"0.0.0.0:$"HAQQ_PORT"091\"%; s%^address = \"0.0.0.0:8545\"%address = \"0.0.0.0:$"HAQQ_PORT"545\"%; s%^ws-address = \"0.0.0.0:8546\"%ws-address = \"0.0.0.0:$"HAQQ_PORT"546\"%" $HOME/.haqqd/config/app.toml
 ```
 
 
 ### Set seeds and peers
 ```
-SEEDS="62bf004201a90ce00df6f69390378c3d90f6dd7e@seed2.testedge2.haqq.network:26656,23a1176c9911eac442d6d1bf15f92eeabb3981d5@seed1.testedge2.haqq.network:26656"
-PEERS=""
+PEERS="0d4c7d770d4ccdd2e68e4f84a2e0e65700942ef5@haqq-testnet.peers.l0vd.com:18656"
 sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.haqqd/config/config.toml
 ```
 
@@ -100,7 +108,7 @@ sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.haqqd/config/config.toml
 ```
 sudo tee /etc/systemd/system/haqqd.service > /dev/null <<EOF
 [Unit]
-Description=Lava
+Description=Haqq ${CHAIN_CATEGORY}
 After=network-online.target
 
 [Service]
@@ -132,19 +140,24 @@ sudo systemctl restart haqqd && sudo journalctl -u haqqd -f -o cat
 
 #### 1. Add a new key
 ```
-haqqd keys add $HAQQ_WALLET
+haqqd keys add ${HAQQ_WALLET}
 ```
 ##### (OR)
 
 #### 1. Recover your key
 ```
-haqqd keys add $HAQQ_WALLET --recover
+haqqd keys add ${HAQQ_WALLET} --recover
 ```
 
-#### 2. Request tokens from [faucet](https://discord.com/channels/1007329761229545512/1025144166117814404)
+```
+HAQQ_WALLET_ADDR=$(haqqd keys show ${HAQQ_WALLET} -a)
+echo "export HAQQ_WALLET_ADDR=${HAQQ_WALLET_ADDR}" >> $HOME/.bash_profile
+
+source $HOME/.bash_profile
+```
 
 
-#### 3. Create validator
+### 2. Create validator
 
 {% hint style="info" %}
 Wait until the node is synchronized.
@@ -159,11 +172,12 @@ haqqd tx staking create-validator \
 --min-self-delegation "1" \
 --details "" \
 --pubkey=$(haqqd tendermint show-validator) \
---moniker $HAQQ_NODENAME \
---chain-id $HAQQ_CHAIN_ID \
---from $HAQQ_WALLET \
---gas-prices 0.1aISLM \
+--moniker ${HAQQ_NODENAME} \
+--chain-id ${HAQQ_CHAIN_ID} \
+--from ${HAQQ_WALLET_ADDR} \
+--0.25aISLM \
 --gas-adjustment 1.5 \
 --gas auto \
 --yes
 ```
+

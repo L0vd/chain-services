@@ -4,6 +4,7 @@
 ##### Overview
 Haqq Blockchain — Haqq (Arabic for truth) is a Proof of Stake blockchain network compatible with the existing ecosystem of Blockchain tools and developer instruments (primarily, Ethereum and Cosmos) and meeting modern industry requirements, with fast-finality and high transactions throughput.
 
+
 ##### Official links
 [Website](https://islamiccoin.net/) | [Twitter](https://twitter.com/islamiccoin_net) | [Discord](https://discord.gg/islamic-coin) | [Github](https://github.com/haqq-network)
 
@@ -12,22 +13,25 @@ Haqq Blockchain — Haqq (Arabic for truth) is a Proof of Stake blockchain netwo
 |  |  |
 | ------ | ------ |
 | Chain-id | haqq_54211-3 |
-| Binary version | v1.3.1 |
+| Binary name | haqqd |
+| Binary version | v1.4.4 |
 
 ##### Explorer
-[https://explorers.l0vd.com/haqq](https://explorers.l0vd.com/haqq)
+[https://explorers.l0vd.com/haqq-testnet](https://explorers.l0vd.com/haqq-testnet)
 
 ##### Public Endpoints
-RPC <br />
-[https://haqq-testnet.rpc.l0vd.com/](https://haqq-testnet.rpc.l0vd.com/) <br />
-API <br />
-[https://haqq-testnet.api.l0vd.com/](https://haqq-testnet.api.l0vd.com/) <br />
+RPC
+[https://haqq-testnet.rpc.l0vd.com](https://haqq-testnet.rpc.l0vd.com)
 
+API
+[https://haqq-testnet.api.l0vd.com](https://haqq-testnet.api.l0vd.com)
 
-##### Other services
-[Installation-guide](installation-guide/) <br />
-[State Sync](state-sync/) <br />
-[Snapshot](snapshot/) <br />
-[Useful commands](useful-commands/) <br />
-[Monitoring](monitoring/) <br />
-[Telegram wallet bot](wallet-bot/) <br />
+GRPC
+```
+haqq-testnet.grpc.l0vd.com:80
+```
+
+PEER
+```
+0d4c7d770d4ccdd2e68e4f84a2e0e65700942ef5@haqq-testnet.peers.l0vd.com:18656
+```
