@@ -66,7 +66,7 @@ haqqd tx staking create-validator \
 --min-self-delegation "1" \
 --pubkey=$(haqqd tendermint show-validator) \
 --moniker <HAQQ_NODENAME> \
---chain-id ${CHAIN_ID} \
+--chain-id haqq_54211-3 \
 --from <HAQQ_WALLET> \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
@@ -83,7 +83,7 @@ haqqd tx staking edit-validator \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
 --website <YOUR_WEBSITE> \
---chain-id ${CHAIN_ID} \
+--chain-id haqq_54211-3 \
 --commission-rate 0.05 \
 --from <HAQQ_WALLET> \
 --gas-prices 0.25 \
@@ -97,7 +97,7 @@ haqqd q staking validator $(haqqd keys show <HAQQ_WALLET> --bech val -a)
 ```
 ### Unjail validator
 ```
-haqqd tx slashing unjail --from <HAQQ_WALLET> --chain-id ${CHAIN_ID} --gas-prices 0.25 --gas-adjustment 1.5 --gas auto --yes 
+haqqd tx slashing unjail --from <HAQQ_WALLET> --chain-id haqq_54211-3 --gas-prices 0.25 --gas-adjustment 1.5 --gas auto --yes 
 ```
 ### Signing info
 ```
@@ -108,47 +108,47 @@ haqqd query slashing signing-info $(haqqd tendermint show-validator)
 
 ### Send tokens
 ```
-haqqd tx bank send wallet <DEST_WALLET_ADDRESS> 100 --from <HAQQ_WALLET> --chain-id ${CHAIN_ID} --gas-prices 0.25 --gas-adjustment 1.5 --gas auto --yes
+haqqd tx bank send wallet <DEST_WALLET_ADDRESS> 100 --from <HAQQ_WALLET> --chain-id haqq_54211-3 --gas-prices 0.25 --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to your validator
 ```
-haqqd tx staking delegate $(haqqd keys show <HAQQ_WALLET> --bech val -a) 100 --from <HAQQ_WALLET> --chain-id ${CHAIN_ID} --gas-prices 0.25 --gas-adjustment 1.5 --gas auto --yes
+haqqd tx staking delegate $(haqqd keys show <HAQQ_WALLET> --bech val -a) 100 --from <HAQQ_WALLET> --chain-id haqq_54211-3 --gas-prices 0.25 --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to another validator
 ```
-haqqd tx staking delegate <VALOPER_ADDRESS> 100 --from <HAQQ_WALLET> --chain-id ${CHAIN_ID} --gas-prices 0.25 --gas-adjustment 1.5 --gas auto --yes
+haqqd tx staking delegate <VALOPER_ADDRESS> 100 --from <HAQQ_WALLET> --chain-id haqq_54211-3 --gas-prices 0.25 --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Redelegate tokens to another validator
 ```
-haqqd tx staking redelegate $(haqqd keys show <HAQQ_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100 --from <HAQQ_WALLET> --chain-id ${CHAIN_ID} --gas-prices 0.25 --gas-adjustment 1.5 --gas auto --yes
+haqqd tx staking redelegate $(haqqd keys show <HAQQ_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100 --from <HAQQ_WALLET> --chain-id haqq_54211-3 --gas-prices 0.25 --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Unbond tokens from staking
 ```
-haqqd tx staking unbond $(haqqd keys show <HAQQ_WALLET> --bech val -a) 100 --from <HAQQ_WALLET> --chain-id ${CHAIN_ID} --gas-prices 0.25 --gas-adjustment 1.5 --gas auto --yes
+haqqd tx staking unbond $(haqqd keys show <HAQQ_WALLET> --bech val -a) 100 --from <HAQQ_WALLET> --chain-id haqq_54211-3 --gas-prices 0.25 --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Withdraw all rewards from staking
 ```
-haqqd tx distribution withdraw-all-rewards --from <HAQQ_WALLET> --chain-id ${CHAIN_ID} --gas-prices 0.25 --gas-adjustment 1.5 --gas auto --yes
+haqqd tx distribution withdraw-all-rewards --from <HAQQ_WALLET> --chain-id haqq_54211-3 --gas-prices 0.25 --gas-adjustment 1.5 --gas auto --yes
 ```
 
 ### Withdraw validator rewards and comission
 ```
-haqqd tx distribution withdraw-rewards $(haqqd keys show <HAQQ_WALLET> --bech val -a) --commission --from wallet --chain-id ${CHAIN_ID} --gas-adjustment 1.5 --gas auto --gas-prices 0.25 -y
+haqqd tx distribution withdraw-rewards $(haqqd keys show <HAQQ_WALLET> --bech val -a) --commission --from wallet --chain-id haqq_54211-3 --gas-adjustment 1.5 --gas auto --gas-prices 0.25 -y
 
 ```
 
 ## Governance
 ### Vote "YES"
 ```
-haqqd tx gov vote <proposal_id> yes --from <HAQQ_WALLET> --chain-id ${CHAIN_ID} --gas-prices 0.25 --gas-adjustment 1.5 --gas auto --yes
+haqqd tx gov vote <proposal_id> yes --from <HAQQ_WALLET> --chain-id haqq_54211-3 --gas-prices 0.25 --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Vote "NO"
 ```
-haqqd tx gov vote <proposal_id> no --from <HAQQ_WALLET> --chain-id ${CHAIN_ID} --gas-prices 0.25 --gas-adjustment 1.5 --gas auto --yes
+haqqd tx gov vote <proposal_id> no --from <HAQQ_WALLET> --chain-id haqq_54211-3 --gas-prices 0.25 --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Abstain from voting
 ```
-haqqd tx gov vote <proposal_id> abstain --from <HAQQ_WALLET> --chain-id ${CHAIN_ID} --gas-adjustment 1.5 --gas auto --gas-prices 0.25 -y
+haqqd tx gov vote <proposal_id> abstain --from <HAQQ_WALLET> --chain-id haqq_54211-3 --gas-adjustment 1.5 --gas auto --gas-prices 0.25 -y
 ```
 
 
