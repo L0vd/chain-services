@@ -28,11 +28,11 @@ bcnad keys delete <key_name>
 *port 56 was taken as an example, you can use numbers from 1 to 64 to set custom node port*
 
 ```
-BCNA_PORT=56
+BITCANNA_PORT=56
 ```
 ```
-sed -i.bak -e "s%^proxy_app = \"tcp://127.0.0.1:26658\"%proxy_app = \"tcp://127.0.0.1:${BCNA_PORT}658\"%; s%^laddr = \"tcp://127.0.0.1:26657\"%laddr = \"tcp://127.0.0.1:${BCNA_PORT}657\"%; s%^pprof_laddr = \"localhost:6060\"%pprof_laddr = \"localhost:${BCNA_PORT}060\"%; s%^laddr = \"tcp://0.0.0.0:26656\"%laddr = \"tcp://0.0.0.0:${BCNA_PORT}656\"%; s%^prometheus_listen_addr = \":26660\"%prometheus_listen_addr = \":${BCNA_PORT}660\"%" $HOME/.bcna/config/config.toml
-sed -i.bak -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:${BCNA_PORT}317\"%; s%^address = \":8080\"%address = \":${BCNA_PORT}080\"%; s%^address = \"0.0.0.0:9090\"%address = \"0.0.0.0:${BCNA_PORT}090\"%; s%^address = \"0.0.0.0:9091\"%address = \"0.0.0.0:${BCNA_PORT}091\"%; s%^address = \"0.0.0.0:8545\"%address = \"0.0.0.0:${BCNA_PORT}545\"%; s%^ws-address = \"0.0.0.0:8546\"%ws-address = \"0.0.0.0:${BCNA_PORT}546\"%" $HOME/.bcna/config/app.toml
+sed -i.bak -e "s%^proxy_app = \"tcp://127.0.0.1:26658\"%proxy_app = \"tcp://127.0.0.1:${BITCANNA_PORT}658\"%; s%^laddr = \"tcp://127.0.0.1:26657\"%laddr = \"tcp://127.0.0.1:${BITCANNA_PORT}657\"%; s%^pprof_laddr = \"localhost:6060\"%pprof_laddr = \"localhost:${BITCANNA_PORT}060\"%; s%^laddr = \"tcp://0.0.0.0:26656\"%laddr = \"tcp://0.0.0.0:${BITCANNA_PORT}656\"%; s%^prometheus_listen_addr = \":26660\"%prometheus_listen_addr = \":${BITCANNA_PORT}660\"%" /$HOME/.bcna/config/config.toml
+sed -i.bak -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:${BITCANNA_PORT}317\"%; s%^address = \"tcp://localhost:1317\"%address = \"tcp://0.0.0.0:${BITCANNA_PORT}317\"%; s%^address = \":8080\"%address = \":${BITCANNA_PORT}080\"%; s%^address = \"0.0.0.0:9090\"%address = \"0.0.0.0:${BITCANNA_PORT}090\"%; s%^address = \"localhost:9090\"%address = \"localhost:${BITCANNA_PORT}090\"%; s%^address = \"0.0.0.0:9091\"%address = \"0.0.0.0:${BITCANNA_PORT}091\"%; s%^address = \"localhost:9091\"%address = \"localhost:${BITCANNA_PORT}091\"%; s%^address = \"0.0.0.0:8545\"%address = \"0.0.0.0:${BITCANNA_PORT}545\"%; s%^ws-address = \"0.0.0.0:8546\"%ws-address = \"0.0.0.0:${BITCANNA_PORT}546\"%" /$HOME/.bcna/config/app.toml
 ```
 ### Config pruning
 ```
@@ -51,7 +51,7 @@ sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.bcna/config/config.toml
 ```
 ### Set minimum gas prices
 ```
-sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.1ubcna\"/" $HOME/.bcna/config/app.toml
+sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0ubcna\"/" $HOME/.bcna/config/app.toml
 ```
 
 ## Validator configuration
@@ -65,13 +65,13 @@ bcnad tx staking create-validator \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
 --pubkey=$(bcnad tendermint show-validator) \
---moniker <BCNA_NODENAME> \
+--moniker <BITCANNA_NODENAME> \
 --chain-id bitcanna-1 \
---from <BCNA_WALLET> \
+--from <BITCANNA_WALLET> \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
 --website <YOUR_WEBSITE> \
---gas-prices 0.1ubcna \
+--gas-prices 0ubcna \
 --gas-adjustment 1.5 \
 --gas auto \
 --yes
@@ -79,25 +79,25 @@ bcnad tx staking create-validator \
 ### Edit validator
 ```
 bcnad tx staking edit-validator \
---new-moniker <BCNA_NODENAME> \
+--new-moniker <BITCANNA_NODENAME> \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
 --website <YOUR_WEBSITE> \
 --chain-id bitcanna-1 \
 --commission-rate 0.05 \
---from <BCNA_WALLET> \
---gas-prices 0.1ubcna \
+--from <BITCANNA_WALLET> \
+--gas-prices 0ubcna \
 --gas-adjustment 1.5 \
 --gas auto \
 --yes
 ```
 ### View validator info
 ```
-bcnad q staking validator $(bcnad keys show <BCNA_WALLET> --bech val -a)
+bcnad q staking validator $(bcnad keys show <BITCANNA_WALLET> --bech val -a)
 ```
 ### Unjail validator
 ```
-bcnad tx slashing unjail --from <BCNA_WALLET> --chain-id bitcanna-1 --gas-prices 0.1ubcna --gas-adjustment 1.5 --gas auto --yes 
+bcnad tx slashing unjail --from <BITCANNA_WALLET> --chain-id bitcanna-1 --gas-prices 0ubcna --gas-adjustment 1.5 --gas auto --yes 
 ```
 ### Signing info
 ```
@@ -108,41 +108,47 @@ bcnad query slashing signing-info $(bcnad tendermint show-validator)
 
 ### Send tokens
 ```
-bcnad tx bank send wallet <DEST_WALLET_ADDRESS> 100ubcna --from <BCNA_WALLET> --chain-id bitcanna-1 --gas-prices 0.1ubcna --gas-adjustment 1.5 --gas auto --yes
+bcnad tx bank send wallet <DEST_WALLET_ADDRESS> 100ubcna --from <BITCANNA_WALLET> --chain-id bitcanna-1 --gas-prices 0ubcna --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to your validator
 ```
-bcnad tx staking delegate $(bcnad keys show <BCNA_WALLET> --bech val -a) 100ubcna --from <BCNA_WALLET> --chain-id bitcanna-1 --gas-prices 0.1ubcna --gas-adjustment 1.5 --gas auto --yes
+bcnad tx staking delegate $(bcnad keys show <BITCANNA_WALLET> --bech val -a) 100ubcna --from <BITCANNA_WALLET> --chain-id bitcanna-1 --gas-prices 0ubcna --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to another validator
 ```
-bcnad tx staking delegate <VALOPER_ADDRESS> 100ubcna --from <BCNA_WALLET> --chain-id bitcanna-1 --gas-prices 0.1ubcna --gas-adjustment 1.5 --gas auto --yes
+bcnad tx staking delegate <VALOPER_ADDRESS> 100ubcna --from <BITCANNA_WALLET> --chain-id bitcanna-1 --gas-prices 0ubcna --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Redelegate tokens to another validator
 ```
-bcnad tx staking redelegate <FROM_VALOPER_ADDRESS> <TO_VALOPER_ADDRESS> 100ubcna --from <BCNA_WALLET> --chain-id bitcanna-1 --gas-prices 0.1ubcna --gas-adjustment 1.5 --gas auto --yes
+bcnad tx staking redelegate $(bcnad keys show <BITCANNA_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100ubcna --from <BITCANNA_WALLET> --chain-id bitcanna-1 --gas-prices 0ubcna --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Unbond tokens from staking
 ```
-bcnad tx staking unbond <VALOPER_ADDRESS> 100ubcna --from <BCNA_WALLET> --chain-id bitcanna-1 --gas-prices 0.1ubcna --gas-adjustment 1.5 --gas auto --yes
+bcnad tx staking unbond $(bcnad keys show <BITCANNA_WALLET> --bech val -a) 100ubcna --from <BITCANNA_WALLET> --chain-id bitcanna-1 --gas-prices 0ubcna --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Withdraw all rewards from staking
 ```
-bcnad tx distribution withdraw-all-rewards --from <BCNA_WALLET> --chain-id bitcanna-1 --gas-prices 0.1ubcna --gas-adjustment 1.5 --gas auto --yes
+bcnad tx distribution withdraw-all-rewards --from <BITCANNA_WALLET> --chain-id bitcanna-1 --gas-prices 0ubcna --gas-adjustment 1.5 --gas auto --yes
+```
+
+### Withdraw validator rewards and comission
+```
+bcnad tx distribution withdraw-rewards $(bcnad keys show <BITCANNA_WALLET> --bech val -a) --commission --from wallet --chain-id bitcanna-1 --gas-adjustment 1.5 --gas auto --gas-prices 0ubcna -y
+
 ```
 
 ## Governance
 ### Vote "YES"
 ```
-bcnad tx gov vote <proposal_id> yes --from <BCNA_WALLET> --chain-id bitcanna-1 --gas-prices 0.1ubcna --gas-adjustment 1.5 --gas auto --yes
+bcnad tx gov vote <proposal_id> yes --from <BITCANNA_WALLET> --chain-id bitcanna-1 --gas-prices 0ubcna --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Vote "NO"
 ```
-bcnad tx gov vote <proposal_id> no --from <BCNA_WALLET> --chain-id bitcanna-1 --gas-prices 0.1ubcna --gas-adjustment 1.5 --gas auto --yes
+bcnad tx gov vote <proposal_id> no --from <BITCANNA_WALLET> --chain-id bitcanna-1 --gas-prices 0ubcna --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Abstain from voting
 ```
-bcnad tx gov vote <proposal_id> abstain --from <BCNA_WALLET> --chain-id bitcanna-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.1ubcna -y
+bcnad tx gov vote <proposal_id> abstain --from <BITCANNA_WALLET> --chain-id bitcanna-1 --gas-adjustment 1.5 --gas auto --gas-prices 0ubcna -y
 ```
 
 
