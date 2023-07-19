@@ -55,12 +55,12 @@ source $HOME/.bash_profile
 
 ### Configure your node
 ```
-archwaydd config chain-id ${ARCHWAY_CHAIN_ID}
+archwayd config chain-id ${ARCHWAY_CHAIN_ID}
 ```
 
 ### Initialize your node
 ```
-archwaydd init ${ARCHWAY_NODENAME} --chain-id ${ARCHWAY_CHAIN_ID}
+archwayd init ${ARCHWAY_NODENAME} --chain-id ${ARCHWAY_CHAIN_ID}
 ```
 
 ### Download genesis
@@ -106,14 +106,14 @@ sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.archway/config/config.tom
 
 ### Create Service
 ```
-sudo tee /etc/systemd/system/archwaydd.service > /dev/null <<EOF
+sudo tee /etc/systemd/system/archwayd.service > /dev/null <<EOF
 [Unit]
 Description=Archway mainnet
 After=network-online.target
 
 [Service]
 User=$USER
-ExecStart=$(which archwaydd) start
+ExecStart=$(which archwayd) start
 Restart=on-failure
 RestartSec=3
 LimitNOFILE=65535
@@ -126,9 +126,9 @@ EOF
 ### Reset blockchain info and restart your node
 ```
 sudo systemctl daemon-reload
-sudo systemctl enable archwaydd
-archwaydd tendermint unsafe-reset-all --home $HOME/.archway --keep-addr-book
-sudo systemctl restart archwaydd && sudo journalctl -u archwaydd -f -o cat
+sudo systemctl enable archwayd
+archwayd tendermint unsafe-reset-all --home $HOME/.archway --keep-addr-book
+sudo systemctl restart archwayd && sudo journalctl -u archwayd -f -o cat
 ```
 
 ### (OPTIONAL) Use State Sync
@@ -140,17 +140,17 @@ sudo systemctl restart archwaydd && sudo journalctl -u archwaydd -f -o cat
 
 #### 1. Add a new key
 ```
-archwaydd keys add ${ARCHWAY_WALLET}
+archwayd keys add ${ARCHWAY_WALLET}
 ```
 ##### (OR)
 
 #### 1. Recover your key
 ```
-archwaydd keys add ${ARCHWAY_WALLET} --recover
+archwayd keys add ${ARCHWAY_WALLET} --recover
 ```
 
 ```
-ARCHWAY_WALLET_ADDR=$(archwaydd keys show ${ARCHWAY_WALLET} -a)
+ARCHWAY_WALLET_ADDR=$(archwayd keys show ${ARCHWAY_WALLET} -a)
 echo "export ARCHWAY_WALLET_ADDR=${ARCHWAY_WALLET_ADDR}" >> $HOME/.bash_profile
 
 source $HOME/.bash_profile
@@ -164,14 +164,14 @@ Wait until the node is synchronized.
 {% endhint %}
 
 ```
-archwaydd tx staking create-validator \
+archwayd tx staking create-validator \
 --amount 1000000aarch \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
 --details "" \
---pubkey=$(archwaydd tendermint show-validator) \
+--pubkey=$(archwayd tendermint show-validator) \
 --moniker ${ARCHWAY_NODENAME} \
 --chain-id ${ARCHWAY_CHAIN_ID} \
 --from ${ARCHWAY_WALLET_ADDR} \
