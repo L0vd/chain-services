@@ -2,7 +2,7 @@
 
 
 ##### Overview
-
+Archway is an incentivized smart contract chain for the Cosmos ecosystem that allows developers to deploy high-performance dapps and get rewarded for the value they contribute to the network.
 
 
 ##### Official links
@@ -13,6 +13,7 @@
 |  |  |
 | ------ | ------ |
 | Chain-id | archway-1 |
+| Binary name | archwaydd |
 | Binary version | v1.0.1 |
 
 ##### Explorer
@@ -32,5 +33,5 @@ archway-mainnet.grpc.l0vd.com:80
 
 PEER
 ```
-68cac650b02d5f62fa1365cff979da7977abea26@archway-mainnet.peers.l0vd.com:26657
+68cac650b02d5f62fa1365cff979da7977abea26@archway-mainnet.peers.l0vd.com:26656
 ```
