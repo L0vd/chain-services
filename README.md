@@ -54,6 +54,8 @@
 
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/nois.svg" data-size="line"> [Nois](testnets/nois/)
 
+<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/noria.png" data-size="line"> [Noria](testnets/noria/)
+
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/ojo.png" data-size="line"> [Ojo](testnets/ojo/)
 
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/ollo.png" data-size="line"> [Ollo](testnets/ollo/)
