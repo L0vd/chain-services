@@ -72,11 +72,11 @@ wget "$HOME/.noria/config/genesis.json" ""
 
 #### If you want to use non-default ports
 ```
-NORIA_PORT=<SET_CUSTOM_PORT> #Example: NORIA_PORT=56 (numbers from 1 to 64)
+NORIA_PORT=<SET_CUSTOM_PORT> #Example: ${NORIA_PORT}=56 (numbers from 1 to 64)
 ```
 ```
-sed -i.bak -e "s%^proxy_app = \"tcp://127.0.0.1:26658\"%proxy_app = \"tcp://127.0.0.1:NORIA_PORT658\"%; s%^laddr = \"tcp://127.0.0.1:26657\"%laddr = \"tcp://127.0.0.1:NORIA_PORT657\"%; s%^pprof_laddr = \"localhost:6060\"%pprof_laddr = \"localhost:NORIA_PORT060\"%; s%^laddr = \"tcp://0.0.0.0:26656\"%laddr = \"tcp://0.0.0.0:NORIA_PORT656\"%; s%^prometheus_listen_addr = \":26660\"%prometheus_listen_addr = \":NORIA_PORT660\"%" /$HOME/.noria/config/config.toml
-sed -i.bak -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:NORIA_PORT317\"%; s%^address = \"tcp://localhost:1317\"%address = \"tcp://0.0.0.0:NORIA_PORT317\"%; s%^address = \":8080\"%address = \":NORIA_PORT080\"%; s%^address = \"0.0.0.0:9090\"%address = \"0.0.0.0:NORIA_PORT090\"%; s%^address = \"localhost:9090\"%address = \"localhost:NORIA_PORT090\"%; s%^address = \"0.0.0.0:9091\"%address = \"0.0.0.0:NORIA_PORT091\"%; s%^address = \"localhost:9091\"%address = \"localhost:NORIA_PORT091\"%; s%^address = \"0.0.0.0:8545\"%address = \"0.0.0.0:NORIA_PORT545\"%; s%^ws-address = \"0.0.0.0:8546\"%ws-address = \"0.0.0.0:NORIA_PORT546\"%" /$HOME/.noria/config/app.toml
+sed -i.bak -e "s%^proxy_app = \"tcp://127.0.0.1:26658\"%proxy_app = \"tcp://127.0.0.1:${NORIA_PORT}658\"%; s%^laddr = \"tcp://127.0.0.1:26657\"%laddr = \"tcp://127.0.0.1:${NORIA_PORT}657\"%; s%^pprof_laddr = \"localhost:6060\"%pprof_laddr = \"localhost:${NORIA_PORT}060\"%; s%^laddr = \"tcp://0.0.0.0:26656\"%laddr = \"tcp://0.0.0.0:${NORIA_PORT}656\"%; s%^prometheus_listen_addr = \":26660\"%prometheus_listen_addr = \":${NORIA_PORT}660\"%" /$HOME/.noria/config/config.toml
+sed -i.bak -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:${NORIA_PORT}317\"%; s%^address = \"tcp://localhost:1317\"%address = \"tcp://0.0.0.0:${NORIA_PORT}317\"%; s%^address = \":8080\"%address = \":${NORIA_PORT}080\"%; s%^address = \"0.0.0.0:9090\"%address = \"0.0.0.0:${NORIA_PORT}090\"%; s%^address = \"localhost:9090\"%address = \"localhost:${NORIA_PORT}090\"%; s%^address = \"0.0.0.0:9091\"%address = \"0.0.0.0:${NORIA_PORT}091\"%; s%^address = \"localhost:9091\"%address = \"localhost:${NORIA_PORT}091\"%; s%^address = \"0.0.0.0:8545\"%address = \"0.0.0.0:${NORIA_PORT}545\"%; s%^ws-address = \"0.0.0.0:8546\"%ws-address = \"0.0.0.0:${NORIA_PORT}546\"%" /$HOME/.noria/config/app.toml
 ```
 
 
