@@ -6,19 +6,19 @@ Please note that the values in <> must be changed to your own values
 
 ### Add new key
 ```
-noria keys add <key_name>
+noriad keys add <key_name>
 ```
 ### Recover keys from seed
 ```
-noria keys add <key_name> --recover
+noriad keys add <key_name> --recover
 ```
 ### Show all keys
 ```
-noria keys list
+noriad keys list
 ```
 ### Delete key
 ```
-noria keys delete <key_name>
+noriad keys delete <key_name>
 ```
 
 ## Node configuration
@@ -58,13 +58,13 @@ sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.0025unoria\"/" $H
 
 ### Create validator
 ```
-noria tx staking create-validator \
+noriad tx staking create-validator \
 --amount 1000000unoria \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
---pubkey=$(noria tendermint show-validator) \
+--pubkey=$(noriad tendermint show-validator) \
 --moniker <NORIA_NODENAME> \
 --chain-id oasis-3 \
 --from <NORIA_WALLET> \
@@ -78,7 +78,7 @@ noria tx staking create-validator \
 ```
 ### Edit validator
 ```
-noria tx staking edit-validator \
+noriad tx staking edit-validator \
 --new-moniker <NORIA_NODENAME> \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
@@ -93,97 +93,97 @@ noria tx staking edit-validator \
 ```
 ### View validator info
 ```
-noria q staking validator $(noria keys show <NORIA_WALLET> --bech val -a)
+noriad q staking validator $(noriad keys show <NORIA_WALLET> --bech val -a)
 ```
 ### Unjail validator
 ```
-noria tx slashing unjail --from <NORIA_WALLET> --chain-id oasis-3 --gas-prices 0.0025unoria --gas-adjustment 1.5 --gas auto --yes 
+noriad tx slashing unjail --from <NORIA_WALLET> --chain-id oasis-3 --gas-prices 0.0025unoria --gas-adjustment 1.5 --gas auto --yes 
 ```
 ### Signing info
 ```
-noria query slashing signing-info $(noria tendermint show-validator)
+noriad query slashing signing-info $(noriad tendermint show-validator)
 ```
 
 ## Token operations
 
 ### Send tokens
 ```
-noria tx bank send wallet <DEST_WALLET_ADDRESS> 100unoria --from <NORIA_WALLET> --chain-id oasis-3 --gas-prices 0.0025unoria --gas-adjustment 1.5 --gas auto --yes
+noriad tx bank send wallet <DEST_WALLET_ADDRESS> 100unoria --from <NORIA_WALLET> --chain-id oasis-3 --gas-prices 0.0025unoria --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to your validator
 ```
-noria tx staking delegate $(noria keys show <NORIA_WALLET> --bech val -a) 100unoria --from <NORIA_WALLET> --chain-id oasis-3 --gas-prices 0.0025unoria --gas-adjustment 1.5 --gas auto --yes
+noriad tx staking delegate $(noriad keys show <NORIA_WALLET> --bech val -a) 100unoria --from <NORIA_WALLET> --chain-id oasis-3 --gas-prices 0.0025unoria --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to another validator
 ```
-noria tx staking delegate <VALOPER_ADDRESS> 100unoria --from <NORIA_WALLET> --chain-id oasis-3 --gas-prices 0.0025unoria --gas-adjustment 1.5 --gas auto --yes
+noriad tx staking delegate <VALOPER_ADDRESS> 100unoria --from <NORIA_WALLET> --chain-id oasis-3 --gas-prices 0.0025unoria --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Redelegate tokens to another validator
 ```
-noria tx staking redelegate $(noria keys show <NORIA_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100unoria --from <NORIA_WALLET> --chain-id oasis-3 --gas-prices 0.0025unoria --gas-adjustment 1.5 --gas auto --yes
+noriad tx staking redelegate $(noriad keys show <NORIA_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100unoria --from <NORIA_WALLET> --chain-id oasis-3 --gas-prices 0.0025unoria --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Unbond tokens from staking
 ```
-noria tx staking unbond $(noria keys show <NORIA_WALLET> --bech val -a) 100unoria --from <NORIA_WALLET> --chain-id oasis-3 --gas-prices 0.0025unoria --gas-adjustment 1.5 --gas auto --yes
+noriad tx staking unbond $(noriad keys show <NORIA_WALLET> --bech val -a) 100unoria --from <NORIA_WALLET> --chain-id oasis-3 --gas-prices 0.0025unoria --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Withdraw all rewards from staking
 ```
-noria tx distribution withdraw-all-rewards --from <NORIA_WALLET> --chain-id oasis-3 --gas-prices 0.0025unoria --gas-adjustment 1.5 --gas auto --yes
+noriad tx distribution withdraw-all-rewards --from <NORIA_WALLET> --chain-id oasis-3 --gas-prices 0.0025unoria --gas-adjustment 1.5 --gas auto --yes
 ```
 
 ### Withdraw validator rewards and comission
 ```
-noria tx distribution withdraw-rewards $(noria keys show <NORIA_WALLET> --bech val -a) --commission --from wallet --chain-id oasis-3 --gas-adjustment 1.5 --gas auto --gas-prices 0.0025unoria -y
+noriad tx distribution withdraw-rewards $(noriad keys show <NORIA_WALLET> --bech val -a) --commission --from wallet --chain-id oasis-3 --gas-adjustment 1.5 --gas auto --gas-prices 0.0025unoria -y
 
 ```
 
 ## Governance
 ### Vote "YES"
 ```
-noria tx gov vote <proposal_id> yes --from <NORIA_WALLET> --chain-id oasis-3 --gas-prices 0.0025unoria --gas-adjustment 1.5 --gas auto --yes
+noriad tx gov vote <proposal_id> yes --from <NORIA_WALLET> --chain-id oasis-3 --gas-prices 0.0025unoria --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Vote "NO"
 ```
-noria tx gov vote <proposal_id> no --from <NORIA_WALLET> --chain-id oasis-3 --gas-prices 0.0025unoria --gas-adjustment 1.5 --gas auto --yes
+noriad tx gov vote <proposal_id> no --from <NORIA_WALLET> --chain-id oasis-3 --gas-prices 0.0025unoria --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Abstain from voting
 ```
-noria tx gov vote <proposal_id> abstain --from <NORIA_WALLET> --chain-id oasis-3 --gas-adjustment 1.5 --gas auto --gas-prices 0.0025unoria -y
+noriad tx gov vote <proposal_id> abstain --from <NORIA_WALLET> --chain-id oasis-3 --gas-adjustment 1.5 --gas auto --gas-prices 0.0025unoria -y
 ```
 
 
 ## General commands
 ### Check node status
 ```
-noria status | jq
+noriad status | jq
 ```
 ### Check service status
 ```
-sudo systemctl status noria
+sudo systemctl status noriad
 ```
 ### Check logs
 ```
-sudo journalctl -u noria -f --no-hostname -o cat
+sudo journalctl -u noriad -f --no-hostname -o cat
 ```
 ### Restart service
 ```
-sudo systemctl restart noria
+sudo systemctl restart noriad
 ```
 ### Stop service
 ```
-sudo systemctl stop noria
+sudo systemctl stop noriad
 ```
 ### Start service
 ```
-sudo systemctl start noria
+sudo systemctl start noriad
 ```
 ### Disable service
 ```
-sudo systemctl disable noria
+sudo systemctl disable noriad
 ```
 ### Enable service
 ```
-sudo systemctl enable noria
+sudo systemctl enable noriad
 ```
 ### Reload service after changes
 ```

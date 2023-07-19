@@ -55,12 +55,12 @@ source $HOME/.bash_profile
 
 ### Configure your node
 ```
-noria config chain-id ${NORIA_CHAIN_ID}
+noriad config chain-id ${NORIA_CHAIN_ID}
 ```
 
 ### Initialize your node
 ```
-noria init ${NORIA_NODENAME} --chain-id ${NORIA_CHAIN_ID}
+noriad init ${NORIA_NODENAME} --chain-id ${NORIA_CHAIN_ID}
 ```
 
 ### Download genesis
@@ -75,8 +75,8 @@ wget "$HOME/.noria/config/genesis.json" ""
 NORIA_PORT=<SET_CUSTOM_PORT> #Example: NORIA_PORT=56 (numbers from 1 to 64)
 ```
 ```
-sed -i.bak -e "s%^proxy_app = \"tcp://127.0.0.1:26658\"%proxy_app = \"tcp://127.0.0.1:$"NORIA_PORT"658\"%; s%^laddr = \"tcp://127.0.0.1:26657\"%laddr = \"tcp://127.0.0.1:$"NORIA_PORT"657\"%; s%^pprof_laddr = \"localhost:6060\"%pprof_laddr = \"localhost:$"NORIA_PORT"060\"%; s%^laddr = \"tcp://0.0.0.0:26656\"%laddr = \"tcp://0.0.0.0:$"NORIA_PORT"656\"%; s%^prometheus_listen_addr = \":26660\"%prometheus_listen_addr = \":$"NORIA_PORT"660\"%" $HOME/.noria/config/config.toml
-sed -i.bak -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:$"NORIA_PORT"317\"%; s%^address = \":8080\"%address = \":$"NORIA_PORT"080\"%; s%^address = \"0.0.0.0:9090\"%address = \"0.0.0.0:$"NORIA_PORT"090\"%; s%^address = \"0.0.0.0:9091\"%address = \"0.0.0.0:$"NORIA_PORT"091\"%; s%^address = \"0.0.0.0:8545\"%address = \"0.0.0.0:$"NORIA_PORT"545\"%; s%^ws-address = \"0.0.0.0:8546\"%ws-address = \"0.0.0.0:$"NORIA_PORT"546\"%" $HOME/.noria/config/app.toml
+sed -i.bak -e "s%^proxy_app = \"tcp://127.0.0.1:26658\"%proxy_app = \"tcp://127.0.0.1:NORIA_PORT658\"%; s%^laddr = \"tcp://127.0.0.1:26657\"%laddr = \"tcp://127.0.0.1:NORIA_PORT657\"%; s%^pprof_laddr = \"localhost:6060\"%pprof_laddr = \"localhost:NORIA_PORT060\"%; s%^laddr = \"tcp://0.0.0.0:26656\"%laddr = \"tcp://0.0.0.0:NORIA_PORT656\"%; s%^prometheus_listen_addr = \":26660\"%prometheus_listen_addr = \":NORIA_PORT660\"%" /$HOME/.noria/config/config.toml
+sed -i.bak -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:NORIA_PORT317\"%; s%^address = \"tcp://localhost:1317\"%address = \"tcp://0.0.0.0:NORIA_PORT317\"%; s%^address = \":8080\"%address = \":NORIA_PORT080\"%; s%^address = \"0.0.0.0:9090\"%address = \"0.0.0.0:NORIA_PORT090\"%; s%^address = \"localhost:9090\"%address = \"localhost:NORIA_PORT090\"%; s%^address = \"0.0.0.0:9091\"%address = \"0.0.0.0:NORIA_PORT091\"%; s%^address = \"localhost:9091\"%address = \"localhost:NORIA_PORT091\"%; s%^address = \"0.0.0.0:8545\"%address = \"0.0.0.0:NORIA_PORT545\"%; s%^ws-address = \"0.0.0.0:8546\"%ws-address = \"0.0.0.0:NORIA_PORT546\"%" /$HOME/.noria/config/app.toml
 ```
 
 
@@ -106,14 +106,14 @@ sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.noria/config/config.toml
 
 ### Create Service
 ```
-sudo tee /etc/systemd/system/noria.service > /dev/null <<EOF
+sudo tee /etc/systemd/system/noriad.service > /dev/null <<EOF
 [Unit]
 Description=Noria ${CHAIN_CATEGORY}
 After=network-online.target
 
 [Service]
 User=$USER
-ExecStart=$(which noria) start
+ExecStart=$(which noriad) start
 Restart=on-failure
 RestartSec=3
 LimitNOFILE=65535
@@ -126,9 +126,9 @@ EOF
 ### Reset blockchain info and restart your node
 ```
 sudo systemctl daemon-reload
-sudo systemctl enable noria
-noria tendermint unsafe-reset-all --home $HOME/.noria --keep-addr-book
-sudo systemctl restart noria && sudo journalctl -u noria -f -o cat
+sudo systemctl enable noriad
+noriad tendermint unsafe-reset-all --home $HOME/.noria --keep-addr-book
+sudo systemctl restart noriad && sudo journalctl -u noriad -f -o cat
 ```
 
 ### (OPTIONAL) Use State Sync
@@ -140,17 +140,17 @@ sudo systemctl restart noria && sudo journalctl -u noria -f -o cat
 
 #### 1. Add a new key
 ```
-noria keys add ${NORIA_WALLET}
+noriad keys add ${NORIA_WALLET}
 ```
 ##### (OR)
 
 #### 1. Recover your key
 ```
-noria keys add ${NORIA_WALLET} --recover
+noriad keys add ${NORIA_WALLET} --recover
 ```
 
 ```
-NORIA_WALLET_ADDR=$(noria keys show ${NORIA_WALLET} -a)
+NORIA_WALLET_ADDR=$(noriad keys show ${NORIA_WALLET} -a)
 echo "export NORIA_WALLET_ADDR=${NORIA_WALLET_ADDR}" >> $HOME/.bash_profile
 
 source $HOME/.bash_profile
@@ -164,14 +164,14 @@ Wait until the node is synchronized.
 {% endhint %}
 
 ```
-noria tx staking create-validator \
+noriad tx staking create-validator \
 --amount 1000000unoria \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
 --details "" \
---pubkey=$(noria tendermint show-validator) \
+--pubkey=$(noriad tendermint show-validator) \
 --moniker ${NORIA_NODENAME} \
 --chain-id ${NORIA_CHAIN_ID} \
 --from ${NORIA_WALLET_ADDR} \
