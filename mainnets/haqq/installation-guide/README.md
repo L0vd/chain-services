@@ -55,12 +55,12 @@ source $HOME/.bash_profile
 
 ### Configure your node
 ```
-noriad config chain-id ${HAQQ_CHAIN_ID}
+haqqd config chain-id ${HAQQ_CHAIN_ID}
 ```
 
 ### Initialize your node
 ```
-noriad init ${HAQQ_NODENAME} --chain-id ${HAQQ_CHAIN_ID}
+haqqd init ${HAQQ_NODENAME} --chain-id ${HAQQ_CHAIN_ID}
 ```
 
 ### Download genesis
@@ -106,14 +106,14 @@ sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.haqqd/config/config.toml
 
 ### Create Service
 ```
-sudo tee /etc/systemd/system/noriad.service > /dev/null <<EOF
+sudo tee /etc/systemd/system/haqqd.service > /dev/null <<EOF
 [Unit]
 Description=Haqq mainnet
 After=network-online.target
 
 [Service]
 User=$USER
-ExecStart=$(which noriad) start
+ExecStart=$(which haqqd) start
 Restart=on-failure
 RestartSec=3
 LimitNOFILE=65535
@@ -126,9 +126,9 @@ EOF
 ### Reset blockchain info and restart your node
 ```
 sudo systemctl daemon-reload
-sudo systemctl enable noriad
-noriad tendermint unsafe-reset-all --home $HOME/.haqqd --keep-addr-book
-sudo systemctl restart noriad && sudo journalctl -u noriad -f -o cat
+sudo systemctl enable haqqd
+haqqd tendermint unsafe-reset-all --home $HOME/.haqqd --keep-addr-book
+sudo systemctl restart haqqd && sudo journalctl -u haqqd -f -o cat
 ```
 
 ### (OPTIONAL) Use State Sync
@@ -140,17 +140,17 @@ sudo systemctl restart noriad && sudo journalctl -u noriad -f -o cat
 
 #### 1. Add a new key
 ```
-noriad keys add ${HAQQ_WALLET}
+haqqd keys add ${HAQQ_WALLET}
 ```
 ##### (OR)
 
 #### 1. Recover your key
 ```
-noriad keys add ${HAQQ_WALLET} --recover
+haqqd keys add ${HAQQ_WALLET} --recover
 ```
 
 ```
-HAQQ_WALLET_ADDR=$(noriad keys show ${HAQQ_WALLET} -a)
+HAQQ_WALLET_ADDR=$(haqqd keys show ${HAQQ_WALLET} -a)
 echo "export HAQQ_WALLET_ADDR=${HAQQ_WALLET_ADDR}" >> $HOME/.bash_profile
 
 source $HOME/.bash_profile
@@ -164,14 +164,14 @@ Wait until the node is synchronized.
 {% endhint %}
 
 ```
-noriad tx staking create-validator \
+haqqd tx staking create-validator \
 --amount 1000000aISLM \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
 --details "" \
---pubkey=$(noriad tendermint show-validator) \
+--pubkey=$(haqqd tendermint show-validator) \
 --moniker ${HAQQ_NODENAME} \
 --chain-id ${HAQQ_CHAIN_ID} \
 --from ${HAQQ_WALLET_ADDR} \
