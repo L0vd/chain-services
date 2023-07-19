@@ -6,7 +6,7 @@
 
 ### Copy the entire command
 ```
-sudo systemctl stop haqqd
+sudo systemctl stop noriad
 SNAP_RPC="https://haqq-mainnet.rpc.l0vd.com:443"; \
 LATEST_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height); \
 BLOCK_HEIGHT=$((LATEST_HEIGHT - 2000)); \
@@ -21,7 +21,7 @@ s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" $HOME/.haqqd/con
 peers="e04d814cf820c498e64153c27b021be1a70b6f6b@haqq-mainnet.peers.l0vd.com:25656" \
 && sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/.haqqd/config/config.toml 
 
-haqqd tendermint unsafe-reset-all --home ~/.haqqd && sudo systemctl restart haqqd && journalctl -u haqqd -f --output cat
+noriad tendermint unsafe-reset-all --home ~/.haqqd && sudo systemctl restart noriad && journalctl -u noriad -f --output cat
 ```
 
 ### Turn off State Sync Mode after synchronization
