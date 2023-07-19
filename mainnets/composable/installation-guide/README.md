@@ -26,7 +26,7 @@ cd $HOME
 rm -rf composable-centauri
 git clone https://github.com/notional-labs/composable-centauri.git
 cd composable-centauri
-git checkout v2.3.5
+git checkout vv3.2.2
 make install
 ```
 
@@ -37,21 +37,30 @@ You should replace values in <> <br />
 <YOUR_WALLET> Here you shoud put the name of your wallet
 
 ```
-echo "export COMPOSABLE_WALLET="<YOUR_WALLET_NAME>"" >> $HOME/.bash_profile
-echo "export COMPOSABLE_NODENAME="<YOUR_MONIKER>"" >> $HOME/.bash_profile
-echo "export COMPOSABLE_CHAIN_ID="centauri-1"" >> $HOME/.bash_profile
+COMPOSABLE_WALLET="<YOUR_WALLET_NAME>"
+COMPOSABLE_NODENAME="<YOUR_MONIKER>"
+COMPOSABLE_CHAIN_ID="centauri-1"
+```
+
+```
+echo "
+export COMPOSABLE_WALLET=${COMPOSABLE_WALLET}
+export COMPOSABLE_NODENAME=${COMPOSABLE_NODENAME}
+export COMPOSABLE_CHAIN_ID=${COMPOSABLE_CHAIN_ID}
+" >> $HOME/.bash_profile
+
 source $HOME/.bash_profile
 ```
 
 
 ### Configure your node
 ```
-banksyd config chain-id ${COMPOSABLE_CHAIN_ID}
+centaurid config chain-id ${COMPOSABLE_CHAIN_ID}
 ```
 
 ### Initialize your node
 ```
-banksyd init ${COMPOSABLE_NODENAME} --chain-id ${COMPOSABLE_CHAIN_ID}
+centaurid init ${COMPOSABLE_NODENAME} --chain-id ${COMPOSABLE_CHAIN_ID}
 ```
 
 ### Download genesis
@@ -66,14 +75,14 @@ wget "$HOME/.banksy/config/genesis.json" "https://raw.githubusercontent.com/noti
 COMPOSABLE_PORT=<SET_CUSTOM_PORT> #Example: COMPOSABLE_PORT=56 (numbers from 1 to 64)
 ```
 ```
-sed -i.bak -e "s%^proxy_app = \"tcp://127.0.0.1:26658\"%proxy_app = \"tcp://127.0.0.1:$"COMPOSABLE_PORT"658\"%; s%^laddr = \"tcp://127.0.0.1:26657\"%laddr = \"tcp://127.0.0.1:$"COMPOSABLE_PORT"657\"%; s%^pprof_laddr = \"localhost:6060\"%pprof_laddr = \"localhost:$"COMPOSABLE_PORT"060\"%; s%^laddr = \"tcp://0.0.0.0:26656\"%laddr = \"tcp://0.0.0.0:$"COMPOSABLE_PORT"656\"%; s%^prometheus_listen_addr = \":26660\"%prometheus_listen_addr = \":$"COMPOSABLE_PORT"660\"%" $HOME/.banksy/config/config.toml
-sed -i.bak -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:$"COMPOSABLE_PORT"317\"%; s%^address = \":8080\"%address = \":$"COMPOSABLE_PORT"080\"%; s%^address = \"0.0.0.0:9090\"%address = \"0.0.0.0:$"COMPOSABLE_PORT"090\"%; s%^address = \"0.0.0.0:9091\"%address = \"0.0.0.0:$"COMPOSABLE_PORT"091\"%; s%^address = \"0.0.0.0:8545\"%address = \"0.0.0.0:$"COMPOSABLE_PORT"545\"%; s%^ws-address = \"0.0.0.0:8546\"%ws-address = \"0.0.0.0:$"COMPOSABLE_PORT"546\"%" $HOME/.banksy/config/app.toml
+sed -i.bak -e "s%^proxy_app = \"tcp://127.0.0.1:26658\"%proxy_app = \"tcp://127.0.0.1:${COMPOSABLE_PORT}658\"%; s%^laddr = \"tcp://127.0.0.1:26657\"%laddr = \"tcp://127.0.0.1:${COMPOSABLE_PORT}657\"%; s%^pprof_laddr = \"localhost:6060\"%pprof_laddr = \"localhost:${COMPOSABLE_PORT}060\"%; s%^laddr = \"tcp://0.0.0.0:26656\"%laddr = \"tcp://0.0.0.0:${COMPOSABLE_PORT}656\"%; s%^prometheus_listen_addr = \":26660\"%prometheus_listen_addr = \":${COMPOSABLE_PORT}660\"%" /$HOME/.banksy/config/config.toml
+sed -i.bak -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:${COMPOSABLE_PORT}317\"%; s%^address = \"tcp://localhost:1317\"%address = \"tcp://0.0.0.0:${COMPOSABLE_PORT}317\"%; s%^address = \":8080\"%address = \":${COMPOSABLE_PORT}080\"%; s%^address = \"0.0.0.0:9090\"%address = \"0.0.0.0:${COMPOSABLE_PORT}090\"%; s%^address = \"localhost:9090\"%address = \"localhost:${COMPOSABLE_PORT}090\"%; s%^address = \"0.0.0.0:9091\"%address = \"0.0.0.0:${COMPOSABLE_PORT}091\"%; s%^address = \"localhost:9091\"%address = \"localhost:${COMPOSABLE_PORT}091\"%; s%^address = \"0.0.0.0:8545\"%address = \"0.0.0.0:${COMPOSABLE_PORT}545\"%; s%^ws-address = \"0.0.0.0:8546\"%ws-address = \"0.0.0.0:${COMPOSABLE_PORT}546\"%" /$HOME/.banksy/config/app.toml
 ```
 
 
 ### Set seeds and peers
 ```
-PEERS="253f190c96d14ce98da8b7596385c1593a7be982@composable-mainnet.rpc.l0vd.com:23656"
+PEERS="253f190c96d14ce98da8b7596385c1593a7be982@composable-mainnet.peers.l0vd.com:23656"
 sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.banksy/config/config.toml
 ```
 
@@ -97,14 +106,14 @@ sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.banksy/config/config.toml
 
 ### Create Service
 ```
-sudo tee /etc/systemd/system/banksyd.service > /dev/null <<EOF
+sudo tee /etc/systemd/system/centaurid.service > /dev/null <<EOF
 [Unit]
 Description=Composable mainnet
 After=network-online.target
 
 [Service]
 User=$USER
-ExecStart=$(which banksyd) start
+ExecStart=$(which centaurid) start
 Restart=on-failure
 RestartSec=3
 LimitNOFILE=65535
@@ -117,26 +126,35 @@ EOF
 ### Reset blockchain info and restart your node
 ```
 sudo systemctl daemon-reload
-sudo systemctl enable banksyd
-banksyd tendermint unsafe-reset-all --home $HOME/.banksy --keep-addr-book
-sudo systemctl restart banksyd && sudo journalctl -u banksyd -f -o cat
+sudo systemctl enable centaurid
+centaurid tendermint unsafe-reset-all --home $HOME/.banksy --keep-addr-book
+sudo systemctl restart centaurid && sudo journalctl -u centaurid -f -o cat
 ```
 
 ### (OPTIONAL) Use State Sync
+
+#### [State Sync]()
+
 
 ### Starting a validator
 
 #### 1. Add a new key
 ```
-banksyd keys add ${COMPOSABLE_WALLET}
+centaurid keys add ${COMPOSABLE_WALLET}
 ```
 ##### (OR)
 
 #### 1. Recover your key
 ```
-banksyd keys add ${COMPOSABLE_WALLET} --recover
+centaurid keys add ${COMPOSABLE_WALLET} --recover
 ```
 
+```
+COMPOSABLE_WALLET_ADDR=$(centaurid keys show ${COMPOSABLE_WALLET} -a)
+echo "export COMPOSABLE_WALLET_ADDR=${COMPOSABLE_WALLET_ADDR}" >> $HOME/.bash_profile
+
+source $HOME/.bash_profile
+```
 
 
 ### 2. Create validator
@@ -146,18 +164,18 @@ Wait until the node is synchronized.
 {% endhint %}
 
 ```
-banksyd tx staking create-validator \
+centaurid tx staking create-validator \
 --amount 1000000ppica \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
 --details "" \
---pubkey=$(banksyd tendermint show-validator) \
+--pubkey=$(centaurid tendermint show-validator) \
 --moniker ${COMPOSABLE_NODENAME} \
 --chain-id ${COMPOSABLE_CHAIN_ID} \
---from ${COMPOSABLE_WALLET} \
---gas-prices 0.1ppica \
+--from ${COMPOSABLE_WALLET_ADDR} \
+--0ppica \
 --gas-adjustment 1.5 \
 --gas auto \
 --yes

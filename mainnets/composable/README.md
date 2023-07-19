@@ -6,14 +6,15 @@ The complete infrastructure for cross-chain smart contracts, applications, and m
 
 
 ##### Official links
-[Website](https://www.composable.finance/) | [Twitter](https://twitter.com/ComposableFin) | [Discord](https://discord.gg/composable) | [Github](https://github.com/notional-labs/composable-networks)
+[Website](https://www.composable.finance/) | [Twitter](https://twitter.com/ComposableFin) | [Discord](https://github.com/notional-labs/composable-networks) | [Github](https://github.com/notional-labs)
 
 ##### Chain info
 
 |  |  |
 | ------ | ------ |
 | Chain-id | centauri-1 |
-| Binary version | v2.3.5 |
+| Binary name | centaurid |
+| Binary version | vv3.2.2 |
 
 ##### Explorer
 [https://explorers.l0vd.com/composable-mainnet](https://explorers.l0vd.com/composable-mainnet)
