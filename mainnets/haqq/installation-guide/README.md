@@ -75,14 +75,14 @@ wget "$HOME/.haqqd/config/genesis.json" "https://raw.githubusercontent.com/haqq-
 HAQQ_PORT=<SET_CUSTOM_PORT> #Example: HAQQ_PORT=56 (numbers from 1 to 64)
 ```
 ```
-sed -i.bak -e "s%^proxy_app = \"tcp://127.0.0.1:26658\"%proxy_app = \"tcp://127.0.0.1:$"HAQQ_PORT"658\"%; s%^laddr = \"tcp://127.0.0.1:26657\"%laddr = \"tcp://127.0.0.1:$"HAQQ_PORT"657\"%; s%^pprof_laddr = \"localhost:6060\"%pprof_laddr = \"localhost:$"HAQQ_PORT"060\"%; s%^laddr = \"tcp://0.0.0.0:26656\"%laddr = \"tcp://0.0.0.0:$"HAQQ_PORT"656\"%; s%^prometheus_listen_addr = \":26660\"%prometheus_listen_addr = \":$"HAQQ_PORT"660\"%" $HOME/.haqqd/config/config.toml
-sed -i.bak -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:$"HAQQ_PORT"317\"%; s%^address = \":8080\"%address = \":$"HAQQ_PORT"080\"%; s%^address = \"0.0.0.0:9090\"%address = \"0.0.0.0:$"HAQQ_PORT"090\"%; s%^address = \"0.0.0.0:9091\"%address = \"0.0.0.0:$"HAQQ_PORT"091\"%; s%^address = \"0.0.0.0:8545\"%address = \"0.0.0.0:$"HAQQ_PORT"545\"%; s%^ws-address = \"0.0.0.0:8546\"%ws-address = \"0.0.0.0:$"HAQQ_PORT"546\"%" $HOME/.haqqd/config/app.toml
+sed -i.bak -e "s%^proxy_app = \"tcp://127.0.0.1:26658\"%proxy_app = \"tcp://127.0.0.1:${HAQQ_PORT}658\"%; s%^laddr = \"tcp://127.0.0.1:26657\"%laddr = \"tcp://127.0.0.1:${HAQQ_PORT}657\"%; s%^pprof_laddr = \"localhost:6060\"%pprof_laddr = \"localhost:${HAQQ_PORT}060\"%; s%^laddr = \"tcp://0.0.0.0:26656\"%laddr = \"tcp://0.0.0.0:${HAQQ_PORT}656\"%; s%^prometheus_listen_addr = \":26660\"%prometheus_listen_addr = \":${HAQQ_PORT}660\"%" /$HOME/.haqqd/config/config.toml
+sed -i.bak -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:${HAQQ_PORT}317\"%; s%^address = \"tcp://localhost:1317\"%address = \"tcp://0.0.0.0:${HAQQ_PORT}317\"%; s%^address = \":8080\"%address = \":${HAQQ_PORT}080\"%; s%^address = \"0.0.0.0:9090\"%address = \"0.0.0.0:${HAQQ_PORT}090\"%; s%^address = \"localhost:9090\"%address = \"localhost:${HAQQ_PORT}090\"%; s%^address = \"0.0.0.0:9091\"%address = \"0.0.0.0:${HAQQ_PORT}091\"%; s%^address = \"localhost:9091\"%address = \"localhost:${HAQQ_PORT}091\"%; s%^address = \"0.0.0.0:8545\"%address = \"0.0.0.0:${HAQQ_PORT}545\"%; s%^ws-address = \"0.0.0.0:8546\"%ws-address = \"0.0.0.0:${HAQQ_PORT}546\"%" /$HOME/.haqqd/config/app.toml
 ```
 
 
 ### Set seeds and peers
 ```
-PEERS="@haqq-mainnet.peers.l0vd.com:"
+PEERS="e04d814cf820c498e64153c27b021be1a70b6f6b@haqq-mainnet.peers.l0vd.com:25656"
 sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.haqqd/config/config.toml
 ```
 
@@ -100,7 +100,7 @@ sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"$pruning_interval\"/" $
 
 ### Set minimum gas price and null indexer
 ```
-sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0aislm\"/" $HOME/.haqqd/config/app.toml
+sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0aISLM\"/" $HOME/.haqqd/config/app.toml
 sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.haqqd/config/config.toml
 ```
 
@@ -150,7 +150,7 @@ haqqd keys add ${HAQQ_WALLET} --recover
 ```
 
 ```
-HAQQ_WALLET_ADDR=$(haqqd keys show HAQQ_WALLET -a)
+HAQQ_WALLET_ADDR=$(haqqd keys show ${HAQQ_WALLET} -a)
 echo "export HAQQ_WALLET_ADDR=${HAQQ_WALLET_ADDR}" >> $HOME/.bash_profile
 
 source $HOME/.bash_profile
@@ -165,7 +165,7 @@ Wait until the node is synchronized.
 
 ```
 haqqd tx staking create-validator \
---amount 1000000aislm \
+--amount 1000000aISLM \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
@@ -175,7 +175,7 @@ haqqd tx staking create-validator \
 --moniker ${HAQQ_NODENAME} \
 --chain-id ${HAQQ_CHAIN_ID} \
 --from ${HAQQ_WALLET_ADDR} \
---gas-prices 0.1aislm \
+--0.25aISLM \
 --gas-adjustment 1.5 \
 --gas auto \
 --yes
