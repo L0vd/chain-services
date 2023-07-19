@@ -72,7 +72,7 @@ wget "$HOME/.noria/config/genesis.json" ""
 
 #### If you want to use non-default ports
 ```
-NORIA_PORT=<SET_CUSTOM_PORT> #Example: ${NORIA_PORT}=56 (numbers from 1 to 64)
+NORIA_PORT=<SET_CUSTOM_PORT> #Example: NORIA_PORT=56 (numbers from 1 to 64)
 ```
 ```
 sed -i.bak -e "s%^proxy_app = \"tcp://127.0.0.1:26658\"%proxy_app = \"tcp://127.0.0.1:${NORIA_PORT}658\"%; s%^laddr = \"tcp://127.0.0.1:26657\"%laddr = \"tcp://127.0.0.1:${NORIA_PORT}657\"%; s%^pprof_laddr = \"localhost:6060\"%pprof_laddr = \"localhost:${NORIA_PORT}060\"%; s%^laddr = \"tcp://0.0.0.0:26656\"%laddr = \"tcp://0.0.0.0:${NORIA_PORT}656\"%; s%^prometheus_listen_addr = \":26660\"%prometheus_listen_addr = \":${NORIA_PORT}660\"%" /$HOME/.noria/config/config.toml
@@ -108,7 +108,7 @@ sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.noria/config/config.toml
 ```
 sudo tee /etc/systemd/system/noriad.service > /dev/null <<EOF
 [Unit]
-Description=Noria ${CHAIN_CATEGORY}
+Description=Noria testnet
 After=network-online.target
 
 [Service]
