@@ -24,7 +24,7 @@ fi
 ```
 cd $HOME
 rm -rf gitopia
-git clone https://github.com/gitopia/gitopia.git
+git clone https://github.com/gitopia-network/gitopia.git
 cd gitopia
 git checkout v2.1.0
 make install
@@ -37,21 +37,30 @@ You should replace values in <> <br />
 <YOUR_WALLET> Here you shoud put the name of your wallet
 
 ```
-echo "export GITOPIA_WALLET="<YOUR_WALLET_NAME>"" >> $HOME/.bash_profile
-echo "export GITOPIA_NODENAME="<YOUR_MONIKER>"" >> $HOME/.bash_profile
-echo "export GITOPIA_CHAIN_ID="gitopia"" >> $HOME/.bash_profile
+GITOPIA_WALLET="<YOUR_WALLET_NAME>"
+GITOPIA_NODENAME="<YOUR_MONIKER>"
+GITOPIA_CHAIN_ID="gitopia"
+```
+
+```
+echo "
+export GITOPIA_WALLET=${GITOPIA_WALLET}
+export GITOPIA_NODENAME=${GITOPIA_NODENAME}
+export GITOPIA_CHAIN_ID=${GITOPIA_CHAIN_ID}
+" >> $HOME/.bash_profile
+
 source $HOME/.bash_profile
 ```
 
 
 ### Configure your node
 ```
-gitopiad config chain-id $GITOPIA_CHAIN_ID
+gitopiad config chain-id ${GITOPIA_CHAIN_ID}
 ```
 
 ### Initialize your node
 ```
-gitopiad init $GITOPIA_NODENAME --chain-id $GITOPIA_CHAIN_ID
+gitopiad init ${GITOPIA_NODENAME} --chain-id ${GITOPIA_CHAIN_ID}
 ```
 
 ### Download genesis
@@ -66,14 +75,14 @@ wget "$HOME/.gitopia/config/genesis.json" "http://snapshots.l0vd.com/gitopia/gen
 GITOPIA_PORT=<SET_CUSTOM_PORT> #Example: GITOPIA_PORT=56 (numbers from 1 to 64)
 ```
 ```
-sed -i.bak -e "s%^proxy_app = \"tcp://127.0.0.1:26658\"%proxy_app = \"tcp://127.0.0.1:${GITOPIA_PORT}658\"%; s%^laddr = \"tcp://127.0.0.1:26657\"%laddr = \"tcp://127.0.0.1:${GITOPIA_PORT}657\"%; s%^pprof_laddr = \"localhost:6060\"%pprof_laddr = \"localhost:${GITOPIA_PORT}060\"%; s%^laddr = \"tcp://0.0.0.0:26656\"%laddr = \"tcp://0.0.0.0:${GITOPIA_PORT}656\"%; s%^prometheus_listen_addr = \":26660\"%prometheus_listen_addr = \":${GITOPIA_PORT}660\"%" $HOME/.gitopia/config/config.toml
-sed -i.bak -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:${GITOPIA_PORT}317\"%; s%^address = \":8080\"%address = \":${GITOPIA_PORT}080\"%; s%^address = \"0.0.0.0:9090\"%address = \"0.0.0.0:${GITOPIA_PORT}090\"%; s%^address = \"0.0.0.0:9091\"%address = \"0.0.0.0:${GITOPIA_PORT}091\"%; s%^address = \"0.0.0.0:8545\"%address = \"0.0.0.0:${GITOPIA_PORT}545\"%; s%^ws-address = \"0.0.0.0:8546\"%ws-address = \"0.0.0.0:${GITOPIA_PORT}546\"%" $HOME/.gitopia/config/app.toml
+sed -i.bak -e "s%^proxy_app = \"tcp://127.0.0.1:26658\"%proxy_app = \"tcp://127.0.0.1:${GITOPIA_PORT}658\"%; s%^laddr = \"tcp://127.0.0.1:26657\"%laddr = \"tcp://127.0.0.1:${GITOPIA_PORT}657\"%; s%^pprof_laddr = \"localhost:6060\"%pprof_laddr = \"localhost:${GITOPIA_PORT}060\"%; s%^laddr = \"tcp://0.0.0.0:26656\"%laddr = \"tcp://0.0.0.0:${GITOPIA_PORT}656\"%; s%^prometheus_listen_addr = \":26660\"%prometheus_listen_addr = \":${GITOPIA_PORT}660\"%" /$HOME/.gitopia/config/config.toml
+sed -i.bak -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:${GITOPIA_PORT}317\"%; s%^address = \"tcp://localhost:1317\"%address = \"tcp://0.0.0.0:${GITOPIA_PORT}317\"%; s%^address = \":8080\"%address = \":${GITOPIA_PORT}080\"%; s%^address = \"0.0.0.0:9090\"%address = \"0.0.0.0:${GITOPIA_PORT}090\"%; s%^address = \"localhost:9090\"%address = \"localhost:${GITOPIA_PORT}090\"%; s%^address = \"0.0.0.0:9091\"%address = \"0.0.0.0:${GITOPIA_PORT}091\"%; s%^address = \"localhost:9091\"%address = \"localhost:${GITOPIA_PORT}091\"%; s%^address = \"0.0.0.0:8545\"%address = \"0.0.0.0:${GITOPIA_PORT}545\"%; s%^ws-address = \"0.0.0.0:8546\"%ws-address = \"0.0.0.0:${GITOPIA_PORT}546\"%" /$HOME/.gitopia/config/app.toml
 ```
 
 
 ### Set seeds and peers
 ```
-PEERS="aa26aa0baa5dfc41c126d16d4dc48bb45151d560@gitopia-mainnet.peers.l0vd.com:21656"
+PEERS="aa26aa0baa5dfc41c126d16d4dc48bb45151d560@gitopia-mainnet.peers.l0vd.com:22656"
 sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.gitopia/config/config.toml
 ```
 
@@ -91,7 +100,7 @@ sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"$pruning_interval\"/" $
 
 ### Set minimum gas price and null indexer
 ```
-sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.01ulore\"/" $HOME/.gitopia/config/app.toml
+sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.001ulore\"/" $HOME/.gitopia/config/app.toml
 sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.gitopia/config/config.toml
 ```
 
@@ -99,7 +108,7 @@ sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.gitopia/config/config.tom
 ```
 sudo tee /etc/systemd/system/gitopiad.service > /dev/null <<EOF
 [Unit]
-Description=CGitopia mainnet
+Description=Gitopia mainnet
 After=network-online.target
 
 [Service]
@@ -131,15 +140,21 @@ sudo systemctl restart gitopiad && sudo journalctl -u gitopiad -f -o cat
 
 #### 1. Add a new key
 ```
-gitopiad keys add $GITOPIA_WALLET
+gitopiad keys add ${GITOPIA_WALLET}
 ```
 ##### (OR)
 
 #### 1. Recover your key
 ```
-gitopiad keys add $GITOPIA_WALLET --recover
+gitopiad keys add ${GITOPIA_WALLET} --recover
 ```
 
+```
+GITOPIA_WALLET_ADDR=$(gitopiad keys show ${GITOPIA_WALLET} -a)
+echo "export GITOPIA_WALLET_ADDR=${GITOPIA_WALLET_ADDR}" >> $HOME/.bash_profile
+
+source $HOME/.bash_profile
+```
 
 
 ### 2. Create validator
@@ -156,12 +171,13 @@ gitopiad tx staking create-validator \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
 --details "" \
---pubkey=$(gitopiad tendermint show-validator) \
---moniker $GITOPIA_NODENAME \
---chain-id $GITOPIA_CHAIN_ID \
---from $GITOPIA_WALLET \
---gas-prices 0.1ulore \
+--pubkey $(gitopiad tendermint show-validator) \
+--moniker ${GITOPIA_NODENAME} \
+--chain-id ${GITOPIA_CHAIN_ID} \
+--from ${GITOPIA_WALLET_ADDR} \
+--0.001ulore \
 --gas-adjustment 1.5 \
 --gas auto \
 --yes
 ```
+

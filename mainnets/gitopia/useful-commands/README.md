@@ -31,8 +31,8 @@ gitopiad keys delete <key_name>
 GITOPIA_PORT=56
 ```
 ```
-sed -i.bak -e "s%^proxy_app = \"tcp://127.0.0.1:26658\"%proxy_app = \"tcp://127.0.0.1:${GITOPIA_PORT}658\"%; s%^laddr = \"tcp://127.0.0.1:26657\"%laddr = \"tcp://127.0.0.1:${GITOPIA_PORT}657\"%; s%^pprof_laddr = \"localhost:6060\"%pprof_laddr = \"localhost:${GITOPIA_PORT}060\"%; s%^laddr = \"tcp://0.0.0.0:26656\"%laddr = \"tcp://0.0.0.0:${GITOPIA_PORT}656\"%; s%^prometheus_listen_addr = \":26660\"%prometheus_listen_addr = \":${GITOPIA_PORT}660\"%" $HOME/.gitopia/config/config.toml
-sed -i.bak -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:${GITOPIA_PORT}317\"%; s%^address = \":8080\"%address = \":${GITOPIA_PORT}080\"%; s%^address = \"0.0.0.0:9090\"%address = \"0.0.0.0:${GITOPIA_PORT}090\"%; s%^address = \"0.0.0.0:9091\"%address = \"0.0.0.0:${GITOPIA_PORT}091\"%; s%^address = \"0.0.0.0:8545\"%address = \"0.0.0.0:${GITOPIA_PORT}545\"%; s%^ws-address = \"0.0.0.0:8546\"%ws-address = \"0.0.0.0:${GITOPIA_PORT}546\"%" $HOME/.gitopia/config/app.toml
+sed -i.bak -e "s%^proxy_app = \"tcp://127.0.0.1:26658\"%proxy_app = \"tcp://127.0.0.1:${GITOPIA_PORT}658\"%; s%^laddr = \"tcp://127.0.0.1:26657\"%laddr = \"tcp://127.0.0.1:${GITOPIA_PORT}657\"%; s%^pprof_laddr = \"localhost:6060\"%pprof_laddr = \"localhost:${GITOPIA_PORT}060\"%; s%^laddr = \"tcp://0.0.0.0:26656\"%laddr = \"tcp://0.0.0.0:${GITOPIA_PORT}656\"%; s%^prometheus_listen_addr = \":26660\"%prometheus_listen_addr = \":${GITOPIA_PORT}660\"%" /$HOME/.gitopia/config/config.toml
+sed -i.bak -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:${GITOPIA_PORT}317\"%; s%^address = \"tcp://localhost:1317\"%address = \"tcp://0.0.0.0:${GITOPIA_PORT}317\"%; s%^address = \":8080\"%address = \":${GITOPIA_PORT}080\"%; s%^address = \"0.0.0.0:9090\"%address = \"0.0.0.0:${GITOPIA_PORT}090\"%; s%^address = \"localhost:9090\"%address = \"localhost:${GITOPIA_PORT}090\"%; s%^address = \"0.0.0.0:9091\"%address = \"0.0.0.0:${GITOPIA_PORT}091\"%; s%^address = \"localhost:9091\"%address = \"localhost:${GITOPIA_PORT}091\"%; s%^address = \"0.0.0.0:8545\"%address = \"0.0.0.0:${GITOPIA_PORT}545\"%; s%^ws-address = \"0.0.0.0:8546\"%ws-address = \"0.0.0.0:${GITOPIA_PORT}546\"%" /$HOME/.gitopia/config/app.toml
 ```
 ### Config pruning
 ```
@@ -51,7 +51,7 @@ sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.gitopia/config/config.tom
 ```
 ### Set minimum gas prices
 ```
-sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.1ulore\"/" $HOME/.gitopia/config/app.toml
+sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.001ulore\"/" $HOME/.gitopia/config/app.toml
 ```
 
 ## Validator configuration
@@ -64,14 +64,14 @@ gitopiad tx staking create-validator \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
---pubkey=$(gitopiad tendermint show-validator) \
+--pubkey $(gitopiad tendermint show-validator) \
 --moniker <GITOPIA_NODENAME> \
 --chain-id gitopia \
 --from <GITOPIA_WALLET> \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
 --website <YOUR_WEBSITE> \
---gas-prices 0.1ulore \
+--gas-prices 0.001ulore \
 --gas-adjustment 1.5 \
 --gas auto \
 --yes
@@ -86,7 +86,7 @@ gitopiad tx staking edit-validator \
 --chain-id gitopia \
 --commission-rate 0.05 \
 --from <GITOPIA_WALLET> \
---gas-prices 0.1ulore \
+--gas-prices 0.001ulore \
 --gas-adjustment 1.5 \
 --gas auto \
 --yes
@@ -97,7 +97,7 @@ gitopiad q staking validator $(gitopiad keys show <GITOPIA_WALLET> --bech val -a
 ```
 ### Unjail validator
 ```
-gitopiad tx slashing unjail --from <GITOPIA_WALLET> --chain-id gitopia --gas-prices 0.1ulore --gas-adjustment 1.5 --gas auto --yes 
+gitopiad tx slashing unjail --from <GITOPIA_WALLET> --chain-id gitopia --gas-prices 0.001ulore --gas-adjustment 1.5 --gas auto --yes 
 ```
 ### Signing info
 ```
@@ -108,41 +108,47 @@ gitopiad query slashing signing-info $(gitopiad tendermint show-validator)
 
 ### Send tokens
 ```
-gitopiad tx bank send wallet <DEST_WALLET_ADDRESS> 100ulore --from <GITOPIA_WALLET> --chain-id gitopia --gas-prices 0.1ulore --gas-adjustment 1.5 --gas auto --yes
+gitopiad tx bank send wallet <DEST_WALLET_ADDRESS> 100ulore --from <GITOPIA_WALLET> --chain-id gitopia --gas-prices 0.001ulore --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to your validator
 ```
-gitopiad tx staking delegate $(gitopiad keys show <GITOPIA_WALLET> --bech val -a) 100ulore --from <GITOPIA_WALLET> --chain-id gitopia --gas-prices 0.1ulore --gas-adjustment 1.5 --gas auto --yes
+gitopiad tx staking delegate $(gitopiad keys show <GITOPIA_WALLET> --bech val -a) 100ulore --from <GITOPIA_WALLET> --chain-id gitopia --gas-prices 0.001ulore --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to another validator
 ```
-gitopiad tx staking delegate <VALOPER_ADDRESS> 100ulore --from <GITOPIA_WALLET> --chain-id gitopia --gas-prices 0.1ulore --gas-adjustment 1.5 --gas auto --yes
+gitopiad tx staking delegate <VALOPER_ADDRESS> 100ulore --from <GITOPIA_WALLET> --chain-id gitopia --gas-prices 0.001ulore --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Redelegate tokens to another validator
 ```
-gitopiad tx staking redelegate <FROM_VALOPER_ADDRESS> <TO_VALOPER_ADDRESS> 100ulore --from <GITOPIA_WALLET> --chain-id gitopia --gas-prices 0.1ulore --gas-adjustment 1.5 --gas auto --yes
+gitopiad tx staking redelegate $(gitopiad keys show <GITOPIA_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100ulore --from <GITOPIA_WALLET> --chain-id gitopia --gas-prices 0.001ulore --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Unbond tokens from staking
 ```
-gitopiad tx staking unbond <VALOPER_ADDRESS> 100ulore --from <GITOPIA_WALLET> --chain-id gitopia --gas-prices 0.1ulore --gas-adjustment 1.5 --gas auto --yes
+gitopiad tx staking unbond $(gitopiad keys show <GITOPIA_WALLET> --bech val -a) 100ulore --from <GITOPIA_WALLET> --chain-id gitopia --gas-prices 0.001ulore --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Withdraw all rewards from staking
 ```
-gitopiad tx distribution withdraw-all-rewards --from <GITOPIA_WALLET> --chain-id gitopia --gas-prices 0.1ulore --gas-adjustment 1.5 --gas auto --yes
+gitopiad tx distribution withdraw-all-rewards --from <GITOPIA_WALLET> --chain-id gitopia --gas-prices 0.001ulore --gas-adjustment 1.5 --gas auto --yes
+```
+
+### Withdraw validator rewards and comission
+```
+gitopiad tx distribution withdraw-rewards $(gitopiad keys show <GITOPIA_WALLET> --bech val -a) --commission --from wallet --chain-id gitopia --gas-adjustment 1.5 --gas auto --gas-prices 0.001ulore -y
+
 ```
 
 ## Governance
 ### Vote "YES"
 ```
-gitopiad tx gov vote <proposal_id> yes --from <GITOPIA_WALLET> --chain-id gitopia --gas-prices 0.1ulore --gas-adjustment 1.5 --gas auto --yes
+gitopiad tx gov vote <proposal_id> yes --from <GITOPIA_WALLET> --chain-id gitopia --gas-prices 0.001ulore --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Vote "NO"
 ```
-gitopiad tx gov vote <proposal_id> no --from <GITOPIA_WALLET> --chain-id gitopia --gas-prices 0.1ulore --gas-adjustment 1.5 --gas auto --yes
+gitopiad tx gov vote <proposal_id> no --from <GITOPIA_WALLET> --chain-id gitopia --gas-prices 0.001ulore --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Abstain from voting
 ```
-gitopiad tx gov vote <proposal_id> abstain --from <GITOPIA_WALLET> --chain-id gitopia --gas-adjustment 1.5 --gas auto --gas-prices 0.1ulore -y
+gitopiad tx gov vote <proposal_id> abstain --from <GITOPIA_WALLET> --chain-id gitopia --gas-adjustment 1.5 --gas auto --gas-prices 0.001ulore -y
 ```
 
 
