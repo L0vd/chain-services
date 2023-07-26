@@ -11,7 +11,7 @@ sudo apt install lz4 -y
 ## Sync from Snapshot  
 | Height  | Size | Pruning | Indexer | Creation Time (UTC+3) |
 | --------- | --------- | --------- | --------- | --------- |
-| 337627  | 1.4 GB  | custom/100/0/10 | null | 2023-07-26_17:43:32 |
+| 338090  | 0.4 GB  | custom/100/0/10 | null | 2023-07-26_18:29:29 |
 
 ```
 sudo systemctl stop archwayd
@@ -21,8 +21,8 @@ archwayd tendermint unsafe-reset-all --home $HOME/.archway --keep-addr-book
 
 rm -rf $HOME/.archway/data 
 
-SNAP_NAME=$(curl -s http://snapshots.l0vd.com/archway/ | egrep -o ">archway-1.*\.tar.lz4" | tr -d ">")
-curl http://snapshots.l0vd.com/archway/${SNAP_NAME} | lz4 -dc - | tar -xf - -C $HOME/.archway
+SNAP_NAME=$(curl -s https://snapshots.l0vd.com/archway-${NETWORK_CATEGORY}/ | egrep -o ">archway-1.*\.tar.lz4" | tr -d ">")
+curl https://snapshots.l0vd.com/archway-${NETWORK_CATEGORY}/${SNAP_NAME} | lz4 -dc - | tar -xf - -C $HOME/.archway
 
 mv $HOME/.archway/priv_validator_state.json.backup $HOME/.archway/data/priv_validator_state.json
 
