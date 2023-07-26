@@ -11,7 +11,7 @@ sudo apt install lz4 -y
 ## Sync from Snapshot  
 | Height  | Size | Pruning | Indexer | Creation Time (UTC+3) |
 | --------- | --------- | --------- | --------- | --------- |
-| 3483301  | 2.4 GB  | custom/100/0/10 | null | 2023-07-26_17:51:21 |
+| 3486461  | 1.5 GB  | custom/100/0/10 | null | 2023-07-26_19:20:30 |
 
 ```
 sudo systemctl stop gitopiad
@@ -21,8 +21,8 @@ gitopiad tendermint unsafe-reset-all --home $HOME/.gitopia --keep-addr-book
 
 rm -rf $HOME/.gitopia/data 
 
-SNAP_NAME=$(curl -s http://snapshots.l0vd.com/gitopia/ | egrep -o ">gitopia.*\.tar.lz4" | tr -d ">")
-curl http://snapshots.l0vd.com/gitopia/${SNAP_NAME} | lz4 -dc - | tar -xf - -C $HOME/.gitopia
+SNAP_NAME=$(curl -s https://snapshots.l0vd.com/gitopia-mainnet/ | egrep -o ">gitopia.*\.tar.lz4" | tr -d ">")
+curl https://snapshots.l0vd.com/gitopia-mainnet/${SNAP_NAME} | lz4 -dc - | tar -xf - -C $HOME/.gitopia
 
 mv $HOME/.gitopia/priv_validator_state.json.backup $HOME/.gitopia/data/priv_validator_state.json
 
