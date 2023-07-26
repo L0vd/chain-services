@@ -11,7 +11,7 @@ sudo apt install lz4 -y
 ## Sync from Snapshot  
 | Height  | Size | Pruning | Indexer | Creation Time (UTC+3) |
 | --------- | --------- | --------- | --------- | --------- |
-| 6869498  | 0.7 GB  | custom/100/0/10 | null | 2023-07-26_17:26:04 |
+| 6869705  | 0.6 GB  | custom/100/0/10 | null | 2023-07-26_17:46:11 |
 
 ```
 sudo systemctl stop haqqd
@@ -28,4 +28,3 @@ mv $HOME/.haqqd/priv_validator_state.json.backup $HOME/.haqqd/data/priv_validato
 
 sudo systemctl restart haqqd
 sudo journalctl -u haqqd -f --no-hostname -o cat
-```

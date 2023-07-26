@@ -11,7 +11,7 @@ sudo apt install lz4 -y
 ## Sync from Snapshot  
 | Height  | Size | Pruning | Indexer | Creation Time (UTC+3) |
 | --------- | --------- | --------- | --------- | --------- |
-| 9607246  | 17GB  | custom/100/0/10 | null | 2023-07-26_17:12:02 |
+| 9607611  | 1.0 GB  | custom/100/0/10 | null | 2023-07-26_17:45:52 |
 
 ```
 sudo systemctl stop bcnad
@@ -28,4 +28,3 @@ mv $HOME/.bcna/priv_validator_state.json.backup $HOME/.bcna/data/priv_validator_
 
 sudo systemctl restart bcnad
 sudo journalctl -u bcnad -f --no-hostname -o cat
-```

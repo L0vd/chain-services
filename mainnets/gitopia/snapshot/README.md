@@ -11,7 +11,7 @@ sudo apt install lz4 -y
 ## Sync from Snapshot  
 | Height  | Size | Pruning | Indexer | Creation Time (UTC+3) |
 | --------- | --------- | --------- | --------- | --------- |
-| 3482187  | 5.9GB  | custom/100/0/10 | null | 2023-07-26_17:20:36 |
+| 3483301  | 2.4 GB  | custom/100/0/10 | null | 2023-07-26_17:51:21 |
 
 ```
 sudo systemctl stop gitopiad
@@ -28,4 +28,3 @@ mv $HOME/.gitopia/priv_validator_state.json.backup $HOME/.gitopia/data/priv_vali
 
 sudo systemctl restart gitopiad
 sudo journalctl -u gitopiad -f --no-hostname -o cat
-```
