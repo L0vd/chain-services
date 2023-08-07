@@ -11,7 +11,7 @@ sudo apt install lz4 -y
 ## Sync from Snapshot  
 | Height  | Size | Pruning | Indexer | Creation Time (UTC+3) |
 | --------- | --------- | --------- | --------- | --------- |
-| 4091840  | 1.4 GB  | custom/100/0/10 | null | 2023-08-07_21:10:25 |
+| 4100202  | 1.5 GB  | custom/100/0/10 | null | 2023-08-08_01:12:18 |
 
 ```
 sudo systemctl stop gitopiad
