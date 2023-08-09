@@ -14,7 +14,7 @@ Archway is an incentivized smart contract chain for the Cosmos ecosystem that al
 | ------ | ------ |
 | Chain-id | archway-1 |
 | Binary name | archwayd |
-| Binary version | v1.0.1 |
+| Binary version | v2.0.0 |
 
 ##### Explorer
 [https://explorers.l0vd.com/archway-mainnet](https://explorers.l0vd.com/archway-mainnet)
