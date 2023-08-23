@@ -15,6 +15,8 @@
 
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/composable.png" data-size="line" width="20"> [Composable](mainnets/composable/)
 
+<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/cosmos.png" data-size="line" width="20"> [Cosmos Hub](mainnets/cosmoshub/)
+
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/gitopia.png" width="20" data-size="line"> [Gitopia](mainnets/gitopia/)
 
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/haqq.svg" data-size="line"> [HAQQ](mainnets/haqq/)
