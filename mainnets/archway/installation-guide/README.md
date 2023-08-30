@@ -65,7 +65,7 @@ archwayd init ${ARCHWAY_NODENAME} --chain-id ${ARCHWAY_CHAIN_ID}
 
 ### Download genesis
 ```
-wget "$HOME/.archway/config/genesis.json" "https://snapshots.nodestake.top/archway/genesis.json" 
+curl -Ls "https://snapshots.nodestake.top/archway/genesis.json" > $HOME/.archway/config/genesis.json
 ```
 
 ### (OPTIONAL) Set custom ports
@@ -171,11 +171,11 @@ archwayd tx staking create-validator \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
 --details "" \
---pubkey=$(archwayd tendermint show-validator) \
+--pubkey $(archwayd tendermint show-validator) \
 --moniker ${ARCHWAY_NODENAME} \
 --chain-id ${ARCHWAY_CHAIN_ID} \
 --from ${ARCHWAY_WALLET_ADDR} \
---1000000000000aarch \
+--gas-prices 1000000000000aarch \
 --gas-adjustment 1.5 \
 --gas auto \
 --yes
