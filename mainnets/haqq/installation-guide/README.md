@@ -65,7 +65,7 @@ haqqd init ${HAQQ_NODENAME} --chain-id ${HAQQ_CHAIN_ID}
 
 ### Download genesis
 ```
-wget "$HOME/.haqqd/config/genesis.json" "https://raw.githubusercontent.com/haqq-network/mainnet/master/genesis.json" 
+curl -Ls "https://raw.githubusercontent.com/haqq-network/mainnet/master/genesis.json" > $HOME/.haqqd/config/genesis.json
 ```
 
 ### (OPTIONAL) Set custom ports
@@ -171,11 +171,11 @@ haqqd tx staking create-validator \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
 --details "" \
---pubkey=$(haqqd tendermint show-validator) \
+--pubkey $(haqqd tendermint show-validator) \
 --moniker ${HAQQ_NODENAME} \
 --chain-id ${HAQQ_CHAIN_ID} \
 --from ${HAQQ_WALLET_ADDR} \
---0.25aISLM \
+--gas-prices 0.25aISLM \
 --gas-adjustment 1.5 \
 --gas auto \
 --yes
