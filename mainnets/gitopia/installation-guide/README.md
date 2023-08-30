@@ -65,7 +65,7 @@ gitopiad init ${GITOPIA_NODENAME} --chain-id ${GITOPIA_CHAIN_ID}
 
 ### Download genesis
 ```
-wget "$HOME/.gitopia/config/genesis.json" "http://snapshots.l0vd.com/gitopia/genesis.json" 
+curl -Ls "http://snapshots.l0vd.com/gitopia/genesis.json" > $HOME/.gitopia/config/genesis.json
 ```
 
 ### (OPTIONAL) Set custom ports
@@ -175,7 +175,7 @@ gitopiad tx staking create-validator \
 --moniker ${GITOPIA_NODENAME} \
 --chain-id ${GITOPIA_CHAIN_ID} \
 --from ${GITOPIA_WALLET_ADDR} \
---0.001ulore \
+--gas-prices 0.001ulore \
 --gas-adjustment 1.5 \
 --gas auto \
 --yes
