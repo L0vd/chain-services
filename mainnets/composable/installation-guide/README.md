@@ -65,7 +65,7 @@ centaurid init ${COMPOSABLE_NODENAME} --chain-id ${COMPOSABLE_CHAIN_ID}
 
 ### Download genesis
 ```
-wget "$HOME/.banksy/config/genesis.json" "https://raw.githubusercontent.com/notional-labs/composable-networks/main/mainnet/genesis.json" 
+curl -Ls "https://raw.githubusercontent.com/notional-labs/composable-networks/main/mainnet/genesis.json" > $HOME/.banksy/config/genesis.json
 ```
 
 ### (OPTIONAL) Set custom ports
@@ -171,11 +171,11 @@ centaurid tx staking create-validator \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
 --details "" \
---pubkey=$(centaurid tendermint show-validator) \
+--pubkey $(centaurid tendermint show-validator) \
 --moniker ${COMPOSABLE_NODENAME} \
 --chain-id ${COMPOSABLE_CHAIN_ID} \
 --from ${COMPOSABLE_WALLET_ADDR} \
---0ppica \
+--gas-prices 0ppica \
 --gas-adjustment 1.5 \
 --gas auto \
 --yes
