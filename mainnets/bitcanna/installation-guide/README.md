@@ -65,7 +65,7 @@ bcnad init ${BITCANNA_NODENAME} --chain-id ${BITCANNA_CHAIN_ID}
 
 ### Download genesis
 ```
-wget "$HOME/.bcna/config/genesis.json" "https://raw.githubusercontent.com/BitCannaGlobal/bcna/main/genesis.json" 
+curl -Ls "https://raw.githubusercontent.com/BitCannaGlobal/bcna/main/genesis.json" > $HOME/.bcna/config/genesis.json
 ```
 
 ### (OPTIONAL) Set custom ports
@@ -171,11 +171,11 @@ bcnad tx staking create-validator \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
 --details "" \
---pubkey=$(bcnad tendermint show-validator) \
+--pubkey $(bcnad tendermint show-validator) \
 --moniker ${BITCANNA_NODENAME} \
 --chain-id ${BITCANNA_CHAIN_ID} \
 --from ${BITCANNA_WALLET_ADDR} \
---0ubcna \
+--gas-prices 0ubcna \
 --gas-adjustment 1.5 \
 --gas auto \
 --yes
