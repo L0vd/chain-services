@@ -11,7 +11,7 @@ sudo apt install lz4 -y
 ## Sync from Snapshot  
 | Height  | Size | Pruning | Indexer | Creation Time (UTC+3) |
 | --------- | --------- | --------- | --------- | --------- |
-| 1290476  | 0.4 GB  | custom/100/0/10 | null | 2023-08-31_01:02:27 |
+| 1293003  | 0.5 GB  | custom/100/0/10 | null | 2023-08-31_05:03:48 |
 
 ```
 sudo systemctl stop centaurid_main
