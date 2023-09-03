@@ -29,6 +29,7 @@
   * [Snapshot](mainnets/cosmoshub/snapshot/README.md)
   * [State sync](mainnets/cosmoshub/state-sync/README.md)
   * [Useful commands](mainnets/cosmoshub/useful-commands/README.md)
+  * [Monitoring](mainnets/composable/monitoring/README.md)
 * [Gitopia](mainnets/gitopia/README.md)
   * [Installation](mainnets/gitopia/installation-guide/README.md)
   * [Snapshot](mainnets/gitopia/snapshot/README.md)
