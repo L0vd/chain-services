@@ -53,7 +53,7 @@ nano variables.sh
 Insert your parameters to **variables.sh**:
 * full path to cosmoshub binary to COS_BIN_NAME ( check ```which gaiad```)
 * node PRC port to COS_PORT_RPC ( check in file ```path_to_cosmoshub_node_config/config/config.toml```)
-* node validator address to COS_VALOPER ( like ```nullvaloper********```)
+* node validator address to COS_VALOPER ( like ```cosmosvaloper********```)
 
 Save changes in variables.sh and enable execution permissions:
 
@@ -99,7 +99,7 @@ sudo systemctl restart telegraf_cosmoshub_mainnet
 Dashboard has main cosmos-based node information and common system metrics. There is a description for each metric.
 
 Go to our comunity dashboard and select you node from the server list: 
-## [Dashboard link](https://monitoring-dashboards.l0vd.com/d/Cosmoshub_mainnet/cosmoshub-mainnet-monitoring-by-l0vd?orgId=1&refresh=30s)
+## [Dashboard link](https://monitoring-dashboards.l0vd.com/d/Cosmoshub_mainnet/cosmoshub-mainnet-monitoring-by-l0vd?orgId=1&refresh=30s&from=now-1h&to=now)
 
 
 ![Screenshot_1](https://user-images.githubusercontent.com/43213686/169405751-8ff53124-e128-4078-8d68-229a18ea4e25.png)
