@@ -11,7 +11,7 @@ sudo apt install lz4 -y
 ## Sync from Snapshot  
 | Height  | Size | Pruning | Indexer | Creation Time (UTC+3) |
 | --------- | --------- | --------- | --------- | --------- |
-| 7433140  | 4.7 GB  | custom/100/0/10 | null | 2023-09-03_05:57:10 |
+| 7435566  | 4.7 GB  | custom/100/0/10 | null | 2023-09-03_09:55:38 |
 
 ```
 sudo systemctl stop haqqd
