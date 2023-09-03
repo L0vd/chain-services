@@ -58,10 +58,6 @@ COS_PORT_RPC=$($COS_BIN config | jq -r .node | cut -d : -f 3)
 COS_MONIKER=$(curl -s localhost:$COS_PORT_RPC/status | jq -r '.result.node_info.moniker')
 LOGENTRY=cosmoshub
 
-PUBLIC_VALIDATOR_KEY=$(jq -r '.result.validator_info.pub_key.value' <<<$(curl -s localhost:$COS_PORT_RPC/status))
-COS_VALOPER=$(jq -r '.operator_address' <<<$(${COS_BIN_NAME} q staking validators -o json --limit=3000 --node "tcp://localhost:${COS_PORT_RPC}" \
-| jq -r  --arg PUBLIC_VALIDATOR_KEY "$PUBLIC_VALIDATOR_KEY" '.validators[] | select(.consensus_pubkey.key==$PUBLIC_VALIDATOR_KEY)'))
-
 
 if [ -z "$COS_MONIKER" ]; then
   echo "Your moniker can't be defined. Please enter a value manually (example "Best validator"):"
@@ -72,6 +68,11 @@ if [ -z "$COS_PORT_RPC" ]; then
   echo "Port of your node can't be defined. Please enter a value manually (example 26657):"
   read COS_PORT_RPC  # Prompt the user for input
 fi
+
+PUBLIC_VALIDATOR_KEY=$(jq -r '.result.validator_info.pub_key.value' <<<$(curl -s localhost:$COS_PORT_RPC/status))
+COS_VALOPER=$(jq -r '.operator_address' <<<$(${COS_BIN_NAME} q staking validators -o json --limit=3000 --node "tcp://localhost:${COS_PORT_RPC}" \
+| jq -r  --arg PUBLIC_VALIDATOR_KEY "$PUBLIC_VALIDATOR_KEY" '.validators[] | select(.consensus_pubkey.key==$PUBLIC_VALIDATOR_KEY)'))
+
 
 # Installing telegraf
 if installed telegraf;
