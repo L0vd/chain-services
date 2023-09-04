@@ -151,31 +151,6 @@ umeed tx gov vote <proposal_id> no --from <UMEE_WALLET> --chain-id umee-1 --gas-
 umeed tx gov vote <proposal_id> abstain --from <UMEE_WALLET> --chain-id umee-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.2uumee -y
 ```
 
-## Price-feeder commands
-### Check logs
-```
-sudo journalctl -u umee-price-feeder -f --no-hostname -o cat
-```
-
-### Restart price-feeder
-```
-sudo systemctl restart umee-price-feeder
-```
-
-### Delegate pfd rights to different wallet than the one used to create a validator
-```
-umeed tx oracle delegate-feed-consent <MAIN_WALLET_ADDRESS> <PFD_WALLET_ADDRESS> --from <UMEE_WALLET> --gas-adjustment 1.5 --gas auto --gas-prices 0.2uumee -y
-```
-
-### Check price-feeder delegated address
-```
-umeed q oracle feeder-delegation <VALOPER_ADDRESS>
-```
-
-### Check missed price-feeder votes
-```
-umeed q oracle miss-counter <VALOPER_ADDRESS>
-```
 
 ## General commands
 ### Check node status
