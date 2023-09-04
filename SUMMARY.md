@@ -51,6 +51,8 @@
 * [Stride](mainnets/stride/README.md)
   * [State sync](mainnets/stride/state-sync/README.md)
 * [Umee](mainnets/umee/README.md)
+  * [Installation](mainnets/umee/installation-guide/README.md)
+  * [Snapshot](mainnets/umee/snapshot/README.md)
   * [State sync](mainnets/umee/state-sync/README.md)
   * [Useful commands](mainnets/umee/useful-commands/README.md)
   * [Monitoring](mainnets/umee/monitoring/README.md)
