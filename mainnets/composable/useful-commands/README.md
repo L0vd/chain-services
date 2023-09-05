@@ -64,7 +64,7 @@ centaurid tx staking create-validator \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
---pubkey=$(centaurid tendermint show-validator) \
+--pubkey $(centaurid tendermint show-validator) \
 --moniker <COMPOSABLE_NODENAME> \
 --chain-id centauri-1 \
 --from <COMPOSABLE_WALLET> \
