@@ -65,7 +65,7 @@ centaurid init ${COMPOSABLE_NODENAME} --chain-id ${COMPOSABLE_CHAIN_ID}
 
 ### Download genesis
 ```
-curl -Ls "" > $HOME/.banksy/config/genesis.json
+curl -Ls "https://raw.githubusercontent.com/notional-labs/composable-networks/main/mainnet/genesis.json" > $HOME/.banksy/config/genesis.json
 ```
 
 ### (OPTIONAL) Set custom ports
