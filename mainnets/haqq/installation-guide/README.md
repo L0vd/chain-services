@@ -65,7 +65,7 @@ haqqd init ${HAQQ_NODENAME} --chain-id ${HAQQ_CHAIN_ID}
 
 ### Download genesis
 ```
-curl -Ls "/root/snapshots/haqq-mainnet/genesis.json" > $HOME/.haqqd/config/genesis.json
+curl -Ls "https://raw.githubusercontent.com/haqq-network/mainnet/master/genesis.json" > $HOME/.haqqd/config/genesis.json
 ```
 
 ### (OPTIONAL) Set custom ports
