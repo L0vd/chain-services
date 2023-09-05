@@ -66,7 +66,7 @@
   * [Monitoring](testnets/andromeda/monitoring/README.md)
   * [Wallet bot](testnets/andromeda/wallet-bot/README.md)
 * [Archway](testnets/archway/README.md)
-  * [Installation](testnets/archway/installation-guide/README.md)
+  * [Installation](testnets/archway/installation.md)
   * [State sync](testnets/archway/state-sync/README.md)
   * [Useful commands](testnets/archway/useful-commands/README.md)
   * [Monitoring](testnets/archway/monitoring.md)
