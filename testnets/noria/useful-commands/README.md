@@ -64,7 +64,7 @@ noriad tx staking create-validator \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
---pubkey=$(noriad tendermint show-validator) \
+--pubkey $(noriad tendermint show-validator) \
 --moniker <NORIA_NODENAME> \
 --chain-id oasis-3 \
 --from <NORIA_WALLET> \
