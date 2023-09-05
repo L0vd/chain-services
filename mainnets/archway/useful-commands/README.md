@@ -64,7 +64,7 @@ archwayd tx staking create-validator \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
---pubkey=$(archwayd tendermint show-validator) \
+--pubkey $(archwayd tendermint show-validator) \
 --moniker <ARCHWAY_NODENAME> \
 --chain-id archway-1 \
 --from <ARCHWAY_WALLET> \
