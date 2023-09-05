@@ -31,15 +31,15 @@ umeed keys delete <key_name>
 UMEE_PORT=56
 ```
 ```
-sed -i.bak -e "s%^proxy_app = \"tcp://127.0.0.1:26658\"%proxy_app = \"tcp://127.0.0.1:${UMEE_PORT}658\"%; s%^laddr = \"tcp://127.0.0.1:26657\"%laddr = \"tcp://127.0.0.1:${UMEE_PORT}657\"%; s%^pprof_laddr = \"localhost:6060\"%pprof_laddr = \"localhost:${UMEE_PORT}060\"%; s%^laddr = \"tcp://0.0.0.0:26656\"%laddr = \"tcp://0.0.0.0:${UMEE_PORT}656\"%; s%^prometheus_listen_addr = \":26660\"%prometheus_listen_addr = \":${UMEE_PORT}660\"%" $HOME/.umee/config/config.toml
-sed -i.bak -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:${UMEE_PORT}317\"%; s%^address = \":8080\"%address = \":${UMEE_PORT}080\"%; s%^address = \"0.0.0.0:9090\"%address = \"0.0.0.0:${UMEE_PORT}090\"%; s%^address = \"0.0.0.0:9091\"%address = \"0.0.0.0:${UMEE_PORT}091\"%; s%^address = \"0.0.0.0:8545\"%address = \"0.0.0.0:${UMEE_PORT}545\"%; s%^ws-address = \"0.0.0.0:8546\"%ws-address = \"0.0.0.0:${UMEE_PORT}546\"%" $HOME/.umee/config/app.toml
+sed -i.bak -e "s%^proxy_app = \"tcp://127.0.0.1:26658\"%proxy_app = \"tcp://127.0.0.1:${UMEE_PORT}658\"%; s%^laddr = \"tcp://127.0.0.1:26657\"%laddr = \"tcp://127.0.0.1:${UMEE_PORT}657\"%; s%^pprof_laddr = \"localhost:6060\"%pprof_laddr = \"localhost:${UMEE_PORT}060\"%; s%^laddr = \"tcp://0.0.0.0:26656\"%laddr = \"tcp://0.0.0.0:${UMEE_PORT}656\"%; s%^prometheus_listen_addr = \":26660\"%prometheus_listen_addr = \":${UMEE_PORT}660\"%" /$HOME/.umee/config/config.toml
+sed -i.bak -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:${UMEE_PORT}317\"%; s%^address = \"tcp://localhost:1317\"%address = \"tcp://0.0.0.0:${UMEE_PORT}317\"%; s%^address = \":8080\"%address = \":${UMEE_PORT}080\"%; s%^address = \"0.0.0.0:9090\"%address = \"0.0.0.0:${UMEE_PORT}090\"%; s%^address = \"localhost:9090\"%address = \"localhost:${UMEE_PORT}090\"%; s%^address = \"0.0.0.0:9091\"%address = \"0.0.0.0:${UMEE_PORT}091\"%; s%^address = \"localhost:9091\"%address = \"localhost:${UMEE_PORT}091\"%; s%^address = \"0.0.0.0:8545\"%address = \"0.0.0.0:${UMEE_PORT}545\"%; s%^ws-address = \"0.0.0.0:8546\"%ws-address = \"0.0.0.0:${UMEE_PORT}546\"%" /$HOME/.umee/config/app.toml
 ```
 ### Config pruning
 ```
 pruning="custom"
 pruning_keep_recent="100"
 pruning_keep_every="0"
-pruning_interval="50"
+pruning_interval="10"
 sed -i -e "s/^pruning *=.*/pruning = \"$pruning\"/" $HOME/.umee/config/app.toml
 sed -i -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \"$pruning_keep_recent\"/" $HOME/.umee/config/app.toml
 sed -i -e "s/^pruning-keep-every *=.*/pruning-keep-every = \"$pruning_keep_every\"/" $HOME/.umee/config/app.toml
@@ -51,7 +51,7 @@ sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.umee/config/config.toml
 ```
 ### Set minimum gas prices
 ```
-sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.1uumee\"/" $HOME/.umee/config/app.toml
+sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.2uumee\"/" $HOME/.umee/config/app.toml
 ```
 
 ## Validator configuration
@@ -64,14 +64,14 @@ umeed tx staking create-validator \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
---pubkey=$(umeed tendermint show-validator) \
+--pubkey $(umeed tendermint show-validator) \
 --moniker <UMEE_NODENAME> \
---chain-id canon-2 \
+--chain-id canon-3 \
 --from <UMEE_WALLET> \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
 --website <YOUR_WEBSITE> \
---gas-prices 0.1uumee \
+--gas-prices 0.2uumee \
 --gas-adjustment 1.5 \
 --gas auto \
 --yes
@@ -83,10 +83,10 @@ umeed tx staking edit-validator \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
 --website <YOUR_WEBSITE> \
---chain-id canon-2 \
+--chain-id canon-3 \
 --commission-rate 0.05 \
 --from <UMEE_WALLET> \
---gas-prices 0.1uumee \
+--gas-prices 0.2uumee \
 --gas-adjustment 1.5 \
 --gas auto \
 --yes
@@ -97,7 +97,7 @@ umeed q staking validator $(umeed keys show <UMEE_WALLET> --bech val -a)
 ```
 ### Unjail validator
 ```
-umeed tx slashing unjail --from <UMEE_WALLET> --chain-id canon-2 --gas-prices 0.1uumee --gas-adjustment 1.5 --gas auto --yes 
+umeed tx slashing unjail --from <UMEE_WALLET> --chain-id canon-3 --gas-prices 0.2uumee --gas-adjustment 1.5 --gas auto --yes 
 ```
 ### Signing info
 ```
@@ -108,41 +108,47 @@ umeed query slashing signing-info $(umeed tendermint show-validator)
 
 ### Send tokens
 ```
-umeed tx bank send wallet <DEST_WALLET_ADDRESS> 100uumee --from <UMEE_WALLET> --chain-id canon-2 --gas-prices 0.1uumee --gas-adjustment 1.5 --gas auto --yes
+umeed tx bank send wallet <DEST_WALLET_ADDRESS> 100uumee --from <UMEE_WALLET> --chain-id canon-3 --gas-prices 0.2uumee --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to your validator
 ```
-umeed tx staking delegate $(umeed keys show <UMEE_WALLET> --bech val -a) 100uumee --from <UMEE_WALLET> --chain-id canon-2 --gas-prices 0.1uumee --gas-adjustment 1.5 --gas auto --yes
+umeed tx staking delegate $(umeed keys show <UMEE_WALLET> --bech val -a) 100uumee --from <UMEE_WALLET> --chain-id canon-3 --gas-prices 0.2uumee --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to another validator
 ```
-umeed tx staking delegate <VALOPER_ADDRESS> 100uumee --from <UMEE_WALLET> --chain-id canon-2 --gas-prices 0.1uumee --gas-adjustment 1.5 --gas auto --yes
+umeed tx staking delegate <VALOPER_ADDRESS> 100uumee --from <UMEE_WALLET> --chain-id canon-3 --gas-prices 0.2uumee --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Redelegate tokens to another validator
 ```
-umeed tx staking redelegate <FROM_VALOPER_ADDRESS> <TO_VALOPER_ADDRESS> 100uumee --from <UMEE_WALLET> --chain-id canon-2 --gas-prices 0.1uumee --gas-adjustment 1.5 --gas auto --yes
+umeed tx staking redelegate $(umeed keys show <UMEE_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100uumee --from <UMEE_WALLET> --chain-id canon-3 --gas-prices 0.2uumee --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Unbond tokens from staking
 ```
-umeed tx staking unbond <VALOPER_ADDRESS> 100uumee --from <UMEE_WALLET> --chain-id canon-2 --gas-prices 0.1uumee --gas-adjustment 1.5 --gas auto --yes
+umeed tx staking unbond $(umeed keys show <UMEE_WALLET> --bech val -a) 100uumee --from <UMEE_WALLET> --chain-id canon-3 --gas-prices 0.2uumee --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Withdraw all rewards from staking
 ```
-umeed tx distribution withdraw-all-rewards --from <UMEE_WALLET> --chain-id canon-2 --gas-prices 0.1uumee --gas-adjustment 1.5 --gas auto --yes
+umeed tx distribution withdraw-all-rewards --from <UMEE_WALLET> --chain-id canon-3 --gas-prices 0.2uumee --gas-adjustment 1.5 --gas auto --yes
+```
+
+### Withdraw validator rewards and comission
+```
+umeed tx distribution withdraw-rewards $(umeed keys show <UMEE_WALLET> --bech val -a) --commission --from wallet --chain-id canon-3 --gas-adjustment 1.5 --gas auto --gas-prices 0.2uumee -y
+
 ```
 
 ## Governance
 ### Vote "YES"
 ```
-umeed tx gov vote <proposal_id> yes --from <UMEE_WALLET> --chain-id canon-2 --gas-prices 0.1uumee --gas-adjustment 1.5 --gas auto --yes
+umeed tx gov vote <proposal_id> yes --from <UMEE_WALLET> --chain-id canon-3 --gas-prices 0.2uumee --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Vote "NO"
 ```
-umeed tx gov vote <proposal_id> no --from <UMEE_WALLET> --chain-id canon-2 --gas-prices 0.1uumee --gas-adjustment 1.5 --gas auto --yes
+umeed tx gov vote <proposal_id> no --from <UMEE_WALLET> --chain-id canon-3 --gas-prices 0.2uumee --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Abstain from voting
 ```
-umeed tx gov vote <proposal_id> abstain --from <UMEE_WALLET> --chain-id canon-2 --gas-adjustment 1.5 --gas auto --gas-prices 0.1uumee -y
+umeed tx gov vote <proposal_id> abstain --from <UMEE_WALLET> --chain-id canon-3 --gas-adjustment 1.5 --gas auto --gas-prices 0.2uumee -y
 ```
 
 ## Price-feeder commands
@@ -158,7 +164,7 @@ sudo systemctl restart umee-price-feeder
 
 ### Delegate pfd rights to different wallet than the one used to create a validator
 ```
-umeed tx oracle delegate-feed-consent <MAIN_WALLET_ADDRESS> <PFD_WALLET_ADDRESS> --from <UMEE_WALLET> --gas-adjustment 1.5 --gas auto --gas-prices 0.1uumee --yes
+umeed tx oracle delegate-feed-consent <MAIN_WALLET_ADDRESS> <PFD_WALLET_ADDRESS> --from <UMEE_WALLET> --gas-adjustment 1.5 --gas auto --gas-prices 0.2uumee -y
 ```
 
 ### Check price-feeder delegated address

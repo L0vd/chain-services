@@ -21,8 +21,7 @@ s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" $HOME/.umee/conf
 peers="c054701ade2bdbeb61c4a8800450da744e252506@umee-testnet.peers.l0vd.com:11656" \
 && sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/.umee/config/config.toml 
 
-umeed tendermint unsafe-reset-all --home ~/.umee --keep-addr-book && sudo systemctl restart umeed && \
-journalctl -u umeed -f --output cat
+umeed tendermint unsafe-reset-all --home ~/.umee && sudo systemctl restart umeed && journalctl -u umeed -f --output cat
 ```
 
 ### Turn off State Sync Mode after synchronization
