@@ -64,7 +64,7 @@ haqqd tx staking create-validator \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
---pubkey=$(haqqd tendermint show-validator) \
+--pubkey $(haqqd tendermint show-validator) \
 --moniker <HAQQ_NODENAME> \
 --chain-id haqq_54211-3 \
 --from <HAQQ_WALLET> \
