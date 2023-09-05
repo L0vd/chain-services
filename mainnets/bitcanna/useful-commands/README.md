@@ -64,7 +64,7 @@ bcnad tx staking create-validator \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
---pubkey=$(bcnad tendermint show-validator) \
+--pubkey $(bcnad tendermint show-validator) \
 --moniker <BITCANNA_NODENAME> \
 --chain-id bitcanna-1 \
 --from <BITCANNA_WALLET> \
