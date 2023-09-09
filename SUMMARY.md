@@ -40,7 +40,7 @@
   * [Snapshot](mainnets/haqq/snapshot/README.md)
   * [State sync](mainnets/haqq/state-sync/README.md)
   * [Useful commands](mainnets/haqq/useful-commands/README.md)
-  * [Monitoring](mainnets/haqq/monitoring.md)
+  * [Monitoring](mainnets/haqq/monitoring/README.md)
 * [Juno](mainnets/juno/README.md)
   * [State sync](mainnets/juno/state-sync/README.md)
 * [Nois](mainnets/nois/README.md)
