@@ -112,7 +112,7 @@
   * [Monitoring](testnets/empower/monitoring/README.md)
   * [Wallet bot](testnets/empower/wallet-bot/README.md)
 * [HAQQ](testnets/haqq/README.md)
-  * [Installation](testnets/haqq/installation-guide.md)
+  * [Installation](testnets/haqq/installation-guide/README.md)
   * [Snapshot](testnets/haqq/snapshot.md)
   * [State sync](testnets/haqq/state-sync/README.md)
   * [Useful commands](testnets/haqq/useful-commands/README.md)
