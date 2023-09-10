@@ -26,7 +26,7 @@ cd $HOME
 rm -rf archway
 git clone https://github.com/archway-network/archway.git
 cd archway
-git checkout v2.0.0
+git checkout v4.0.2
 make install
 ```
 
@@ -39,7 +39,7 @@ You should replace values in <> <br />
 ```
 ARCHWAY_WALLET="<YOUR_WALLET_NAME>"
 ARCHWAY_NODENAME="<YOUR_MONIKER>"
-ARCHWAY_CHAIN_ID="archway-1"
+ARCHWAY_CHAIN_ID="constantine-3"
 ```
 
 ```
@@ -65,7 +65,7 @@ archwayd init ${ARCHWAY_NODENAME} --chain-id ${ARCHWAY_CHAIN_ID}
 
 ### Download genesis
 ```
-curl -Ls "/root/snapshots/archway-mainnet/genesis.json" > $HOME/.archway/config/genesis.json
+curl -Ls "https://snapshots.l0vd.com/archway-mainnet/genesis.json" > $HOME/.archway/config/genesis.json
 ```
 
 ### (OPTIONAL) Set custom ports
@@ -82,7 +82,7 @@ sed -i.bak -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:${A
 
 ### Set seeds and peers
 ```
-PEERS="68cac650b02d5f62fa1365cff979da7977abea26@archway-mainnet.peers.l0vd.com:26656"
+PEERS="8b96338b18c1e4a76a119fe0812c131a4e2cc96a@archway-mainnet.peers.l0vd.com:20656"
 sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.archway/config/config.toml
 ```
 
@@ -100,7 +100,7 @@ sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"$pruning_interval\"/" $
 
 ### Set minimum gas price and null indexer
 ```
-sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"1000000000000aarch\"/" $HOME/.archway/config/app.toml
+sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"1000000000000aconst\"/" $HOME/.archway/config/app.toml
 sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.archway/config/config.toml
 ```
 
@@ -165,7 +165,7 @@ Wait until the node is synchronized.
 
 ```
 archwayd tx staking create-validator \
---amount 1000000aarch \
+--amount 1000000aconst \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
@@ -175,7 +175,7 @@ archwayd tx staking create-validator \
 --moniker ${ARCHWAY_NODENAME} \
 --chain-id ${ARCHWAY_CHAIN_ID} \
 --from ${ARCHWAY_WALLET_ADDR} \
---gas-prices 1000000000000aarch \
+--gas-prices 1000000000000aconst \
 --gas-adjustment 1.5 \
 --gas auto \
 --yes
