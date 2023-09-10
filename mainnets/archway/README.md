@@ -12,19 +12,19 @@ Archway is an incentivized smart contract chain for the Cosmos ecosystem that al
 
 |  |  |
 | ------ | ------ |
-| Chain-id | archway-1 |
+| Chain-id | constantine-3 |
 | Binary name | archwayd |
-| Binary version | v2.0.0 |
+| Binary version | v4.0.2 |
 
 ##### Explorer
 [https://explorers.l0vd.com/archway-mainnet](https://explorers.l0vd.com/archway-mainnet)
 
 ##### Public Endpoints
 RPC
-[https://archway-mainnet.rpc.l0vd.com](https://archway-mainnet.rpc.l0vd.com)
+[https://archway-testnet.rpc.l0vd.com](https://archway-testnet.rpc.l0vd.com)
 
 API
-[https://archway-mainnet.api.l0vd.com](https://archway-mainnet.api.l0vd.com)
+[https://archway-testnet.api.l0vd.com](https://archway-testnet.api.l0vd.com)
 
 GRPC
 ```
@@ -33,5 +33,5 @@ archway-mainnet.grpc.l0vd.com:80
 
 PEER
 ```
-68cac650b02d5f62fa1365cff979da7977abea26@archway-mainnet.peers.l0vd.com:26656
+8b96338b18c1e4a76a119fe0812c131a4e2cc96a@archway-mainnet.peers.l0vd.com:20656
 ```
