@@ -65,7 +65,7 @@ bcnad init ${BITCANNA_NODENAME} --chain-id ${BITCANNA_CHAIN_ID}
 
 ### Download genesis
 ```
-curl -Ls "/root/snapshots/bitcanna-mainnet/genesis.json" > $HOME/.bcna/config/genesis.json
+curl -Ls "https://snapshots.l0vd.com/bitcanna-mainnet/genesis.json" > $HOME/.bcna/config/genesis.json
 ```
 
 ### (OPTIONAL) Set custom ports
