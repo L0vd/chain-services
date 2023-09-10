@@ -65,7 +65,7 @@ gitopiad init ${GITOPIA_NODENAME} --chain-id ${GITOPIA_CHAIN_ID}
 
 ### Download genesis
 ```
-curl -Ls "/root/snapshots/gitopia-mainnet/genesis.json" > $HOME/.gitopia/config/genesis.json
+curl -Ls "https://snapshots.l0vd.com/gitopia-mainnet/genesis.json" > $HOME/.gitopia/config/genesis.json
 ```
 
 ### (OPTIONAL) Set custom ports
