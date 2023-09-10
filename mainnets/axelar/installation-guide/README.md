@@ -65,7 +65,7 @@ axelard init ${AXELAR_NODENAME} --chain-id ${AXELAR_CHAIN_ID}
 
 ### Download genesis
 ```
-curl -Ls "/root/snapshots/axelar-mainnet/genesis.json" > $HOME/.axelar/config/genesis.json
+curl -Ls "https://snapshots.l0vd.com/axelar-mainnet/genesis.json" > $HOME/.axelar/config/genesis.json
 ```
 
 ### (OPTIONAL) Set custom ports
