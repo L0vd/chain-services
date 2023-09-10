@@ -23,7 +23,7 @@ fi
 ### Install node
 ```
 cd $HOME
-wget https://snapshots.l0vd.com/arkeo-mainnet/arkeod
+wget https://snapshots.l0vd.com/arkeo-testnet/arkeod
 chmod +x arkeod
 mv arkeod /root/go/bin/
 arkeod version
