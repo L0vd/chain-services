@@ -26,7 +26,7 @@ cd $HOME
 rm -rf osmosis
 git clone https://github.com/osmosis-labs/osmosis.git
 cd osmosis
-git checkout v18.0.0
+git checkout v19.0.0
 make install
 ```
 
@@ -65,7 +65,7 @@ osmosisd init ${OSMOSIS_NODENAME} --chain-id ${OSMOSIS_CHAIN_ID}
 
 ### Download genesis
 ```
-curl -Ls "/root/snapshots/osmosis-mainnet/genesis.json" > $HOME/.osmosisd/config/genesis.json
+curl -Ls "https://snapshots.l0vd.com/osmosis-mainnet/genesis.json" > $HOME/.osmosisd/config/genesis.json
 ```
 
 ### (OPTIONAL) Set custom ports
