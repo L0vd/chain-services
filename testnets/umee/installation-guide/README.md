@@ -65,7 +65,7 @@ umeed init ${UMEE_NODENAME} --chain-id ${UMEE_CHAIN_ID}
 
 ### Download genesis
 ```
-wget "$HOME/.umee/config/genesis.json" "/root/snapshots/umee-testnet/genesis.json" 
+wget "$HOME/.umee/config/genesis.json" "https://snapshots.l0vd.com/umee-testnet/genesis.json" 
 ```
 
 ### (OPTIONAL) Set custom ports
