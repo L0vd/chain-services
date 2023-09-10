@@ -65,7 +65,7 @@ gaiad init ${COSMOSHUB_NODENAME} --chain-id ${COSMOSHUB_CHAIN_ID}
 
 ### Download genesis
 ```
-curl -Ls "/root/snapshots/cosmoshub-mainnet/genesis.json" > $HOME/.gaia/config/genesis.json
+curl -Ls "https://snapshots.l0vd.com/cosmoshub-mainnet/genesis.json" > $HOME/.gaia/config/genesis.json
 ```
 
 ### (OPTIONAL) Set custom ports
