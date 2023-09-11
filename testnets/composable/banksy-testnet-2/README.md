@@ -1,2 +1,0 @@
-# banksy-testnet-2
-
