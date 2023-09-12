@@ -63,9 +63,10 @@ strided config chain-id ${STRIDE_CHAIN_ID}
 strided init ${STRIDE_NODENAME} --chain-id ${STRIDE_CHAIN_ID}
 ```
 
-### Download genesis
+### Download genesis & addrbook
 ```
 curl -Ls "https://snapshots.l0vd.com/stride-mainnet/genesis.json" > $HOME/.stride/config/genesis.json
+curl -Ls "https://snapshots.l0vd.com/stride-mainnet/addrbook.json" > $HOME/.stride/config/addrbook.json
 ```
 
 ### (OPTIONAL) Set custom ports
