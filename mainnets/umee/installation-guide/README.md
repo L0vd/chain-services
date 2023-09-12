@@ -63,9 +63,10 @@ umeed config chain-id ${UMEE_CHAIN_ID}
 umeed init ${UMEE_NODENAME} --chain-id ${UMEE_CHAIN_ID}
 ```
 
-### Download genesis
+### Download genesis & addrbook
 ```
-wget "$HOME/.umee/config/genesis.json" "/root/snapshots/umee-mainnet/genesis.json" 
+curl -Ls "https://snapshots.l0vd.com/umee-mainnet/genesis.json" > $HOME/.umee/config/genesis.json
+curl -Ls "https://snapshots.l0vd.com/umee-mainnet/addrbook.json" > $HOME/.umee/config/addrbook.json
 ```
 
 ### (OPTIONAL) Set custom ports
