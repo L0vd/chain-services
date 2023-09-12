@@ -63,9 +63,10 @@ centaurid config chain-id ${COMPOSABLE_CHAIN_ID}
 centaurid init ${COMPOSABLE_NODENAME} --chain-id ${COMPOSABLE_CHAIN_ID}
 ```
 
-### Download genesis
+### Download genesis & addrbook
 ```
 curl -Ls "https://snapshots.l0vd.com/composable-mainnet/genesis.json" > $HOME/.banksy/config/genesis.json
+curl -Ls "https://snapshots.l0vd.com/composable-mainnet/addrbook.json" > $HOME/.banksy/config/addrbook.json
 ```
 
 ### (OPTIONAL) Set custom ports
