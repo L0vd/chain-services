@@ -63,9 +63,10 @@ haqqd config chain-id ${HAQQ_CHAIN_ID}
 haqqd init ${HAQQ_NODENAME} --chain-id ${HAQQ_CHAIN_ID}
 ```
 
-### Download genesis
+### Download genesis & addrbook
 ```
 curl -Ls "https://snapshots.l0vd.com/haqq-mainnet/genesis.json" > $HOME/.haqqd/config/genesis.json
+curl -Ls "https://snapshots.l0vd.com/haqq-mainnet/addrbook.json" > $HOME/.haqqd/config/addrbook.json
 ```
 
 ### (OPTIONAL) Set custom ports
