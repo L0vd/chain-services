@@ -62,9 +62,10 @@ arkeod config chain-id ${ARKEO_CHAIN_ID}
 arkeod init ${ARKEO_NODENAME} --chain-id ${ARKEO_CHAIN_ID}
 ```
 
-### Download genesis
+### Download genesis & addrbook
 ```
 curl -Ls "https://snapshots.l0vd.com/arkeo-testnet/genesis.json" > $HOME/.arkeo/config/genesis.json
+curl -Ls "https://snapshots.l0vd.com/arkeo-testnet/addrbook.json" > $HOME/.arkeo/config/addrbook.json
 ```
 
 ### (OPTIONAL) Set custom ports
