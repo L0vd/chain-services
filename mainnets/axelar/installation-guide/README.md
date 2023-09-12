@@ -63,9 +63,10 @@ axelard config chain-id ${AXELAR_CHAIN_ID}
 axelard init ${AXELAR_NODENAME} --chain-id ${AXELAR_CHAIN_ID}
 ```
 
-### Download genesis
+### Download genesis & addrbook
 ```
 curl -Ls "https://snapshots.l0vd.com/axelar-mainnet/genesis.json" > $HOME/.axelar/config/genesis.json
+curl -Ls "https://snapshots.l0vd.com/axelar-mainnet/addrbook.json" > $HOME/.axelar/config/addrbook.json
 ```
 
 ### (OPTIONAL) Set custom ports
