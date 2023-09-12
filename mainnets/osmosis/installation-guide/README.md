@@ -63,9 +63,10 @@ osmosisd config chain-id ${OSMOSIS_CHAIN_ID}
 osmosisd init ${OSMOSIS_NODENAME} --chain-id ${OSMOSIS_CHAIN_ID}
 ```
 
-### Download genesis
+### Download genesis & addrbook
 ```
 curl -Ls "https://snapshots.l0vd.com/osmosis-mainnet/genesis.json" > $HOME/.osmosisd/config/genesis.json
+curl -Ls "https://snapshots.l0vd.com/osmosis-mainnet/addrbook.json" > $HOME/.osmosisd/config/addrbook.json
 ```
 
 ### (OPTIONAL) Set custom ports
