@@ -63,9 +63,10 @@ gitopiad config chain-id ${GITOPIA_CHAIN_ID}
 gitopiad init ${GITOPIA_NODENAME} --chain-id ${GITOPIA_CHAIN_ID}
 ```
 
-### Download genesis
+### Download genesis & addrbook
 ```
 curl -Ls "https://snapshots.l0vd.com/gitopia-mainnet/genesis.json" > $HOME/.gitopia/config/genesis.json
+curl -Ls "https://snapshots.l0vd.com/gitopia-mainnet/addrbook.json" > $HOME/.gitopia/config/addrbook.json
 ```
 
 ### (OPTIONAL) Set custom ports
