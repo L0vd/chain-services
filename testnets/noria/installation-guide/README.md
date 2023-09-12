@@ -63,9 +63,10 @@ noriad config chain-id ${NORIA_CHAIN_ID}
 noriad init ${NORIA_NODENAME} --chain-id ${NORIA_CHAIN_ID}
 ```
 
-### Download genesis
+### Download genesis & addrbook
 ```
 curl -Ls "https://snapshots.l0vd.com/noria-testnet/genesis.json" > $HOME/.noria/config/genesis.json
+curl -Ls "https://snapshots.l0vd.com/noria-testnet/addrbook.json" > $HOME/.noria/config/addrbook.json
 ```
 
 ### (OPTIONAL) Set custom ports
