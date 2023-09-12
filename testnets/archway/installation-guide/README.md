@@ -63,9 +63,10 @@ archwayd config chain-id ${ARCHWAY_CHAIN_ID}
 archwayd init ${ARCHWAY_NODENAME} --chain-id ${ARCHWAY_CHAIN_ID}
 ```
 
-### Download genesis
+### Download genesis & addrbook
 ```
 curl -Ls "https://snapshots.l0vd.com/archway-testnet/genesis.json" > $HOME/.archway/config/genesis.json
+curl -Ls "https://snapshots.l0vd.com/archway-testnet/addrbook.json" > $HOME/.archway/config/addrbook.json
 ```
 
 ### (OPTIONAL) Set custom ports
