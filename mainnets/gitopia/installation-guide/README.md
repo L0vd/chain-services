@@ -26,7 +26,7 @@ cd $HOME
 rm -rf gitopia
 git clone https://github.com/gitopia-network/gitopia.git
 cd gitopia
-git checkout v2.1.0
+git checkout v3.1.0
 make install
 ```
 
