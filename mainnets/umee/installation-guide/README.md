@@ -26,7 +26,7 @@ cd $HOME
 rm -rf umee
 git clone https://github.com/umee-network/umee.git
 cd umee
-git checkout v6.0.1
+git checkout v6.0.2
 make install
 ```
 
