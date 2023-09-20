@@ -47,6 +47,8 @@
 
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/empower.png" alt="" data-size="line"> [Empower](testnets/empower/)
 
+<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/entangle.png" alt="" data-size="line"> [Entangle](testnets/entangle/)
+
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/haqq.svg" alt="" data-size="line"> [HAQQ](testnets/haqq/)
 
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/humans.png" alt="" data-size="line"> [Humans](testnets/humans/)
