@@ -141,6 +141,7 @@
   * [Wallet bot](testnets/nois/wallet-bot/README.md)
 * [Noria](testnets/noria/README.md)
   * [Installation](testnets/noria/installation-guide/README.md)
+  * [Snapshot](testnets/noria/snapshot.md)
   * [State sync](testnets/noria/state-sync/README.md)
   * [Useful commands](testnets/noria/useful-commands/README.md)
   * [Monitoring](testnets/noria/monitoring/README.md)
