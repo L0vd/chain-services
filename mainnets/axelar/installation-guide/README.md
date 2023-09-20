@@ -26,7 +26,7 @@ cd $HOME
 rm -rf axelar-core
 git clone https://github.com/axelarnetwork/axelar-core.git
 cd axelar-core
-git checkout v0.33.2
+git checkout v0.34.0
 make install
 ```
 

@@ -14,7 +14,7 @@ Axelar delivers secure cross-chain communication for Web3. Axelar infrastructure
 | ------ | ------ |
 | Chain-id | axelar-dojo-1 |
 | Binary name | axelard |
-| Binary version | v0.33.2 |
+| Binary version | v0.34.0 |
 
 ##### Explorer
 [https://explorers.l0vd.com/axelar-mainnet](https://explorers.l0vd.com/axelar-mainnet)
