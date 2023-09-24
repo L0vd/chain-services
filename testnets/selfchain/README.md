@@ -13,7 +13,7 @@ Layer 1 Blockchain Designed for Trustless, Next Generation Private Key Recovery.
 |  |  |
 | ------ | ------ |
 | Chain-id | self-dev-1 |
-| Binary name | d |
+| Binary name | selfchaind |
 | Binary version | v |
 
 ##### Explorer

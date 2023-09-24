@@ -6,7 +6,7 @@
 
 ### Copy the entire command
 ```
-sudo systemctl stop d
+sudo systemctl stop selfchaind
 SNAP_RPC="https://selfchain-testnet.rpc.l0vd.com:443"; \
 LATEST_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height); \
 BLOCK_HEIGHT=$((LATEST_HEIGHT - 2000)); \
@@ -21,7 +21,7 @@ s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" $HOME/.selfchain
 peers="658b0acb4513d8d900a4605e20f3175597f56530@selfchain-testnet.peers.l0vd.com:18656" \
 && sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/.selfchain/config/config.toml 
 
-d tendermint unsafe-reset-all --home ~/.selfchain && sudo systemctl restart d && journalctl -u d -f --output cat
+selfchaind tendermint unsafe-reset-all --home ~/.selfchain && sudo systemctl restart selfchaind && journalctl -u selfchaind -f --output cat
 ```
 
 ### Turn off State Sync Mode after synchronization

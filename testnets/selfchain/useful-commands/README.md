@@ -6,19 +6,19 @@ Please note that the values in <> must be changed to your own values
 
 ### Add new key
 ```
-d keys add <key_name>
+selfchaind keys add <key_name>
 ```
 ### Recover keys from seed
 ```
-d keys add <key_name> --recover
+selfchaind keys add <key_name> --recover
 ```
 ### Show all keys
 ```
-d keys list
+selfchaind keys list
 ```
 ### Delete key
 ```
-d keys delete <key_name>
+selfchaind keys delete <key_name>
 ```
 
 ## Node configuration
@@ -58,13 +58,13 @@ sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0uself\"/" $HOME/.s
 
 ### Create validator
 ```
-d tx staking create-validator \
+selfchaind tx staking create-validator \
 --amount 1000000uself \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
---pubkey $(d tendermint show-validator) \
+--pubkey $(selfchaind tendermint show-validator) \
 --moniker <SELFCHAIN_NODENAME> \
 --chain-id self-dev-1 \
 --from <SELFCHAIN_WALLET> \
@@ -78,7 +78,7 @@ d tx staking create-validator \
 ```
 ### Edit validator
 ```
-d tx staking edit-validator \
+selfchaind tx staking edit-validator \
 --new-moniker <SELFCHAIN_NODENAME> \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
@@ -93,97 +93,97 @@ d tx staking edit-validator \
 ```
 ### View validator info
 ```
-d q staking validator $(d keys show <SELFCHAIN_WALLET> --bech val -a)
+selfchaind q staking validator $(selfchaind keys show <SELFCHAIN_WALLET> --bech val -a)
 ```
 ### Unjail validator
 ```
-d tx slashing unjail --from <SELFCHAIN_WALLET> --chain-id self-dev-1 --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes 
+selfchaind tx slashing unjail --from <SELFCHAIN_WALLET> --chain-id self-dev-1 --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes 
 ```
 ### Signing info
 ```
-d query slashing signing-info $(d tendermint show-validator)
+selfchaind query slashing signing-info $(selfchaind tendermint show-validator)
 ```
 
 ## Token operations
 
 ### Send tokens
 ```
-d tx bank send wallet <DEST_WALLET_ADDRESS> 100uself --from <SELFCHAIN_WALLET> --chain-id self-dev-1 --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes
+selfchaind tx bank send wallet <DEST_WALLET_ADDRESS> 100uself --from <SELFCHAIN_WALLET> --chain-id self-dev-1 --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to your validator
 ```
-d tx staking delegate $(d keys show <SELFCHAIN_WALLET> --bech val -a) 100uself --from <SELFCHAIN_WALLET> --chain-id self-dev-1 --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes
+selfchaind tx staking delegate $(selfchaind keys show <SELFCHAIN_WALLET> --bech val -a) 100uself --from <SELFCHAIN_WALLET> --chain-id self-dev-1 --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to another validator
 ```
-d tx staking delegate <VALOPER_ADDRESS> 100uself --from <SELFCHAIN_WALLET> --chain-id self-dev-1 --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes
+selfchaind tx staking delegate <VALOPER_ADDRESS> 100uself --from <SELFCHAIN_WALLET> --chain-id self-dev-1 --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Redelegate tokens to another validator
 ```
-d tx staking redelegate $(d keys show <SELFCHAIN_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100uself --from <SELFCHAIN_WALLET> --chain-id self-dev-1 --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes
+selfchaind tx staking redelegate $(selfchaind keys show <SELFCHAIN_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100uself --from <SELFCHAIN_WALLET> --chain-id self-dev-1 --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Unbond tokens from staking
 ```
-d tx staking unbond $(d keys show <SELFCHAIN_WALLET> --bech val -a) 100uself --from <SELFCHAIN_WALLET> --chain-id self-dev-1 --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes
+selfchaind tx staking unbond $(selfchaind keys show <SELFCHAIN_WALLET> --bech val -a) 100uself --from <SELFCHAIN_WALLET> --chain-id self-dev-1 --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Withdraw all rewards from staking
 ```
-d tx distribution withdraw-all-rewards --from <SELFCHAIN_WALLET> --chain-id self-dev-1 --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes
+selfchaind tx distribution withdraw-all-rewards --from <SELFCHAIN_WALLET> --chain-id self-dev-1 --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes
 ```
 
 ### Withdraw validator rewards and comission
 ```
-d tx distribution withdraw-rewards $(d keys show <SELFCHAIN_WALLET> --bech val -a) --commission --from wallet --chain-id self-dev-1 --gas-adjustment 1.5 --gas auto --gas-prices 0uself -y
+selfchaind tx distribution withdraw-rewards $(selfchaind keys show <SELFCHAIN_WALLET> --bech val -a) --commission --from wallet --chain-id self-dev-1 --gas-adjustment 1.5 --gas auto --gas-prices 0uself -y
 
 ```
 
 ## Governance
 ### Vote "YES"
 ```
-d tx gov vote <proposal_id> yes --from <SELFCHAIN_WALLET> --chain-id self-dev-1 --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes
+selfchaind tx gov vote <proposal_id> yes --from <SELFCHAIN_WALLET> --chain-id self-dev-1 --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Vote "NO"
 ```
-d tx gov vote <proposal_id> no --from <SELFCHAIN_WALLET> --chain-id self-dev-1 --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes
+selfchaind tx gov vote <proposal_id> no --from <SELFCHAIN_WALLET> --chain-id self-dev-1 --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Abstain from voting
 ```
-d tx gov vote <proposal_id> abstain --from <SELFCHAIN_WALLET> --chain-id self-dev-1 --gas-adjustment 1.5 --gas auto --gas-prices 0uself -y
+selfchaind tx gov vote <proposal_id> abstain --from <SELFCHAIN_WALLET> --chain-id self-dev-1 --gas-adjustment 1.5 --gas auto --gas-prices 0uself -y
 ```
 
 
 ## General commands
 ### Check node status
 ```
-d status | jq
+selfchaind status | jq
 ```
 ### Check service status
 ```
-sudo systemctl status d
+sudo systemctl status selfchaind
 ```
 ### Check logs
 ```
-sudo journalctl -u d -f --no-hostname -o cat
+sudo journalctl -u selfchaind -f --no-hostname -o cat
 ```
 ### Restart service
 ```
-sudo systemctl restart d
+sudo systemctl restart selfchaind
 ```
 ### Stop service
 ```
-sudo systemctl stop d
+sudo systemctl stop selfchaind
 ```
 ### Start service
 ```
-sudo systemctl start d
+sudo systemctl start selfchaind
 ```
 ### Disable service
 ```
-sudo systemctl disable d
+sudo systemctl disable selfchaind
 ```
 ### Enable service
 ```
-sudo systemctl enable d
+sudo systemctl enable selfchaind
 ```
 ### Reload service after changes
 ```
