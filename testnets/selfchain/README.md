@@ -12,9 +12,9 @@ Layer 1 Blockchain Designed for Trustless, Next Generation Private Key Recovery.
 
 |  |  |
 | ------ | ------ |
-| Chain-id | stride-1 |
-| Binary name | strided |
-| Binary version | vv15.0.0 |
+| Chain-id | self-dev-1 |
+| Binary name | d |
+| Binary version | v |
 
 ##### Explorer
 [https://explorers.l0vd.com/selfchain-testnet](https://explorers.l0vd.com/selfchain-testnet)

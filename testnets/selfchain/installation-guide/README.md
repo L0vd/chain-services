@@ -38,7 +38,7 @@ You should replace values in <> <br />
 ```
 SELFCHAIN_WALLET="<YOUR_WALLET_NAME>"
 SELFCHAIN_NODENAME="<YOUR_MONIKER>"
-SELFCHAIN_CHAIN_ID="stride-1"
+SELFCHAIN_CHAIN_ID="self-dev-1"
 ```
 
 ```
@@ -54,12 +54,12 @@ source $HOME/.bash_profile
 
 ### Configure your node
 ```
-strided config chain-id ${SELFCHAIN_CHAIN_ID}
+d config chain-id ${SELFCHAIN_CHAIN_ID}
 ```
 
 ### Initialize your node
 ```
-strided init ${SELFCHAIN_NODENAME} --chain-id ${SELFCHAIN_CHAIN_ID}
+d init ${SELFCHAIN_NODENAME} --chain-id ${SELFCHAIN_CHAIN_ID}
 ```
 
 ### Download genesis & addrbook
@@ -106,14 +106,14 @@ sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.selfchain/config/config.t
 
 ### Create Service
 ```
-sudo tee /etc/systemd/system/strided.service > /dev/null <<EOF
+sudo tee /etc/systemd/system/d.service > /dev/null <<EOF
 [Unit]
 Description=Selfchain testnet
 After=network-online.target
 
 [Service]
 User=$USER
-ExecStart=$(which strided) start
+ExecStart=$(which d) start
 Restart=on-failure
 RestartSec=3
 LimitNOFILE=65535
@@ -126,9 +126,9 @@ EOF
 ### Reset blockchain info and restart your node
 ```
 sudo systemctl daemon-reload
-sudo systemctl enable strided
-strided tendermint unsafe-reset-all --home $HOME/.selfchain --keep-addr-book
-sudo systemctl restart strided && sudo journalctl -u strided -f -o cat
+sudo systemctl enable d
+d tendermint unsafe-reset-all --home $HOME/.selfchain --keep-addr-book
+sudo systemctl restart d && sudo journalctl -u d -f -o cat
 ```
 
 ### (OPTIONAL) Use State Sync
@@ -140,17 +140,17 @@ sudo systemctl restart strided && sudo journalctl -u strided -f -o cat
 
 #### 1. Add a new key
 ```
-strided keys add ${SELFCHAIN_WALLET}
+d keys add ${SELFCHAIN_WALLET}
 ```
 ##### (OR)
 
 #### 1. Recover your key
 ```
-strided keys add ${SELFCHAIN_WALLET} --recover
+d keys add ${SELFCHAIN_WALLET} --recover
 ```
 
 ```
-SELFCHAIN_WALLET_ADDR=$(strided keys show ${SELFCHAIN_WALLET} -a)
+SELFCHAIN_WALLET_ADDR=$(d keys show ${SELFCHAIN_WALLET} -a)
 echo "export SELFCHAIN_WALLET_ADDR=${SELFCHAIN_WALLET_ADDR}" >> $HOME/.bash_profile
 
 source $HOME/.bash_profile
@@ -164,14 +164,14 @@ Wait until the node is synchronized.
 {% endhint %}
 
 ```
-strided tx staking create-validator \
+d tx staking create-validator \
 --amount 1000000uself \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
 --details "" \
---pubkey $(strided tendermint show-validator) \
+--pubkey $(d tendermint show-validator) \
 --moniker ${SELFCHAIN_NODENAME} \
 --chain-id ${SELFCHAIN_CHAIN_ID} \
 --from ${SELFCHAIN_WALLET_ADDR} \

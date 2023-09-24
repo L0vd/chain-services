@@ -6,19 +6,19 @@ Please note that the values in <> must be changed to your own values
 
 ### Add new key
 ```
-strided keys add <key_name>
+d keys add <key_name>
 ```
 ### Recover keys from seed
 ```
-strided keys add <key_name> --recover
+d keys add <key_name> --recover
 ```
 ### Show all keys
 ```
-strided keys list
+d keys list
 ```
 ### Delete key
 ```
-strided keys delete <key_name>
+d keys delete <key_name>
 ```
 
 ## Node configuration
@@ -58,15 +58,15 @@ sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0uself\"/" $HOME/.s
 
 ### Create validator
 ```
-strided tx staking create-validator \
+d tx staking create-validator \
 --amount 1000000uself \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
---pubkey $(strided tendermint show-validator) \
+--pubkey $(d tendermint show-validator) \
 --moniker <SELFCHAIN_NODENAME> \
---chain-id stride-1 \
+--chain-id self-dev-1 \
 --from <SELFCHAIN_WALLET> \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
@@ -78,12 +78,12 @@ strided tx staking create-validator \
 ```
 ### Edit validator
 ```
-strided tx staking edit-validator \
+d tx staking edit-validator \
 --new-moniker <SELFCHAIN_NODENAME> \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
 --website <YOUR_WEBSITE> \
---chain-id stride-1 \
+--chain-id self-dev-1 \
 --commission-rate 0.05 \
 --from <SELFCHAIN_WALLET> \
 --gas-prices 0uself \
@@ -93,97 +93,97 @@ strided tx staking edit-validator \
 ```
 ### View validator info
 ```
-strided q staking validator $(strided keys show <SELFCHAIN_WALLET> --bech val -a)
+d q staking validator $(d keys show <SELFCHAIN_WALLET> --bech val -a)
 ```
 ### Unjail validator
 ```
-strided tx slashing unjail --from <SELFCHAIN_WALLET> --chain-id stride-1 --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes 
+d tx slashing unjail --from <SELFCHAIN_WALLET> --chain-id self-dev-1 --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes 
 ```
 ### Signing info
 ```
-strided query slashing signing-info $(strided tendermint show-validator)
+d query slashing signing-info $(d tendermint show-validator)
 ```
 
 ## Token operations
 
 ### Send tokens
 ```
-strided tx bank send wallet <DEST_WALLET_ADDRESS> 100uself --from <SELFCHAIN_WALLET> --chain-id stride-1 --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes
+d tx bank send wallet <DEST_WALLET_ADDRESS> 100uself --from <SELFCHAIN_WALLET> --chain-id self-dev-1 --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to your validator
 ```
-strided tx staking delegate $(strided keys show <SELFCHAIN_WALLET> --bech val -a) 100uself --from <SELFCHAIN_WALLET> --chain-id stride-1 --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes
+d tx staking delegate $(d keys show <SELFCHAIN_WALLET> --bech val -a) 100uself --from <SELFCHAIN_WALLET> --chain-id self-dev-1 --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to another validator
 ```
-strided tx staking delegate <VALOPER_ADDRESS> 100uself --from <SELFCHAIN_WALLET> --chain-id stride-1 --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes
+d tx staking delegate <VALOPER_ADDRESS> 100uself --from <SELFCHAIN_WALLET> --chain-id self-dev-1 --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Redelegate tokens to another validator
 ```
-strided tx staking redelegate $(strided keys show <SELFCHAIN_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100uself --from <SELFCHAIN_WALLET> --chain-id stride-1 --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes
+d tx staking redelegate $(d keys show <SELFCHAIN_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100uself --from <SELFCHAIN_WALLET> --chain-id self-dev-1 --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Unbond tokens from staking
 ```
-strided tx staking unbond $(strided keys show <SELFCHAIN_WALLET> --bech val -a) 100uself --from <SELFCHAIN_WALLET> --chain-id stride-1 --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes
+d tx staking unbond $(d keys show <SELFCHAIN_WALLET> --bech val -a) 100uself --from <SELFCHAIN_WALLET> --chain-id self-dev-1 --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Withdraw all rewards from staking
 ```
-strided tx distribution withdraw-all-rewards --from <SELFCHAIN_WALLET> --chain-id stride-1 --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes
+d tx distribution withdraw-all-rewards --from <SELFCHAIN_WALLET> --chain-id self-dev-1 --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes
 ```
 
 ### Withdraw validator rewards and comission
 ```
-strided tx distribution withdraw-rewards $(strided keys show <SELFCHAIN_WALLET> --bech val -a) --commission --from wallet --chain-id stride-1 --gas-adjustment 1.5 --gas auto --gas-prices 0uself -y
+d tx distribution withdraw-rewards $(d keys show <SELFCHAIN_WALLET> --bech val -a) --commission --from wallet --chain-id self-dev-1 --gas-adjustment 1.5 --gas auto --gas-prices 0uself -y
 
 ```
 
 ## Governance
 ### Vote "YES"
 ```
-strided tx gov vote <proposal_id> yes --from <SELFCHAIN_WALLET> --chain-id stride-1 --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes
+d tx gov vote <proposal_id> yes --from <SELFCHAIN_WALLET> --chain-id self-dev-1 --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Vote "NO"
 ```
-strided tx gov vote <proposal_id> no --from <SELFCHAIN_WALLET> --chain-id stride-1 --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes
+d tx gov vote <proposal_id> no --from <SELFCHAIN_WALLET> --chain-id self-dev-1 --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Abstain from voting
 ```
-strided tx gov vote <proposal_id> abstain --from <SELFCHAIN_WALLET> --chain-id stride-1 --gas-adjustment 1.5 --gas auto --gas-prices 0uself -y
+d tx gov vote <proposal_id> abstain --from <SELFCHAIN_WALLET> --chain-id self-dev-1 --gas-adjustment 1.5 --gas auto --gas-prices 0uself -y
 ```
 
 
 ## General commands
 ### Check node status
 ```
-strided status | jq
+d status | jq
 ```
 ### Check service status
 ```
-sudo systemctl status strided
+sudo systemctl status d
 ```
 ### Check logs
 ```
-sudo journalctl -u strided -f --no-hostname -o cat
+sudo journalctl -u d -f --no-hostname -o cat
 ```
 ### Restart service
 ```
-sudo systemctl restart strided
+sudo systemctl restart d
 ```
 ### Stop service
 ```
-sudo systemctl stop strided
+sudo systemctl stop d
 ```
 ### Start service
 ```
-sudo systemctl start strided
+sudo systemctl start d
 ```
 ### Disable service
 ```
-sudo systemctl disable strided
+sudo systemctl disable d
 ```
 ### Enable service
 ```
-sudo systemctl enable strided
+sudo systemctl enable d
 ```
 ### Reload service after changes
 ```
