@@ -80,7 +80,7 @@ sed -i.bak -e "s%^proxy_app = \"tcp://127.0.0.1:26658\"%proxy_app = \"tcp://127.
 sed -i.bak -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:${ENTANGLE_PORT}317\"%; s%^address = \"tcp://localhost:1317\"%address = \"tcp://0.0.0.0:${ENTANGLE_PORT}317\"%; s%^address = \":8080\"%address = \":${ENTANGLE_PORT}080\"%; s%^address = \"0.0.0.0:9090\"%address = \"0.0.0.0:${ENTANGLE_PORT}090\"%; s%^address = \"localhost:9090\"%address = \"localhost:${ENTANGLE_PORT}090\"%; s%^address = \"0.0.0.0:9091\"%address = \"0.0.0.0:${ENTANGLE_PORT}091\"%; s%^address = \"localhost:9091\"%address = \"localhost:${ENTANGLE_PORT}091\"%; s%^address = \"0.0.0.0:8545\"%address = \"0.0.0.0:${ENTANGLE_PORT}545\"%; s%^ws-address = \"0.0.0.0:8546\"%ws-address = \"0.0.0.0:${ENTANGLE_PORT}546\"%" /$HOME/.entangled/config/app.toml
 ```
 ```
-entangled config node tcp://localhost:${ENTANGLE_PORT}
+entangled config node tcp://localhost:${ENTANGLE_PORT}657
 ```
 
 ### Set seeds and peers
