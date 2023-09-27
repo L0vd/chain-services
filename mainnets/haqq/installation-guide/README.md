@@ -26,7 +26,7 @@ cd $HOME
 rm -rf haqq
 git clone https://github.com/haqq-network/haqq.git
 cd haqq
-git checkout v
+git checkout v1.4.1
 make install
 ```
 
@@ -39,7 +39,7 @@ You should replace values in <> <br />
 ```
 HAQQ_WALLET="<YOUR_WALLET_NAME>"
 HAQQ_NODENAME="<YOUR_MONIKER>"
-HAQQ_CHAIN_ID=""
+HAQQ_CHAIN_ID="haqq_11235-1"
 ```
 
 ```
@@ -55,12 +55,12 @@ source $HOME/.bash_profile
 
 ### Configure your node
 ```
-d config chain-id ${HAQQ_CHAIN_ID}
+haqqd config chain-id ${HAQQ_CHAIN_ID}
 ```
 
 ### Initialize your node
 ```
-d init ${HAQQ_NODENAME} --chain-id ${HAQQ_CHAIN_ID}
+haqqd init ${HAQQ_NODENAME} --chain-id ${HAQQ_CHAIN_ID}
 ```
 
 ### Download genesis & addrbook
@@ -107,14 +107,14 @@ sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.haqqd/config/config.toml
 
 ### Create Service
 ```
-sudo tee /etc/systemd/system/d.service > /dev/null <<EOF
+sudo tee /etc/systemd/system/haqqd.service > /dev/null <<EOF
 [Unit]
 Description=Haqq mainnet
 After=network-online.target
 
 [Service]
 User=$USER
-ExecStart=$(which d) start
+ExecStart=$(which haqqd) start
 Restart=on-failure
 RestartSec=3
 LimitNOFILE=65535
@@ -127,9 +127,9 @@ EOF
 ### Reset blockchain info and restart your node
 ```
 sudo systemctl daemon-reload
-sudo systemctl enable d
-d tendermint unsafe-reset-all --home $HOME/.haqqd --keep-addr-book
-sudo systemctl restart d && sudo journalctl -u d -f -o cat
+sudo systemctl enable haqqd
+haqqd tendermint unsafe-reset-all --home $HOME/.haqqd --keep-addr-book
+sudo systemctl restart haqqd && sudo journalctl -u haqqd -f -o cat
 ```
 
 ### (OPTIONAL) Use State Sync
@@ -141,17 +141,17 @@ sudo systemctl restart d && sudo journalctl -u d -f -o cat
 
 #### 1. Add a new key
 ```
-d keys add ${HAQQ_WALLET}
+haqqd keys add ${HAQQ_WALLET}
 ```
 ##### (OR)
 
 #### 1. Recover your key
 ```
-d keys add ${HAQQ_WALLET} --recover
+haqqd keys add ${HAQQ_WALLET} --recover
 ```
 
 ```
-HAQQ_WALLET_ADDR=$(d keys show ${HAQQ_WALLET} -a)
+HAQQ_WALLET_ADDR=$(haqqd keys show ${HAQQ_WALLET} -a)
 echo "export HAQQ_WALLET_ADDR=${HAQQ_WALLET_ADDR}" >> $HOME/.bash_profile
 
 source $HOME/.bash_profile
@@ -165,14 +165,14 @@ Wait until the node is synchronized.
 {% endhint %}
 
 ```
-d tx staking create-validator \
+haqqd tx staking create-validator \
 --amount 1000000aISLM \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
 --details "" \
---pubkey $(d tendermint show-validator) \
+--pubkey $(haqqd tendermint show-validator) \
 --moniker ${HAQQ_NODENAME} \
 --chain-id ${HAQQ_CHAIN_ID} \
 --from ${HAQQ_WALLET_ADDR} \
