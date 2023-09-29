@@ -18,7 +18,7 @@ s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"$SNAP_RPC,$SNAP_RPC\"| ; \
 s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT| ; \
 s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" $HOME/.selfchain/config/config.toml
 
-peers="@selfchain-testnet.peers.l0vd.com:" \
+peers="658b0acb4513d8d900a4605e20f3175597f56530@selfchain-testnet.peers.l0vd.com:18656" \
 && sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/.selfchain/config/config.toml 
 
 selfchaind tendermint unsafe-reset-all --home ~/.selfchain && sudo systemctl restart selfchaind && journalctl -u selfchaind -f --output cat
