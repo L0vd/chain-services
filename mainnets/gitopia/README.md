@@ -14,7 +14,7 @@ Gitopia is the next-generation Decentralized Code Collaboration Platform fueled 
 | ------ | ------ |
 | Chain-id | gitopia |
 | Binary name | gitopiad |
-| Binary version | v3.2.0 |
+| Binary version | v3.3.0 |
 
 ##### Explorer
 [https://explorers.l0vd.com/gitopia-mainnet](https://explorers.l0vd.com/gitopia-mainnet)
