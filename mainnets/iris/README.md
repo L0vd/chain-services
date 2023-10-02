@@ -12,9 +12,9 @@ IRISnet (a.k.a IRIS Hub) is designed to be the foundation for the next generatio
 
 |  |  |
 | ------ | ------ |
-| Chain-id | irishub-1 |
-| Binary name | irisd |
-| Binary version | v2.0.0 |
+| Chain-id |  |
+| Binary name | iris |
+| Binary version | v |
 
 ##### Explorer
 [https://explorers.l0vd.com/iris-mainnet](https://explorers.l0vd.com/iris-mainnet)

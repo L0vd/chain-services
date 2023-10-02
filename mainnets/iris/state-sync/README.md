@@ -6,7 +6,7 @@
 
 ### Copy the entire command
 ```
-sudo systemctl stop irisd
+sudo systemctl stop iris
 SNAP_RPC="https://iris-mainnet.rpc.l0vd.com:443"; \
 LATEST_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height); \
 BLOCK_HEIGHT=$((LATEST_HEIGHT - 2000)); \
@@ -18,10 +18,10 @@ s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"$SNAP_RPC,$SNAP_RPC\"| ; \
 s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT| ; \
 s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" $HOME/.iris/config/config.toml
 
-peers="3ddf22082bda8607289bd94b649e0e2595f1fffd@iris-mainnet.peers.l0vd.com:19656" \
+peers="@iris-mainnet.peers.l0vd.com:" \
 && sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/.iris/config/config.toml 
 
-irisd tendermint unsafe-reset-all --home ~/.iris && sudo systemctl restart irisd && journalctl -u irisd -f --output cat
+iris tendermint unsafe-reset-all --home ~/.iris && sudo systemctl restart iris && journalctl -u iris -f --output cat
 ```
 
 ### Turn off State Sync Mode after synchronization
