@@ -6,19 +6,19 @@ Please note that the values in <> must be changed to your own values
 
 ### Add new key
 ```
- keys add <key_name>
+centaurid keys add <key_name>
 ```
 ### Recover keys from seed
 ```
- keys add <key_name> --recover
+centaurid keys add <key_name> --recover
 ```
 ### Show all keys
 ```
- keys list
+centaurid keys list
 ```
 ### Delete key
 ```
- keys delete <key_name>
+centaurid keys delete <key_name>
 ```
 
 ## Node configuration
@@ -58,15 +58,15 @@ sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0ppica\"/" $HOME/.b
 
 ### Create validator
 ```
- tx staking create-validator \
+centaurid tx staking create-validator \
 --amount 1000000ppica \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
---pubkey $( tendermint show-validator) \
+--pubkey $(centaurid tendermint show-validator) \
 --moniker <COMPOSABLE_NODENAME> \
---chain-id  \
+--chain-id centauri-1 \
 --from <COMPOSABLE_WALLET> \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
@@ -78,12 +78,12 @@ sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0ppica\"/" $HOME/.b
 ```
 ### Edit validator
 ```
- tx staking edit-validator \
+centaurid tx staking edit-validator \
 --new-moniker <COMPOSABLE_NODENAME> \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
 --website <YOUR_WEBSITE> \
---chain-id  \
+--chain-id centauri-1 \
 --commission-rate 0.05 \
 --from <COMPOSABLE_WALLET> \
 --gas-prices 0ppica \
@@ -93,97 +93,97 @@ sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0ppica\"/" $HOME/.b
 ```
 ### View validator info
 ```
- q staking validator $( keys show <COMPOSABLE_WALLET> --bech val -a)
+centaurid q staking validator $(centaurid keys show <COMPOSABLE_WALLET> --bech val -a)
 ```
 ### Unjail validator
 ```
- tx slashing unjail --from <COMPOSABLE_WALLET> --chain-id  --gas-prices 0ppica --gas-adjustment 1.5 --gas auto --yes 
+centaurid tx slashing unjail --from <COMPOSABLE_WALLET> --chain-id centauri-1 --gas-prices 0ppica --gas-adjustment 1.5 --gas auto --yes 
 ```
 ### Signing info
 ```
- query slashing signing-info $( tendermint show-validator)
+centaurid query slashing signing-info $(centaurid tendermint show-validator)
 ```
 
 ## Token operations
 
 ### Send tokens
 ```
- tx bank send wallet <DEST_WALLET_ADDRESS> 100ppica --from <COMPOSABLE_WALLET> --chain-id  --gas-prices 0ppica --gas-adjustment 1.5 --gas auto --yes
+centaurid tx bank send wallet <DEST_WALLET_ADDRESS> 100ppica --from <COMPOSABLE_WALLET> --chain-id centauri-1 --gas-prices 0ppica --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to your validator
 ```
- tx staking delegate $( keys show <COMPOSABLE_WALLET> --bech val -a) 100ppica --from <COMPOSABLE_WALLET> --chain-id  --gas-prices 0ppica --gas-adjustment 1.5 --gas auto --yes
+centaurid tx staking delegate $(centaurid keys show <COMPOSABLE_WALLET> --bech val -a) 100ppica --from <COMPOSABLE_WALLET> --chain-id centauri-1 --gas-prices 0ppica --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to another validator
 ```
- tx staking delegate <VALOPER_ADDRESS> 100ppica --from <COMPOSABLE_WALLET> --chain-id  --gas-prices 0ppica --gas-adjustment 1.5 --gas auto --yes
+centaurid tx staking delegate <VALOPER_ADDRESS> 100ppica --from <COMPOSABLE_WALLET> --chain-id centauri-1 --gas-prices 0ppica --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Redelegate tokens to another validator
 ```
- tx staking redelegate $( keys show <COMPOSABLE_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100ppica --from <COMPOSABLE_WALLET> --chain-id  --gas-prices 0ppica --gas-adjustment 1.5 --gas auto --yes
+centaurid tx staking redelegate $(centaurid keys show <COMPOSABLE_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100ppica --from <COMPOSABLE_WALLET> --chain-id centauri-1 --gas-prices 0ppica --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Unbond tokens from staking
 ```
- tx staking unbond $( keys show <COMPOSABLE_WALLET> --bech val -a) 100ppica --from <COMPOSABLE_WALLET> --chain-id  --gas-prices 0ppica --gas-adjustment 1.5 --gas auto --yes
+centaurid tx staking unbond $(centaurid keys show <COMPOSABLE_WALLET> --bech val -a) 100ppica --from <COMPOSABLE_WALLET> --chain-id centauri-1 --gas-prices 0ppica --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Withdraw all rewards from staking
 ```
- tx distribution withdraw-all-rewards --from <COMPOSABLE_WALLET> --chain-id  --gas-prices 0ppica --gas-adjustment 1.5 --gas auto --yes
+centaurid tx distribution withdraw-all-rewards --from <COMPOSABLE_WALLET> --chain-id centauri-1 --gas-prices 0ppica --gas-adjustment 1.5 --gas auto --yes
 ```
 
 ### Withdraw validator rewards and comission
 ```
- tx distribution withdraw-rewards $( keys show <COMPOSABLE_WALLET> --bech val -a) --commission --from wallet --chain-id  --gas-adjustment 1.5 --gas auto --gas-prices 0ppica -y
+centaurid tx distribution withdraw-rewards $(centaurid keys show <COMPOSABLE_WALLET> --bech val -a) --commission --from wallet --chain-id centauri-1 --gas-adjustment 1.5 --gas auto --gas-prices 0ppica -y
 
 ```
 
 ## Governance
 ### Vote "YES"
 ```
- tx gov vote <proposal_id> yes --from <COMPOSABLE_WALLET> --chain-id  --gas-prices 0ppica --gas-adjustment 1.5 --gas auto --yes
+centaurid tx gov vote <proposal_id> yes --from <COMPOSABLE_WALLET> --chain-id centauri-1 --gas-prices 0ppica --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Vote "NO"
 ```
- tx gov vote <proposal_id> no --from <COMPOSABLE_WALLET> --chain-id  --gas-prices 0ppica --gas-adjustment 1.5 --gas auto --yes
+centaurid tx gov vote <proposal_id> no --from <COMPOSABLE_WALLET> --chain-id centauri-1 --gas-prices 0ppica --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Abstain from voting
 ```
- tx gov vote <proposal_id> abstain --from <COMPOSABLE_WALLET> --chain-id  --gas-adjustment 1.5 --gas auto --gas-prices 0ppica -y
+centaurid tx gov vote <proposal_id> abstain --from <COMPOSABLE_WALLET> --chain-id centauri-1 --gas-adjustment 1.5 --gas auto --gas-prices 0ppica -y
 ```
 
 
 ## General commands
 ### Check node status
 ```
- status | jq
+centaurid status | jq
 ```
 ### Check service status
 ```
-sudo systemctl status 
+sudo systemctl status centaurid
 ```
 ### Check logs
 ```
-sudo journalctl -u  -f --no-hostname -o cat
+sudo journalctl -u centaurid -f --no-hostname -o cat
 ```
 ### Restart service
 ```
-sudo systemctl restart 
+sudo systemctl restart centaurid
 ```
 ### Stop service
 ```
-sudo systemctl stop 
+sudo systemctl stop centaurid
 ```
 ### Start service
 ```
-sudo systemctl start 
+sudo systemctl start centaurid
 ```
 ### Disable service
 ```
-sudo systemctl disable 
+sudo systemctl disable centaurid
 ```
 ### Enable service
 ```
-sudo systemctl enable 
+sudo systemctl enable centaurid
 ```
 ### Reload service after changes
 ```

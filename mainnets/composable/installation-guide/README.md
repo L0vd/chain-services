@@ -26,7 +26,7 @@ cd $HOME
 rm -rf composable-centauri
 git clone https://github.com/notional-labs/composable-centauri.git
 cd composable-centauri
-git checkout 
+git checkout v5.2.2-client-fix
 make install
 ```
 
@@ -39,7 +39,7 @@ You should replace values in <> <br />
 ```
 COMPOSABLE_WALLET="<YOUR_WALLET_NAME>"
 COMPOSABLE_NODENAME="<YOUR_MONIKER>"
-COMPOSABLE_CHAIN_ID=""
+COMPOSABLE_CHAIN_ID="centauri-1"
 ```
 
 ```
@@ -55,12 +55,12 @@ source $HOME/.bash_profile
 
 ### Configure your node
 ```
- config chain-id ${COMPOSABLE_CHAIN_ID}
+centaurid config chain-id ${COMPOSABLE_CHAIN_ID}
 ```
 
 ### Initialize your node
 ```
- init ${COMPOSABLE_NODENAME} --chain-id ${COMPOSABLE_CHAIN_ID}
+centaurid init ${COMPOSABLE_NODENAME} --chain-id ${COMPOSABLE_CHAIN_ID}
 ```
 
 ### Download genesis & addrbook
@@ -107,14 +107,14 @@ sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.banksy/config/config.toml
 
 ### Create Service
 ```
-sudo tee /etc/systemd/system/.service > /dev/null <<EOF
+sudo tee /etc/systemd/system/centaurid.service > /dev/null <<EOF
 [Unit]
 Description=Composable mainnet
 After=network-online.target
 
 [Service]
 User=$USER
-ExecStart=$(which ) start
+ExecStart=$(which centaurid) start
 Restart=on-failure
 RestartSec=3
 LimitNOFILE=65535
@@ -127,9 +127,9 @@ EOF
 ### Reset blockchain info and restart your node
 ```
 sudo systemctl daemon-reload
-sudo systemctl enable 
- tendermint unsafe-reset-all --home $HOME/.banksy --keep-addr-book
-sudo systemctl restart  && sudo journalctl -u  -f -o cat
+sudo systemctl enable centaurid
+centaurid tendermint unsafe-reset-all --home $HOME/.banksy --keep-addr-book
+sudo systemctl restart centaurid && sudo journalctl -u centaurid -f -o cat
 ```
 
 ### (OPTIONAL) Use State Sync
@@ -141,17 +141,17 @@ sudo systemctl restart  && sudo journalctl -u  -f -o cat
 
 #### 1. Add a new key
 ```
- keys add ${COMPOSABLE_WALLET}
+centaurid keys add ${COMPOSABLE_WALLET}
 ```
 ##### (OR)
 
 #### 1. Recover your key
 ```
- keys add ${COMPOSABLE_WALLET} --recover
+centaurid keys add ${COMPOSABLE_WALLET} --recover
 ```
 
 ```
-COMPOSABLE_WALLET_ADDR=$( keys show ${COMPOSABLE_WALLET} -a)
+COMPOSABLE_WALLET_ADDR=$(centaurid keys show ${COMPOSABLE_WALLET} -a)
 echo "export COMPOSABLE_WALLET_ADDR=${COMPOSABLE_WALLET_ADDR}" >> $HOME/.bash_profile
 
 source $HOME/.bash_profile
@@ -165,14 +165,14 @@ Wait until the node is synchronized.
 {% endhint %}
 
 ```
- tx staking create-validator \
+centaurid tx staking create-validator \
 --amount 1000000ppica \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
 --details "" \
---pubkey $( tendermint show-validator) \
+--pubkey $(centaurid tendermint show-validator) \
 --moniker ${COMPOSABLE_NODENAME} \
 --chain-id ${COMPOSABLE_CHAIN_ID} \
 --from ${COMPOSABLE_WALLET_ADDR} \
