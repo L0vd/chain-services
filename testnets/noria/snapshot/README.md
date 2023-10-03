@@ -11,7 +11,7 @@ sudo apt install lz4 -y
 ## Sync from Snapshot  
 | Height  | Size | Pruning | Indexer | Creation Time (UTC+3) |
 | --------- | --------- | --------- | --------- | --------- |
-| 2970940  | 0.1 GB  | custom/100/0/10 | null | 2023-10-03_01:02:17 |
+| 2976026  | 0.1 GB  | custom/100/0/10 | null | 2023-10-03_09:02:37 |
 
 ```
 sudo systemctl stop noriad
