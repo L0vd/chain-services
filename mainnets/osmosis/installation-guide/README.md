@@ -39,7 +39,7 @@ You should replace values in <> <br />
 ```
 OSMOSIS_WALLET="<YOUR_WALLET_NAME>"
 OSMOSIS_NODENAME="<YOUR_MONIKER>"
-OSMOSIS_CHAIN_ID="osmosis-1"
+OSMOSIS_CHAIN_ID=""
 ```
 
 ```
