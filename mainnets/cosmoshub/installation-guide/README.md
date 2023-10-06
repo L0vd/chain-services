@@ -26,7 +26,7 @@ cd $HOME
 rm -rf gaia
 git clone https://github.com/cosmos/gaia.git
 cd gaia
-git checkout 
+git checkout v12.0.0
 make install
 ```
 
@@ -55,12 +55,12 @@ source $HOME/.bash_profile
 
 ### Configure your node
 ```
-d config chain-id ${COSMOSHUB_CHAIN_ID}
+gaiad config chain-id ${COSMOSHUB_CHAIN_ID}
 ```
 
 ### Initialize your node
 ```
-d init ${COSMOSHUB_NODENAME} --chain-id ${COSMOSHUB_CHAIN_ID}
+gaiad init ${COSMOSHUB_NODENAME} --chain-id ${COSMOSHUB_CHAIN_ID}
 ```
 
 ### Download genesis & addrbook
@@ -107,14 +107,14 @@ sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.gaia/config/config.toml
 
 ### Create Service
 ```
-sudo tee /etc/systemd/system/d.service > /dev/null <<EOF
+sudo tee /etc/systemd/system/gaiad.service > /dev/null <<EOF
 [Unit]
 Description=Cosmoshub mainnet
 After=network-online.target
 
 [Service]
 User=$USER
-ExecStart=$(which d) start
+ExecStart=$(which gaiad) start
 Restart=on-failure
 RestartSec=3
 LimitNOFILE=65535
@@ -127,9 +127,9 @@ EOF
 ### Reset blockchain info and restart your node
 ```
 sudo systemctl daemon-reload
-sudo systemctl enable d
-d tendermint unsafe-reset-all --home $HOME/.gaia --keep-addr-book
-sudo systemctl restart d && sudo journalctl -u d -f -o cat
+sudo systemctl enable gaiad
+gaiad tendermint unsafe-reset-all --home $HOME/.gaia --keep-addr-book
+sudo systemctl restart gaiad && sudo journalctl -u gaiad -f -o cat
 ```
 
 ### (OPTIONAL) Use State Sync
@@ -141,17 +141,17 @@ sudo systemctl restart d && sudo journalctl -u d -f -o cat
 
 #### 1. Add a new key
 ```
-d keys add ${COSMOSHUB_WALLET}
+gaiad keys add ${COSMOSHUB_WALLET}
 ```
 ##### (OR)
 
 #### 1. Recover your key
 ```
-d keys add ${COSMOSHUB_WALLET} --recover
+gaiad keys add ${COSMOSHUB_WALLET} --recover
 ```
 
 ```
-COSMOSHUB_WALLET_ADDR=$(d keys show ${COSMOSHUB_WALLET} -a)
+COSMOSHUB_WALLET_ADDR=$(gaiad keys show ${COSMOSHUB_WALLET} -a)
 echo "export COSMOSHUB_WALLET_ADDR=${COSMOSHUB_WALLET_ADDR}" >> $HOME/.bash_profile
 
 source $HOME/.bash_profile
@@ -165,14 +165,14 @@ Wait until the node is synchronized.
 {% endhint %}
 
 ```
-d tx staking create-validator \
+gaiad tx staking create-validator \
 --amount 1000000uatom \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
 --details "" \
---pubkey $(d tendermint show-validator) \
+--pubkey $(gaiad tendermint show-validator) \
 --moniker ${COSMOSHUB_NODENAME} \
 --chain-id ${COSMOSHUB_CHAIN_ID} \
 --from ${COSMOSHUB_WALLET_ADDR} \
