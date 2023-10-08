@@ -23,9 +23,13 @@
 
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/haqq.svg" alt="" data-size="line"> [HAQQ](mainnets/haqq/)
 
+<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/iris.png" alt="" data-size="line"> [Iris](mainnets/iris/)
+
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/juno.svg" alt="" data-size="line"> [Juno](mainnets/juno/)
 
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/nois.svg" alt="" data-size="line"> [Nois](mainnets/nois/)
+
+<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/osmosis.png" alt="" data-size="line"> [Osmosis](mainnets/osmosis/)
 
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/stride.png" alt="" data-size="line"> [Stride](mainnets/stride/)
 
