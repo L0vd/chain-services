@@ -34,6 +34,7 @@
   * [State sync](mainnets/cosmoshub/state-sync/README.md)
   * [Useful commands](mainnets/cosmoshub/useful-commands/README.md)
   * [Monitoring](mainnets/cosmoshub/monitoring/README.md)
+  * [Wallet bot](mainnets/cosmoshub/wallet-bot/README.md)
 * [Gitopia](mainnets/gitopia/README.md)
   * [Installation](mainnets/gitopia/installation-guide/README.md)
   * [Snapshot](mainnets/gitopia/snapshot/README.md)
