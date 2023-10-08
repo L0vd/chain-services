@@ -55,12 +55,12 @@ source $HOME/.bash_profile
 
 ### Configure your node
 ```
-irisd config chain-id ${IRIS_CHAIN_ID}
+iris config chain-id ${IRIS_CHAIN_ID}
 ```
 
 ### Initialize your node
 ```
-irisd init ${IRIS_NODENAME} --chain-id ${IRIS_CHAIN_ID}
+iris init ${IRIS_NODENAME} --chain-id ${IRIS_CHAIN_ID}
 ```
 
 ### Download genesis & addrbook
@@ -80,7 +80,7 @@ sed -i.bak -e "s%^proxy_app = \"tcp://127.0.0.1:26658\"%proxy_app = \"tcp://127.
 sed -i.bak -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:${IRIS_PORT}317\"%; s%^address = \"tcp://localhost:1317\"%address = \"tcp://0.0.0.0:${IRIS_PORT}317\"%; s%^address = \":8080\"%address = \":${IRIS_PORT}080\"%; s%^address = \"0.0.0.0:9090\"%address = \"0.0.0.0:${IRIS_PORT}090\"%; s%^address = \"localhost:9090\"%address = \"localhost:${IRIS_PORT}090\"%; s%^address = \"0.0.0.0:9091\"%address = \"0.0.0.0:${IRIS_PORT}091\"%; s%^address = \"localhost:9091\"%address = \"localhost:${IRIS_PORT}091\"%; s%^address = \"0.0.0.0:8545\"%address = \"0.0.0.0:${IRIS_PORT}545\"%; s%^ws-address = \"0.0.0.0:8546\"%ws-address = \"0.0.0.0:${IRIS_PORT}546\"%" /$HOME/.iris/config/app.toml
 ```
 ```
-irisd config node tcp://localhost:${IRIS_PORT}657
+iris config node tcp://localhost:${IRIS_PORT}657
 ```
 
 ### Set seeds and peers
@@ -109,14 +109,14 @@ sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.iris/config/config.toml
 
 ### Create Service
 ```
-sudo tee /etc/systemd/system/irisd.service > /dev/null <<EOF
+sudo tee /etc/systemd/system/iris.service > /dev/null <<EOF
 [Unit]
 Description=Iris mainnet
 After=network-online.target
 
 [Service]
 User=$USER
-ExecStart=$(which irisd) start
+ExecStart=$(which iris) start
 Restart=on-failure
 RestartSec=3
 LimitNOFILE=65535
@@ -129,9 +129,9 @@ EOF
 ### Reset blockchain info and restart your node
 ```
 sudo systemctl daemon-reload
-sudo systemctl enable irisd
-irisd tendermint unsafe-reset-all --home $HOME/.iris --keep-addr-book
-sudo systemctl restart irisd && sudo journalctl -u irisd -f -o cat
+sudo systemctl enable iris
+iris tendermint unsafe-reset-all --home $HOME/.iris --keep-addr-book
+sudo systemctl restart iris && sudo journalctl -u iris -f -o cat
 ```
 
 ### (OPTIONAL) Use State Sync
@@ -143,17 +143,17 @@ sudo systemctl restart irisd && sudo journalctl -u irisd -f -o cat
 
 #### 1. Add a new key
 ```
-irisd keys add ${IRIS_WALLET}
+iris keys add ${IRIS_WALLET}
 ```
 ##### (OR)
 
 #### 1. Recover your key
 ```
-irisd keys add ${IRIS_WALLET} --recover
+iris keys add ${IRIS_WALLET} --recover
 ```
 
 ```
-IRIS_WALLET_ADDR=$(irisd keys show ${IRIS_WALLET} -a)
+IRIS_WALLET_ADDR=$(iris keys show ${IRIS_WALLET} -a)
 echo "export IRIS_WALLET_ADDR=${IRIS_WALLET_ADDR}" >> $HOME/.bash_profile
 
 source $HOME/.bash_profile
@@ -167,14 +167,14 @@ Wait until the node is synchronized.
 {% endhint %}
 
 ```
-irisd tx staking create-validator \
+iris tx staking create-validator \
 --amount 1000000uiris \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
 --details "" \
---pubkey $(irisd tendermint show-validator) \
+--pubkey $(iris tendermint show-validator) \
 --moniker ${IRIS_NODENAME} \
 --chain-id ${IRIS_CHAIN_ID} \
 --from ${IRIS_WALLET_ADDR} \

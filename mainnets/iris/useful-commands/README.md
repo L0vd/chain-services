@@ -6,19 +6,19 @@ Please note that the values in <> must be changed to your own values
 
 ### Add new key
 ```
-irisd keys add <key_name>
+iris keys add <key_name>
 ```
 ### Recover keys from seed
 ```
-irisd keys add <key_name> --recover
+iris keys add <key_name> --recover
 ```
 ### Show all keys
 ```
-irisd keys list
+iris keys list
 ```
 ### Delete key
 ```
-irisd keys delete <key_name>
+iris keys delete <key_name>
 ```
 
 ## Node configuration
@@ -58,13 +58,13 @@ sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.025uiris\"/" $HOM
 
 ### Create validator
 ```
-irisd tx staking create-validator \
+iris tx staking create-validator \
 --amount 1000000uiris \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
---pubkey $(irisd tendermint show-validator) \
+--pubkey $(iris tendermint show-validator) \
 --moniker <IRIS_NODENAME> \
 --chain-id irishub-1 \
 --from <IRIS_WALLET> \
@@ -78,7 +78,7 @@ irisd tx staking create-validator \
 ```
 ### Edit validator
 ```
-irisd tx staking edit-validator \
+iris tx staking edit-validator \
 --new-moniker <IRIS_NODENAME> \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
@@ -93,97 +93,97 @@ irisd tx staking edit-validator \
 ```
 ### View validator info
 ```
-irisd q staking validator $(irisd keys show <IRIS_WALLET> --bech val -a)
+iris q staking validator $(iris keys show <IRIS_WALLET> --bech val -a)
 ```
 ### Unjail validator
 ```
-irisd tx slashing unjail --from <IRIS_WALLET> --chain-id irishub-1 --gas-prices 0.025uiris --gas-adjustment 1.5 --gas auto --yes 
+iris tx slashing unjail --from <IRIS_WALLET> --chain-id irishub-1 --gas-prices 0.025uiris --gas-adjustment 1.5 --gas auto --yes 
 ```
 ### Signing info
 ```
-irisd query slashing signing-info $(irisd tendermint show-validator)
+iris query slashing signing-info $(iris tendermint show-validator)
 ```
 
 ## Token operations
 
 ### Send tokens
 ```
-irisd tx bank send wallet <DEST_WALLET_ADDRESS> 100uiris --from <IRIS_WALLET> --chain-id irishub-1 --gas-prices 0.025uiris --gas-adjustment 1.5 --gas auto --yes
+iris tx bank send wallet <DEST_WALLET_ADDRESS> 100uiris --from <IRIS_WALLET> --chain-id irishub-1 --gas-prices 0.025uiris --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to your validator
 ```
-irisd tx staking delegate $(irisd keys show <IRIS_WALLET> --bech val -a) 100uiris --from <IRIS_WALLET> --chain-id irishub-1 --gas-prices 0.025uiris --gas-adjustment 1.5 --gas auto --yes
+iris tx staking delegate $(iris keys show <IRIS_WALLET> --bech val -a) 100uiris --from <IRIS_WALLET> --chain-id irishub-1 --gas-prices 0.025uiris --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to another validator
 ```
-irisd tx staking delegate <VALOPER_ADDRESS> 100uiris --from <IRIS_WALLET> --chain-id irishub-1 --gas-prices 0.025uiris --gas-adjustment 1.5 --gas auto --yes
+iris tx staking delegate <VALOPER_ADDRESS> 100uiris --from <IRIS_WALLET> --chain-id irishub-1 --gas-prices 0.025uiris --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Redelegate tokens to another validator
 ```
-irisd tx staking redelegate $(irisd keys show <IRIS_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100uiris --from <IRIS_WALLET> --chain-id irishub-1 --gas-prices 0.025uiris --gas-adjustment 1.5 --gas auto --yes
+iris tx staking redelegate $(iris keys show <IRIS_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100uiris --from <IRIS_WALLET> --chain-id irishub-1 --gas-prices 0.025uiris --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Unbond tokens from staking
 ```
-irisd tx staking unbond $(irisd keys show <IRIS_WALLET> --bech val -a) 100uiris --from <IRIS_WALLET> --chain-id irishub-1 --gas-prices 0.025uiris --gas-adjustment 1.5 --gas auto --yes
+iris tx staking unbond $(iris keys show <IRIS_WALLET> --bech val -a) 100uiris --from <IRIS_WALLET> --chain-id irishub-1 --gas-prices 0.025uiris --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Withdraw all rewards from staking
 ```
-irisd tx distribution withdraw-all-rewards --from <IRIS_WALLET> --chain-id irishub-1 --gas-prices 0.025uiris --gas-adjustment 1.5 --gas auto --yes
+iris tx distribution withdraw-all-rewards --from <IRIS_WALLET> --chain-id irishub-1 --gas-prices 0.025uiris --gas-adjustment 1.5 --gas auto --yes
 ```
 
 ### Withdraw validator rewards and comission
 ```
-irisd tx distribution withdraw-rewards $(irisd keys show <IRIS_WALLET> --bech val -a) --commission --from wallet --chain-id irishub-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.025uiris -y
+iris tx distribution withdraw-rewards $(iris keys show <IRIS_WALLET> --bech val -a) --commission --from wallet --chain-id irishub-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.025uiris -y
 
 ```
 
 ## Governance
 ### Vote "YES"
 ```
-irisd tx gov vote <proposal_id> yes --from <IRIS_WALLET> --chain-id irishub-1 --gas-prices 0.025uiris --gas-adjustment 1.5 --gas auto --yes
+iris tx gov vote <proposal_id> yes --from <IRIS_WALLET> --chain-id irishub-1 --gas-prices 0.025uiris --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Vote "NO"
 ```
-irisd tx gov vote <proposal_id> no --from <IRIS_WALLET> --chain-id irishub-1 --gas-prices 0.025uiris --gas-adjustment 1.5 --gas auto --yes
+iris tx gov vote <proposal_id> no --from <IRIS_WALLET> --chain-id irishub-1 --gas-prices 0.025uiris --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Abstain from voting
 ```
-irisd tx gov vote <proposal_id> abstain --from <IRIS_WALLET> --chain-id irishub-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.025uiris -y
+iris tx gov vote <proposal_id> abstain --from <IRIS_WALLET> --chain-id irishub-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.025uiris -y
 ```
 
 
 ## General commands
 ### Check node status
 ```
-irisd status | jq
+iris status | jq
 ```
 ### Check service status
 ```
-sudo systemctl status irisd
+sudo systemctl status iris
 ```
 ### Check logs
 ```
-sudo journalctl -u irisd -f --no-hostname -o cat
+sudo journalctl -u iris -f --no-hostname -o cat
 ```
 ### Restart service
 ```
-sudo systemctl restart irisd
+sudo systemctl restart iris
 ```
 ### Stop service
 ```
-sudo systemctl stop irisd
+sudo systemctl stop iris
 ```
 ### Start service
 ```
-sudo systemctl start irisd
+sudo systemctl start iris
 ```
 ### Disable service
 ```
-sudo systemctl disable irisd
+sudo systemctl disable iris
 ```
 ### Enable service
 ```
-sudo systemctl enable irisd
+sudo systemctl enable iris
 ```
 ### Reload service after changes
 ```
