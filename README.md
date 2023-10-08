@@ -4,7 +4,7 @@
 > Our team members are highly skilled in their areas of expertise, with a wealth of knowledge and experience in blockchain development, infrastructure management, and network security.
 
 \
-\
+
 
 
 ## :heart: Cosmos Mainnet Support
