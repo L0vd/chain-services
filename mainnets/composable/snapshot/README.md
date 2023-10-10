@@ -11,13 +11,13 @@ sudo apt install lz4 -y
 ## Sync from Snapshot  
 | Height  | Size | Pruning | Indexer | Creation Time (UTC+3) |
 | --------- | --------- | --------- | --------- | --------- |
-| 1511486  | 0.5 GB  | custom/100/0/10 | null | 2023-09-14_17:20:57 |
+| 1892723  | 0.5 GB  | custom/100/0/10 | null | 2023-10-10_17:56:27 |
 
 ```
-sudo systemctl stop centaurid_main
+sudo systemctl stop centaurid
 
 cp $HOME/.banksy/data/priv_validator_state.json $HOME/.banksy/priv_validator_state.json.backup
-centaurid_main tendermint unsafe-reset-all --home $HOME/.banksy --keep-addr-book
+centaurid tendermint unsafe-reset-all --home $HOME/.banksy --keep-addr-book
 
 rm -rf $HOME/.banksy/data 
 
@@ -26,5 +26,5 @@ curl https://snapshots.l0vd.com/composable-mainnet/${SNAP_NAME} | lz4 -dc - | ta
 
 mv $HOME/.banksy/priv_validator_state.json.backup $HOME/.banksy/data/priv_validator_state.json
 
-sudo systemctl restart centaurid_main
-sudo journalctl -u centaurid_main -f --no-hostname -o cat
+sudo systemctl restart centaurid
+sudo journalctl -u centaurid -f --no-hostname -o cat
