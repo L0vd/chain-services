@@ -26,7 +26,7 @@ cd $HOME
 rm -rf archway
 git clone https://github.com/archway-network/archway.git
 cd archway
-git checkout v
+git checkout v4.0.2
 make install
 ```
 
@@ -39,7 +39,7 @@ You should replace values in <> <br />
 ```
 ARCHWAY_WALLET="<YOUR_WALLET_NAME>"
 ARCHWAY_NODENAME="<YOUR_MONIKER>"
-ARCHWAY_CHAIN_ID=""
+ARCHWAY_CHAIN_ID="archway-1"
 ```
 
 ```
