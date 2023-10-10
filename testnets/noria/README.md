@@ -12,9 +12,9 @@ A decentralized financial network that is focused on accessibility, practicality
 
 |  |  |
 | ------ | ------ |
-| Chain-id | oasis-3 |
-| Binary name | noriad |
-| Binary version | v1.3.0 |
+| Chain-id |  |
+| Binary name | d |
+| Binary version | v |
 
 ##### Explorer
 [https://explorers.l0vd.com/noria-testnet](https://explorers.l0vd.com/noria-testnet)

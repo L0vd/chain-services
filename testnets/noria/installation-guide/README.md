@@ -26,7 +26,7 @@ cd $HOME
 rm -rf noria
 git clone https://github.com/noria-net/noria.git
 cd noria
-git checkout v1.3.0
+git checkout v
 make install
 ```
 
@@ -39,7 +39,7 @@ You should replace values in <> <br />
 ```
 NORIA_WALLET="<YOUR_WALLET_NAME>"
 NORIA_NODENAME="<YOUR_MONIKER>"
-NORIA_CHAIN_ID="oasis-3"
+NORIA_CHAIN_ID=""
 ```
 
 ```
@@ -55,12 +55,12 @@ source $HOME/.bash_profile
 
 ### Configure your node
 ```
-noriad config chain-id ${NORIA_CHAIN_ID}
+d config chain-id ${NORIA_CHAIN_ID}
 ```
 
 ### Initialize your node
 ```
-noriad init ${NORIA_NODENAME} --chain-id ${NORIA_CHAIN_ID}
+d init ${NORIA_NODENAME} --chain-id ${NORIA_CHAIN_ID}
 ```
 
 ### Download genesis & addrbook
@@ -107,14 +107,14 @@ sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.noria/config/config.toml
 
 ### Create Service
 ```
-sudo tee /etc/systemd/system/noriad.service > /dev/null <<EOF
+sudo tee /etc/systemd/system/d.service > /dev/null <<EOF
 [Unit]
 Description=Noria testnet
 After=network-online.target
 
 [Service]
 User=$USER
-ExecStart=$(which noriad) start
+ExecStart=$(which d) start
 Restart=on-failure
 RestartSec=3
 LimitNOFILE=65535
@@ -127,9 +127,9 @@ EOF
 ### Reset blockchain info and restart your node
 ```
 sudo systemctl daemon-reload
-sudo systemctl enable noriad
-noriad tendermint unsafe-reset-all --home $HOME/.noria --keep-addr-book
-sudo systemctl restart noriad && sudo journalctl -u noriad -f -o cat
+sudo systemctl enable d
+d tendermint unsafe-reset-all --home $HOME/.noria --keep-addr-book
+sudo systemctl restart d && sudo journalctl -u d -f -o cat
 ```
 
 ### (OPTIONAL) Use State Sync
@@ -141,17 +141,17 @@ sudo systemctl restart noriad && sudo journalctl -u noriad -f -o cat
 
 #### 1. Add a new key
 ```
-noriad keys add ${NORIA_WALLET}
+d keys add ${NORIA_WALLET}
 ```
 ##### (OR)
 
 #### 1. Recover your key
 ```
-noriad keys add ${NORIA_WALLET} --recover
+d keys add ${NORIA_WALLET} --recover
 ```
 
 ```
-NORIA_WALLET_ADDR=$(noriad keys show ${NORIA_WALLET} -a)
+NORIA_WALLET_ADDR=$(d keys show ${NORIA_WALLET} -a)
 echo "export NORIA_WALLET_ADDR=${NORIA_WALLET_ADDR}" >> $HOME/.bash_profile
 
 source $HOME/.bash_profile
@@ -165,14 +165,14 @@ Wait until the node is synchronized.
 {% endhint %}
 
 ```
-noriad tx staking create-validator \
+d tx staking create-validator \
 --amount 1000000unoria \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
 --details "" \
---pubkey $(noriad tendermint show-validator) \
+--pubkey $(d tendermint show-validator) \
 --moniker ${NORIA_NODENAME} \
 --chain-id ${NORIA_CHAIN_ID} \
 --from ${NORIA_WALLET_ADDR} \
