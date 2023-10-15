@@ -26,7 +26,7 @@ cd $HOME
 rm -rf stride
 git clone https://github.com/Stride-Labs/stride.git
 cd stride
-git checkout v15.0.0
+git checkout 
 make install
 ```
 
@@ -39,7 +39,7 @@ You should replace values in <> <br />
 ```
 STRIDE_WALLET="<YOUR_WALLET_NAME>"
 STRIDE_NODENAME="<YOUR_MONIKER>"
-STRIDE_CHAIN_ID="stride-1"
+STRIDE_CHAIN_ID=""
 ```
 
 ```
@@ -55,12 +55,12 @@ source $HOME/.bash_profile
 
 ### Configure your node
 ```
-strided config chain-id ${STRIDE_CHAIN_ID}
+d config chain-id ${STRIDE_CHAIN_ID}
 ```
 
 ### Initialize your node
 ```
-strided init ${STRIDE_NODENAME} --chain-id ${STRIDE_CHAIN_ID}
+d init ${STRIDE_NODENAME} --chain-id ${STRIDE_CHAIN_ID}
 ```
 
 ### Download genesis & addrbook
@@ -107,14 +107,14 @@ sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.stride/config/config.toml
 
 ### Create Service
 ```
-sudo tee /etc/systemd/system/strided.service > /dev/null <<EOF
+sudo tee /etc/systemd/system/d.service > /dev/null <<EOF
 [Unit]
 Description=Stride mainnet
 After=network-online.target
 
 [Service]
 User=$USER
-ExecStart=$(which strided) start
+ExecStart=$(which d) start
 Restart=on-failure
 RestartSec=3
 LimitNOFILE=65535
@@ -127,9 +127,9 @@ EOF
 ### Reset blockchain info and restart your node
 ```
 sudo systemctl daemon-reload
-sudo systemctl enable strided
-strided tendermint unsafe-reset-all --home $HOME/.stride --keep-addr-book
-sudo systemctl restart strided && sudo journalctl -u strided -f -o cat
+sudo systemctl enable d
+d tendermint unsafe-reset-all --home $HOME/.stride --keep-addr-book
+sudo systemctl restart d && sudo journalctl -u d -f -o cat
 ```
 
 ### (OPTIONAL) Use State Sync
@@ -141,17 +141,17 @@ sudo systemctl restart strided && sudo journalctl -u strided -f -o cat
 
 #### 1. Add a new key
 ```
-strided keys add ${STRIDE_WALLET}
+d keys add ${STRIDE_WALLET}
 ```
 ##### (OR)
 
 #### 1. Recover your key
 ```
-strided keys add ${STRIDE_WALLET} --recover
+d keys add ${STRIDE_WALLET} --recover
 ```
 
 ```
-STRIDE_WALLET_ADDR=$(strided keys show ${STRIDE_WALLET} -a)
+STRIDE_WALLET_ADDR=$(d keys show ${STRIDE_WALLET} -a)
 echo "export STRIDE_WALLET_ADDR=${STRIDE_WALLET_ADDR}" >> $HOME/.bash_profile
 
 source $HOME/.bash_profile
@@ -165,14 +165,14 @@ Wait until the node is synchronized.
 {% endhint %}
 
 ```
-strided tx staking create-validator \
+d tx staking create-validator \
 --amount 1000000ustrd \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
 --details "" \
---pubkey $(strided tendermint show-validator) \
+--pubkey $(d tendermint show-validator) \
 --moniker ${STRIDE_NODENAME} \
 --chain-id ${STRIDE_CHAIN_ID} \
 --from ${STRIDE_WALLET_ADDR} \
