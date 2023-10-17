@@ -22,10 +22,11 @@ fi
 
 ### Install node
 ```
-cd $HOME && rm -rf babylon
+cd $HOME
+rm -rf babylon
 git clone https://github.com/babylonchain/babylon.git
 cd babylon
-git checkout v0.5.0
+git checkout vv0.7.2
 make install
 ```
 
@@ -36,27 +37,37 @@ You should replace values in <> <br />
 <YOUR_WALLET> Here you shoud put the name of your wallet
 
 ```
-echo "export BABYLON_WALLET="<YOUR_WALLET_NAME>"" >> $HOME/.bash_profile
-echo "export BABYLON_NODENAME="<YOUR_MONIKER>"" >> $HOME/.bash_profile
-echo "export BABYLON_CHAIN_ID="bbn-test1"" >> $HOME/.bash_profile
+BABYLON_WALLET="<YOUR_WALLET_NAME>"
+BABYLON_NODENAME="<YOUR_MONIKER>"
+BABYLON_CHAIN_ID=""
+```
+
+```
+echo "
+export BABYLON_WALLET=${BABYLON_WALLET}
+export BABYLON_NODENAME=${BABYLON_NODENAME}
+export BABYLON_CHAIN_ID=${BABYLON_CHAIN_ID}
+" >> $HOME/.bash_profile
+
 source $HOME/.bash_profile
 ```
 
 
 ### Configure your node
 ```
-babylond config chain-id $BABYLON_CHAIN_ID
+babylond config chain-id ${BABYLON_CHAIN_ID}
 babylond config keyring-backend test
 ```
 
 ### Initialize your node
 ```
-babylond init $BABYLON_NODENAME --chain-id $BABYLON_CHAIN_ID
+babylond init ${BABYLON_NODENAME} --chain-id ${BABYLON_CHAIN_ID}
 ```
 
-### Download genesis
+### Download genesis & addrbook
 ```
-wget -O $HOME/.babylond/config/genesis.json "https://raw.githubusercontent.com/L0vd/chain-services/main/testnets/babylon/installation-guide/genesis.json"
+curl -Ls "https://snapshots.l0vd.com/axelar-mainnet/genesis.json" > $HOME/.babylond/config/genesis.json
+curl -Ls "https://snapshots.l0vd.com/axelar-mainnet/addrbook.json" > $HOME/.babylond/config/addrbook.json
 ```
 
 ### (OPTIONAL) Set custom ports
@@ -66,15 +77,16 @@ wget -O $HOME/.babylond/config/genesis.json "https://raw.githubusercontent.com/L
 BABYLON_PORT=<SET_CUSTOM_PORT> #Example: BABYLON_PORT=56 (numbers from 1 to 64)
 ```
 ```
-sed -i.bak -e "s%^proxy_app = \"tcp://127.0.0.1:26658\"%proxy_app = \"tcp://127.0.0.1:${BABYLON_PORT}658\"%; s%^laddr = \"tcp://127.0.0.1:26657\"%laddr = \"tcp://127.0.0.1:${BABYLON_PORT}657\"%; s%^pprof_laddr = \"localhost:6060\"%pprof_laddr = \"localhost:${BABYLON_PORT}060\"%; s%^laddr = \"tcp://0.0.0.0:26656\"%laddr = \"tcp://0.0.0.0:${BABYLON_PORT}656\"%; s%^prometheus_listen_addr = \":26660\"%prometheus_listen_addr = \":${BABYLON_PORT}660\"%" $HOME/.babylond/config/config.toml
-sed -i.bak -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:${BABYLON_PORT}317\"%; s%^address = \":8080\"%address = \":${BABYLON_PORT}080\"%; s%^address = \"0.0.0.0:9090\"%address = \"0.0.0.0:${BABYLON_PORT}090\"%; s%^address = \"0.0.0.0:9091\"%address = \"0.0.0.0:${BABYLON_PORT}091\"%; s%^address = \"0.0.0.0:8545\"%address = \"0.0.0.0:${BABYLON_PORT}545\"%; s%^ws-address = \"0.0.0.0:8546\"%ws-address = \"0.0.0.0:${BABYLON_PORT}546\"%" $HOME/.babylond/config/app.toml
+sed -i.bak -e "s%^proxy_app = \"tcp://127.0.0.1:26658\"%proxy_app = \"tcp://127.0.0.1:${BABYLON_PORT}658\"%; s%^laddr = \"tcp://127.0.0.1:26657\"%laddr = \"tcp://127.0.0.1:${BABYLON_PORT}657\"%; s%^pprof_laddr = \"localhost:6060\"%pprof_laddr = \"localhost:${BABYLON_PORT}060\"%; s%^laddr = \"tcp://0.0.0.0:26656\"%laddr = \"tcp://0.0.0.0:${BABYLON_PORT}656\"%; s%^prometheus_listen_addr = \":26660\"%prometheus_listen_addr = \":${BABYLON_PORT}660\"%" /$HOME/.babylond/config/config.toml
+sed -i.bak -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:${BABYLON_PORT}317\"%; s%^address = \"tcp://localhost:1317\"%address = \"tcp://0.0.0.0:${BABYLON_PORT}317\"%; s%^address = \":8080\"%address = \":${BABYLON_PORT}080\"%; s%^address = \"0.0.0.0:9090\"%address = \"0.0.0.0:${BABYLON_PORT}090\"%; s%^address = \"localhost:9090\"%address = \"localhost:${BABYLON_PORT}090\"%; s%^address = \"0.0.0.0:9091\"%address = \"0.0.0.0:${BABYLON_PORT}091\"%; s%^address = \"localhost:9091\"%address = \"localhost:${BABYLON_PORT}091\"%; s%^address = \"0.0.0.0:8545\"%address = \"0.0.0.0:${BABYLON_PORT}545\"%; s%^ws-address = \"0.0.0.0:8546\"%ws-address = \"0.0.0.0:${BABYLON_PORT}546\"%" /$HOME/.babylond/config/app.toml
 ```
-
+```
+babylond config node tcp://localhost:${BABYLON_PORT}657
+```
 
 ### Set seeds and peers
 ```
-SEEDS="03ce5e1b5be3c9a81517d415f65378943996c864@18.207.168.204:26656,a5fabac19c732bf7d814cf22e7ffc23113dc9606@34.238.169.221:26656"
-PEERS=""
+PEERS="@babylon-testnet.peers.l0vd.com:"
 sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.babylond/config/config.toml
 ```
 
@@ -92,19 +104,19 @@ sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"$pruning_interval\"/" $
 
 ### Set minimum gas price and null indexer
 ```
-sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0ubbn\"/" $HOME/.babylond/config/app.toml
+sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.00001ubbn\"/" $HOME/.babylond/config/app.toml
 sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.babylond/config/config.toml
 ```
-
-### Change btc-network and btc-tag in app.toml file.
-#### Values specified here https://github.com/babylonchain/networks/tree/main/bbn-test1
-
+### Set custom for Babylon node timeout_commit
+```
+sed -i -e "s|^timeout_commit *=.*|timeout_commit = \"10s\"|" $HOME/.babylond/config/config.toml
+```
 
 ### Create Service
 ```
 sudo tee /etc/systemd/system/babylond.service > /dev/null <<EOF
 [Unit]
-Description=Babylon
+Description=Babylon testnet
 After=network-online.target
 
 [Service]
@@ -127,57 +139,63 @@ babylond tendermint unsafe-reset-all --home $HOME/.babylond --keep-addr-book
 sudo systemctl restart babylond && sudo journalctl -u babylond -f -o cat
 ```
 
-
 ### (OPTIONAL) Use State Sync
 
-#### [State Sync guide]()
+#### [State Sync]()
 
 
 ### Starting a validator
 
 #### 1. Add a new key
 ```
-babylond keys add $BABYLON_WALLET
+babylond keys add ${BABYLON_WALLET}
 ```
 ##### (OR)
 
 #### 1. Recover your key
 ```
-babylond keys add $BABYLON_WALLET --recover
+babylond keys add ${BABYLON_WALLET} --recover
 ```
 
-#### 2. Request tokens from [faucet](https://discord.com/channels/1046686458070700112/1075371070493831259)
+```
+BABYLON_WALLET_ADDR=$(babylond keys show ${BABYLON_WALLET} -a)
+echo "export BABYLON_WALLET_ADDR=${BABYLON_WALLET_ADDR}" >> $HOME/.bash_profile
 
-#### 3. Create a BLS key
-```
-babylond create-bls-key $(babylond keys show $BABYLON_WALLET -a)
-```
-
-#### 4. Restart your node
-```
-systemctl restart babylond
+source $HOME/.bash_profile
 ```
 
-#### 5. Create validator
+#### 1.1 Add a BLS key
+```
+babylond create-bls-key $(babylond keys show ${BABYLON_WALLET} -a)
+```
+
+### 1.2 Add to config.toml name of the key created in p.1
+
+```
+sed -i -e "s|^key-name *=.*|key-name = \"${BABYLON_WALLET}\"|" $HOME/.babylond/config/config.toml
+```
+
+### 2. Create validator
+
 {% hint style="info" %}
 Wait until the node is synchronized.
 {% endhint %}
 
 ```
 babylond tx checkpointing create-validator \
---amount 1ubbn \
+--amount 1000000ubbn \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
 --details "" \
---pubkey=$(babylond tendermint show-validator) \
---moniker $BABYLON_NODENAME \
---chain-id $BABYLON_CHAIN_ID \
---keyring-backend=test \
---from $BABYLON_WALLET \
---gas-prices 0.1ubbn \
+--pubkey $(babylond tendermint show-validator) \
+--moniker ${BABYLON_NODENAME} \
+--chain-id ${BABYLON_CHAIN_ID} \
+--from ${BABYLON_WALLET_ADDR} \
+--gas-prices 0.00001ubbn \
 --gas-adjustment 1.5 \
 --gas auto \
 --yes
 ```
+
