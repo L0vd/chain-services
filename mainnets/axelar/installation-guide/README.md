@@ -26,7 +26,7 @@ cd $HOME
 rm -rf axelar-core
 git clone https://github.com/axelarnetwork/axelar-core.git
 cd axelar-core
-git checkout v0.34.0
+git checkout v
 make install
 ```
 
@@ -39,7 +39,7 @@ You should replace values in <> <br />
 ```
 AXELAR_WALLET="<YOUR_WALLET_NAME>"
 AXELAR_NODENAME="<YOUR_MONIKER>"
-AXELAR_CHAIN_ID="axelar-dojo-1"
+AXELAR_CHAIN_ID=""
 ```
 
 ```
@@ -55,12 +55,12 @@ source $HOME/.bash_profile
 
 ### Configure your node
 ```
-axelard config chain-id ${AXELAR_CHAIN_ID}
+d config chain-id ${AXELAR_CHAIN_ID}
 ```
 
 ### Initialize your node
 ```
-axelard init ${AXELAR_NODENAME} --chain-id ${AXELAR_CHAIN_ID}
+d init ${AXELAR_NODENAME} --chain-id ${AXELAR_CHAIN_ID}
 ```
 
 ### Download genesis & addrbook
@@ -107,14 +107,14 @@ sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.axelar/config/config.toml
 
 ### Create Service
 ```
-sudo tee /etc/systemd/system/axelard.service > /dev/null <<EOF
+sudo tee /etc/systemd/system/d.service > /dev/null <<EOF
 [Unit]
 Description=Axelar mainnet
 After=network-online.target
 
 [Service]
 User=$USER
-ExecStart=$(which axelard) start
+ExecStart=$(which d) start
 Restart=on-failure
 RestartSec=3
 LimitNOFILE=65535
@@ -127,9 +127,9 @@ EOF
 ### Reset blockchain info and restart your node
 ```
 sudo systemctl daemon-reload
-sudo systemctl enable axelard
-axelard tendermint unsafe-reset-all --home $HOME/.axelar --keep-addr-book
-sudo systemctl restart axelard && sudo journalctl -u axelard -f -o cat
+sudo systemctl enable d
+d tendermint unsafe-reset-all --home $HOME/.axelar --keep-addr-book
+sudo systemctl restart d && sudo journalctl -u d -f -o cat
 ```
 
 ### (OPTIONAL) Use State Sync
@@ -141,17 +141,17 @@ sudo systemctl restart axelard && sudo journalctl -u axelard -f -o cat
 
 #### 1. Add a new key
 ```
-axelard keys add ${AXELAR_WALLET}
+d keys add ${AXELAR_WALLET}
 ```
 ##### (OR)
 
 #### 1. Recover your key
 ```
-axelard keys add ${AXELAR_WALLET} --recover
+d keys add ${AXELAR_WALLET} --recover
 ```
 
 ```
-AXELAR_WALLET_ADDR=$(axelard keys show ${AXELAR_WALLET} -a)
+AXELAR_WALLET_ADDR=$(d keys show ${AXELAR_WALLET} -a)
 echo "export AXELAR_WALLET_ADDR=${AXELAR_WALLET_ADDR}" >> $HOME/.bash_profile
 
 source $HOME/.bash_profile
@@ -165,14 +165,14 @@ Wait until the node is synchronized.
 {% endhint %}
 
 ```
-axelard tx staking create-validator \
+d tx staking create-validator \
 --amount 1000000uaxl \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
 --details "" \
---pubkey $(axelard tendermint show-validator) \
+--pubkey $(d tendermint show-validator) \
 --moniker ${AXELAR_NODENAME} \
 --chain-id ${AXELAR_CHAIN_ID} \
 --from ${AXELAR_WALLET_ADDR} \
