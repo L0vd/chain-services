@@ -26,7 +26,7 @@ cd $HOME
 rm -rf babylon
 git clone https://github.com/babylonchain/babylon.git
 cd babylon
-git checkout vv0.7.2
+git checkout v0.7.2
 make install
 ```
 
@@ -39,7 +39,7 @@ You should replace values in <> <br />
 ```
 BABYLON_WALLET="<YOUR_WALLET_NAME>"
 BABYLON_NODENAME="<YOUR_MONIKER>"
-BABYLON_CHAIN_ID=""
+BABYLON_CHAIN_ID="bbn-test-2"
 ```
 
 ```

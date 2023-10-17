@@ -12,9 +12,9 @@ The first Cosmos chain designed to continuously evolve with global regulations g
 
 |  |  |
 | ------ | ------ |
-| Chain-id |  |
+| Chain-id | bbn-test-2 |
 | Binary name | babylond |
-| Binary version | vv0.7.2 |
+| Binary version | v0.7.2 |
 
 ##### Explorer
 [https://explorers.l0vd.com/babylon-testnet](https://explorers.l0vd.com/babylon-testnet)
