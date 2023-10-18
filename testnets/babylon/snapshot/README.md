@@ -11,7 +11,7 @@ sudo apt install lz4 -y
 ## Sync from Snapshot  
 | Height  | Size | Pruning | Indexer | Creation Time (UTC+3) |
 | --------- | --------- | --------- | --------- | --------- |
-| 1179049  | 1.4 GB  | custom/100/0/10 | null | 2023-10-18_17:08:08 |
+| 1180522  | 1.3 GB  | custom/100/0/10 | null | 2023-10-18_21:07:02 |
 
 ```
 sudo systemctl stop babylond
