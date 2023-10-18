@@ -13,8 +13,8 @@ The complete infrastructure for cross-chain smart contracts, applications, and m
 |  |  |
 | ------ | ------ |
 | Chain-id |  |
-| Binary name | centaurid |
-| Binary version |  |
+| Binary name | nois |
+| Binary version | 1.0.2 |
 
 ##### Explorer
 [https://explorers.l0vd.com/composable-testnet](https://explorers.l0vd.com/composable-testnet)

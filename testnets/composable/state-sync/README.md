@@ -6,7 +6,7 @@
 
 ### Copy the entire command
 ```
-sudo systemctl stop centaurid
+sudo systemctl stop nois
 SNAP_RPC="https://composable-testnet.rpc.l0vd.com:443"; \
 LATEST_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height); \
 BLOCK_HEIGHT=$((LATEST_HEIGHT - 2000)); \
@@ -21,7 +21,7 @@ s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" $HOME/.banksy/co
 peers="@composable-testnet.peers.l0vd.com:" \
 && sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/.banksy/config/config.toml 
 
-centaurid tendermint unsafe-reset-all --home ~/.banksy && sudo systemctl restart centaurid && journalctl -u centaurid -f --output cat
+nois tendermint unsafe-reset-all --home ~/.banksy && sudo systemctl restart nois && journalctl -u nois -f --output cat
 ```
 
 ### Turn off State Sync Mode after synchronization
