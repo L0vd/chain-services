@@ -66,7 +66,7 @@ selfchaind tx staking create-validator \
 --min-self-delegation "1" \
 --pubkey $(selfchaind tendermint show-validator) \
 --moniker <SELFCHAIN_NODENAME> \
---chain-id self-dev-1 \
+--chain-id  \
 --from <SELFCHAIN_WALLET> \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
@@ -83,7 +83,7 @@ selfchaind tx staking edit-validator \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
 --website <YOUR_WEBSITE> \
---chain-id self-dev-1 \
+--chain-id  \
 --commission-rate 0.05 \
 --from <SELFCHAIN_WALLET> \
 --gas-prices 0uself \
@@ -97,7 +97,7 @@ selfchaind q staking validator $(selfchaind keys show <SELFCHAIN_WALLET> --bech 
 ```
 ### Unjail validator
 ```
-selfchaind tx slashing unjail --from <SELFCHAIN_WALLET> --chain-id self-dev-1 --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes 
+selfchaind tx slashing unjail --from <SELFCHAIN_WALLET> --chain-id  --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes 
 ```
 ### Signing info
 ```
@@ -108,47 +108,47 @@ selfchaind query slashing signing-info $(selfchaind tendermint show-validator)
 
 ### Send tokens
 ```
-selfchaind tx bank send wallet <DEST_WALLET_ADDRESS> 100uself --from <SELFCHAIN_WALLET> --chain-id self-dev-1 --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes
+selfchaind tx bank send wallet <DEST_WALLET_ADDRESS> 100uself --from <SELFCHAIN_WALLET> --chain-id  --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to your validator
 ```
-selfchaind tx staking delegate $(selfchaind keys show <SELFCHAIN_WALLET> --bech val -a) 100uself --from <SELFCHAIN_WALLET> --chain-id self-dev-1 --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes
+selfchaind tx staking delegate $(selfchaind keys show <SELFCHAIN_WALLET> --bech val -a) 100uself --from <SELFCHAIN_WALLET> --chain-id  --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to another validator
 ```
-selfchaind tx staking delegate <VALOPER_ADDRESS> 100uself --from <SELFCHAIN_WALLET> --chain-id self-dev-1 --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes
+selfchaind tx staking delegate <VALOPER_ADDRESS> 100uself --from <SELFCHAIN_WALLET> --chain-id  --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Redelegate tokens to another validator
 ```
-selfchaind tx staking redelegate $(selfchaind keys show <SELFCHAIN_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100uself --from <SELFCHAIN_WALLET> --chain-id self-dev-1 --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes
+selfchaind tx staking redelegate $(selfchaind keys show <SELFCHAIN_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100uself --from <SELFCHAIN_WALLET> --chain-id  --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Unbond tokens from staking
 ```
-selfchaind tx staking unbond $(selfchaind keys show <SELFCHAIN_WALLET> --bech val -a) 100uself --from <SELFCHAIN_WALLET> --chain-id self-dev-1 --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes
+selfchaind tx staking unbond $(selfchaind keys show <SELFCHAIN_WALLET> --bech val -a) 100uself --from <SELFCHAIN_WALLET> --chain-id  --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Withdraw all rewards from staking
 ```
-selfchaind tx distribution withdraw-all-rewards --from <SELFCHAIN_WALLET> --chain-id self-dev-1 --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes
+selfchaind tx distribution withdraw-all-rewards --from <SELFCHAIN_WALLET> --chain-id  --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes
 ```
 
 ### Withdraw validator rewards and comission
 ```
-selfchaind tx distribution withdraw-rewards $(selfchaind keys show <SELFCHAIN_WALLET> --bech val -a) --commission --from wallet --chain-id self-dev-1 --gas-adjustment 1.5 --gas auto --gas-prices 0uself -y
+selfchaind tx distribution withdraw-rewards $(selfchaind keys show <SELFCHAIN_WALLET> --bech val -a) --commission --from wallet --chain-id  --gas-adjustment 1.5 --gas auto --gas-prices 0uself -y
 
 ```
 
 ## Governance
 ### Vote "YES"
 ```
-selfchaind tx gov vote <proposal_id> yes --from <SELFCHAIN_WALLET> --chain-id self-dev-1 --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes
+selfchaind tx gov vote <proposal_id> yes --from <SELFCHAIN_WALLET> --chain-id  --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Vote "NO"
 ```
-selfchaind tx gov vote <proposal_id> no --from <SELFCHAIN_WALLET> --chain-id self-dev-1 --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes
+selfchaind tx gov vote <proposal_id> no --from <SELFCHAIN_WALLET> --chain-id  --gas-prices 0uself --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Abstain from voting
 ```
-selfchaind tx gov vote <proposal_id> abstain --from <SELFCHAIN_WALLET> --chain-id self-dev-1 --gas-adjustment 1.5 --gas auto --gas-prices 0uself -y
+selfchaind tx gov vote <proposal_id> abstain --from <SELFCHAIN_WALLET> --chain-id  --gas-adjustment 1.5 --gas auto --gas-prices 0uself -y
 ```
 
 
