@@ -38,7 +38,7 @@ You should replace values in <> <br />
 ```
 SELFCHAIN_WALLET="<YOUR_WALLET_NAME>"
 SELFCHAIN_NODENAME="<YOUR_MONIKER>"
-SELFCHAIN_CHAIN_ID=""
+SELFCHAIN_CHAIN_ID="self-dev-1"
 ```
 
 ```
