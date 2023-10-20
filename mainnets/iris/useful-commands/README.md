@@ -66,7 +66,7 @@ iris tx staking create-validator \
 --min-self-delegation "1" \
 --pubkey $(iris tendermint show-validator) \
 --moniker <IRIS_NODENAME> \
---chain-id  \
+--chain-id irishub-1 \
 --from <IRIS_WALLET> \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
@@ -83,7 +83,7 @@ iris tx staking edit-validator \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
 --website <YOUR_WEBSITE> \
---chain-id  \
+--chain-id irishub-1 \
 --commission-rate 0.05 \
 --from <IRIS_WALLET> \
 --gas-prices 0.025uiris \
@@ -97,7 +97,7 @@ iris q staking validator $(iris keys show <IRIS_WALLET> --bech val -a)
 ```
 ### Unjail validator
 ```
-iris tx slashing unjail --from <IRIS_WALLET> --chain-id  --gas-prices 0.025uiris --gas-adjustment 1.5 --gas auto --yes 
+iris tx slashing unjail --from <IRIS_WALLET> --chain-id irishub-1 --gas-prices 0.025uiris --gas-adjustment 1.5 --gas auto --yes 
 ```
 ### Signing info
 ```
@@ -108,47 +108,47 @@ iris query slashing signing-info $(iris tendermint show-validator)
 
 ### Send tokens
 ```
-iris tx bank send wallet <DEST_WALLET_ADDRESS> 100uiris --from <IRIS_WALLET> --chain-id  --gas-prices 0.025uiris --gas-adjustment 1.5 --gas auto --yes
+iris tx bank send wallet <DEST_WALLET_ADDRESS> 100uiris --from <IRIS_WALLET> --chain-id irishub-1 --gas-prices 0.025uiris --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to your validator
 ```
-iris tx staking delegate $(iris keys show <IRIS_WALLET> --bech val -a) 100uiris --from <IRIS_WALLET> --chain-id  --gas-prices 0.025uiris --gas-adjustment 1.5 --gas auto --yes
+iris tx staking delegate $(iris keys show <IRIS_WALLET> --bech val -a) 100uiris --from <IRIS_WALLET> --chain-id irishub-1 --gas-prices 0.025uiris --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to another validator
 ```
-iris tx staking delegate <VALOPER_ADDRESS> 100uiris --from <IRIS_WALLET> --chain-id  --gas-prices 0.025uiris --gas-adjustment 1.5 --gas auto --yes
+iris tx staking delegate <VALOPER_ADDRESS> 100uiris --from <IRIS_WALLET> --chain-id irishub-1 --gas-prices 0.025uiris --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Redelegate tokens to another validator
 ```
-iris tx staking redelegate $(iris keys show <IRIS_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100uiris --from <IRIS_WALLET> --chain-id  --gas-prices 0.025uiris --gas-adjustment 1.5 --gas auto --yes
+iris tx staking redelegate $(iris keys show <IRIS_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100uiris --from <IRIS_WALLET> --chain-id irishub-1 --gas-prices 0.025uiris --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Unbond tokens from staking
 ```
-iris tx staking unbond $(iris keys show <IRIS_WALLET> --bech val -a) 100uiris --from <IRIS_WALLET> --chain-id  --gas-prices 0.025uiris --gas-adjustment 1.5 --gas auto --yes
+iris tx staking unbond $(iris keys show <IRIS_WALLET> --bech val -a) 100uiris --from <IRIS_WALLET> --chain-id irishub-1 --gas-prices 0.025uiris --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Withdraw all rewards from staking
 ```
-iris tx distribution withdraw-all-rewards --from <IRIS_WALLET> --chain-id  --gas-prices 0.025uiris --gas-adjustment 1.5 --gas auto --yes
+iris tx distribution withdraw-all-rewards --from <IRIS_WALLET> --chain-id irishub-1 --gas-prices 0.025uiris --gas-adjustment 1.5 --gas auto --yes
 ```
 
 ### Withdraw validator rewards and comission
 ```
-iris tx distribution withdraw-rewards $(iris keys show <IRIS_WALLET> --bech val -a) --commission --from wallet --chain-id  --gas-adjustment 1.5 --gas auto --gas-prices 0.025uiris -y
+iris tx distribution withdraw-rewards $(iris keys show <IRIS_WALLET> --bech val -a) --commission --from wallet --chain-id irishub-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.025uiris -y
 
 ```
 
 ## Governance
 ### Vote "YES"
 ```
-iris tx gov vote <proposal_id> yes --from <IRIS_WALLET> --chain-id  --gas-prices 0.025uiris --gas-adjustment 1.5 --gas auto --yes
+iris tx gov vote <proposal_id> yes --from <IRIS_WALLET> --chain-id irishub-1 --gas-prices 0.025uiris --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Vote "NO"
 ```
-iris tx gov vote <proposal_id> no --from <IRIS_WALLET> --chain-id  --gas-prices 0.025uiris --gas-adjustment 1.5 --gas auto --yes
+iris tx gov vote <proposal_id> no --from <IRIS_WALLET> --chain-id irishub-1 --gas-prices 0.025uiris --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Abstain from voting
 ```
-iris tx gov vote <proposal_id> abstain --from <IRIS_WALLET> --chain-id  --gas-adjustment 1.5 --gas auto --gas-prices 0.025uiris -y
+iris tx gov vote <proposal_id> abstain --from <IRIS_WALLET> --chain-id irishub-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.025uiris -y
 ```
 
 
