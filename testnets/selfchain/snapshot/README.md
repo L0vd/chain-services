@@ -11,7 +11,7 @@ sudo apt install lz4 -y
 ## Sync from Snapshot  
 | Height  | Size | Pruning | Indexer | Creation Time (UTC+3) |
 | --------- | --------- | --------- | --------- | --------- |
-| 893938  | 0.3 GB  | custom/100/0/10 | null | 2023-10-20_17:38:17 |
+| 896467  | 0.2 GB  | custom/100/0/10 | null | 2023-10-20_21:52:29 |
 
 ```
 sudo systemctl stop selfchaind
