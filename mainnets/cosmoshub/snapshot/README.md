@@ -11,7 +11,7 @@ sudo apt install lz4 -y
 ## Sync from Snapshot  
 | Height  | Size | Pruning | Indexer | Creation Time (UTC+3) |
 | --------- | --------- | --------- | --------- | --------- |
-| 17530377  | 5.8 GB  | custom/100/0/10 | null | 2023-10-22_17:36:08 |
+| 17535217  | 5.9 GB  | custom/100/0/10 | null | 2023-10-23_01:53:28 |
 
 ```
 sudo systemctl stop gaiad
@@ -21,7 +21,7 @@ gaiad tendermint unsafe-reset-all --home $HOME/.gaia --keep-addr-book
 
 rm -rf $HOME/.gaia/data 
 
-SNAP_NAME=$(curl -s https://snapshots.l0vd.com/cosmoshub-mainnet/ | egrep -o ">.*\.tar.lz4" | tr -d ">")
+SNAP_NAME=$(curl -s https://snapshots.l0vd.com/cosmoshub-mainnet/ | egrep -o ">cosmoshub-4.*\.tar.lz4" | tr -d ">")
 curl https://snapshots.l0vd.com/cosmoshub-mainnet/${SNAP_NAME} | lz4 -dc - | tar -xf - -C $HOME/.gaia
 
 mv $HOME/.gaia/priv_validator_state.json.backup $HOME/.gaia/data/priv_validator_state.json
