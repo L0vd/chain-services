@@ -26,7 +26,7 @@ cd $HOME
 rm -rf gaia
 git clone https://github.com/cosmos/gaia.git
 cd gaia
-git checkout 
+git checkout v13.0.0
 make install
 ```
 
@@ -39,7 +39,7 @@ You should replace values in <> <br />
 ```
 COSMOSHUB_WALLET="<YOUR_WALLET_NAME>"
 COSMOSHUB_NODENAME="<YOUR_MONIKER>"
-COSMOSHUB_CHAIN_ID=""
+COSMOSHUB_CHAIN_ID="cosmoshub-4"
 ```
 
 ```
