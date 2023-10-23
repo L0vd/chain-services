@@ -18,7 +18,7 @@ s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"$SNAP_RPC,$SNAP_RPC\"| ; \
 s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT| ; \
 s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" $HOME/.entangled/config/config.toml
 
-peers="d13f727f544d31c2b07c8d9a794109b24acf76b2@entangle-testnet.peers.l0vd.com:" \
+peers="d13f727f544d31c2b07c8d9a794109b24acf76b2@entangle-testnet.peers.l0vd.com:14656" \
 && sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/.entangled/config/config.toml 
 
 entangled tendermint unsafe-reset-all --home ~/.entangled && sudo systemctl restart entangled && journalctl -u entangled -f --output cat
