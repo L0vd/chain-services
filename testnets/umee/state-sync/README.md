@@ -6,7 +6,7 @@
 
 ### Copy the entire command
 ```
-sudo systemctl stop umeed
+sudo systemctl stop d
 SNAP_RPC="https://umee-testnet.rpc.l0vd.com:443"; \
 LATEST_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height); \
 BLOCK_HEIGHT=$((LATEST_HEIGHT - 2000)); \
@@ -18,10 +18,10 @@ s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"$SNAP_RPC,$SNAP_RPC\"| ; \
 s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT| ; \
 s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" $HOME/.umee/config/config.toml
 
-peers="c054701ade2bdbeb61c4a8800450da744e252506@umee-testnet.peers.l0vd.com:11656" \
+peers="@umee-testnet.peers.l0vd.com:" \
 && sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/.umee/config/config.toml 
 
-umeed tendermint unsafe-reset-all --home ~/.umee && sudo systemctl restart umeed && journalctl -u umeed -f --output cat
+d tendermint unsafe-reset-all --home ~/.umee && sudo systemctl restart d && journalctl -u d -f --output cat
 ```
 
 ### Turn off State Sync Mode after synchronization
