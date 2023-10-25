@@ -11,7 +11,7 @@ sudo apt install lz4 -y
 ## Sync from Snapshot  
 | Height  | Size | Pruning | Indexer | Creation Time (UTC+3) |
 | --------- | --------- | --------- | --------- | --------- |
-| 22138805  | 1.4 GB  | custom/100/0/10 | null | 2023-10-25_01:41:40 |
+| 22141402  | 1.4 GB  | custom/100/0/10 | null | 2023-10-25_06:18:23 |
 
 ```
 sudo systemctl stop iris
