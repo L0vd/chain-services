@@ -39,7 +39,7 @@ You should replace values in <> <br />
 ```
 COSMOSHUB_WALLET="<YOUR_WALLET_NAME>"
 COSMOSHUB_NODENAME="<YOUR_MONIKER>"
-COSMOSHUB_CHAIN_ID=""
+COSMOSHUB_CHAIN_ID="cosmoshub-4"
 ```
 
 ```
