@@ -40,7 +40,7 @@
   * [Snapshot](mainnets/gitopia/snapshot/README.md)
   * [State sync](mainnets/gitopia/state-sync/README.md)
   * [Useful commands](mainnets/gitopia/useful-commands/README.md)
-  * [Monitoring](mainnets/gitopia/monitoring.md)
+  * [Monitoring](mainnets/gitopia/monitoring/README.md)
 * [HAQQ](mainnets/haqq/README.md)
   * [Installation](mainnets/haqq/installation-guide/README.md)
   * [Snapshot](mainnets/haqq/snapshot/README.md)
