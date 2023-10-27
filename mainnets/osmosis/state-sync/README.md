@@ -6,7 +6,7 @@
 
 ### Copy the entire command
 ```
-sudo systemctl stop d
+sudo systemctl stop osmosisd
 SNAP_RPC="https://osmosis-mainnet.rpc.l0vd.com:443"; \
 LATEST_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height); \
 BLOCK_HEIGHT=$((LATEST_HEIGHT - 2000)); \
@@ -21,7 +21,7 @@ s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" $HOME/.osmosisd/
 peers="10539f7c0e3ab233cf0deec9930aa8b660aeeabf@osmosis-mainnet.peers.l0vd.com:12656" \
 && sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/.osmosisd/config/config.toml 
 
-d tendermint unsafe-reset-all --home ~/.osmosisd && sudo systemctl restart d && journalctl -u d -f --output cat
+osmosisd tendermint unsafe-reset-all --home ~/.osmosisd && sudo systemctl restart osmosisd && journalctl -u osmosisd -f --output cat
 ```
 
 ### Turn off State Sync Mode after synchronization
