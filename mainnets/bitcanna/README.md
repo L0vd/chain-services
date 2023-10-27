@@ -14,7 +14,7 @@ BitCanna provides a decentralized payment network and supply chain for the legal
 | ------ | ------ |
 | Chain-id | bitcanna-1 |
 | Binary name | bcnad |
-| Binary version | v2.0.2 |
+| Binary version | v2.0.3 |
 
 ##### Explorer
 [https://explorers.l0vd.com/bitcanna-mainnet](https://explorers.l0vd.com/bitcanna-mainnet)
