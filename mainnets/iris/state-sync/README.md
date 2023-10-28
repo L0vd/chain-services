@@ -18,7 +18,7 @@ s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"$SNAP_RPC,$SNAP_RPC\"| ; \
 s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT| ; \
 s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" $HOME/.iris/config/config.toml
 
-peers="@iris-mainnet.peers.l0vd.com:" \
+peers="3ddf22082bda8607289bd94b649e0e2595f1fffd@iris-mainnet.peers.l0vd.com:19656" \
 && sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/.iris/config/config.toml 
 
 iris tendermint unsafe-reset-all --home ~/.iris && sudo systemctl restart iris && journalctl -u iris -f --output cat
