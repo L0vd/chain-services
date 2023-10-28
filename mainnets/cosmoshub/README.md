@@ -12,7 +12,7 @@ The Cosmos Hub is the first of thousands of interconnected blockchains that will
 
 |  |  |
 | ------ | ------ |
-| Chain-id | cosmoshub-4 |
+| Chain-id |  |
 | Binary name | d |
 | Binary version |  |
 
