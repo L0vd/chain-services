@@ -26,7 +26,7 @@ cd $HOME
 rm -rf irishub
 git clone https://github.com/irisnet/irishub.git
 cd irishub
-git checkout v2.0.0
+git checkout v
 make install
 ```
 
@@ -39,7 +39,7 @@ You should replace values in <> <br />
 ```
 IRIS_WALLET="<YOUR_WALLET_NAME>"
 IRIS_NODENAME="<YOUR_MONIKER>"
-IRIS_CHAIN_ID="irishub-1"
+IRIS_CHAIN_ID=""
 ```
 
 ```
