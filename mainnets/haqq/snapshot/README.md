@@ -11,20 +11,20 @@ sudo apt install lz4 -y
 ## Sync from Snapshot  
 | Height  | Size | Pruning | Indexer | Creation Time (UTC+3) |
 | --------- | --------- | --------- | --------- | --------- |
-| 8267357  | 0.0 GB  | custom/100/0/10 | null | 2023-10-30_16:43:58 |
+| 8270362  | 10.5 GB  | custom/100/0/10 | null | 2023-10-30_21:40:12 |
 
 ```
 sudo systemctl stop haqqd
 
-cp $HOME//data/priv_validator_state.json $HOME//priv_validator_state.json.backup
-haqqd tendermint unsafe-reset-all --home $HOME/ --keep-addr-book
+cp $HOME/.haqqd/data/priv_validator_state.json $HOME/.haqqd/priv_validator_state.json.backup
+haqqd tendermint unsafe-reset-all --home $HOME/.haqqd --keep-addr-book
 
-rm -rf $HOME//data 
+rm -rf $HOME/.haqqd/data 
 
 SNAP_NAME=$(curl -s https://snapshots.l0vd.com/haqq-mainnet/ | egrep -o ">haqq_11235-1.*\.tar.lz4" | tr -d ">")
-curl https://snapshots.l0vd.com/haqq-mainnet/${SNAP_NAME} | lz4 -dc - | tar -xf - -C $HOME/
+curl https://snapshots.l0vd.com/haqq-mainnet/${SNAP_NAME} | lz4 -dc - | tar -xf - -C $HOME/.haqqd
 
-mv $HOME//priv_validator_state.json.backup $HOME//data/priv_validator_state.json
+mv $HOME/.haqqd/priv_validator_state.json.backup $HOME/.haqqd/data/priv_validator_state.json
 
 sudo systemctl restart haqqd
 sudo journalctl -u haqqd -f --no-hostname -o cat
