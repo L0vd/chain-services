@@ -11,7 +11,7 @@ sudo apt install lz4 -y
 ## Sync from Snapshot  
 | Height  | Size | Pruning | Indexer | Creation Time (UTC+3) |
 | --------- | --------- | --------- | --------- | --------- |
-| 549041  | 0.5 GB  | custom/100/0/10 | null | 2023-10-30_17:07:16 |
+| 549970  | GB  | custom/100/0/10 | null | 2023-10-31_01:00:59 |
 
 ```
 sudo systemctl stop lavad
