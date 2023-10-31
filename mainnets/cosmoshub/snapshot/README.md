@@ -11,7 +11,7 @@ sudo apt install lz4 -y
 ## Sync from Snapshot  
 | Height  | Size | Pruning | Indexer | Creation Time (UTC+3) |
 | --------- | --------- | --------- | --------- | --------- |
-| 17647805  | 5.8 GB  | custom/100/0/10 | null | 2023-10-31_03:51:21 |
+| 17649477  | 5.7 GB  | custom/100/0/10 | null | 2023-10-31_06:43:38 |
 
 ```
 sudo systemctl stop gaiad
