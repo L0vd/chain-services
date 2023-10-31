@@ -11,7 +11,7 @@ sudo apt install lz4 -y
 ## Sync from Snapshot  
 | Height  | Size | Pruning | Indexer | Creation Time (UTC+3) |
 | --------- | --------- | --------- | --------- | --------- |
-| 549970  | GB  | custom/100/0/10 | null | 2023-10-31_01:00:59 |
+| 550346  | 0.4 GB  | custom/100/0/10 | null | 2023-10-31_04:12:46 |
 
 ```
 sudo systemctl stop lavad
@@ -21,7 +21,7 @@ lavad tendermint unsafe-reset-all --home $HOME/.lava --keep-addr-book
 
 rm -rf $HOME/.lava/data 
 
-SNAP_NAME=$(curl -s https://snapshots.l0vd.com/lava-testnet/ | egrep -o ">lava-testnet-2.*\.tar.lz4" | tr -d ">")
+SNAP_NAME=$(curl -s https://snapshots.l0vd.com/lava-testnet/ | egrep -o ">.*\.tar.lz4" | tr -d ">")
 curl https://snapshots.l0vd.com/lava-testnet/${SNAP_NAME} | lz4 -dc - | tar -xf - -C $HOME/.lava
 
 mv $HOME/.lava/priv_validator_state.json.backup $HOME/.lava/data/priv_validator_state.json
