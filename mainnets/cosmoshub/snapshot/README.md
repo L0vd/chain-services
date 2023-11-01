@@ -11,13 +11,13 @@ sudo apt install lz4 -y
 ## Sync from Snapshot  
 | Height  | Size | Pruning | Indexer | Creation Time (UTC+3) |
 | --------- | --------- | --------- | --------- | --------- |
-| 17666478  | 0.0 GB  | custom/100/0/10 | null | 2023-11-01_11:55:40 |
+| 17668727  | 5.7 GB  | custom/100/0/10 | null | 2023-11-01_15:47:29 |
 
 ```
-sudo systemctl stop gaiad
+sudo systemctl stop d
 
 cp $HOME//data/priv_validator_state.json $HOME//priv_validator_state.json.backup
-gaiad tendermint unsafe-reset-all --home $HOME/ --keep-addr-book
+d tendermint unsafe-reset-all --home $HOME/ --keep-addr-book
 
 rm -rf $HOME//data 
 
@@ -26,5 +26,5 @@ curl https://snapshots.l0vd.com/cosmoshub-mainnet/${SNAP_NAME} | lz4 -dc - | tar
 
 mv $HOME//priv_validator_state.json.backup $HOME//data/priv_validator_state.json
 
-sudo systemctl restart gaiad
-sudo journalctl -u gaiad -f --no-hostname -o cat
+sudo systemctl restart d
+sudo journalctl -u d -f --no-hostname -o cat
