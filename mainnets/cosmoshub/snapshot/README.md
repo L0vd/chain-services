@@ -11,7 +11,7 @@ sudo apt install lz4 -y
 ## Sync from Snapshot  
 | Height  | Size | Pruning | Indexer | Creation Time (UTC+3) |
 | --------- | --------- | --------- | --------- | --------- |
-| 17884701  | 0.0 GB  | custom/100/0/10 | null | 2023-11-17_03:00:19 |
+| 17887036  | 0.0 GB  | custom/100/0/10 | null | 2023-11-17_07:00:12 |
 
 ```
 sudo systemctl stop d
