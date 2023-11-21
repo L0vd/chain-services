@@ -11,7 +11,7 @@ sudo apt install lz4 -y
 ## Sync from Snapshot  
 | Height  | Size | Pruning | Indexer | Creation Time (UTC+3) |
 | --------- | --------- | --------- | --------- | --------- |
-| 17941171  | 0.0 GB  | custom/100/0/10 | null | 2023-11-21_03:00:09 |
+| 17943535  | 0.0 GB  | custom/100/0/10 | null | 2023-11-21_07:00:08 |
 
 ```
 sudo systemctl stop nulld
