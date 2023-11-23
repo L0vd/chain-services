@@ -10,6 +10,7 @@
   * [State sync](mainnets/archway/state-sync/README.md)
   * [Useful commands](mainnets/archway/useful-commands/README.md)
   * [Monitoring](mainnets/archway/monitoring/README.md)
+  * [Wallet bot](testnets/archway/wallet-bot/README.md)
 * [Axelar](mainnets/axelar/README.md)
   * [Installation](mainnets/axelar/installation-guide/README.md)
   * [Snapshot](mainnets/axelar/snapshot/README.md)
