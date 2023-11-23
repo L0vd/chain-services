@@ -95,7 +95,7 @@
   * [Installation](testnets/archway/installation-guide/README.md)
   * [State sync](testnets/archway/state-sync/README.md)
   * [Useful commands](testnets/archway/useful-commands/README.md)
-  * [Monitoring](testnets/archway/monitoring.md)
+  * [Monitoring](testnets/archway/monitoring/README.md)
   * [Wallet bot](testnets/archway/wallet-bot/README.md)
 * [Arkeo](testnets/arkeo/README.md)
   * [Installation](testnets/arkeo/installation-guide/README.md)
