@@ -14,7 +14,7 @@ Umee is a layer-one blockchain built on Cosmos designed to create a universal cr
 | ------ | ------ |
 | Chain-id | canon-4 |
 | Binary name | umeed |
-| Binary version | v6.1.0 |
+| Binary version | v6.2.0-canon |
 
 ##### Explorer
 [https://explorers.l0vd.com/umee-testnet](https://explorers.l0vd.com/umee-testnet)
