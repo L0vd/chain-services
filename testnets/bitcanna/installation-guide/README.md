@@ -26,7 +26,7 @@ cd $HOME
 rm -rf bcna
 git clone https://github.com/BitCannaGlobal/bcna.git
 cd bcna
-git checkout v2.0.3-rc2
+git checkout v3.0.0-rc3
 make install
 ```
 
