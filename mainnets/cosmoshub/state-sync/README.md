@@ -1,13 +1,13 @@
 ## Info
-#### Public RPC endpoint: [https://cosmoshub-mainnet.rpc.l0vd.com](https://cosmoshub-mainnet.rpc.l0vd.com)
-#### Public API: [https://cosmoshub-mainnet.api.l0vd.com](https://cosmoshub-mainnet.api.l0vd.com)
+#### Public RPC endpoint: [https://cosmoshub.rpc.kjnodes.com](https://cosmoshub.rpc.kjnodes.com)
+#### Public API: [https://cosmoshub.api.kjnodes.com](https://cosmoshub.api.kjnodes.com)
 
 ## Guide to sync your node using State Sync:
 
 ### Copy the entire command
 ```
 sudo systemctl stop gaiad
-SNAP_RPC="https://cosmoshub-mainnet.rpc.l0vd.com:443"; \
+SNAP_RPC="https://cosmoshub.rpc.kjnodes.com:443"; \
 LATEST_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height); \
 BLOCK_HEIGHT=$((LATEST_HEIGHT - 2000)); \
 TRUST_HASH=$(curl -s "$SNAP_RPC/block?height=$BLOCK_HEIGHT" | jq -r .result.block_id.hash); \
@@ -18,7 +18,7 @@ s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"$SNAP_RPC,$SNAP_RPC\"| ; \
 s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT| ; \
 s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" $HOME/.gaia/config/config.toml
 
-peers="e25465e89f2466fdfc71294bee9565ea6b00b9fc@cosmoshub-mainnet.peers.l0vd.com:16656" \
+peers="d9bfa29e0cf9c4ce0cc9c26d98e5d97228f93b0b@cosmoshub-mainnet.peers.l0vd.com:13456" \
 && sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/.gaia/config/config.toml 
 
 gaiad tendermint unsafe-reset-all --home ~/.gaia && sudo systemctl restart gaiad && journalctl -u gaiad -f --output cat
