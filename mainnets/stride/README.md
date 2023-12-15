@@ -12,9 +12,9 @@ Stride is a multichain liquid staking zone (appchain) on the Cosmos Blockchain. 
 
 |  |  |
 | ------ | ------ |
-| Chain-id |  |
-| Binary name | d |
-| Binary version |  |
+| Chain-id | stride-1 |
+| Binary name | strided |
+| Binary version | v16.0.0 |
 
 ##### Explorer
 [https://explorers.l0vd.com/stride-mainnet](https://explorers.l0vd.com/stride-mainnet)
