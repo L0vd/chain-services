@@ -26,7 +26,7 @@ cd $HOME
 rm -rf osmosis
 git clone https://github.com/osmosis-labs/osmosis.git
 cd osmosis
-git checkout v
+git checkout v20.5.0
 make install
 ```
 
@@ -39,7 +39,7 @@ You should replace values in <> <br />
 ```
 OSMOSIS_WALLET="<YOUR_WALLET_NAME>"
 OSMOSIS_NODENAME="<YOUR_MONIKER>"
-OSMOSIS_CHAIN_ID=""
+OSMOSIS_CHAIN_ID="osmosis-1"
 ```
 
 ```
@@ -55,12 +55,12 @@ source $HOME/.bash_profile
 
 ### Configure your node
 ```
-d config chain-id ${OSMOSIS_CHAIN_ID}
+osmosisd config chain-id ${OSMOSIS_CHAIN_ID}
 ```
 
 ### Initialize your node
 ```
-d init ${OSMOSIS_NODENAME} --chain-id ${OSMOSIS_CHAIN_ID}
+osmosisd init ${OSMOSIS_NODENAME} --chain-id ${OSMOSIS_CHAIN_ID}
 ```
 
 ### Download genesis & addrbook
@@ -107,14 +107,14 @@ sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.osmosisd/config/config.to
 
 ### Create Service
 ```
-sudo tee /etc/systemd/system/d.service > /dev/null <<EOF
+sudo tee /etc/systemd/system/osmosisd.service > /dev/null <<EOF
 [Unit]
 Description=Osmosis mainnet
 After=network-online.target
 
 [Service]
 User=$USER
-ExecStart=$(which d) start
+ExecStart=$(which osmosisd) start
 Restart=on-failure
 RestartSec=3
 LimitNOFILE=65535
@@ -127,9 +127,9 @@ EOF
 ### Reset blockchain info and restart your node
 ```
 sudo systemctl daemon-reload
-sudo systemctl enable d
-d tendermint unsafe-reset-all --home $HOME/.osmosisd --keep-addr-book
-sudo systemctl restart d && sudo journalctl -u d -f -o cat
+sudo systemctl enable osmosisd
+osmosisd tendermint unsafe-reset-all --home $HOME/.osmosisd --keep-addr-book
+sudo systemctl restart osmosisd && sudo journalctl -u osmosisd -f -o cat
 ```
 
 ### (OPTIONAL) Use State Sync
@@ -141,17 +141,17 @@ sudo systemctl restart d && sudo journalctl -u d -f -o cat
 
 #### 1. Add a new key
 ```
-d keys add ${OSMOSIS_WALLET}
+osmosisd keys add ${OSMOSIS_WALLET}
 ```
 ##### (OR)
 
 #### 1. Recover your key
 ```
-d keys add ${OSMOSIS_WALLET} --recover
+osmosisd keys add ${OSMOSIS_WALLET} --recover
 ```
 
 ```
-OSMOSIS_WALLET_ADDR=$(d keys show ${OSMOSIS_WALLET} -a)
+OSMOSIS_WALLET_ADDR=$(osmosisd keys show ${OSMOSIS_WALLET} -a)
 echo "export OSMOSIS_WALLET_ADDR=${OSMOSIS_WALLET_ADDR}" >> $HOME/.bash_profile
 
 source $HOME/.bash_profile
@@ -165,14 +165,14 @@ Wait until the node is synchronized.
 {% endhint %}
 
 ```
-d tx staking create-validator \
+osmosisd tx staking create-validator \
 --amount 1000000uosmo \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
 --details "" \
---pubkey $(d tendermint show-validator) \
+--pubkey $(osmosisd tendermint show-validator) \
 --moniker ${OSMOSIS_NODENAME} \
 --chain-id ${OSMOSIS_CHAIN_ID} \
 --from ${OSMOSIS_WALLET_ADDR} \
