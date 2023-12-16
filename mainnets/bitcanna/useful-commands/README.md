@@ -66,7 +66,7 @@ bcnad tx staking create-validator \
 --min-self-delegation "1" \
 --pubkey $(bcnad tendermint show-validator) \
 --moniker <BITCANNA_NODENAME> \
---chain-id  \
+--chain-id bitcanna-1 \
 --from <BITCANNA_WALLET> \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
@@ -83,7 +83,7 @@ bcnad tx staking edit-validator \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
 --website <YOUR_WEBSITE> \
---chain-id  \
+--chain-id bitcanna-1 \
 --commission-rate 0.05 \
 --from <BITCANNA_WALLET> \
 --gas-prices 0ubcna \
@@ -97,7 +97,7 @@ bcnad q staking validator $(bcnad keys show <BITCANNA_WALLET> --bech val -a)
 ```
 ### Unjail validator
 ```
-bcnad tx slashing unjail --from <BITCANNA_WALLET> --chain-id  --gas-prices 0ubcna --gas-adjustment 1.5 --gas auto --yes 
+bcnad tx slashing unjail --from <BITCANNA_WALLET> --chain-id bitcanna-1 --gas-prices 0ubcna --gas-adjustment 1.5 --gas auto --yes 
 ```
 ### Signing info
 ```
@@ -108,47 +108,47 @@ bcnad query slashing signing-info $(bcnad tendermint show-validator)
 
 ### Send tokens
 ```
-bcnad tx bank send wallet <DEST_WALLET_ADDRESS> 100ubcna --from <BITCANNA_WALLET> --chain-id  --gas-prices 0ubcna --gas-adjustment 1.5 --gas auto --yes
+bcnad tx bank send wallet <DEST_WALLET_ADDRESS> 100ubcna --from <BITCANNA_WALLET> --chain-id bitcanna-1 --gas-prices 0ubcna --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to your validator
 ```
-bcnad tx staking delegate $(bcnad keys show <BITCANNA_WALLET> --bech val -a) 100ubcna --from <BITCANNA_WALLET> --chain-id  --gas-prices 0ubcna --gas-adjustment 1.5 --gas auto --yes
+bcnad tx staking delegate $(bcnad keys show <BITCANNA_WALLET> --bech val -a) 100ubcna --from <BITCANNA_WALLET> --chain-id bitcanna-1 --gas-prices 0ubcna --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to another validator
 ```
-bcnad tx staking delegate <VALOPER_ADDRESS> 100ubcna --from <BITCANNA_WALLET> --chain-id  --gas-prices 0ubcna --gas-adjustment 1.5 --gas auto --yes
+bcnad tx staking delegate <VALOPER_ADDRESS> 100ubcna --from <BITCANNA_WALLET> --chain-id bitcanna-1 --gas-prices 0ubcna --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Redelegate tokens to another validator
 ```
-bcnad tx staking redelegate $(bcnad keys show <BITCANNA_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100ubcna --from <BITCANNA_WALLET> --chain-id  --gas-prices 0ubcna --gas-adjustment 1.5 --gas auto --yes
+bcnad tx staking redelegate $(bcnad keys show <BITCANNA_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100ubcna --from <BITCANNA_WALLET> --chain-id bitcanna-1 --gas-prices 0ubcna --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Unbond tokens from staking
 ```
-bcnad tx staking unbond $(bcnad keys show <BITCANNA_WALLET> --bech val -a) 100ubcna --from <BITCANNA_WALLET> --chain-id  --gas-prices 0ubcna --gas-adjustment 1.5 --gas auto --yes
+bcnad tx staking unbond $(bcnad keys show <BITCANNA_WALLET> --bech val -a) 100ubcna --from <BITCANNA_WALLET> --chain-id bitcanna-1 --gas-prices 0ubcna --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Withdraw all rewards from staking
 ```
-bcnad tx distribution withdraw-all-rewards --from <BITCANNA_WALLET> --chain-id  --gas-prices 0ubcna --gas-adjustment 1.5 --gas auto --yes
+bcnad tx distribution withdraw-all-rewards --from <BITCANNA_WALLET> --chain-id bitcanna-1 --gas-prices 0ubcna --gas-adjustment 1.5 --gas auto --yes
 ```
 
 ### Withdraw validator rewards and comission
 ```
-bcnad tx distribution withdraw-rewards $(bcnad keys show <BITCANNA_WALLET> --bech val -a) --commission --from wallet --chain-id  --gas-adjustment 1.5 --gas auto --gas-prices 0ubcna -y
+bcnad tx distribution withdraw-rewards $(bcnad keys show <BITCANNA_WALLET> --bech val -a) --commission --from wallet --chain-id bitcanna-1 --gas-adjustment 1.5 --gas auto --gas-prices 0ubcna -y
 
 ```
 
 ## Governance
 ### Vote "YES"
 ```
-bcnad tx gov vote <proposal_id> yes --from <BITCANNA_WALLET> --chain-id  --gas-prices 0ubcna --gas-adjustment 1.5 --gas auto --yes
+bcnad tx gov vote <proposal_id> yes --from <BITCANNA_WALLET> --chain-id bitcanna-1 --gas-prices 0ubcna --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Vote "NO"
 ```
-bcnad tx gov vote <proposal_id> no --from <BITCANNA_WALLET> --chain-id  --gas-prices 0ubcna --gas-adjustment 1.5 --gas auto --yes
+bcnad tx gov vote <proposal_id> no --from <BITCANNA_WALLET> --chain-id bitcanna-1 --gas-prices 0ubcna --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Abstain from voting
 ```
-bcnad tx gov vote <proposal_id> abstain --from <BITCANNA_WALLET> --chain-id  --gas-adjustment 1.5 --gas auto --gas-prices 0ubcna -y
+bcnad tx gov vote <proposal_id> abstain --from <BITCANNA_WALLET> --chain-id bitcanna-1 --gas-adjustment 1.5 --gas auto --gas-prices 0ubcna -y
 ```
 
 
