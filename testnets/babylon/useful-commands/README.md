@@ -66,7 +66,7 @@ babylond tx checkpointing create-validator \
 --min-self-delegation "1" \
 --pubkey $(babylond tendermint show-validator) \
 --moniker <BABYLON_NODENAME> \
---chain-id bbn-test-2 \
+--chain-id  \
 --from <BABYLON_WALLET> \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
@@ -83,7 +83,7 @@ babylond tx checkpointing edit-validator \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
 --website <YOUR_WEBSITE> \
---chain-id bbn-test-2 \
+--chain-id  \
 --commission-rate 0.05 \
 --from <BABYLON_WALLET> \
 --gas-prices 0.00001ubbn \
@@ -97,7 +97,7 @@ babylond q staking validator $(babylond keys show <BABYLON_WALLET> --bech val -a
 ```
 ### Unjail validator
 ```
-babylond tx slashing unjail --from <BABYLON_WALLET> --chain-id bbn-test-2 --gas-prices 0.00001ubbn --gas-adjustment 1.5 --gas auto --yes 
+babylond tx slashing unjail --from <BABYLON_WALLET> --chain-id  --gas-prices 0.00001ubbn --gas-adjustment 1.5 --gas auto --yes 
 ```
 ### Signing info
 ```
@@ -108,47 +108,47 @@ babylond query slashing signing-info $(babylond tendermint show-validator)
 
 ### Send tokens
 ```
-babylond tx bank send wallet <DEST_WALLET_ADDRESS> 100ubbn --from <BABYLON_WALLET> --chain-id bbn-test-2 --gas-prices 0.00001ubbn --gas-adjustment 1.5 --gas auto --yes
+babylond tx bank send wallet <DEST_WALLET_ADDRESS> 100ubbn --from <BABYLON_WALLET> --chain-id  --gas-prices 0.00001ubbn --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to your validator
 ```
-babylond tx staking delegate $(babylond keys show <BABYLON_WALLET> --bech val -a) 100ubbn --from <BABYLON_WALLET> --chain-id bbn-test-2 --gas-prices 0.00001ubbn --gas-adjustment 1.5 --gas auto --yes
+babylond tx staking delegate $(babylond keys show <BABYLON_WALLET> --bech val -a) 100ubbn --from <BABYLON_WALLET> --chain-id  --gas-prices 0.00001ubbn --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to another validator
 ```
-babylond tx staking delegate <VALOPER_ADDRESS> 100ubbn --from <BABYLON_WALLET> --chain-id bbn-test-2 --gas-prices 0.00001ubbn --gas-adjustment 1.5 --gas auto --yes
+babylond tx staking delegate <VALOPER_ADDRESS> 100ubbn --from <BABYLON_WALLET> --chain-id  --gas-prices 0.00001ubbn --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Redelegate tokens to another validator
 ```
-babylond tx staking redelegate $(babylond keys show <BABYLON_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100ubbn --from <BABYLON_WALLET> --chain-id bbn-test-2 --gas-prices 0.00001ubbn --gas-adjustment 1.5 --gas auto --yes
+babylond tx staking redelegate $(babylond keys show <BABYLON_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100ubbn --from <BABYLON_WALLET> --chain-id  --gas-prices 0.00001ubbn --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Unbond tokens from staking
 ```
-babylond tx staking unbond $(babylond keys show <BABYLON_WALLET> --bech val -a) 100ubbn --from <BABYLON_WALLET> --chain-id bbn-test-2 --gas-prices 0.00001ubbn --gas-adjustment 1.5 --gas auto --yes
+babylond tx staking unbond $(babylond keys show <BABYLON_WALLET> --bech val -a) 100ubbn --from <BABYLON_WALLET> --chain-id  --gas-prices 0.00001ubbn --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Withdraw all rewards from staking
 ```
-babylond tx distribution withdraw-all-rewards --from <BABYLON_WALLET> --chain-id bbn-test-2 --gas-prices 0.00001ubbn --gas-adjustment 1.5 --gas auto --yes
+babylond tx distribution withdraw-all-rewards --from <BABYLON_WALLET> --chain-id  --gas-prices 0.00001ubbn --gas-adjustment 1.5 --gas auto --yes
 ```
 
 ### Withdraw validator rewards and comission
 ```
-babylond tx distribution withdraw-rewards $(babylond keys show <BABYLON_WALLET> --bech val -a) --commission --from wallet --chain-id bbn-test-2 --gas-adjustment 1.5 --gas auto --gas-prices 0.00001ubbn -y
+babylond tx distribution withdraw-rewards $(babylond keys show <BABYLON_WALLET> --bech val -a) --commission --from wallet --chain-id  --gas-adjustment 1.5 --gas auto --gas-prices 0.00001ubbn -y
 
 ```
 
 ## Governance
 ### Vote "YES"
 ```
-babylond tx gov vote <proposal_id> yes --from <BABYLON_WALLET> --chain-id bbn-test-2 --gas-prices 0.00001ubbn --gas-adjustment 1.5 --gas auto --yes
+babylond tx gov vote <proposal_id> yes --from <BABYLON_WALLET> --chain-id  --gas-prices 0.00001ubbn --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Vote "NO"
 ```
-babylond tx gov vote <proposal_id> no --from <BABYLON_WALLET> --chain-id bbn-test-2 --gas-prices 0.00001ubbn --gas-adjustment 1.5 --gas auto --yes
+babylond tx gov vote <proposal_id> no --from <BABYLON_WALLET> --chain-id  --gas-prices 0.00001ubbn --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Abstain from voting
 ```
-babylond tx gov vote <proposal_id> abstain --from <BABYLON_WALLET> --chain-id bbn-test-2 --gas-adjustment 1.5 --gas auto --gas-prices 0.00001ubbn -y
+babylond tx gov vote <proposal_id> abstain --from <BABYLON_WALLET> --chain-id  --gas-adjustment 1.5 --gas auto --gas-prices 0.00001ubbn -y
 ```
 
 
