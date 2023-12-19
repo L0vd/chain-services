@@ -12,7 +12,7 @@ The first Cosmos chain designed to continuously evolve with global regulations g
 
 |  |  |
 | ------ | ------ |
-| Chain-id | bbn-test-2 |
+| Chain-id |  |
 | Binary name | babylond |
 | Binary version | v0.7.2 |
 

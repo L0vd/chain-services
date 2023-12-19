@@ -39,7 +39,7 @@ You should replace values in <> <br />
 ```
 BABYLON_WALLET="<YOUR_WALLET_NAME>"
 BABYLON_NODENAME="<YOUR_MONIKER>"
-BABYLON_CHAIN_ID="bbn-test-2"
+BABYLON_CHAIN_ID=""
 ```
 
 ```
