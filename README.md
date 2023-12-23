@@ -67,7 +67,7 @@
 
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/ollo.png" alt="" data-size="line"> [Ollo](testnets/ollo/)
 
-<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/pryzm.png" alt="" data-size="line"> [Pryzm](testnets/pryzm)
+<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/pryzm.png" alt="" data-size="line"> [Pryzm](testnets/pryzm/)
 
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/source.png" alt="" data-size="line"> [Source](testnets/source/)
 
