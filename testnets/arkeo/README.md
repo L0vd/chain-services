@@ -14,7 +14,7 @@ Arkeo is a free-market decentralized network for providing access to blockchain 
 | ------ | ------ |
 | Chain-id | arkeo |
 | Binary name | arkeod |
-| Binary version | v1 |
+| Binary version | vnull |
 
 ##### Explorer
 [https://explorers.l0vd.com/arkeo-testnet](https://explorers.l0vd.com/arkeo-testnet)
