@@ -63,7 +63,8 @@
 
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/noria.png" alt="" data-size="line"> [Noria](testnets/noria/)
 
-<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/ojo.png" alt="" data-size="line"> [Ojo](testnets/ojo/)
+<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/ojo.png" alt="" data-size="line"> 
+[Ojo](testnets/ojo/)
 
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/ollo.png" alt="" data-size="line"> [Ollo](testnets/ollo/)
 
