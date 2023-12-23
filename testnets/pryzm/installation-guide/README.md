@@ -3,13 +3,15 @@ If you want to setup Pryzm fullnode manually follow the steps below
 
 ### Update and upgrade
 ```
-sudo apt update && sudo apt upgrade -y
+sudo apt update -y
+sudo apt-get install -y git jq lz4 build-essential make gcc curl 
+sudo apt update -y
 ```
 
 ### Install GO
 ```
 if ! [ -x "$(command -v go)" ]; then
-  ver="1.20.5"
+  ver="1.20.3"
   cd $HOME
   wget "https://golang.org/dl/go$ver.linux-amd64.tar.gz"
   sudo rm -rf /usr/local/go
@@ -23,8 +25,8 @@ fi
 ### Install node
 ```
 cd $HOME
-wget https://storage.googleapis.com/pryzm-resources/pryzmd-0.9.0-linux-amd64.tar.gz
-tar -xzvf pryzmd-0.9.0-linux-amd64.tar.gz
+wget https://storage.googleapis.com/pryzm-resources/pryzmd-v0.9.0-linux-amd64.tar.gz
+tar -xzvf pryzmd-v0.9.0-linux-amd64.tar.gz
 mv pryzmd /root/go/bin
 ```
 
@@ -97,10 +99,10 @@ sed -i -e "s/^pruning-keep-every *=.*/pruning-keep-every = \"$pruning_keep_every
 sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"$pruning_interval\"/" $HOME/.pryzm/config/app.toml
 ```
 
-### Set minimum gas price and null indexer
+### Set minimum gas price and kv indexer
 ```
 sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.015upryzm\"/" $HOME/.pryzm/config/app.toml
-sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.pryzm/config/config.toml
+sed -i -e "s/^indexer *=.*/indexer = \"kv\"/" $HOME/.pryzm/config/config.toml
 ```
 
 ### Create Service
@@ -175,8 +177,65 @@ pryzmd tx staking create-validator \
 --chain-id ${PRYZM_CHAIN_ID} \
 --from ${PRYZM_WALLET_ADDR} \
 --gas-prices 0.015upryzm \
---gas-adjustment 1.5 \
+--gas-adjustment 1.2 \
 --gas auto \
 --yes
 ```
 
+## Set up Price-feeder
+
+### Install docker compose
+
+[Docker install guide](https://docs.docker.com/compose/install/linux/#install-the-plugin-manually)
+
+### Get docker compose file
+```
+cd $HOME
+mkdir pryzm-feeder
+cd pryzm-feeder
+wget https://storage.googleapis.com/pryzm-zone/feeder/docker-compose.yml
+```
+
+### Get config and sql.init files
+```
+cd $HOME
+cd pryzm-feeder
+wget https://storage.googleapis.com/pryzm-zone/feeder/config.yaml
+wget https://storage.googleapis.com/pryzm-zone/feeder/init.sql
+```
+
+### Create and fund price-feeder wallet using [Faucet](https://testnet.pryzm.zone/faucet)
+```
+PRYZM_FEEDER_WALLET_NAME=<YOUR_FEEDER_WALLET_NAME>
+```
+
+```
+pryzmd keys add $PRYZM_FEEDER_WALLET_NAME
+```
+
+### Set manually these fields in config.yaml file 
+```
+feeder: "<YOUR FEEDER WALLET ADDRESS>"
+feederMnemonic: "<YOUR FEEDER WALLET ADDRESS SEED PHRASE>"
+validator: "<YOUR VALOPER (przymvaloper...)>"
+rpcUrl: "http://localhost:{YOUR_PORT}"
+lcdUrl: "http://localhost:{YOUR_PORT}"
+grpcWebUrl: "http://localhost:{YOUR_PORT}"
+wsUrl: "ws://localhost:{YOUR_PORT}"
+```
+
+### Delegate rights to feeder
+```
+pryzmd tx oracle delegate-feed-consent <YOUR FEEDER ADDRESS> --fees 2000factory/pryzm15k9s9p0ar0cx27nayrgk6vmhyec3lj7vkry7rx/uusdsim,3000upryzm --from <YOUR VALIDATOR WALLET ADDRESS>
+```
+
+### Run your feeder
+```
+cd $HOME/pryzm-feeder
+docker compose up -d
+```
+
+### Check logs
+```
+docker logs -f pryzm-feeder
+```
