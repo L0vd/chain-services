@@ -23,10 +23,9 @@ fi
 ### Install node
 ```
 cd $HOME
-wget https://snapshots.l0vd.com/selfchain-testnet/selfchaind
-chmod +x selfchaind
-mv arkeod /root/go/bin/
-selfchaind version
+wget https://storage.googleapis.com/pryzm-resources/pryzmd-0.9.0-linux-amd64.tar.gz
+tar -xzvf pryzmd-0.9.0-linux-amd64.tar.gz
+mv pryzmd /root/go/bin
 ```
 
 
