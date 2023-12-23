@@ -12,7 +12,7 @@ The Cosmos Hub is the first of thousands of interconnected blockchains that will
 
 |  |  |
 | ------ | ------ |
-| Chain-id |  |
+| Chain-id | cosmoshub-4 |
 | Binary name | gaiad |
 | Binary version | v14.1.0 |
 
