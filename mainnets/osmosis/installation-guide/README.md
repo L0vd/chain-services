@@ -26,7 +26,7 @@ cd $HOME
 rm -rf osmosis
 git clone https://github.com/osmosis-labs/osmosis.git
 cd osmosis
-git checkout v21.0.0
+git checkout v
 make install
 ```
 
