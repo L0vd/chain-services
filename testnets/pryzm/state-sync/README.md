@@ -6,7 +6,7 @@
 
 ### Copy the entire command
 ```
-sudo systemctl stop pryzmd
+sudo systemctl stop nulld
 SNAP_RPC="https://pryzm-testnet.rpc.l0vd.com:443"; \
 LATEST_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height); \
 BLOCK_HEIGHT=$((LATEST_HEIGHT - 2000)); \
@@ -21,7 +21,7 @@ s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" $HOME/.pryzm/con
 peers="84b9de17882dc6c9af824395a2072b321bc409ea@pryzm-testnet.peers.l0vd.com:36656" \
 && sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/.pryzm/config/config.toml 
 
-pryzmd tendermint unsafe-reset-all --home ~/.pryzm && sudo systemctl restart pryzmd && journalctl -u pryzmd -f --output cat
+nulld tendermint unsafe-reset-all --home ~/.pryzm && sudo systemctl restart nulld && journalctl -u nulld -f --output cat
 ```
 
 ### Turn off State Sync Mode after synchronization

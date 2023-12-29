@@ -6,19 +6,19 @@ Please note that the values in <> must be changed to your own values
 
 ### Add new key
 ```
-pryzmd keys add <key_name>
+nulld keys add <key_name>
 ```
 ### Recover keys from seed
 ```
-pryzmd keys add <key_name> --recover
+nulld keys add <key_name> --recover
 ```
 ### Show all keys
 ```
-pryzmd keys list
+nulld keys list
 ```
 ### Delete key
 ```
-pryzmd keys delete <key_name>
+nulld keys delete <key_name>
 ```
 
 ## Node configuration
@@ -58,13 +58,13 @@ sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.015upryzm\"/" $HO
 
 ### Create validator
 ```
-pryzmd tx staking create-validator \
+nulld tx staking create-validator \
 --amount 1000000upryzm \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
---pubkey $(pryzmd tendermint show-validator) \
+--pubkey $(nulld tendermint show-validator) \
 --moniker <PRYZM_NODENAME> \
 --chain-id indigo-1 \
 --from <PRYZM_WALLET> \
@@ -78,7 +78,7 @@ pryzmd tx staking create-validator \
 ```
 ### Edit validator
 ```
-pryzmd tx staking edit-validator \
+nulld tx staking edit-validator \
 --new-moniker <PRYZM_NODENAME> \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
@@ -93,97 +93,97 @@ pryzmd tx staking edit-validator \
 ```
 ### View validator info
 ```
-pryzmd q staking validator $(pryzmd keys show <PRYZM_WALLET> --bech val -a)
+nulld q staking validator $(nulld keys show <PRYZM_WALLET> --bech val -a)
 ```
 ### Unjail validator
 ```
-pryzmd tx slashing unjail --from <PRYZM_WALLET> --chain-id indigo-1 --gas-prices 0.015upryzm --gas-adjustment 1.5 --gas auto --yes 
+nulld tx slashing unjail --from <PRYZM_WALLET> --chain-id indigo-1 --gas-prices 0.015upryzm --gas-adjustment 1.5 --gas auto --yes 
 ```
 ### Signing info
 ```
-pryzmd query slashing signing-info $(pryzmd tendermint show-validator)
+nulld query slashing signing-info $(nulld tendermint show-validator)
 ```
 
 ## Token operations
 
 ### Send tokens
 ```
-pryzmd tx bank send wallet <DEST_WALLET_ADDRESS> 100upryzm --from <PRYZM_WALLET> --chain-id indigo-1 --gas-prices 0.015upryzm --gas-adjustment 1.5 --gas auto --yes
+nulld tx bank send wallet <DEST_WALLET_ADDRESS> 100upryzm --from <PRYZM_WALLET> --chain-id indigo-1 --gas-prices 0.015upryzm --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to your validator
 ```
-pryzmd tx staking delegate $(pryzmd keys show <PRYZM_WALLET> --bech val -a) 100upryzm --from <PRYZM_WALLET> --chain-id indigo-1 --gas-prices 0.015upryzm --gas-adjustment 1.5 --gas auto --yes
+nulld tx staking delegate $(nulld keys show <PRYZM_WALLET> --bech val -a) 100upryzm --from <PRYZM_WALLET> --chain-id indigo-1 --gas-prices 0.015upryzm --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to another validator
 ```
-pryzmd tx staking delegate <VALOPER_ADDRESS> 100upryzm --from <PRYZM_WALLET> --chain-id indigo-1 --gas-prices 0.015upryzm --gas-adjustment 1.5 --gas auto --yes
+nulld tx staking delegate <VALOPER_ADDRESS> 100upryzm --from <PRYZM_WALLET> --chain-id indigo-1 --gas-prices 0.015upryzm --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Redelegate tokens to another validator
 ```
-pryzmd tx staking redelegate $(pryzmd keys show <PRYZM_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100upryzm --from <PRYZM_WALLET> --chain-id indigo-1 --gas-prices 0.015upryzm --gas-adjustment 1.5 --gas auto --yes
+nulld tx staking redelegate $(nulld keys show <PRYZM_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100upryzm --from <PRYZM_WALLET> --chain-id indigo-1 --gas-prices 0.015upryzm --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Unbond tokens from staking
 ```
-pryzmd tx staking unbond $(pryzmd keys show <PRYZM_WALLET> --bech val -a) 100upryzm --from <PRYZM_WALLET> --chain-id indigo-1 --gas-prices 0.015upryzm --gas-adjustment 1.5 --gas auto --yes
+nulld tx staking unbond $(nulld keys show <PRYZM_WALLET> --bech val -a) 100upryzm --from <PRYZM_WALLET> --chain-id indigo-1 --gas-prices 0.015upryzm --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Withdraw all rewards from staking
 ```
-pryzmd tx distribution withdraw-all-rewards --from <PRYZM_WALLET> --chain-id indigo-1 --gas-prices 0.015upryzm --gas-adjustment 1.5 --gas auto --yes
+nulld tx distribution withdraw-all-rewards --from <PRYZM_WALLET> --chain-id indigo-1 --gas-prices 0.015upryzm --gas-adjustment 1.5 --gas auto --yes
 ```
 
 ### Withdraw validator rewards and comission
 ```
-pryzmd tx distribution withdraw-rewards $(pryzmd keys show <PRYZM_WALLET> --bech val -a) --commission --from wallet --chain-id indigo-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.015upryzm -y
+nulld tx distribution withdraw-rewards $(nulld keys show <PRYZM_WALLET> --bech val -a) --commission --from wallet --chain-id indigo-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.015upryzm -y
 
 ```
 
 ## Governance
 ### Vote "YES"
 ```
-pryzmd tx gov vote <proposal_id> yes --from <PRYZM_WALLET> --chain-id indigo-1 --gas-prices 0.015upryzm --gas-adjustment 1.5 --gas auto --yes
+nulld tx gov vote <proposal_id> yes --from <PRYZM_WALLET> --chain-id indigo-1 --gas-prices 0.015upryzm --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Vote "NO"
 ```
-pryzmd tx gov vote <proposal_id> no --from <PRYZM_WALLET> --chain-id indigo-1 --gas-prices 0.015upryzm --gas-adjustment 1.5 --gas auto --yes
+nulld tx gov vote <proposal_id> no --from <PRYZM_WALLET> --chain-id indigo-1 --gas-prices 0.015upryzm --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Abstain from voting
 ```
-pryzmd tx gov vote <proposal_id> abstain --from <PRYZM_WALLET> --chain-id indigo-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.015upryzm -y
+nulld tx gov vote <proposal_id> abstain --from <PRYZM_WALLET> --chain-id indigo-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.015upryzm -y
 ```
 
 
 ## General commands
 ### Check node status
 ```
-pryzmd status | jq
+nulld status | jq
 ```
 ### Check service status
 ```
-sudo systemctl status pryzmd
+sudo systemctl status nulld
 ```
 ### Check logs
 ```
-sudo journalctl -u pryzmd -f --no-hostname -o cat
+sudo journalctl -u nulld -f --no-hostname -o cat
 ```
 ### Restart service
 ```
-sudo systemctl restart pryzmd
+sudo systemctl restart nulld
 ```
 ### Stop service
 ```
-sudo systemctl stop pryzmd
+sudo systemctl stop nulld
 ```
 ### Start service
 ```
-sudo systemctl start pryzmd
+sudo systemctl start nulld
 ```
 ### Disable service
 ```
-sudo systemctl disable pryzmd
+sudo systemctl disable nulld
 ```
 ### Enable service
 ```
-sudo systemctl enable pryzmd
+sudo systemctl enable nulld
 ```
 ### Reload service after changes
 ```
