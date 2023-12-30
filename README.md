@@ -59,7 +59,7 @@
 
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/lava.svg" alt="" data-size="line"> [Lava](testnets/lava/)
 
-<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/namada.png" alt="" width="20" height="20" data-size="line"> [Namada](testnets/namada/)
+<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/namada.png" alt="" width="20" height="20" data-size="line"> [Namada](testnets/namada)
 
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/nois.svg" alt="" data-size="line"> [Nois](testnets/nois/)
 
