@@ -76,7 +76,7 @@ rm -rf cometbft*
 
 # Initialize your Node
 ```
-namada client utils join-network --chain-id $CHAIN_ID
+namada client utils join-network --chain-id $NAMADA_CHAIN_ID
 ```
 
 # Create Service
