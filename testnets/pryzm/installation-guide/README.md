@@ -25,9 +25,9 @@ fi
 ### Install node
 ```
 cd $HOME
-wget https://storage.googleapis.com/pryzm-resources/pryzmd-vnull-linux-amd64.tar.gz
-tar -xzvf pryzmd-vnull-linux-amd64.tar.gz
-mv nulld /root/go/bin
+wget https://storage.googleapis.com/pryzm-resources/pryzmd-v0.10.0-linux-amd64.tar.gz
+tar -xzvf pryzmd-v0.10.0-linux-amd64.tar.gz
+mv pryzmd /root/go/bin
 ```
 
 
@@ -55,12 +55,12 @@ source $HOME/.bash_profile
 
 ### Configure your node
 ```
-nulld config chain-id ${PRYZM_CHAIN_ID}
+pryzmd config chain-id ${PRYZM_CHAIN_ID}
 ```
 
 ### Initialize your node
 ```
-nulld init ${PRYZM_NODENAME} --chain-id ${PRYZM_CHAIN_ID}
+pryzmd init ${PRYZM_NODENAME} --chain-id ${PRYZM_CHAIN_ID}
 ```
 
 ### Download genesis & addrbook
@@ -107,14 +107,14 @@ sed -i -e "s/^indexer *=.*/indexer = \"kv\"/" $HOME/.pryzm/config/config.toml
 
 ### Create Service
 ```
-sudo tee /etc/systemd/system/nulld.service > /dev/null <<EOF
+sudo tee /etc/systemd/system/pryzmd.service > /dev/null <<EOF
 [Unit]
 Description=Pryzm testnet
 After=network-online.target
 
 [Service]
 User=$USER
-ExecStart=$(which nulld) start
+ExecStart=$(which pryzmd) start
 Restart=on-failure
 RestartSec=3
 LimitNOFILE=65535
@@ -127,9 +127,9 @@ EOF
 ### Reset blockchain info and restart your node
 ```
 sudo systemctl daemon-reload
-sudo systemctl enable nulld
-nulld tendermint unsafe-reset-all --home $HOME/.pryzm --keep-addr-book
-sudo systemctl restart nulld && sudo journalctl -u nulld -f -o cat
+sudo systemctl enable pryzmd
+pryzmd tendermint unsafe-reset-all --home $HOME/.pryzm --keep-addr-book
+sudo systemctl restart pryzmd && sudo journalctl -u pryzmd -f -o cat
 ```
 
 ### (OPTIONAL) Use State Sync
@@ -141,17 +141,17 @@ sudo systemctl restart nulld && sudo journalctl -u nulld -f -o cat
 
 #### 1. Add a new key
 ```
-nulld keys add ${PRYZM_WALLET}
+pryzmd keys add ${PRYZM_WALLET}
 ```
 ##### (OR)
 
 #### 1. Recover your key
 ```
-nulld keys add ${PRYZM_WALLET} --recover
+pryzmd keys add ${PRYZM_WALLET} --recover
 ```
 
 ```
-PRYZM_WALLET_ADDR=$(nulld keys show ${PRYZM_WALLET} -a)
+PRYZM_WALLET_ADDR=$(pryzmd keys show ${PRYZM_WALLET} -a)
 echo "export PRYZM_WALLET_ADDR=${PRYZM_WALLET_ADDR}" >> $HOME/.bash_profile
 
 source $HOME/.bash_profile
@@ -165,14 +165,14 @@ Wait until the node is synchronized.
 {% endhint %}
 
 ```
-nulld tx staking create-validator \
+pryzmd tx staking create-validator \
 --amount 1000000upryzm \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
 --details "" \
---pubkey $(nulld tendermint show-validator) \
+--pubkey $(pryzmd tendermint show-validator) \
 --moniker ${PRYZM_NODENAME} \
 --chain-id ${PRYZM_CHAIN_ID} \
 --from ${PRYZM_WALLET_ADDR} \
