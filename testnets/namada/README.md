@@ -33,4 +33,4 @@ RPC\
 [Installation-guide](installation-guide/)\
 [State Sync](state-sync/) Currently not supported by Namada!\
 [Snapshot](snapshot/)\
-[Useful commands](useful-commands/)\
+[Useful commands](useful-commands/)
