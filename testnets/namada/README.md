@@ -34,4 +34,3 @@ RPC\
 [State Sync](state-sync/) Currently not supported by Namada!\
 [Snapshot](snapshot/)\
 [Useful commands](useful-commands/)\
-[Monitoring](monitoring/)
