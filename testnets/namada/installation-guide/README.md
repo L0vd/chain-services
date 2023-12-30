@@ -107,7 +107,7 @@ sudo systemctl enable namadad.service
 sudo systemctl daemon-reload
 ```
 
-# Sync node using [State sync](/chain-services/testnets/namada/state-sync/README.md)
+# Sync node using [Snapshot](testnets/namada/snapshot/README.md)
 
 # Starting a validator
 
