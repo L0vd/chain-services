@@ -11,7 +11,7 @@ sudo apt install lz4 -y
 ## Sync from Snapshot  
 | Height  | Size | Pruning | Indexer | Creation Time (UTC+3) |
 | --------- | --------- | --------- | --------- | --------- |
-| 2697612  | 0.8 GB  | custom/100/0/10 | null | 2024-01-05_12:10:52 |
+| 2700025  | 0.8 GB  | custom/100/0/10 | null | 2024-01-05_16:09:05 |
 
 ```
 sudo systemctl stop archwayd
