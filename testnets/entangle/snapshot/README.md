@@ -11,7 +11,7 @@ sudo apt install lz4 -y
 ## Sync from Snapshot  
 | Height  | Size | Pruning | Indexer | Creation Time (UTC+3) |
 | --------- | --------- | --------- | --------- | --------- |
-| 1575530  | 1.1 GB  | custom/100/0/10 | null | 2024-01-09_00:09:29 |
+| 1578530  | 1.0 GB  | custom/100/0/10 | null | 2024-01-09_04:06:25 |
 
 ```
 sudo systemctl stop entangled
