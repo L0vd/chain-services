@@ -26,7 +26,7 @@ cd $HOME
 rm -rf composable-centauri
 git clone https://github.com/notional-labs/composable-centauri.git
 cd composable-centauri
-git checkout 1.0.2
+git checkout v6.2.3-testnet
 make install
 ```
 
@@ -39,7 +39,7 @@ You should replace values in <> <br />
 ```
 COMPOSABLE_WALLET="<YOUR_WALLET_NAME>"
 COMPOSABLE_NODENAME="<YOUR_MONIKER>"
-COMPOSABLE_CHAIN_ID=""
+COMPOSABLE_CHAIN_ID="banksy-testnet-4"
 ```
 
 ```
@@ -55,12 +55,12 @@ source $HOME/.bash_profile
 
 ### Configure your node
 ```
-nois config chain-id ${COMPOSABLE_CHAIN_ID}
+layerd config chain-id ${COMPOSABLE_CHAIN_ID}
 ```
 
 ### Initialize your node
 ```
-nois init ${COMPOSABLE_NODENAME} --chain-id ${COMPOSABLE_CHAIN_ID}
+layerd init ${COMPOSABLE_NODENAME} --chain-id ${COMPOSABLE_CHAIN_ID}
 ```
 
 ### Download genesis & addrbook
@@ -107,14 +107,14 @@ sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.banksy/config/config.toml
 
 ### Create Service
 ```
-sudo tee /etc/systemd/system/nois.service > /dev/null <<EOF
+sudo tee /etc/systemd/system/layerd.service > /dev/null <<EOF
 [Unit]
 Description=Composable testnet
 After=network-online.target
 
 [Service]
 User=$USER
-ExecStart=$(which nois) start
+ExecStart=$(which layerd) start
 Restart=on-failure
 RestartSec=3
 LimitNOFILE=65535
@@ -127,9 +127,9 @@ EOF
 ### Reset blockchain info and restart your node
 ```
 sudo systemctl daemon-reload
-sudo systemctl enable nois
-nois tendermint unsafe-reset-all --home $HOME/.banksy --keep-addr-book
-sudo systemctl restart nois && sudo journalctl -u nois -f -o cat
+sudo systemctl enable layerd
+layerd tendermint unsafe-reset-all --home $HOME/.banksy --keep-addr-book
+sudo systemctl restart layerd && sudo journalctl -u layerd -f -o cat
 ```
 
 ### (OPTIONAL) Use State Sync
@@ -141,17 +141,17 @@ sudo systemctl restart nois && sudo journalctl -u nois -f -o cat
 
 #### 1. Add a new key
 ```
-nois keys add ${COMPOSABLE_WALLET}
+layerd keys add ${COMPOSABLE_WALLET}
 ```
 ##### (OR)
 
 #### 1. Recover your key
 ```
-nois keys add ${COMPOSABLE_WALLET} --recover
+layerd keys add ${COMPOSABLE_WALLET} --recover
 ```
 
 ```
-COMPOSABLE_WALLET_ADDR=$(nois keys show ${COMPOSABLE_WALLET} -a)
+COMPOSABLE_WALLET_ADDR=$(layerd keys show ${COMPOSABLE_WALLET} -a)
 echo "export COMPOSABLE_WALLET_ADDR=${COMPOSABLE_WALLET_ADDR}" >> $HOME/.bash_profile
 
 source $HOME/.bash_profile
@@ -165,14 +165,14 @@ Wait until the node is synchronized.
 {% endhint %}
 
 ```
-nois tx staking create-validator \
+layerd tx staking create-validator \
 --amount 1000000ppica \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
 --details "" \
---pubkey $(nois tendermint show-validator) \
+--pubkey $(layerd tendermint show-validator) \
 --moniker ${COMPOSABLE_NODENAME} \
 --chain-id ${COMPOSABLE_CHAIN_ID} \
 --from ${COMPOSABLE_WALLET_ADDR} \

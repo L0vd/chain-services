@@ -6,7 +6,7 @@
 
 ### Copy the entire command
 ```
-sudo systemctl stop nois
+sudo systemctl stop layerd
 SNAP_RPC="https://composable-testnet.rpc.l0vd.com:443"; \
 LATEST_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height); \
 BLOCK_HEIGHT=$((LATEST_HEIGHT - 2000)); \
@@ -18,10 +18,10 @@ s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"$SNAP_RPC,$SNAP_RPC\"| ; \
 s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT| ; \
 s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" $HOME/.banksy/config/config.toml
 
-peers="@composable-testnet.peers.l0vd.com:" \
+peers="5f6c2bd25053b75e84f4f090a46be092b30719c8@composable-testnet.peers.l0vd.com:17656" \
 && sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/.banksy/config/config.toml 
 
-nois tendermint unsafe-reset-all --home ~/.banksy && sudo systemctl restart nois && journalctl -u nois -f --output cat
+layerd tendermint unsafe-reset-all --home ~/.banksy && sudo systemctl restart layerd && journalctl -u layerd -f --output cat
 ```
 
 ### Turn off State Sync Mode after synchronization

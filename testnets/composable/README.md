@@ -12,9 +12,9 @@ The complete infrastructure for cross-chain smart contracts, applications, and m
 
 |  |  |
 | ------ | ------ |
-| Chain-id |  |
-| Binary name | nois |
-| Binary version | 1.0.2 |
+| Chain-id | banksy-testnet-4 |
+| Binary name | layerd |
+| Binary version | v6.2.3-testnet |
 
 ##### Explorer
 [https://explorers.l0vd.com/composable-testnet](https://explorers.l0vd.com/composable-testnet)
