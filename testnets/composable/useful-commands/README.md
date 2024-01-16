@@ -6,19 +6,19 @@ Please note that the values in <> must be changed to your own values
 
 ### Add new key
 ```
-layerd keys add <key_name>
+centaurid keys add <key_name>
 ```
 ### Recover keys from seed
 ```
-layerd keys add <key_name> --recover
+centaurid keys add <key_name> --recover
 ```
 ### Show all keys
 ```
-layerd keys list
+centaurid keys list
 ```
 ### Delete key
 ```
-layerd keys delete <key_name>
+centaurid keys delete <key_name>
 ```
 
 ## Node configuration
@@ -58,15 +58,15 @@ sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0ppica\"/" $HOME/.b
 
 ### Create validator
 ```
-layerd tx staking create-validator \
+centaurid tx staking create-validator \
 --amount 1000000ppica \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
---pubkey $(layerd tendermint show-validator) \
+--pubkey $(centaurid tendermint show-validator) \
 --moniker <COMPOSABLE_NODENAME> \
---chain-id banksy-testnet-4 \
+--chain-id banksy-testnet-5 \
 --from <COMPOSABLE_WALLET> \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
@@ -78,12 +78,12 @@ layerd tx staking create-validator \
 ```
 ### Edit validator
 ```
-layerd tx staking edit-validator \
+centaurid tx staking edit-validator \
 --new-moniker <COMPOSABLE_NODENAME> \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
 --website <YOUR_WEBSITE> \
---chain-id banksy-testnet-4 \
+--chain-id banksy-testnet-5 \
 --commission-rate 0.05 \
 --from <COMPOSABLE_WALLET> \
 --gas-prices 0ppica \
@@ -93,97 +93,97 @@ layerd tx staking edit-validator \
 ```
 ### View validator info
 ```
-layerd q staking validator $(layerd keys show <COMPOSABLE_WALLET> --bech val -a)
+centaurid q staking validator $(centaurid keys show <COMPOSABLE_WALLET> --bech val -a)
 ```
 ### Unjail validator
 ```
-layerd tx slashing unjail --from <COMPOSABLE_WALLET> --chain-id banksy-testnet-4 --gas-prices 0ppica --gas-adjustment 1.5 --gas auto --yes 
+centaurid tx slashing unjail --from <COMPOSABLE_WALLET> --chain-id banksy-testnet-5 --gas-prices 0ppica --gas-adjustment 1.5 --gas auto --yes 
 ```
 ### Signing info
 ```
-layerd query slashing signing-info $(layerd tendermint show-validator)
+centaurid query slashing signing-info $(centaurid tendermint show-validator)
 ```
 
 ## Token operations
 
 ### Send tokens
 ```
-layerd tx bank send wallet <DEST_WALLET_ADDRESS> 100ppica --from <COMPOSABLE_WALLET> --chain-id banksy-testnet-4 --gas-prices 0ppica --gas-adjustment 1.5 --gas auto --yes
+centaurid tx bank send wallet <DEST_WALLET_ADDRESS> 100ppica --from <COMPOSABLE_WALLET> --chain-id banksy-testnet-5 --gas-prices 0ppica --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to your validator
 ```
-layerd tx staking delegate $(layerd keys show <COMPOSABLE_WALLET> --bech val -a) 100ppica --from <COMPOSABLE_WALLET> --chain-id banksy-testnet-4 --gas-prices 0ppica --gas-adjustment 1.5 --gas auto --yes
+centaurid tx staking delegate $(centaurid keys show <COMPOSABLE_WALLET> --bech val -a) 100ppica --from <COMPOSABLE_WALLET> --chain-id banksy-testnet-5 --gas-prices 0ppica --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to another validator
 ```
-layerd tx staking delegate <VALOPER_ADDRESS> 100ppica --from <COMPOSABLE_WALLET> --chain-id banksy-testnet-4 --gas-prices 0ppica --gas-adjustment 1.5 --gas auto --yes
+centaurid tx staking delegate <VALOPER_ADDRESS> 100ppica --from <COMPOSABLE_WALLET> --chain-id banksy-testnet-5 --gas-prices 0ppica --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Redelegate tokens to another validator
 ```
-layerd tx staking redelegate $(layerd keys show <COMPOSABLE_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100ppica --from <COMPOSABLE_WALLET> --chain-id banksy-testnet-4 --gas-prices 0ppica --gas-adjustment 1.5 --gas auto --yes
+centaurid tx staking redelegate $(centaurid keys show <COMPOSABLE_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100ppica --from <COMPOSABLE_WALLET> --chain-id banksy-testnet-5 --gas-prices 0ppica --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Unbond tokens from staking
 ```
-layerd tx staking unbond $(layerd keys show <COMPOSABLE_WALLET> --bech val -a) 100ppica --from <COMPOSABLE_WALLET> --chain-id banksy-testnet-4 --gas-prices 0ppica --gas-adjustment 1.5 --gas auto --yes
+centaurid tx staking unbond $(centaurid keys show <COMPOSABLE_WALLET> --bech val -a) 100ppica --from <COMPOSABLE_WALLET> --chain-id banksy-testnet-5 --gas-prices 0ppica --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Withdraw all rewards from staking
 ```
-layerd tx distribution withdraw-all-rewards --from <COMPOSABLE_WALLET> --chain-id banksy-testnet-4 --gas-prices 0ppica --gas-adjustment 1.5 --gas auto --yes
+centaurid tx distribution withdraw-all-rewards --from <COMPOSABLE_WALLET> --chain-id banksy-testnet-5 --gas-prices 0ppica --gas-adjustment 1.5 --gas auto --yes
 ```
 
 ### Withdraw validator rewards and comission
 ```
-layerd tx distribution withdraw-rewards $(layerd keys show <COMPOSABLE_WALLET> --bech val -a) --commission --from wallet --chain-id banksy-testnet-4 --gas-adjustment 1.5 --gas auto --gas-prices 0ppica -y
+centaurid tx distribution withdraw-rewards $(centaurid keys show <COMPOSABLE_WALLET> --bech val -a) --commission --from wallet --chain-id banksy-testnet-5 --gas-adjustment 1.5 --gas auto --gas-prices 0ppica -y
 
 ```
 
 ## Governance
 ### Vote "YES"
 ```
-layerd tx gov vote <proposal_id> yes --from <COMPOSABLE_WALLET> --chain-id banksy-testnet-4 --gas-prices 0ppica --gas-adjustment 1.5 --gas auto --yes
+centaurid tx gov vote <proposal_id> yes --from <COMPOSABLE_WALLET> --chain-id banksy-testnet-5 --gas-prices 0ppica --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Vote "NO"
 ```
-layerd tx gov vote <proposal_id> no --from <COMPOSABLE_WALLET> --chain-id banksy-testnet-4 --gas-prices 0ppica --gas-adjustment 1.5 --gas auto --yes
+centaurid tx gov vote <proposal_id> no --from <COMPOSABLE_WALLET> --chain-id banksy-testnet-5 --gas-prices 0ppica --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Abstain from voting
 ```
-layerd tx gov vote <proposal_id> abstain --from <COMPOSABLE_WALLET> --chain-id banksy-testnet-4 --gas-adjustment 1.5 --gas auto --gas-prices 0ppica -y
+centaurid tx gov vote <proposal_id> abstain --from <COMPOSABLE_WALLET> --chain-id banksy-testnet-5 --gas-adjustment 1.5 --gas auto --gas-prices 0ppica -y
 ```
 
 
 ## General commands
 ### Check node status
 ```
-layerd status | jq
+centaurid status | jq
 ```
 ### Check service status
 ```
-sudo systemctl status layerd
+sudo systemctl status centaurid
 ```
 ### Check logs
 ```
-sudo journalctl -u layerd -f --no-hostname -o cat
+sudo journalctl -u centaurid -f --no-hostname -o cat
 ```
 ### Restart service
 ```
-sudo systemctl restart layerd
+sudo systemctl restart centaurid
 ```
 ### Stop service
 ```
-sudo systemctl stop layerd
+sudo systemctl stop centaurid
 ```
 ### Start service
 ```
-sudo systemctl start layerd
+sudo systemctl start centaurid
 ```
 ### Disable service
 ```
-sudo systemctl disable layerd
+sudo systemctl disable centaurid
 ```
 ### Enable service
 ```
-sudo systemctl enable layerd
+sudo systemctl enable centaurid
 ```
 ### Reload service after changes
 ```
