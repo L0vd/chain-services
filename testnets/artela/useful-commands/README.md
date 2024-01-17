@@ -66,7 +66,7 @@ artelad tx staking create-validator \
 --min-self-delegation "1" \
 --pubkey $(artelad tendermint show-validator) \
 --moniker <artela_NODENAME> \
---chain-id  \
+--chain-id artela_11822-1 \
 --from <artela_WALLET> \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
@@ -83,7 +83,7 @@ artelad tx staking edit-validator \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
 --website <YOUR_WEBSITE> \
---chain-id  \
+--chain-id artela_11822-1 \
 --commission-rate 0.05 \
 --from <artela_WALLET> \
 --gas-prices 0.02uartuart \
@@ -97,7 +97,7 @@ artelad q staking validator $(artelad keys show <artela_WALLET> --bech val -a)
 ```
 ### Unjail validator
 ```
-artelad tx slashing unjail --from <artela_WALLET> --chain-id  --gas-prices 0.02uartuart --gas-adjustment 1.5 --gas auto --yes 
+artelad tx slashing unjail --from <artela_WALLET> --chain-id artela_11822-1 --gas-prices 0.02uartuart --gas-adjustment 1.5 --gas auto --yes 
 ```
 ### Signing info
 ```
@@ -108,47 +108,47 @@ artelad query slashing signing-info $(artelad tendermint show-validator)
 
 ### Send tokens
 ```
-artelad tx bank send wallet <DEST_WALLET_ADDRESS> 100uart --from <artela_WALLET> --chain-id  --gas-prices 0.02uartuart --gas-adjustment 1.5 --gas auto --yes
+artelad tx bank send wallet <DEST_WALLET_ADDRESS> 100uart --from <artela_WALLET> --chain-id artela_11822-1 --gas-prices 0.02uartuart --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to your validator
 ```
-artelad tx staking delegate $(artelad keys show <artela_WALLET> --bech val -a) 100uart --from <artela_WALLET> --chain-id  --gas-prices 0.02uartuart --gas-adjustment 1.5 --gas auto --yes
+artelad tx staking delegate $(artelad keys show <artela_WALLET> --bech val -a) 100uart --from <artela_WALLET> --chain-id artela_11822-1 --gas-prices 0.02uartuart --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to another validator
 ```
-artelad tx staking delegate <VALOPER_ADDRESS> 100uart --from <artela_WALLET> --chain-id  --gas-prices 0.02uartuart --gas-adjustment 1.5 --gas auto --yes
+artelad tx staking delegate <VALOPER_ADDRESS> 100uart --from <artela_WALLET> --chain-id artela_11822-1 --gas-prices 0.02uartuart --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Redelegate tokens to another validator
 ```
-artelad tx staking redelegate $(artelad keys show <artela_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100uart --from <artela_WALLET> --chain-id  --gas-prices 0.02uartuart --gas-adjustment 1.5 --gas auto --yes
+artelad tx staking redelegate $(artelad keys show <artela_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100uart --from <artela_WALLET> --chain-id artela_11822-1 --gas-prices 0.02uartuart --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Unbond tokens from staking
 ```
-artelad tx staking unbond $(artelad keys show <artela_WALLET> --bech val -a) 100uart --from <artela_WALLET> --chain-id  --gas-prices 0.02uartuart --gas-adjustment 1.5 --gas auto --yes
+artelad tx staking unbond $(artelad keys show <artela_WALLET> --bech val -a) 100uart --from <artela_WALLET> --chain-id artela_11822-1 --gas-prices 0.02uartuart --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Withdraw all rewards from staking
 ```
-artelad tx distribution withdraw-all-rewards --from <artela_WALLET> --chain-id  --gas-prices 0.02uartuart --gas-adjustment 1.5 --gas auto --yes
+artelad tx distribution withdraw-all-rewards --from <artela_WALLET> --chain-id artela_11822-1 --gas-prices 0.02uartuart --gas-adjustment 1.5 --gas auto --yes
 ```
 
 ### Withdraw validator rewards and comission
 ```
-artelad tx distribution withdraw-rewards $(artelad keys show <artela_WALLET> --bech val -a) --commission --from wallet --chain-id  --gas-adjustment 1.5 --gas auto --gas-prices 0.02uartuart -y
+artelad tx distribution withdraw-rewards $(artelad keys show <artela_WALLET> --bech val -a) --commission --from wallet --chain-id artela_11822-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.02uartuart -y
 
 ```
 
 ## Governance
 ### Vote "YES"
 ```
-artelad tx gov vote <proposal_id> yes --from <artela_WALLET> --chain-id  --gas-prices 0.02uartuart --gas-adjustment 1.5 --gas auto --yes
+artelad tx gov vote <proposal_id> yes --from <artela_WALLET> --chain-id artela_11822-1 --gas-prices 0.02uartuart --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Vote "NO"
 ```
-artelad tx gov vote <proposal_id> no --from <artela_WALLET> --chain-id  --gas-prices 0.02uartuart --gas-adjustment 1.5 --gas auto --yes
+artelad tx gov vote <proposal_id> no --from <artela_WALLET> --chain-id artela_11822-1 --gas-prices 0.02uartuart --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Abstain from voting
 ```
-artelad tx gov vote <proposal_id> abstain --from <artela_WALLET> --chain-id  --gas-adjustment 1.5 --gas auto --gas-prices 0.02uartuart -y
+artelad tx gov vote <proposal_id> abstain --from <artela_WALLET> --chain-id artela_11822-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.02uartuart -y
 ```
 
 

@@ -26,7 +26,7 @@ cd $HOME
 rm -rf artela
 git clone https://github.com/artela-network/artela.git
 cd artela
-git checkout vv0.4.7-rc4
+git checkout v0.4.7-rc4
 make install
 ```
 
@@ -39,7 +39,7 @@ You should replace values in <> <br />
 ```
 artela_WALLET="<YOUR_WALLET_NAME>"
 artela_NODENAME="<YOUR_MONIKER>"
-artela_CHAIN_ID=""
+artela_CHAIN_ID="artela_11822-1"
 ```
 
 ```
