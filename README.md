@@ -39,6 +39,8 @@
 
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/archway.svg" alt="" data-size="line"> [Archway](testnets/archway/)
 
+<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/artela.png" alt="" width="20" height="20" data-size="line"> [Artela](testnets/artela/)
+
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/babylon.png" alt="" data-size="line"> [Babylon](testnets/babylon/)
 
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/bitcanna.png" alt="" data-size="line"> [Bitcanna](mainnets/bitcanna/)
