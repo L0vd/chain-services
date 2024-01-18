@@ -18,7 +18,7 @@ s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"$SNAP_RPC,$SNAP_RPC\"| ; \
 s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT| ; \
 s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" $HOME/.artela/config/config.toml
 
-peers="fc1e0fc76767255ae8c7f1bef72e16c7c59dfc48@artela-testnet.peers.l0vd.com:4556" \
+peers="fc1e0fc76767255ae8c7f1bef72e16c7c59dfc48@artela-testnet.peers.l0vd.com:45656" \
 && sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/.artela/config/config.toml 
 
 artelad tendermint unsafe-reset-all --home ~/.artela && sudo systemctl restart artelad && journalctl -u artelad -f --output cat
