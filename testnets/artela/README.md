@@ -14,7 +14,7 @@ Artela is a new Layer1 that unlocks blockchains to be improved by anyone. Add ne
 | ------ | ------ |
 | Chain-id | artela_11822-1 |
 | Binary name | artelad |
-| Binary version | v0.4.7-rc4 |
+| Binary version | v0.4.7-rc6 |
 
 ##### Explorer
 [https://explorers.l0vd.com/artela-testnet](https://explorers.l0vd.com/artela-testnet)
