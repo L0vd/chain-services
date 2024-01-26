@@ -6,19 +6,19 @@ Please note that the values in <> must be changed to your own values
 
 ### Add new key
 ```
-osmosisd keys add <key_name>
+nulld keys add <key_name>
 ```
 ### Recover keys from seed
 ```
-osmosisd keys add <key_name> --recover
+nulld keys add <key_name> --recover
 ```
 ### Show all keys
 ```
-osmosisd keys list
+nulld keys list
 ```
 ### Delete key
 ```
-osmosisd keys delete <key_name>
+nulld keys delete <key_name>
 ```
 
 ## Node configuration
@@ -58,13 +58,13 @@ sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.0025uosmo\"/" $HO
 
 ### Create validator
 ```
-osmosisd tx staking create-validator \
+nulld tx staking create-validator \
 --amount 1000000uosmo \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
---pubkey $(osmosisd tendermint show-validator) \
+--pubkey $(nulld tendermint show-validator) \
 --moniker <OSMOSIS_NODENAME> \
 --chain-id osmosis-1 \
 --from <OSMOSIS_WALLET> \
@@ -78,7 +78,7 @@ osmosisd tx staking create-validator \
 ```
 ### Edit validator
 ```
-osmosisd tx staking edit-validator \
+nulld tx staking edit-validator \
 --new-moniker <OSMOSIS_NODENAME> \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
@@ -93,97 +93,97 @@ osmosisd tx staking edit-validator \
 ```
 ### View validator info
 ```
-osmosisd q staking validator $(osmosisd keys show <OSMOSIS_WALLET> --bech val -a)
+nulld q staking validator $(nulld keys show <OSMOSIS_WALLET> --bech val -a)
 ```
 ### Unjail validator
 ```
-osmosisd tx slashing unjail --from <OSMOSIS_WALLET> --chain-id osmosis-1 --gas-prices 0.0025uosmo --gas-adjustment 1.5 --gas auto --yes 
+nulld tx slashing unjail --from <OSMOSIS_WALLET> --chain-id osmosis-1 --gas-prices 0.0025uosmo --gas-adjustment 1.5 --gas auto --yes 
 ```
 ### Signing info
 ```
-osmosisd query slashing signing-info $(osmosisd tendermint show-validator)
+nulld query slashing signing-info $(nulld tendermint show-validator)
 ```
 
 ## Token operations
 
 ### Send tokens
 ```
-osmosisd tx bank send wallet <DEST_WALLET_ADDRESS> 100uosmo --from <OSMOSIS_WALLET> --chain-id osmosis-1 --gas-prices 0.0025uosmo --gas-adjustment 1.5 --gas auto --yes
+nulld tx bank send wallet <DEST_WALLET_ADDRESS> 100uosmo --from <OSMOSIS_WALLET> --chain-id osmosis-1 --gas-prices 0.0025uosmo --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to your validator
 ```
-osmosisd tx staking delegate $(osmosisd keys show <OSMOSIS_WALLET> --bech val -a) 100uosmo --from <OSMOSIS_WALLET> --chain-id osmosis-1 --gas-prices 0.0025uosmo --gas-adjustment 1.5 --gas auto --yes
+nulld tx staking delegate $(nulld keys show <OSMOSIS_WALLET> --bech val -a) 100uosmo --from <OSMOSIS_WALLET> --chain-id osmosis-1 --gas-prices 0.0025uosmo --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to another validator
 ```
-osmosisd tx staking delegate <VALOPER_ADDRESS> 100uosmo --from <OSMOSIS_WALLET> --chain-id osmosis-1 --gas-prices 0.0025uosmo --gas-adjustment 1.5 --gas auto --yes
+nulld tx staking delegate <VALOPER_ADDRESS> 100uosmo --from <OSMOSIS_WALLET> --chain-id osmosis-1 --gas-prices 0.0025uosmo --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Redelegate tokens to another validator
 ```
-osmosisd tx staking redelegate $(osmosisd keys show <OSMOSIS_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100uosmo --from <OSMOSIS_WALLET> --chain-id osmosis-1 --gas-prices 0.0025uosmo --gas-adjustment 1.5 --gas auto --yes
+nulld tx staking redelegate $(nulld keys show <OSMOSIS_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100uosmo --from <OSMOSIS_WALLET> --chain-id osmosis-1 --gas-prices 0.0025uosmo --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Unbond tokens from staking
 ```
-osmosisd tx staking unbond $(osmosisd keys show <OSMOSIS_WALLET> --bech val -a) 100uosmo --from <OSMOSIS_WALLET> --chain-id osmosis-1 --gas-prices 0.0025uosmo --gas-adjustment 1.5 --gas auto --yes
+nulld tx staking unbond $(nulld keys show <OSMOSIS_WALLET> --bech val -a) 100uosmo --from <OSMOSIS_WALLET> --chain-id osmosis-1 --gas-prices 0.0025uosmo --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Withdraw all rewards from staking
 ```
-osmosisd tx distribution withdraw-all-rewards --from <OSMOSIS_WALLET> --chain-id osmosis-1 --gas-prices 0.0025uosmo --gas-adjustment 1.5 --gas auto --yes
+nulld tx distribution withdraw-all-rewards --from <OSMOSIS_WALLET> --chain-id osmosis-1 --gas-prices 0.0025uosmo --gas-adjustment 1.5 --gas auto --yes
 ```
 
 ### Withdraw validator rewards and comission
 ```
-osmosisd tx distribution withdraw-rewards $(osmosisd keys show <OSMOSIS_WALLET> --bech val -a) --commission --from wallet --chain-id osmosis-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.0025uosmo -y
+nulld tx distribution withdraw-rewards $(nulld keys show <OSMOSIS_WALLET> --bech val -a) --commission --from wallet --chain-id osmosis-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.0025uosmo -y
 
 ```
 
 ## Governance
 ### Vote "YES"
 ```
-osmosisd tx gov vote <proposal_id> yes --from <OSMOSIS_WALLET> --chain-id osmosis-1 --gas-prices 0.0025uosmo --gas-adjustment 1.5 --gas auto --yes
+nulld tx gov vote <proposal_id> yes --from <OSMOSIS_WALLET> --chain-id osmosis-1 --gas-prices 0.0025uosmo --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Vote "NO"
 ```
-osmosisd tx gov vote <proposal_id> no --from <OSMOSIS_WALLET> --chain-id osmosis-1 --gas-prices 0.0025uosmo --gas-adjustment 1.5 --gas auto --yes
+nulld tx gov vote <proposal_id> no --from <OSMOSIS_WALLET> --chain-id osmosis-1 --gas-prices 0.0025uosmo --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Abstain from voting
 ```
-osmosisd tx gov vote <proposal_id> abstain --from <OSMOSIS_WALLET> --chain-id osmosis-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.0025uosmo -y
+nulld tx gov vote <proposal_id> abstain --from <OSMOSIS_WALLET> --chain-id osmosis-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.0025uosmo -y
 ```
 
 
 ## General commands
 ### Check node status
 ```
-osmosisd status | jq
+nulld status | jq
 ```
 ### Check service status
 ```
-sudo systemctl status osmosisd
+sudo systemctl status nulld
 ```
 ### Check logs
 ```
-sudo journalctl -u osmosisd -f --no-hostname -o cat
+sudo journalctl -u nulld -f --no-hostname -o cat
 ```
 ### Restart service
 ```
-sudo systemctl restart osmosisd
+sudo systemctl restart nulld
 ```
 ### Stop service
 ```
-sudo systemctl stop osmosisd
+sudo systemctl stop nulld
 ```
 ### Start service
 ```
-sudo systemctl start osmosisd
+sudo systemctl start nulld
 ```
 ### Disable service
 ```
-sudo systemctl disable osmosisd
+sudo systemctl disable nulld
 ```
 ### Enable service
 ```
-sudo systemctl enable osmosisd
+sudo systemctl enable nulld
 ```
 ### Reload service after changes
 ```
