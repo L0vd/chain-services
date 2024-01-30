@@ -42,7 +42,7 @@ You should replace values in <> <br />
 ```
 MANTRA_WALLET="<YOUR_WALLET_NAME>"
 MANTRA_NODENAME="<YOUR_MONIKER>"
-MANTRA_CHAIN_ID="mantrachain-1"
+MANTRA_CHAIN_ID=""
 ```
 
 ```

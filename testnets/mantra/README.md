@@ -12,7 +12,7 @@ The first Cosmos chain designed to continuously evolve with global regulations g
 
 |  |  |
 | ------ | ------ |
-| Chain-id | mantrachain-1 |
+| Chain-id |  |
 | Binary name | mantrachaind |
 | Binary version | v |
 
