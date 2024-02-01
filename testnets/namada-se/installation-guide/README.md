@@ -18,7 +18,7 @@
 . <(wget -qO- https://raw.githubusercontent.com/L0vd/chain-services/main/testnets/namada-se/installation-guide/one-liner.sh)
 ```
 
-Wait until the script completes successfully and then go to [step 3]().
+Wait until the script completes successfully and then go to [step 3](/testnets/namada-se/installation-guide/README.md#3-adding-wallets).
 
 ### 2. Manual installation
 
