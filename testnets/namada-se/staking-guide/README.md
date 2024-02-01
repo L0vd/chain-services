@@ -113,6 +113,8 @@ echo "export VALIDATOR_ALIAS="$VALIDATOR_ALIAS"" >> $HOME/.bash_profile
 source $HOME/.bash_profile
 ```
 
+:heart: If you found the guide helpful, please delegate to us, we appreciate it greatly
+
 #### 3.1 Add new keypair (or restore)
 
 ```
