@@ -3,8 +3,8 @@
 
 {% hint style="info" %} Ubuntu must be 22.04 or newer. {% endhint %}
 
-|  |  |
 | Node | RAM | DRIVE | CPU |
+| ------ | ------ |
 | Validator node | 16GB | 1TB | 4cores |
 | Full node | 8GB | 1TB | 2cores |
 | Light Node | TBD | TBD | TBD |
