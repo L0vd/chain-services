@@ -188,7 +188,7 @@
   * [Useful commands](testnets/namada/useful-commands/README.md)
 * [Namada-se](testnets/namada-se/README.md)
   * [Installation](testnets/namada-se/installation-guide/README.md)
-  * [Installation](testnets/namada-se/staking-guide/README.md)
+  * [Staking](testnets/namada-se/staking-guide/README.md)
   * [Snapshot](testnets/namada-se/snapshot/README.md)
   * [State sync](testnets/namada-se/state-sync/README.md)
   * [Useful commands](testnets/namada-se/useful-commands/README.md)
