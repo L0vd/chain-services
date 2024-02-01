@@ -105,6 +105,7 @@ Output should be like: "Last committed epoch: 150"
 WALLET_ALIAS="<SET YOUR WALLET ALIAS>" # Name of your key
 VALIDATOR_ALIAS="L0vd" # Name of validator you want to stake to.
 ```
+:heart: If you found the guide helpful, please delegate to us, we appreciate it greatly
 
 Export variables:
 ```
@@ -112,8 +113,6 @@ echo "export WALLET_ALIAS="$WALLET_ALIAS"" >> $HOME/.bash_profile
 echo "export VALIDATOR_ALIAS="$VALIDATOR_ALIAS"" >> $HOME/.bash_profile
 source $HOME/.bash_profile
 ```
-
-:heart: If you found the guide helpful, please delegate to us, we appreciate it greatly
 
 #### 3.1 Add new keypair (or restore)
 
