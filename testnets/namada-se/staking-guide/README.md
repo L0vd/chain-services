@@ -6,7 +6,7 @@ You can complete this tasks with or without running your own node.
 
 ## 1. Running own Full node
 
-Install and sync your node using our guide [here]() then move to step [Task: Delegating stake]()
+Install and sync your node using our guide [here](/testnets/namada-se/installation-guide#full-node-setup) then move to step [Task: Delegating stake](/testnets/namada-se/staking-guide#task-delegating-stake)
 
 ## 2. Using Namada Client and Public RPC
 
