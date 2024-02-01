@@ -151,7 +151,7 @@ namadac bond --source $WALLET_ALIAS --validator $VALIDATOR_ALIAS --amount 1000 -
 namada client bonds --owner $WALLET_ALIAS --node tcp://namada-se.rpc.l0vd.com:80
 ```
 
-## Task: Withdrawing rewards
+### Task: Withdrawing rewards
 #### 3.3 Withdraw rewards
 
 ```
