@@ -103,7 +103,7 @@ Output should be like: "Last committed epoch: 150"
 
 ```
 WALLET_ALIAS="<SET YOUR WALLET ALIAS>" # Name of your key
-VALIDATOR_ALIAS="l0vd" # Name of validator you want to stake to.
+VALIDATOR_ALIAS="L0vd" # Name of validator you want to stake to.
 ```
 
 Export variables:
