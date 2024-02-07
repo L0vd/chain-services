@@ -25,7 +25,7 @@ Wait until the script completes successfully and then go to [step 3](/testnets/n
 #### 2.1 Set up variables
 
 ```
-CHAIN_ID="shielded-expedition.b40d8e9055"
+CHAIN_ID="shielded-expedition.88f17d1d14"
 WALLET_ALIAS="<SET YOUR WALLET ALIAS>"
 VALIDATOR_ALIAS="<SET YOUR VALIDATOR ALIAS>"
 ```
