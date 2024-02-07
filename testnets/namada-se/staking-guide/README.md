@@ -68,10 +68,10 @@ cd $HOME
 rm -rf namada
 git clone https://github.com/anoma/namada
 cd namada
-wget https://github.com/anoma/namada/releases/download/v0.30.2/namada-v0.30.2-Linux-x86_64.tar.gz
-tar -xvf namada-v0.30.2-Linux-x86_64.tar.gz
-rm namada-v0.30.2-Linux-x86_64.tar.gz
-cd namada-v0.30.2-Linux-x86_64
+wget https://github.com/anoma/namada/releases/download/v0.31.2/namada-v0.31.2-Linux-x86_64.tar.gz
+tar -xvf namada-v0.31.2-Linux-x86_64.tar.gz
+rm namada-v0.31.2-Linux-x86_64.tar.gz
+cd namada-v0.31.2-Linux-x86_64
 sudo mv namad* /usr/local/bin/
 if [ ! -d "$BASE_DIR" ]; then
     mkdir -p "$BASE_DIR"
@@ -87,7 +87,7 @@ namada --version
 #### 2.3 Initialize the chain configuration 
 
 ```
-namada client utils join-network --chain-id "shielded-expedition.b40d8e9055"
+namada client utils join-network --chain-id "shielded-expedition.88f17d1d14"
 ```
 
 Check everything works fine 
