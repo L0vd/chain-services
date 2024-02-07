@@ -12,9 +12,9 @@ Namada delivers an unparalleled layer of privacy across assets, decentralized ap
 
 |  |  |
 | ------ | ------ |
-| Chain-id | shielded-expedition.b40d8e9055 |
+| Chain-id | shielded-expedition.88f17d1d14 |
 | Binary name | namadad |
-| Binary version | v0.31.0 |
+| Binary version | v0.31.2 |
 
 
 **Explorer**
