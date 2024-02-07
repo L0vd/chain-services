@@ -1,10 +1,10 @@
 #!/bin/bash
 
-CHAIN_ID="shielded-expedition.b40d8e9055"
+CHAIN_ID="shielded-expedition.88f17d1d14"
 COMETBFT_VERSION="0.37.2"
 #TM_HASH=""
 GO_VERSION="1.20.10"
-VERSION_TAG="0.31.0"
+VERSION_TAG="0.31.2"
 
 exists()
 {
