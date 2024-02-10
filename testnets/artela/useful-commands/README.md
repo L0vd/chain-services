@@ -6,19 +6,19 @@ Please note that the values in <> must be changed to your own values
 
 ### Add new key
 ```
-artelad keys add <key_name>
+d keys add <key_name>
 ```
 ### Recover keys from seed
 ```
-artelad keys add <key_name> --recover
+d keys add <key_name> --recover
 ```
 ### Show all keys
 ```
-artelad keys list
+d keys list
 ```
 ### Delete key
 ```
-artelad keys delete <key_name>
+d keys delete <key_name>
 ```
 
 ## Node configuration
@@ -58,15 +58,15 @@ sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.02uart\"/" $HOME/
 
 ### Create validator
 ```
-artelad tx staking create-validator \
+d tx staking create-validator \
 --amount 1000000uart \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
---pubkey $(artelad tendermint show-validator) \
+--pubkey $(d tendermint show-validator) \
 --moniker <artela_NODENAME> \
---chain-id artela_11822-1 \
+--chain-id  \
 --from <artela_WALLET> \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
@@ -78,12 +78,12 @@ artelad tx staking create-validator \
 ```
 ### Edit validator
 ```
-artelad tx staking edit-validator \
+d tx staking edit-validator \
 --new-moniker <artela_NODENAME> \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
 --website <YOUR_WEBSITE> \
---chain-id artela_11822-1 \
+--chain-id  \
 --commission-rate 0.05 \
 --from <artela_WALLET> \
 --gas-prices 0.02uart \
@@ -93,97 +93,97 @@ artelad tx staking edit-validator \
 ```
 ### View validator info
 ```
-artelad q staking validator $(artelad keys show <artela_WALLET> --bech val -a)
+d q staking validator $(d keys show <artela_WALLET> --bech val -a)
 ```
 ### Unjail validator
 ```
-artelad tx slashing unjail --from <artela_WALLET> --chain-id artela_11822-1 --gas-prices 0.02uart --gas-adjustment 1.5 --gas auto --yes 
+d tx slashing unjail --from <artela_WALLET> --chain-id  --gas-prices 0.02uart --gas-adjustment 1.5 --gas auto --yes 
 ```
 ### Signing info
 ```
-artelad query slashing signing-info $(artelad tendermint show-validator)
+d query slashing signing-info $(d tendermint show-validator)
 ```
 
 ## Token operations
 
 ### Send tokens
 ```
-artelad tx bank send wallet <DEST_WALLET_ADDRESS> 100uart --from <artela_WALLET> --chain-id artela_11822-1 --gas-prices 0.02uart --gas-adjustment 1.5 --gas auto --yes
+d tx bank send wallet <DEST_WALLET_ADDRESS> 100uart --from <artela_WALLET> --chain-id  --gas-prices 0.02uart --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to your validator
 ```
-artelad tx staking delegate $(artelad keys show <artela_WALLET> --bech val -a) 100uart --from <artela_WALLET> --chain-id artela_11822-1 --gas-prices 0.02uart --gas-adjustment 1.5 --gas auto --yes
+d tx staking delegate $(d keys show <artela_WALLET> --bech val -a) 100uart --from <artela_WALLET> --chain-id  --gas-prices 0.02uart --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to another validator
 ```
-artelad tx staking delegate <VALOPER_ADDRESS> 100uart --from <artela_WALLET> --chain-id artela_11822-1 --gas-prices 0.02uart --gas-adjustment 1.5 --gas auto --yes
+d tx staking delegate <VALOPER_ADDRESS> 100uart --from <artela_WALLET> --chain-id  --gas-prices 0.02uart --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Redelegate tokens to another validator
 ```
-artelad tx staking redelegate $(artelad keys show <artela_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100uart --from <artela_WALLET> --chain-id artela_11822-1 --gas-prices 0.02uart --gas-adjustment 1.5 --gas auto --yes
+d tx staking redelegate $(d keys show <artela_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100uart --from <artela_WALLET> --chain-id  --gas-prices 0.02uart --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Unbond tokens from staking
 ```
-artelad tx staking unbond $(artelad keys show <artela_WALLET> --bech val -a) 100uart --from <artela_WALLET> --chain-id artela_11822-1 --gas-prices 0.02uart --gas-adjustment 1.5 --gas auto --yes
+d tx staking unbond $(d keys show <artela_WALLET> --bech val -a) 100uart --from <artela_WALLET> --chain-id  --gas-prices 0.02uart --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Withdraw all rewards from staking
 ```
-artelad tx distribution withdraw-all-rewards --from <artela_WALLET> --chain-id artela_11822-1 --gas-prices 0.02uart --gas-adjustment 1.5 --gas auto --yes
+d tx distribution withdraw-all-rewards --from <artela_WALLET> --chain-id  --gas-prices 0.02uart --gas-adjustment 1.5 --gas auto --yes
 ```
 
 ### Withdraw validator rewards and comission
 ```
-artelad tx distribution withdraw-rewards $(artelad keys show <artela_WALLET> --bech val -a) --commission --from wallet --chain-id artela_11822-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.02uart -y
+d tx distribution withdraw-rewards $(d keys show <artela_WALLET> --bech val -a) --commission --from wallet --chain-id  --gas-adjustment 1.5 --gas auto --gas-prices 0.02uart -y
 
 ```
 
 ## Governance
 ### Vote "YES"
 ```
-artelad tx gov vote <proposal_id> yes --from <artela_WALLET> --chain-id artela_11822-1 --gas-prices 0.02uart --gas-adjustment 1.5 --gas auto --yes
+d tx gov vote <proposal_id> yes --from <artela_WALLET> --chain-id  --gas-prices 0.02uart --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Vote "NO"
 ```
-artelad tx gov vote <proposal_id> no --from <artela_WALLET> --chain-id artela_11822-1 --gas-prices 0.02uart --gas-adjustment 1.5 --gas auto --yes
+d tx gov vote <proposal_id> no --from <artela_WALLET> --chain-id  --gas-prices 0.02uart --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Abstain from voting
 ```
-artelad tx gov vote <proposal_id> abstain --from <artela_WALLET> --chain-id artela_11822-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.02uart -y
+d tx gov vote <proposal_id> abstain --from <artela_WALLET> --chain-id  --gas-adjustment 1.5 --gas auto --gas-prices 0.02uart -y
 ```
 
 
 ## General commands
 ### Check node status
 ```
-artelad status | jq
+d status | jq
 ```
 ### Check service status
 ```
-sudo systemctl status artelad
+sudo systemctl status d
 ```
 ### Check logs
 ```
-sudo journalctl -u artelad -f --no-hostname -o cat
+sudo journalctl -u d -f --no-hostname -o cat
 ```
 ### Restart service
 ```
-sudo systemctl restart artelad
+sudo systemctl restart d
 ```
 ### Stop service
 ```
-sudo systemctl stop artelad
+sudo systemctl stop d
 ```
 ### Start service
 ```
-sudo systemctl start artelad
+sudo systemctl start d
 ```
 ### Disable service
 ```
-sudo systemctl disable artelad
+sudo systemctl disable d
 ```
 ### Enable service
 ```
-sudo systemctl enable artelad
+sudo systemctl enable d
 ```
 ### Reload service after changes
 ```
