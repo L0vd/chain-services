@@ -26,7 +26,7 @@ cd $HOME
 rm -rf artela
 git clone https://github.com/artela-network/artela.git
 cd artela
-git checkout 
+git checkout v0.4.7-rc6
 make install
 ```
 
@@ -39,7 +39,7 @@ You should replace values in <> <br />
 ```
 artela_WALLET="<YOUR_WALLET_NAME>"
 artela_NODENAME="<YOUR_MONIKER>"
-artela_CHAIN_ID=""
+artela_CHAIN_ID="artela_11822-1"
 ```
 
 ```
@@ -55,12 +55,12 @@ source $HOME/.bash_profile
 
 ### Configure your node
 ```
-d config chain-id ${artela_CHAIN_ID}
+artelad config chain-id ${artela_CHAIN_ID}
 ```
 
 ### Initialize your node
 ```
-d init ${artela_NODENAME} --chain-id ${artela_CHAIN_ID}
+artelad init ${artela_NODENAME} --chain-id ${artela_CHAIN_ID}
 ```
 
 ### Download genesis & addrbook
@@ -80,7 +80,7 @@ sed -i.bak -e "s%^proxy_app = \"tcp://127.0.0.1:26658\"%proxy_app = \"tcp://127.
 sed -i.bak -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:${artela_PORT}317\"%; s%^address = \"tcp://localhost:1317\"%address = \"tcp://0.0.0.0:${artela_PORT}317\"%; s%^address = \":8080\"%address = \":${artela_PORT}080\"%; s%^address = \"0.0.0.0:9090\"%address = \"0.0.0.0:${artela_PORT}090\"%; s%^address = \"localhost:9090\"%address = \"localhost:${artela_PORT}090\"%; s%^address = \"0.0.0.0:9091\"%address = \"0.0.0.0:${artela_PORT}091\"%; s%^address = \"localhost:9091\"%address = \"localhost:${artela_PORT}091\"%; s%^address = \"0.0.0.0:8545\"%address = \"0.0.0.0:${artela_PORT}545\"%; s%^ws-address = \"0.0.0.0:8546\"%ws-address = \"0.0.0.0:${artela_PORT}546\"%" /$HOME/.artela/config/app.toml
 ```
 ```
-d config node tcp://localhost:${artela_PORT}657
+artelad config node tcp://localhost:${artela_PORT}657
 ```
 
 ### Set seeds and peers
@@ -109,14 +109,14 @@ sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.artela/config/config.toml
 
 ### Create Service
 ```
-sudo tee /etc/systemd/system/d.service > /dev/null <<EOF
+sudo tee /etc/systemd/system/artelad.service > /dev/null <<EOF
 [Unit]
 Description=Artela testnet
 After=network-online.target
 
 [Service]
 User=$USER
-ExecStart=$(which d) start
+ExecStart=$(which artelad) start
 Restart=on-failure
 RestartSec=3
 LimitNOFILE=65535
@@ -129,9 +129,9 @@ EOF
 ### Reset blockchain info and restart your node
 ```
 sudo systemctl daemon-reload
-sudo systemctl enable d
-d tendermint unsafe-reset-all --home $HOME/.artela --keep-addr-book
-sudo systemctl restart d && sudo journalctl -u d -f -o cat
+sudo systemctl enable artelad
+artelad tendermint unsafe-reset-all --home $HOME/.artela --keep-addr-book
+sudo systemctl restart artelad && sudo journalctl -u artelad -f -o cat
 ```
 
 ### (OPTIONAL) Use State Sync
@@ -143,17 +143,17 @@ sudo systemctl restart d && sudo journalctl -u d -f -o cat
 
 #### 1. Add a new key
 ```
-d keys add ${artela_WALLET}
+artelad keys add ${artela_WALLET}
 ```
 ##### (OR)
 
 #### 1. Recover your key
 ```
-d keys add ${artela_WALLET} --recover
+artelad keys add ${artela_WALLET} --recover
 ```
 
 ```
-artela_WALLET_ADDR=$(d keys show ${artela_WALLET} -a)
+artela_WALLET_ADDR=$(artelad keys show ${artela_WALLET} -a)
 echo "export artela_WALLET_ADDR=${artela_WALLET_ADDR}" >> $HOME/.bash_profile
 
 source $HOME/.bash_profile
@@ -167,14 +167,14 @@ Wait until the node is synchronized.
 {% endhint %}
 
 ```
-d tx staking create-validator \
+artelad tx staking create-validator \
 --amount 1000000uart \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
 --details "" \
---pubkey $(d tendermint show-validator) \
+--pubkey $(artelad tendermint show-validator) \
 --moniker ${artela_NODENAME} \
 --chain-id ${artela_CHAIN_ID} \
 --from ${artela_WALLET_ADDR} \
