@@ -26,6 +26,8 @@ Namada delivers an unparalleled layer of privacy across assets, decentralized ap
 RPC\
 [https://namada-testnet.rpc.l0vd.com/](https://namada-se.rpc.l0vd.com/)
 
+Indexer\
+[https://namada-se.indexer.l0vd.com/](https://namada-se.indexer.l0vd.com/)
 
 
 **Other services**
