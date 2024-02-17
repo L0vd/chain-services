@@ -23,10 +23,10 @@ fi
 ### Install node
 ```
 cd $HOME
-wget https://snapshots.l0vd.com/arkeo-testnet/arkeod
-chmod +x arkeod
+wget https://snapshots.l0vd.com/union-testnet/uniond
+chmod +x uniond
 mv arkeod /root/go/bin/
-arkeod version
+uniond version
 ```
 
 
@@ -82,7 +82,7 @@ sed -i.bak -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:${U
 
 ### Set seeds and peers
 ```
-PEERS="@union-testnet.peers.l0vd.com:"
+PEERS="5759960e0bde8181d0556736cf6a2c959757eb9d@union-testnet.peers.l0vd.com:14656"
 sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.union/config/config.toml
 ```
 
@@ -100,7 +100,7 @@ sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"$pruning_interval\"/" $
 
 ### Set minimum gas price and null indexer
 ```
-sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0unois\"/" $HOME/.union/config/app.toml
+sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0muno\"/" $HOME/.union/config/app.toml
 sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.union/config/config.toml
 ```
 
@@ -165,7 +165,7 @@ Wait until the node is synchronized.
 
 ```
 uniondd tx staking create-validator \
---amount 1000000unois \
+--amount 1000000muno \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
@@ -175,7 +175,7 @@ uniondd tx staking create-validator \
 --moniker ${UNION_NODENAME} \
 --chain-id ${UNION_CHAIN_ID} \
 --from ${UNION_WALLET_ADDR} \
---gas-prices 0unois \
+--gas-prices 0muno \
 --gas-adjustment 1.5 \
 --gas auto \
 --home $HOME/.union \
