@@ -6,19 +6,19 @@ Please note that the values in <> must be changed to your own values
 
 ### Add new key
 ```
-nulld keys add <key_name>
+strided keys add <key_name>
 ```
 ### Recover keys from seed
 ```
-nulld keys add <key_name> --recover
+strided keys add <key_name> --recover
 ```
 ### Show all keys
 ```
-nulld keys list
+strided keys list
 ```
 ### Delete key
 ```
-nulld keys delete <key_name>
+strided keys delete <key_name>
 ```
 
 ## Node configuration
@@ -58,13 +58,13 @@ sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.0005ustrd\"/" $HO
 
 ### Create validator
 ```
-nulld tx staking create-validator \
+strided tx staking create-validator \
 --amount 1000000ustrd \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
---pubkey $(nulld tendermint show-validator) \
+--pubkey $(strided tendermint show-validator) \
 --moniker <STRIDE_NODENAME> \
 --chain-id stride-1 \
 --from <STRIDE_WALLET> \
@@ -78,7 +78,7 @@ nulld tx staking create-validator \
 ```
 ### Edit validator
 ```
-nulld tx staking edit-validator \
+strided tx staking edit-validator \
 --new-moniker <STRIDE_NODENAME> \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
@@ -93,97 +93,97 @@ nulld tx staking edit-validator \
 ```
 ### View validator info
 ```
-nulld q staking validator $(nulld keys show <STRIDE_WALLET> --bech val -a)
+strided q staking validator $(strided keys show <STRIDE_WALLET> --bech val -a)
 ```
 ### Unjail validator
 ```
-nulld tx slashing unjail --from <STRIDE_WALLET> --chain-id stride-1 --gas-prices 0.0005ustrd --gas-adjustment 1.5 --gas auto --yes 
+strided tx slashing unjail --from <STRIDE_WALLET> --chain-id stride-1 --gas-prices 0.0005ustrd --gas-adjustment 1.5 --gas auto --yes 
 ```
 ### Signing info
 ```
-nulld query slashing signing-info $(nulld tendermint show-validator)
+strided query slashing signing-info $(strided tendermint show-validator)
 ```
 
 ## Token operations
 
 ### Send tokens
 ```
-nulld tx bank send wallet <DEST_WALLET_ADDRESS> 100ustrd --from <STRIDE_WALLET> --chain-id stride-1 --gas-prices 0.0005ustrd --gas-adjustment 1.5 --gas auto --yes
+strided tx bank send wallet <DEST_WALLET_ADDRESS> 100ustrd --from <STRIDE_WALLET> --chain-id stride-1 --gas-prices 0.0005ustrd --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to your validator
 ```
-nulld tx staking delegate $(nulld keys show <STRIDE_WALLET> --bech val -a) 100ustrd --from <STRIDE_WALLET> --chain-id stride-1 --gas-prices 0.0005ustrd --gas-adjustment 1.5 --gas auto --yes
+strided tx staking delegate $(strided keys show <STRIDE_WALLET> --bech val -a) 100ustrd --from <STRIDE_WALLET> --chain-id stride-1 --gas-prices 0.0005ustrd --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to another validator
 ```
-nulld tx staking delegate <VALOPER_ADDRESS> 100ustrd --from <STRIDE_WALLET> --chain-id stride-1 --gas-prices 0.0005ustrd --gas-adjustment 1.5 --gas auto --yes
+strided tx staking delegate <VALOPER_ADDRESS> 100ustrd --from <STRIDE_WALLET> --chain-id stride-1 --gas-prices 0.0005ustrd --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Redelegate tokens to another validator
 ```
-nulld tx staking redelegate $(nulld keys show <STRIDE_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100ustrd --from <STRIDE_WALLET> --chain-id stride-1 --gas-prices 0.0005ustrd --gas-adjustment 1.5 --gas auto --yes
+strided tx staking redelegate $(strided keys show <STRIDE_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100ustrd --from <STRIDE_WALLET> --chain-id stride-1 --gas-prices 0.0005ustrd --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Unbond tokens from staking
 ```
-nulld tx staking unbond $(nulld keys show <STRIDE_WALLET> --bech val -a) 100ustrd --from <STRIDE_WALLET> --chain-id stride-1 --gas-prices 0.0005ustrd --gas-adjustment 1.5 --gas auto --yes
+strided tx staking unbond $(strided keys show <STRIDE_WALLET> --bech val -a) 100ustrd --from <STRIDE_WALLET> --chain-id stride-1 --gas-prices 0.0005ustrd --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Withdraw all rewards from staking
 ```
-nulld tx distribution withdraw-all-rewards --from <STRIDE_WALLET> --chain-id stride-1 --gas-prices 0.0005ustrd --gas-adjustment 1.5 --gas auto --yes
+strided tx distribution withdraw-all-rewards --from <STRIDE_WALLET> --chain-id stride-1 --gas-prices 0.0005ustrd --gas-adjustment 1.5 --gas auto --yes
 ```
 
 ### Withdraw validator rewards and comission
 ```
-nulld tx distribution withdraw-rewards $(nulld keys show <STRIDE_WALLET> --bech val -a) --commission --from wallet --chain-id stride-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.0005ustrd -y
+strided tx distribution withdraw-rewards $(strided keys show <STRIDE_WALLET> --bech val -a) --commission --from wallet --chain-id stride-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.0005ustrd -y
 
 ```
 
 ## Governance
 ### Vote "YES"
 ```
-nulld tx gov vote <proposal_id> yes --from <STRIDE_WALLET> --chain-id stride-1 --gas-prices 0.0005ustrd --gas-adjustment 1.5 --gas auto --yes
+strided tx gov vote <proposal_id> yes --from <STRIDE_WALLET> --chain-id stride-1 --gas-prices 0.0005ustrd --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Vote "NO"
 ```
-nulld tx gov vote <proposal_id> no --from <STRIDE_WALLET> --chain-id stride-1 --gas-prices 0.0005ustrd --gas-adjustment 1.5 --gas auto --yes
+strided tx gov vote <proposal_id> no --from <STRIDE_WALLET> --chain-id stride-1 --gas-prices 0.0005ustrd --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Abstain from voting
 ```
-nulld tx gov vote <proposal_id> abstain --from <STRIDE_WALLET> --chain-id stride-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.0005ustrd -y
+strided tx gov vote <proposal_id> abstain --from <STRIDE_WALLET> --chain-id stride-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.0005ustrd -y
 ```
 
 
 ## General commands
 ### Check node status
 ```
-nulld status | jq
+strided status | jq
 ```
 ### Check service status
 ```
-sudo systemctl status nulld
+sudo systemctl status strided
 ```
 ### Check logs
 ```
-sudo journalctl -u nulld -f --no-hostname -o cat
+sudo journalctl -u strided -f --no-hostname -o cat
 ```
 ### Restart service
 ```
-sudo systemctl restart nulld
+sudo systemctl restart strided
 ```
 ### Stop service
 ```
-sudo systemctl stop nulld
+sudo systemctl stop strided
 ```
 ### Start service
 ```
-sudo systemctl start nulld
+sudo systemctl start strided
 ```
 ### Disable service
 ```
-sudo systemctl disable nulld
+sudo systemctl disable strided
 ```
 ### Enable service
 ```
-sudo systemctl enable nulld
+sudo systemctl enable strided
 ```
 ### Reload service after changes
 ```
