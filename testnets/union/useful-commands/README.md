@@ -6,19 +6,19 @@ Please note that the values in <> must be changed to your own values
 
 ### Add new key
 ```
-noisd keys add <key_name> --home $HOME/.union
+uniondd keys add <key_name> --home $HOME/.union
 ```
 ### Recover keys from seed
 ```
-noisd keys add <key_name> --recover --home $HOME/.union
+uniondd keys add <key_name> --recover --home $HOME/.union
 ```
 ### Show all keys
 ```
-noisd keys list --home $HOME/.union
+uniondd keys list --home $HOME/.union
 ```
 ### Delete key
 ```
-noisd keys delete <key_name> --home $HOME/.union
+uniondd keys delete <key_name> --home $HOME/.union
 ```
 
 ## Node configuration
@@ -58,15 +58,15 @@ sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0unois\"/" $HOME/.u
 
 ### Create validator
 ```
-noisd tx staking create-validator \
+uniondd tx staking create-validator \
 --amount 1000000unois \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
---pubkey $(noisd tendermint show-validator --home $HOME/.union) \
+--pubkey $(uniondd tendermint show-validator --home $HOME/.union) \
 --moniker <UNION_NODENAME> \
---chain-id  \
+--chain-id union-testnet-6 \
 --from <UNION_WALLET> \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
@@ -79,12 +79,12 @@ noisd tx staking create-validator \
 ```
 ### Edit validator
 ```
-noisd tx staking edit-validator \
+uniondd tx staking edit-validator \
 --new-moniker <UNION_NODENAME> \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
 --website <YOUR_WEBSITE> \
---chain-id  \
+--chain-id union-testnet-6 \
 --commission-rate 0.05 \
 --from <UNION_WALLET> \
 --gas-prices 0unois \
@@ -95,97 +95,97 @@ noisd tx staking edit-validator \
 ```
 ### View validator info
 ```
-noisd q staking validator $(noisd keys show <UNION_WALLET> --bech val -a --home $HOME/.union) --home $HOME/.union
+uniondd q staking validator $(uniondd keys show <UNION_WALLET> --bech val -a --home $HOME/.union) --home $HOME/.union
 ```
 ### Unjail validator
 ```
-noisd tx slashing unjail --from <UNION_WALLET> --chain-id  --gas-prices 0unois --gas-adjustment 1.5 --gas auto --home $HOME/.union --yes 
+uniondd tx slashing unjail --from <UNION_WALLET> --chain-id union-testnet-6 --gas-prices 0unois --gas-adjustment 1.5 --gas auto --home $HOME/.union --yes 
 ```
 ### Signing info
 ```
-noisd query slashing signing-info $(noisd tendermint show-validator --home $HOME/.union) --home $HOME/.union
+uniondd query slashing signing-info $(uniondd tendermint show-validator --home $HOME/.union) --home $HOME/.union
 ```
 
 ## Token operations
 
 ### Send tokens
 ```
-noisd tx bank send wallet <DEST_WALLET_ADDRESS> 100unois --from <UNION_WALLET> --chain-id  --gas-prices 0unois --gas-adjustment 1.5 --gas auto --home $HOME/.union --yes
+uniondd tx bank send wallet <DEST_WALLET_ADDRESS> 100unois --from <UNION_WALLET> --chain-id union-testnet-6 --gas-prices 0unois --gas-adjustment 1.5 --gas auto --home $HOME/.union --yes
 ```
 ### Delegate token to your validator
 ```
-noisd tx staking delegate $(noisd keys show <UNION_WALLET> --bech val -a) 100unois --from <UNION_WALLET> --chain-id  --gas-prices 0unois --gas-adjustment 1.5 --gas auto --home $HOME/.union --yes
+uniondd tx staking delegate $(uniondd keys show <UNION_WALLET> --bech val -a) 100unois --from <UNION_WALLET> --chain-id union-testnet-6 --gas-prices 0unois --gas-adjustment 1.5 --gas auto --home $HOME/.union --yes
 ```
 ### Delegate token to another validator
 ```
-noisd tx staking delegate <VALOPER_ADDRESS> 100unois --from <UNION_WALLET> --chain-id  --gas-prices 0unois --gas-adjustment 1.5 --gas auto --home $HOME/.union --yes
+uniondd tx staking delegate <VALOPER_ADDRESS> 100unois --from <UNION_WALLET> --chain-id union-testnet-6 --gas-prices 0unois --gas-adjustment 1.5 --gas auto --home $HOME/.union --yes
 ```
 ### Redelegate tokens to another validator
 ```
-noisd tx staking redelegate $(noisd keys show <UNION_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100unois --from <UNION_WALLET> --chain-id  --gas-prices 0unois --gas-adjustment 1.5 --gas auto --home $HOME/.union --yes
+uniondd tx staking redelegate $(uniondd keys show <UNION_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100unois --from <UNION_WALLET> --chain-id union-testnet-6 --gas-prices 0unois --gas-adjustment 1.5 --gas auto --home $HOME/.union --yes
 ```
 ### Unbond tokens from staking
 ```
-noisd tx staking unbond $(noisd keys show <UNION_WALLET> --bech val -a) 100unois --from <UNION_WALLET> --chain-id  --gas-prices 0unois --gas-adjustment 1.5 --gas auto --home $HOME/.union --yes
+uniondd tx staking unbond $(uniondd keys show <UNION_WALLET> --bech val -a) 100unois --from <UNION_WALLET> --chain-id union-testnet-6 --gas-prices 0unois --gas-adjustment 1.5 --gas auto --home $HOME/.union --yes
 ```
 ### Withdraw all rewards from staking
 ```
-noisd tx distribution withdraw-all-rewards --from <UNION_WALLET> --chain-id  --gas-prices 0unois --gas-adjustment 1.5 --gas auto --home $HOME/.union --yes
+uniondd tx distribution withdraw-all-rewards --from <UNION_WALLET> --chain-id union-testnet-6 --gas-prices 0unois --gas-adjustment 1.5 --gas auto --home $HOME/.union --yes
 ```
 
 ### Withdraw validator rewards and comission
 ```
-noisd tx distribution withdraw-rewards $(noisd keys show <UNION_WALLET> --bech val -a) --commission --from wallet --chain-id  --gas-adjustment 1.5 --gas auto --gas-prices 0unois --home $HOME/.union -y
+uniondd tx distribution withdraw-rewards $(uniondd keys show <UNION_WALLET> --bech val -a) --commission --from wallet --chain-id union-testnet-6 --gas-adjustment 1.5 --gas auto --gas-prices 0unois --home $HOME/.union -y
 
 ```
 
 ## Governance
 ### Vote "YES"
 ```
-noisd tx gov vote <proposal_id> yes --from <UNION_WALLET> --chain-id  --gas-prices 0unois --gas-adjustment 1.5 --gas auto --home $HOME/.union --yes
+uniondd tx gov vote <proposal_id> yes --from <UNION_WALLET> --chain-id union-testnet-6 --gas-prices 0unois --gas-adjustment 1.5 --gas auto --home $HOME/.union --yes
 ```
 ### Vote "NO"
 ```
-noisd tx gov vote <proposal_id> no --from <UNION_WALLET> --chain-id  --gas-prices 0unois --gas-adjustment 1.5 --gas auto --home $HOME/.union --yes
+uniondd tx gov vote <proposal_id> no --from <UNION_WALLET> --chain-id union-testnet-6 --gas-prices 0unois --gas-adjustment 1.5 --gas auto --home $HOME/.union --yes
 ```
 ### Abstain from voting
 ```
-noisd tx gov vote <proposal_id> abstain --from <UNION_WALLET> --chain-id  --gas-adjustment 1.5 --gas auto --gas-prices 0unois --home $HOME/.union -y
+uniondd tx gov vote <proposal_id> abstain --from <UNION_WALLET> --chain-id union-testnet-6 --gas-adjustment 1.5 --gas auto --gas-prices 0unois --home $HOME/.union -y
 ```
 
 
 ## General commands
 ### Check node status
 ```
-noisd status --home $HOME/.union | jq 
+uniondd status --home $HOME/.union | jq 
 ```
 ### Check service status
 ```
-sudo systemctl status noisd
+sudo systemctl status uniondd
 ```
 ### Check logs
 ```
-sudo journalctl -u noisd -f --no-hostname -o cat
+sudo journalctl -u uniondd -f --no-hostname -o cat
 ```
 ### Restart service
 ```
-sudo systemctl restart noisd
+sudo systemctl restart uniondd
 ```
 ### Stop service
 ```
-sudo systemctl stop noisd
+sudo systemctl stop uniondd
 ```
 ### Start service
 ```
-sudo systemctl start noisd
+sudo systemctl start uniondd
 ```
 ### Disable service
 ```
-sudo systemctl disable noisd
+sudo systemctl disable uniondd
 ```
 ### Enable service
 ```
-sudo systemctl enable noisd
+sudo systemctl enable uniondd
 ```
 ### Reload service after changes
 ```
