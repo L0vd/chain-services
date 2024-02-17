@@ -54,12 +54,12 @@ source $HOME/.bash_profile
 
 ### Configure your node
 ```
-uniondd config chain-id ${UNION_CHAIN_ID} --home $HOME/.union
+uniond config chain-id ${UNION_CHAIN_ID} --home $HOME/.union
 ```
 
 ### Initialize your node
 ```
-uniondd init ${UNION_NODENAME} --chain-id ${UNION_CHAIN_ID} --home $HOME/.union
+uniond init ${UNION_NODENAME} --chain-id ${UNION_CHAIN_ID} --home $HOME/.union
 ```
 
 ### Download genesis & addrbook
@@ -106,14 +106,14 @@ sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.union/config/config.toml
 
 ### Create Service
 ```
-sudo tee /etc/systemd/system/uniondd.service > /dev/null <<EOF
+sudo tee /etc/systemd/system/uniond.service > /dev/null <<EOF
 [Unit]
 Description=Union testnet
 After=network-online.target
 
 [Service]
 User=$USER
-ExecStart=$(which uniondd) start --home $HOME/.union
+ExecStart=$(which uniond) start --home $HOME/.union
 Restart=on-failure
 RestartSec=3
 LimitNOFILE=65535
@@ -126,9 +126,9 @@ EOF
 ### Reset blockchain info and restart your node
 ```
 sudo systemctl daemon-reload
-sudo systemctl enable uniondd
-uniondd tendermint unsafe-reset-all --home $HOME/.union --keep-addr-book
-sudo systemctl restart uniondd && sudo journalctl -u uniondd -f -o cat
+sudo systemctl enable uniond
+uniond tendermint unsafe-reset-all --home $HOME/.union --keep-addr-book
+sudo systemctl restart uniond && sudo journalctl -u uniond -f -o cat
 ```
 
 ### (OPTIONAL) Use State Sync
@@ -140,17 +140,17 @@ sudo systemctl restart uniondd && sudo journalctl -u uniondd -f -o cat
 
 #### 1. Add a new key
 ```
-uniondd keys add ${UNION_WALLET} --home $HOME/.union
+uniond keys add ${UNION_WALLET} --home $HOME/.union
 ```
 ##### (OR)
 
 #### 1. Recover your key
 ```
-uniondd keys add ${UNION_WALLET} --recover --home $HOME/.union
+uniond keys add ${UNION_WALLET} --recover --home $HOME/.union
 ```
 
 ```
-UNION_WALLET_ADDR=$(uniondd keys show ${UNION_WALLET} -a)
+UNION_WALLET_ADDR=$(uniond keys show ${UNION_WALLET} -a)
 echo "export UNION_WALLET_ADDR=${UNION_WALLET_ADDR}" >> $HOME/.bash_profile
 
 source $HOME/.bash_profile
@@ -164,14 +164,14 @@ Wait until the node is synchronized.
 {% endhint %}
 
 ```
-uniondd tx staking create-validator \
+uniond tx staking create-validator \
 --amount 1000000muno \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
 --details "" \
---pubkey $(uniondd tendermint show-validator) \
+--pubkey $(uniond tendermint show-validator) \
 --moniker ${UNION_NODENAME} \
 --chain-id ${UNION_CHAIN_ID} \
 --from ${UNION_WALLET_ADDR} \
