@@ -77,4 +77,4 @@
 
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/umee.svg" alt="" data-size="line"> [Umee](testnets/umee/)
 
-<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/union.svg" alt="" width="20" height="20" data-size="line"> [Union](testnets/union)
+<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/union.svg" alt="" width="20" height="20" data-size="line"> [Union](testnets/union/)
