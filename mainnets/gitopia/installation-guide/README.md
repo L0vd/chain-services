@@ -26,7 +26,7 @@ cd $HOME
 rm -rf gitopia
 git clone https://github.com/gitopia-network/gitopia.git
 cd gitopia
-git checkout v
+git checkout v3.3.0
 make install
 ```
 
@@ -39,7 +39,7 @@ You should replace values in <> <br />
 ```
 GITOPIA_WALLET="<YOUR_WALLET_NAME>"
 GITOPIA_NODENAME="<YOUR_MONIKER>"
-GITOPIA_CHAIN_ID=""
+GITOPIA_CHAIN_ID="gitopia"
 ```
 
 ```
@@ -55,12 +55,12 @@ source $HOME/.bash_profile
 
 ### Configure your node
 ```
-d config chain-id ${GITOPIA_CHAIN_ID}
+gitopiad config chain-id ${GITOPIA_CHAIN_ID}
 ```
 
 ### Initialize your node
 ```
-d init ${GITOPIA_NODENAME} --chain-id ${GITOPIA_CHAIN_ID}
+gitopiad init ${GITOPIA_NODENAME} --chain-id ${GITOPIA_CHAIN_ID}
 ```
 
 ### Download genesis & addrbook
@@ -107,14 +107,14 @@ sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.gitopia/config/config.tom
 
 ### Create Service
 ```
-sudo tee /etc/systemd/system/d.service > /dev/null <<EOF
+sudo tee /etc/systemd/system/gitopiad.service > /dev/null <<EOF
 [Unit]
 Description=Gitopia mainnet
 After=network-online.target
 
 [Service]
 User=$USER
-ExecStart=$(which d) start
+ExecStart=$(which gitopiad) start
 Restart=on-failure
 RestartSec=3
 LimitNOFILE=65535
@@ -127,9 +127,9 @@ EOF
 ### Reset blockchain info and restart your node
 ```
 sudo systemctl daemon-reload
-sudo systemctl enable d
-d tendermint unsafe-reset-all --home $HOME/.gitopia --keep-addr-book
-sudo systemctl restart d && sudo journalctl -u d -f -o cat
+sudo systemctl enable gitopiad
+gitopiad tendermint unsafe-reset-all --home $HOME/.gitopia --keep-addr-book
+sudo systemctl restart gitopiad && sudo journalctl -u gitopiad -f -o cat
 ```
 
 ### (OPTIONAL) Use State Sync
@@ -141,17 +141,17 @@ sudo systemctl restart d && sudo journalctl -u d -f -o cat
 
 #### 1. Add a new key
 ```
-d keys add ${GITOPIA_WALLET}
+gitopiad keys add ${GITOPIA_WALLET}
 ```
 ##### (OR)
 
 #### 1. Recover your key
 ```
-d keys add ${GITOPIA_WALLET} --recover
+gitopiad keys add ${GITOPIA_WALLET} --recover
 ```
 
 ```
-GITOPIA_WALLET_ADDR=$(d keys show ${GITOPIA_WALLET} -a)
+GITOPIA_WALLET_ADDR=$(gitopiad keys show ${GITOPIA_WALLET} -a)
 echo "export GITOPIA_WALLET_ADDR=${GITOPIA_WALLET_ADDR}" >> $HOME/.bash_profile
 
 source $HOME/.bash_profile
@@ -165,14 +165,14 @@ Wait until the node is synchronized.
 {% endhint %}
 
 ```
-d tx staking create-validator \
+gitopiad tx staking create-validator \
 --amount 1000000ulore \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
 --details "" \
---pubkey $(d tendermint show-validator) \
+--pubkey $(gitopiad tendermint show-validator) \
 --moniker ${GITOPIA_NODENAME} \
 --chain-id ${GITOPIA_CHAIN_ID} \
 --from ${GITOPIA_WALLET_ADDR} \
