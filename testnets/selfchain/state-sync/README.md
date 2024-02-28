@@ -1,13 +1,13 @@
 ## Info
-#### Public RPC endpoint: [https://selfchain-testnet.rpc.l0vd.com](https://selfchain-testnet.rpc.l0vd.com)
-#### Public API: [https://selfchain-testnet.api.l0vd.com](https://selfchain-testnet.api.l0vd.com)
+#### Public RPC endpoint: [https://rpc-t.selfchain.nodestake.org](https://rpc-t.selfchain.nodestake.org)
+#### Public API: [https://api-t.selfchain.nodestake.org](https://api-t.selfchain.nodestake.org)
 
 ## Guide to sync your node using State Sync:
 
 ### Copy the entire command
 ```
 sudo systemctl stop selfchaind
-SNAP_RPC="https://selfchain-testnet.rpc.l0vd.com:443"; \
+SNAP_RPC="https://rpc-t.selfchain.nodestake.org:443"; \
 LATEST_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height); \
 BLOCK_HEIGHT=$((LATEST_HEIGHT - 2000)); \
 TRUST_HASH=$(curl -s "$SNAP_RPC/block?height=$BLOCK_HEIGHT" | jq -r .result.block_id.hash); \
@@ -18,7 +18,7 @@ s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"$SNAP_RPC,$SNAP_RPC\"| ; \
 s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT| ; \
 s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" $HOME/.selfchain/config/config.toml
 
-peers="@selfchain-testnet.peers.l0vd.com:" \
+peers="1057484686750ad233ce225502eec3b3ea00f76d@selfchain-testnet.peers.l0vd.com:26656" \
 && sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/.selfchain/config/config.toml 
 
 selfchaind tendermint unsafe-reset-all --home ~/.selfchain && sudo systemctl restart selfchaind && journalctl -u selfchaind -f --output cat
