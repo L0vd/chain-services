@@ -26,7 +26,7 @@ cd $HOME
 rm -rf stride
 git clone https://github.com/Stride-Labs/stride.git
 cd stride
-git checkout v18.0.0
+git checkout 
 make install
 ```
 
