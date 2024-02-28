@@ -1,13 +1,13 @@
 ## Info
-#### Public RPC endpoint: [https://osmosis.rpc.kjnodes.com](https://osmosis.rpc.kjnodes.com)
-#### Public API: [https://osmosis.api.kjnodes.com](https://osmosis.api.kjnodes.com)
+#### Public RPC endpoint: [https://osmosis.rpc.stakin-nodes.com](https://osmosis.rpc.stakin-nodes.com)
+#### Public API: [https://api-osmosis-ia.cosmosia.notional.ventures](https://api-osmosis-ia.cosmosia.notional.ventures)
 
 ## Guide to sync your node using State Sync:
 
 ### Copy the entire command
 ```
 sudo systemctl stop d
-SNAP_RPC="https://osmosis.rpc.kjnodes.com:443"; \
+SNAP_RPC="https://osmosis.rpc.stakin-nodes.com:443"; \
 LATEST_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height); \
 BLOCK_HEIGHT=$((LATEST_HEIGHT - 2000)); \
 TRUST_HASH=$(curl -s "$SNAP_RPC/block?height=$BLOCK_HEIGHT" | jq -r .result.block_id.hash); \
