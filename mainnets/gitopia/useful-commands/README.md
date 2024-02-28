@@ -6,19 +6,19 @@ Please note that the values in <> must be changed to your own values
 
 ### Add new key
 ```
-gitopiad keys add <key_name>
+nulld keys add <key_name>
 ```
 ### Recover keys from seed
 ```
-gitopiad keys add <key_name> --recover
+nulld keys add <key_name> --recover
 ```
 ### Show all keys
 ```
-gitopiad keys list
+nulld keys list
 ```
 ### Delete key
 ```
-gitopiad keys delete <key_name>
+nulld keys delete <key_name>
 ```
 
 ## Node configuration
@@ -58,13 +58,13 @@ sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.001ulore\"/" $HOM
 
 ### Create validator
 ```
-gitopiad tx staking create-validator \
+nulld tx staking create-validator \
 --amount 1000000ulore \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
---pubkey $(gitopiad tendermint show-validator) \
+--pubkey $(nulld tendermint show-validator) \
 --moniker <GITOPIA_NODENAME> \
 --chain-id gitopia \
 --from <GITOPIA_WALLET> \
@@ -78,7 +78,7 @@ gitopiad tx staking create-validator \
 ```
 ### Edit validator
 ```
-gitopiad tx staking edit-validator \
+nulld tx staking edit-validator \
 --new-moniker <GITOPIA_NODENAME> \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
@@ -93,97 +93,97 @@ gitopiad tx staking edit-validator \
 ```
 ### View validator info
 ```
-gitopiad q staking validator $(gitopiad keys show <GITOPIA_WALLET> --bech val -a)
+nulld q staking validator $(nulld keys show <GITOPIA_WALLET> --bech val -a)
 ```
 ### Unjail validator
 ```
-gitopiad tx slashing unjail --from <GITOPIA_WALLET> --chain-id gitopia --gas-prices 0.001ulore --gas-adjustment 1.5 --gas auto --yes 
+nulld tx slashing unjail --from <GITOPIA_WALLET> --chain-id gitopia --gas-prices 0.001ulore --gas-adjustment 1.5 --gas auto --yes 
 ```
 ### Signing info
 ```
-gitopiad query slashing signing-info $(gitopiad tendermint show-validator)
+nulld query slashing signing-info $(nulld tendermint show-validator)
 ```
 
 ## Token operations
 
 ### Send tokens
 ```
-gitopiad tx bank send wallet <DEST_WALLET_ADDRESS> 100ulore --from <GITOPIA_WALLET> --chain-id gitopia --gas-prices 0.001ulore --gas-adjustment 1.5 --gas auto --yes
+nulld tx bank send wallet <DEST_WALLET_ADDRESS> 100ulore --from <GITOPIA_WALLET> --chain-id gitopia --gas-prices 0.001ulore --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to your validator
 ```
-gitopiad tx staking delegate $(gitopiad keys show <GITOPIA_WALLET> --bech val -a) 100ulore --from <GITOPIA_WALLET> --chain-id gitopia --gas-prices 0.001ulore --gas-adjustment 1.5 --gas auto --yes
+nulld tx staking delegate $(nulld keys show <GITOPIA_WALLET> --bech val -a) 100ulore --from <GITOPIA_WALLET> --chain-id gitopia --gas-prices 0.001ulore --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to another validator
 ```
-gitopiad tx staking delegate <VALOPER_ADDRESS> 100ulore --from <GITOPIA_WALLET> --chain-id gitopia --gas-prices 0.001ulore --gas-adjustment 1.5 --gas auto --yes
+nulld tx staking delegate <VALOPER_ADDRESS> 100ulore --from <GITOPIA_WALLET> --chain-id gitopia --gas-prices 0.001ulore --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Redelegate tokens to another validator
 ```
-gitopiad tx staking redelegate $(gitopiad keys show <GITOPIA_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100ulore --from <GITOPIA_WALLET> --chain-id gitopia --gas-prices 0.001ulore --gas-adjustment 1.5 --gas auto --yes
+nulld tx staking redelegate $(nulld keys show <GITOPIA_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100ulore --from <GITOPIA_WALLET> --chain-id gitopia --gas-prices 0.001ulore --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Unbond tokens from staking
 ```
-gitopiad tx staking unbond $(gitopiad keys show <GITOPIA_WALLET> --bech val -a) 100ulore --from <GITOPIA_WALLET> --chain-id gitopia --gas-prices 0.001ulore --gas-adjustment 1.5 --gas auto --yes
+nulld tx staking unbond $(nulld keys show <GITOPIA_WALLET> --bech val -a) 100ulore --from <GITOPIA_WALLET> --chain-id gitopia --gas-prices 0.001ulore --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Withdraw all rewards from staking
 ```
-gitopiad tx distribution withdraw-all-rewards --from <GITOPIA_WALLET> --chain-id gitopia --gas-prices 0.001ulore --gas-adjustment 1.5 --gas auto --yes
+nulld tx distribution withdraw-all-rewards --from <GITOPIA_WALLET> --chain-id gitopia --gas-prices 0.001ulore --gas-adjustment 1.5 --gas auto --yes
 ```
 
 ### Withdraw validator rewards and comission
 ```
-gitopiad tx distribution withdraw-rewards $(gitopiad keys show <GITOPIA_WALLET> --bech val -a) --commission --from wallet --chain-id gitopia --gas-adjustment 1.5 --gas auto --gas-prices 0.001ulore -y
+nulld tx distribution withdraw-rewards $(nulld keys show <GITOPIA_WALLET> --bech val -a) --commission --from wallet --chain-id gitopia --gas-adjustment 1.5 --gas auto --gas-prices 0.001ulore -y
 
 ```
 
 ## Governance
 ### Vote "YES"
 ```
-gitopiad tx gov vote <proposal_id> yes --from <GITOPIA_WALLET> --chain-id gitopia --gas-prices 0.001ulore --gas-adjustment 1.5 --gas auto --yes
+nulld tx gov vote <proposal_id> yes --from <GITOPIA_WALLET> --chain-id gitopia --gas-prices 0.001ulore --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Vote "NO"
 ```
-gitopiad tx gov vote <proposal_id> no --from <GITOPIA_WALLET> --chain-id gitopia --gas-prices 0.001ulore --gas-adjustment 1.5 --gas auto --yes
+nulld tx gov vote <proposal_id> no --from <GITOPIA_WALLET> --chain-id gitopia --gas-prices 0.001ulore --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Abstain from voting
 ```
-gitopiad tx gov vote <proposal_id> abstain --from <GITOPIA_WALLET> --chain-id gitopia --gas-adjustment 1.5 --gas auto --gas-prices 0.001ulore -y
+nulld tx gov vote <proposal_id> abstain --from <GITOPIA_WALLET> --chain-id gitopia --gas-adjustment 1.5 --gas auto --gas-prices 0.001ulore -y
 ```
 
 
 ## General commands
 ### Check node status
 ```
-gitopiad status | jq
+nulld status | jq
 ```
 ### Check service status
 ```
-sudo systemctl status gitopiad
+sudo systemctl status nulld
 ```
 ### Check logs
 ```
-sudo journalctl -u gitopiad -f --no-hostname -o cat
+sudo journalctl -u nulld -f --no-hostname -o cat
 ```
 ### Restart service
 ```
-sudo systemctl restart gitopiad
+sudo systemctl restart nulld
 ```
 ### Stop service
 ```
-sudo systemctl stop gitopiad
+sudo systemctl stop nulld
 ```
 ### Start service
 ```
-sudo systemctl start gitopiad
+sudo systemctl start nulld
 ```
 ### Disable service
 ```
-sudo systemctl disable gitopiad
+sudo systemctl disable nulld
 ```
 ### Enable service
 ```
-sudo systemctl enable gitopiad
+sudo systemctl enable nulld
 ```
 ### Reload service after changes
 ```
