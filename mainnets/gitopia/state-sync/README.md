@@ -6,7 +6,7 @@
 
 ### Copy the entire command
 ```
-sudo systemctl stop nulld
+sudo systemctl stop gitopiad
 SNAP_RPC="https://gitopia-mainnet.rpc.l0vd.com:443"; \
 LATEST_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height); \
 BLOCK_HEIGHT=$((LATEST_HEIGHT - 2000)); \
@@ -21,7 +21,7 @@ s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" $HOME/.gitopia/c
 peers="aa26aa0baa5dfc41c126d16d4dc48bb45151d560@gitopia-mainnet.peers.l0vd.com:22656" \
 && sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/.gitopia/config/config.toml 
 
-nulld tendermint unsafe-reset-all --home ~/.gitopia && sudo systemctl restart nulld && journalctl -u nulld -f --output cat
+gitopiad tendermint unsafe-reset-all --home ~/.gitopia && sudo systemctl restart gitopiad && journalctl -u gitopiad -f --output cat
 ```
 
 ### Turn off State Sync Mode after synchronization
