@@ -26,7 +26,7 @@ cd $HOME
 rm -rf archway
 git clone https://github.com/archway-network/archway.git
 cd archway
-git checkout v4.0.3
+git checkout v6.0.2
 make install
 ```
 
