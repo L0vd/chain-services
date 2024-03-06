@@ -11,7 +11,7 @@ sudo apt install lz4 -y
 ## Sync from Snapshot  
 | Height  | Size | Pruning | Indexer | Creation Time (UTC+3) |
 | --------- | --------- | --------- | --------- | --------- |
-| 3074605  | 0.4 GB  | custom/100/0/10 | null | 2024-03-06_02:21:54 |
+| 3077151  | 0.4 GB  | custom/100/0/10 | null | 2024-03-06_06:26:38 |
 
 ```
 sudo systemctl stop arkeod
