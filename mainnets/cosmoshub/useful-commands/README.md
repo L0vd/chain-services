@@ -66,7 +66,7 @@ gaiad tx staking create-validator \
 --min-self-delegation "1" \
 --pubkey $(gaiad tendermint show-validator) \
 --moniker <COSMOSHUB_NODENAME> \
---chain-id  \
+--chain-id cosmoshub-4 \
 --from <COSMOSHUB_WALLET> \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
@@ -83,7 +83,7 @@ gaiad tx staking edit-validator \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
 --website <YOUR_WEBSITE> \
---chain-id  \
+--chain-id cosmoshub-4 \
 --commission-rate 0.05 \
 --from <COSMOSHUB_WALLET> \
 --gas-prices 0uatom \
@@ -97,7 +97,7 @@ gaiad q staking validator $(gaiad keys show <COSMOSHUB_WALLET> --bech val -a)
 ```
 ### Unjail validator
 ```
-gaiad tx slashing unjail --from <COSMOSHUB_WALLET> --chain-id  --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes 
+gaiad tx slashing unjail --from <COSMOSHUB_WALLET> --chain-id cosmoshub-4 --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes 
 ```
 ### Signing info
 ```
@@ -108,47 +108,47 @@ gaiad query slashing signing-info $(gaiad tendermint show-validator)
 
 ### Send tokens
 ```
-gaiad tx bank send wallet <DEST_WALLET_ADDRESS> 100uatom --from <COSMOSHUB_WALLET> --chain-id  --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes
+gaiad tx bank send wallet <DEST_WALLET_ADDRESS> 100uatom --from <COSMOSHUB_WALLET> --chain-id cosmoshub-4 --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to your validator
 ```
-gaiad tx staking delegate $(gaiad keys show <COSMOSHUB_WALLET> --bech val -a) 100uatom --from <COSMOSHUB_WALLET> --chain-id  --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes
+gaiad tx staking delegate $(gaiad keys show <COSMOSHUB_WALLET> --bech val -a) 100uatom --from <COSMOSHUB_WALLET> --chain-id cosmoshub-4 --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to another validator
 ```
-gaiad tx staking delegate <VALOPER_ADDRESS> 100uatom --from <COSMOSHUB_WALLET> --chain-id  --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes
+gaiad tx staking delegate <VALOPER_ADDRESS> 100uatom --from <COSMOSHUB_WALLET> --chain-id cosmoshub-4 --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Redelegate tokens to another validator
 ```
-gaiad tx staking redelegate $(gaiad keys show <COSMOSHUB_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100uatom --from <COSMOSHUB_WALLET> --chain-id  --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes
+gaiad tx staking redelegate $(gaiad keys show <COSMOSHUB_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100uatom --from <COSMOSHUB_WALLET> --chain-id cosmoshub-4 --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Unbond tokens from staking
 ```
-gaiad tx staking unbond $(gaiad keys show <COSMOSHUB_WALLET> --bech val -a) 100uatom --from <COSMOSHUB_WALLET> --chain-id  --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes
+gaiad tx staking unbond $(gaiad keys show <COSMOSHUB_WALLET> --bech val -a) 100uatom --from <COSMOSHUB_WALLET> --chain-id cosmoshub-4 --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Withdraw all rewards from staking
 ```
-gaiad tx distribution withdraw-all-rewards --from <COSMOSHUB_WALLET> --chain-id  --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes
+gaiad tx distribution withdraw-all-rewards --from <COSMOSHUB_WALLET> --chain-id cosmoshub-4 --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes
 ```
 
 ### Withdraw validator rewards and comission
 ```
-gaiad tx distribution withdraw-rewards $(gaiad keys show <COSMOSHUB_WALLET> --bech val -a) --commission --from wallet --chain-id  --gas-adjustment 1.5 --gas auto --gas-prices 0uatom -y
+gaiad tx distribution withdraw-rewards $(gaiad keys show <COSMOSHUB_WALLET> --bech val -a) --commission --from wallet --chain-id cosmoshub-4 --gas-adjustment 1.5 --gas auto --gas-prices 0uatom -y
 
 ```
 
 ## Governance
 ### Vote "YES"
 ```
-gaiad tx gov vote <proposal_id> yes --from <COSMOSHUB_WALLET> --chain-id  --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes
+gaiad tx gov vote <proposal_id> yes --from <COSMOSHUB_WALLET> --chain-id cosmoshub-4 --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Vote "NO"
 ```
-gaiad tx gov vote <proposal_id> no --from <COSMOSHUB_WALLET> --chain-id  --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes
+gaiad tx gov vote <proposal_id> no --from <COSMOSHUB_WALLET> --chain-id cosmoshub-4 --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Abstain from voting
 ```
-gaiad tx gov vote <proposal_id> abstain --from <COSMOSHUB_WALLET> --chain-id  --gas-adjustment 1.5 --gas auto --gas-prices 0uatom -y
+gaiad tx gov vote <proposal_id> abstain --from <COSMOSHUB_WALLET> --chain-id cosmoshub-4 --gas-adjustment 1.5 --gas auto --gas-prices 0uatom -y
 ```
 
 
