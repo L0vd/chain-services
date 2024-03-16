@@ -6,19 +6,19 @@ Please note that the values in <> must be changed to your own values
 
 ### Add new key
 ```
-d keys add <key_name>
+gaiad keys add <key_name>
 ```
 ### Recover keys from seed
 ```
-d keys add <key_name> --recover
+gaiad keys add <key_name> --recover
 ```
 ### Show all keys
 ```
-d keys list
+gaiad keys list
 ```
 ### Delete key
 ```
-d keys delete <key_name>
+gaiad keys delete <key_name>
 ```
 
 ## Node configuration
@@ -58,13 +58,13 @@ sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0uatom\"/" $HOME/.g
 
 ### Create validator
 ```
-d tx staking create-validator \
+gaiad tx staking create-validator \
 --amount 1000000uatom \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
---pubkey $(d tendermint show-validator) \
+--pubkey $(gaiad tendermint show-validator) \
 --moniker <COSMOSHUB_NODENAME> \
 --chain-id cosmoshub-4 \
 --from <COSMOSHUB_WALLET> \
@@ -78,7 +78,7 @@ d tx staking create-validator \
 ```
 ### Edit validator
 ```
-d tx staking edit-validator \
+gaiad tx staking edit-validator \
 --new-moniker <COSMOSHUB_NODENAME> \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
@@ -93,97 +93,97 @@ d tx staking edit-validator \
 ```
 ### View validator info
 ```
-d q staking validator $(d keys show <COSMOSHUB_WALLET> --bech val -a)
+gaiad q staking validator $(gaiad keys show <COSMOSHUB_WALLET> --bech val -a)
 ```
 ### Unjail validator
 ```
-d tx slashing unjail --from <COSMOSHUB_WALLET> --chain-id cosmoshub-4 --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes 
+gaiad tx slashing unjail --from <COSMOSHUB_WALLET> --chain-id cosmoshub-4 --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes 
 ```
 ### Signing info
 ```
-d query slashing signing-info $(d tendermint show-validator)
+gaiad query slashing signing-info $(gaiad tendermint show-validator)
 ```
 
 ## Token operations
 
 ### Send tokens
 ```
-d tx bank send wallet <DEST_WALLET_ADDRESS> 100uatom --from <COSMOSHUB_WALLET> --chain-id cosmoshub-4 --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes
+gaiad tx bank send wallet <DEST_WALLET_ADDRESS> 100uatom --from <COSMOSHUB_WALLET> --chain-id cosmoshub-4 --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to your validator
 ```
-d tx staking delegate $(d keys show <COSMOSHUB_WALLET> --bech val -a) 100uatom --from <COSMOSHUB_WALLET> --chain-id cosmoshub-4 --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes
+gaiad tx staking delegate $(gaiad keys show <COSMOSHUB_WALLET> --bech val -a) 100uatom --from <COSMOSHUB_WALLET> --chain-id cosmoshub-4 --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to another validator
 ```
-d tx staking delegate <VALOPER_ADDRESS> 100uatom --from <COSMOSHUB_WALLET> --chain-id cosmoshub-4 --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes
+gaiad tx staking delegate <VALOPER_ADDRESS> 100uatom --from <COSMOSHUB_WALLET> --chain-id cosmoshub-4 --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Redelegate tokens to another validator
 ```
-d tx staking redelegate $(d keys show <COSMOSHUB_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100uatom --from <COSMOSHUB_WALLET> --chain-id cosmoshub-4 --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes
+gaiad tx staking redelegate $(gaiad keys show <COSMOSHUB_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100uatom --from <COSMOSHUB_WALLET> --chain-id cosmoshub-4 --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Unbond tokens from staking
 ```
-d tx staking unbond $(d keys show <COSMOSHUB_WALLET> --bech val -a) 100uatom --from <COSMOSHUB_WALLET> --chain-id cosmoshub-4 --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes
+gaiad tx staking unbond $(gaiad keys show <COSMOSHUB_WALLET> --bech val -a) 100uatom --from <COSMOSHUB_WALLET> --chain-id cosmoshub-4 --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Withdraw all rewards from staking
 ```
-d tx distribution withdraw-all-rewards --from <COSMOSHUB_WALLET> --chain-id cosmoshub-4 --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes
+gaiad tx distribution withdraw-all-rewards --from <COSMOSHUB_WALLET> --chain-id cosmoshub-4 --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes
 ```
 
 ### Withdraw validator rewards and comission
 ```
-d tx distribution withdraw-rewards $(d keys show <COSMOSHUB_WALLET> --bech val -a) --commission --from wallet --chain-id cosmoshub-4 --gas-adjustment 1.5 --gas auto --gas-prices 0uatom -y
+gaiad tx distribution withdraw-rewards $(gaiad keys show <COSMOSHUB_WALLET> --bech val -a) --commission --from wallet --chain-id cosmoshub-4 --gas-adjustment 1.5 --gas auto --gas-prices 0uatom -y
 
 ```
 
 ## Governance
 ### Vote "YES"
 ```
-d tx gov vote <proposal_id> yes --from <COSMOSHUB_WALLET> --chain-id cosmoshub-4 --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes
+gaiad tx gov vote <proposal_id> yes --from <COSMOSHUB_WALLET> --chain-id cosmoshub-4 --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Vote "NO"
 ```
-d tx gov vote <proposal_id> no --from <COSMOSHUB_WALLET> --chain-id cosmoshub-4 --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes
+gaiad tx gov vote <proposal_id> no --from <COSMOSHUB_WALLET> --chain-id cosmoshub-4 --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Abstain from voting
 ```
-d tx gov vote <proposal_id> abstain --from <COSMOSHUB_WALLET> --chain-id cosmoshub-4 --gas-adjustment 1.5 --gas auto --gas-prices 0uatom -y
+gaiad tx gov vote <proposal_id> abstain --from <COSMOSHUB_WALLET> --chain-id cosmoshub-4 --gas-adjustment 1.5 --gas auto --gas-prices 0uatom -y
 ```
 
 
 ## General commands
 ### Check node status
 ```
-d status | jq
+gaiad status | jq
 ```
 ### Check service status
 ```
-sudo systemctl status d
+sudo systemctl status gaiad
 ```
 ### Check logs
 ```
-sudo journalctl -u d -f --no-hostname -o cat
+sudo journalctl -u gaiad -f --no-hostname -o cat
 ```
 ### Restart service
 ```
-sudo systemctl restart d
+sudo systemctl restart gaiad
 ```
 ### Stop service
 ```
-sudo systemctl stop d
+sudo systemctl stop gaiad
 ```
 ### Start service
 ```
-sudo systemctl start d
+sudo systemctl start gaiad
 ```
 ### Disable service
 ```
-sudo systemctl disable d
+sudo systemctl disable gaiad
 ```
 ### Enable service
 ```
-sudo systemctl enable d
+sudo systemctl enable gaiad
 ```
 ### Reload service after changes
 ```
