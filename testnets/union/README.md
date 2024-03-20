@@ -12,9 +12,9 @@ The Union network is a hyper-efficient zero-knowledge infrastructure layer for g
 
 |  |  |
 | ------ | ------ |
-| Chain-id | mantrachain-testnet-1 |
+| Chain-id |  |
 | Binary name | uniond |
-| Binary version | v1.0.0 |
+| Binary version | v |
 
 ##### Explorer
 [https://explorers.l0vd.com/union-testnet](https://explorers.l0vd.com/union-testnet)
