@@ -24,11 +24,10 @@ fi
 ```
 cd $HOME
 mkdir -p $HOME/go/bin/
-wget https://github.com/MANTRA-Finance/public/raw/main/mantrachain-testnet/mantrachaind-linux-amd64.zip
-unzip mantrachaind-linux-amd64.zip
-rm mantrachaind-linux-amd64.zip
+sudo wget -O /usr/lib/libwasmvm.x86_64.so https://github.com/CosmWasm/wasmvm/releases/download/v1.3.0/libwasmvm.x86_64.so
+wget https://snapshots.l0vd.com/mantra-testnet/mantrachaind
+chmod +x mantrachaind
 mv mantrachaind $HOME/go/bin/
-sudo wget -P /usr/lib https://github.com/CosmWasm/wasmvm/releases/download/v1.3.0/libwasmvm.x86_64.so
 
 mantrachaind version
 ```
@@ -42,7 +41,7 @@ You should replace values in <> <br />
 ```
 MANTRA_WALLET="<YOUR_WALLET_NAME>"
 MANTRA_NODENAME="<YOUR_MONIKER>"
-MANTRA_CHAIN_ID=""
+MANTRA_CHAIN_ID="mantrachain-testnet-1"
 ```
 
 ```
@@ -88,7 +87,7 @@ mantrachaind config node tcp://localhost:${MANTRA_PORT}657
 
 ### Set seeds and peers
 ```
-PEERS="8df752df7047a8dabf89f8a01e2c1235f86283b8@mantra-testnet.peers.l0vd.com:24656"
+PEERS="2da725863e1eef9173c7dbadfc5f1c64207061c3@mantra-testnet.peers.l0vd.com:14656"
 sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.mantrachain/config/config.toml
 ```
 
@@ -106,7 +105,7 @@ sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"$pruning_interval\"/" $
 
 ### Set minimum gas price and null indexer
 ```
-sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0uaum\"/" $HOME/.mantrachain/config/app.toml
+sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.0001uaum\"/" $HOME/.mantrachain/config/app.toml
 sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.mantrachain/config/config.toml
 ```
 
@@ -181,7 +180,7 @@ mantrachaind tx staking create-validator \
 --moniker ${MANTRA_NODENAME} \
 --chain-id ${MANTRA_CHAIN_ID} \
 --from ${MANTRA_WALLET_ADDR} \
---gas-prices 0uaum \
+--gas-prices 0.0001uaum \
 --gas-adjustment 1.5 \
 --gas auto \
 --yes

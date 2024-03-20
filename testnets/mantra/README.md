@@ -12,9 +12,9 @@ The first Cosmos chain designed to continuously evolve with global regulations g
 
 |  |  |
 | ------ | ------ |
-| Chain-id |  |
+| Chain-id | mantrachain-testnet-1 |
 | Binary name | mantrachaind |
-| Binary version | v |
+| Binary version | v1.0.0 |
 
 ##### Explorer
 [https://explorers.l0vd.com/mantra-testnet](https://explorers.l0vd.com/mantra-testnet)
@@ -33,5 +33,5 @@ mantra-testnet.grpc.l0vd.com:80
 
 PEER
 ```
-8df752df7047a8dabf89f8a01e2c1235f86283b8@mantra-testnet.peers.l0vd.com:24656
+2da725863e1eef9173c7dbadfc5f1c64207061c3@mantra-testnet.peers.l0vd.com:14656
 ```
