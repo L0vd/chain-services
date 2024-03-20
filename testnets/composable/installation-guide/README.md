@@ -26,7 +26,7 @@ cd $HOME
 rm -rf composable-centauri
 git clone https://github.com/notional-labs/composable-centauri.git
 cd composable-centauri
-git checkout v6_4_47
+git checkout 
 make install
 ```
 
@@ -39,7 +39,7 @@ You should replace values in <> <br />
 ```
 COMPOSABLE_WALLET="<YOUR_WALLET_NAME>"
 COMPOSABLE_NODENAME="<YOUR_MONIKER>"
-COMPOSABLE_CHAIN_ID="banksy-testnet-5"
+COMPOSABLE_CHAIN_ID=""
 ```
 
 ```
