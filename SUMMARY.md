@@ -106,6 +106,7 @@
   * [Monitoring](testnets/bonusblock/monitoring/README.md)
 * [Artela](testnets/artela/README.md)
   * [Installation](testnets/artela/installation-guide/README.md)
+  * [Snapshot](testnets/artela/snapshot/README.md)
   * [State sync](testnets/artela/state-sync/README.md)
   * [Useful commands](testnets/artela/useful-commands/README.md)
   * [Monitoring](testnets/artela/monitoring/README.md)
