@@ -11,7 +11,7 @@ sudo apt install lz4 -y
 ## Sync from Snapshot  
 | Height  | Size | Pruning | Indexer | Creation Time (UTC+3) |
 | --------- | --------- | --------- | --------- | --------- |
-| 1972006  | 0.2 GB  | custom/100/0/10 | null | 2024-03-31_05:02:35 |
+| 1976527  | 0.1 GB  | custom/100/0/10 | null | 2024-03-31_13:01:54 |
 
 ```
 sudo systemctl stop mantrachaind
