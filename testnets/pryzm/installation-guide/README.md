@@ -25,8 +25,8 @@ fi
 ### Install node
 ```
 cd $HOME
-wget https://storage.googleapis.com/pryzm-resources/pryzmd-v0.11.1-linux-amd64.tar.gz
-tar -xzvf pryzmd-v0.11.1-linux-amd64.tar.gz
+wget https://storage.googleapis.com/pryzm-resources/pryzmd-v0.13.0-linux-amd64.tar.gz
+tar -xzvf pryzmd-v0.13.0-linux-amd64.tar.gz
 mv pryzmd /root/go/bin
 ```
 
