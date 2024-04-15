@@ -12,9 +12,9 @@ The complete infrastructure for cross-chain smart contracts, applications, and m
 
 |  |  |
 | ------ | ------ |
-| Chain-id |  |
+| Chain-id | banksy-testnet-5 |
 | Binary name | centaurid |
-| Binary version |  |
+| Binary version | v6.5.4 |
 
 ##### Explorer
 [https://explorers.l0vd.com/composable-testnet](https://explorers.l0vd.com/composable-testnet)
