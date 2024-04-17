@@ -12,9 +12,9 @@ BitCanna provides a decentralized payment network and supply chain for the legal
 
 |  |  |
 | ------ | ------ |
-| Chain-id | bitcanna-dev-1 |
-| Binary name | bcnad |
-| Binary version | v3.0.0-rc3 |
+| Chain-id |  |
+| Binary name | d |
+| Binary version | v |
 
 ##### Explorer
 [https://explorers.l0vd.com/bitcanna-testnet](https://explorers.l0vd.com/bitcanna-testnet)
