@@ -18,7 +18,7 @@ s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"$SNAP_RPC,$SNAP_RPC\"| ; \
 s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT| ; \
 s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" $HOME/.archway/config/config.toml
 
-peers="@archway-testnet.peers.l0vd.com:" \
+peers="8b96338b18c1e4a76a119fe0812c131a4e2cc96a@archway-testnet.peers.l0vd.com:20656" \
 && sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/.archway/config/config.toml 
 
 archwayd tendermint unsafe-reset-all --home ~/.archway && sudo systemctl restart archwayd && journalctl -u archwayd -f --output cat
