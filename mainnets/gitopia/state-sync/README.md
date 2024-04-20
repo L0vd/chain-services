@@ -6,7 +6,7 @@
 
 ### Copy the entire command
 ```
-sudo systemctl stop gitopiad
+sudo systemctl stop d
 SNAP_RPC="https://gitopia-mainnet.rpc.l0vd.com:443"; \
 LATEST_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height); \
 BLOCK_HEIGHT=$((LATEST_HEIGHT - 2000)); \
@@ -18,10 +18,10 @@ s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"$SNAP_RPC,$SNAP_RPC\"| ; \
 s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT| ; \
 s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" $HOME/.gitopia/config/config.toml
 
-peers="aa26aa0baa5dfc41c126d16d4dc48bb45151d560@gitopia-mainnet.peers.l0vd.com:22656" \
+peers="@gitopia-mainnet.peers.l0vd.com:" \
 && sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/.gitopia/config/config.toml 
 
-gitopiad tendermint unsafe-reset-all --home ~/.gitopia && sudo systemctl restart gitopiad && journalctl -u gitopiad -f --output cat
+d tendermint unsafe-reset-all --home ~/.gitopia && sudo systemctl restart d && journalctl -u d -f --output cat
 ```
 
 ### Turn off State Sync Mode after synchronization
