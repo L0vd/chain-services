@@ -26,7 +26,7 @@ cd $HOME
 rm -rf bcna
 git clone https://github.com/BitCannaGlobal/bcna.git
 cd bcna
-git checkout v3.0.2
+git checkout v
 make install
 ```
 
@@ -39,7 +39,7 @@ You should replace values in <> <br />
 ```
 BITCANNA_WALLET="<YOUR_WALLET_NAME>"
 BITCANNA_NODENAME="<YOUR_MONIKER>"
-BITCANNA_CHAIN_ID="bitcanna-1"
+BITCANNA_CHAIN_ID=""
 ```
 
 ```
@@ -55,12 +55,12 @@ source $HOME/.bash_profile
 
 ### Configure your node
 ```
-bcnad config chain-id ${BITCANNA_CHAIN_ID}
+d config chain-id ${BITCANNA_CHAIN_ID}
 ```
 
 ### Initialize your node
 ```
-bcnad init ${BITCANNA_NODENAME} --chain-id ${BITCANNA_CHAIN_ID}
+d init ${BITCANNA_NODENAME} --chain-id ${BITCANNA_CHAIN_ID}
 ```
 
 ### Download genesis & addrbook
@@ -107,14 +107,14 @@ sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.bcna/config/config.toml
 
 ### Create Service
 ```
-sudo tee /etc/systemd/system/bcnad.service > /dev/null <<EOF
+sudo tee /etc/systemd/system/d.service > /dev/null <<EOF
 [Unit]
 Description=Bitcanna mainnet
 After=network-online.target
 
 [Service]
 User=$USER
-ExecStart=$(which bcnad) start
+ExecStart=$(which d) start
 Restart=on-failure
 RestartSec=3
 LimitNOFILE=65535
@@ -127,9 +127,9 @@ EOF
 ### Reset blockchain info and restart your node
 ```
 sudo systemctl daemon-reload
-sudo systemctl enable bcnad
-bcnad tendermint unsafe-reset-all --home $HOME/.bcna --keep-addr-book
-sudo systemctl restart bcnad && sudo journalctl -u bcnad -f -o cat
+sudo systemctl enable d
+d tendermint unsafe-reset-all --home $HOME/.bcna --keep-addr-book
+sudo systemctl restart d && sudo journalctl -u d -f -o cat
 ```
 
 ### (OPTIONAL) Use State Sync
@@ -141,17 +141,17 @@ sudo systemctl restart bcnad && sudo journalctl -u bcnad -f -o cat
 
 #### 1. Add a new key
 ```
-bcnad keys add ${BITCANNA_WALLET}
+d keys add ${BITCANNA_WALLET}
 ```
 ##### (OR)
 
 #### 1. Recover your key
 ```
-bcnad keys add ${BITCANNA_WALLET} --recover
+d keys add ${BITCANNA_WALLET} --recover
 ```
 
 ```
-BITCANNA_WALLET_ADDR=$(bcnad keys show ${BITCANNA_WALLET} -a)
+BITCANNA_WALLET_ADDR=$(d keys show ${BITCANNA_WALLET} -a)
 echo "export BITCANNA_WALLET_ADDR=${BITCANNA_WALLET_ADDR}" >> $HOME/.bash_profile
 
 source $HOME/.bash_profile
@@ -165,14 +165,14 @@ Wait until the node is synchronized.
 {% endhint %}
 
 ```
-bcnad tx staking create-validator \
+d tx staking create-validator \
 --amount 1000000ubcna \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
 --details "" \
---pubkey $(bcnad tendermint show-validator) \
+--pubkey $(d tendermint show-validator) \
 --moniker ${BITCANNA_NODENAME} \
 --chain-id ${BITCANNA_CHAIN_ID} \
 --from ${BITCANNA_WALLET_ADDR} \
