@@ -66,7 +66,7 @@ archwayd tx staking create-validator \
 --min-self-delegation "1" \
 --pubkey $(archwayd tendermint show-validator) \
 --moniker <ARCHWAY_NODENAME> \
---chain-id  \
+--chain-id archway-1 \
 --from <ARCHWAY_WALLET> \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
@@ -83,7 +83,7 @@ archwayd tx staking edit-validator \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
 --website <YOUR_WEBSITE> \
---chain-id  \
+--chain-id archway-1 \
 --commission-rate 0.05 \
 --from <ARCHWAY_WALLET> \
 --gas-prices 1000000000000aarch \
@@ -97,7 +97,7 @@ archwayd q staking validator $(archwayd keys show <ARCHWAY_WALLET> --bech val -a
 ```
 ### Unjail validator
 ```
-archwayd tx slashing unjail --from <ARCHWAY_WALLET> --chain-id  --gas-prices 1000000000000aarch --gas-adjustment 1.5 --gas auto --yes 
+archwayd tx slashing unjail --from <ARCHWAY_WALLET> --chain-id archway-1 --gas-prices 1000000000000aarch --gas-adjustment 1.5 --gas auto --yes 
 ```
 ### Signing info
 ```
@@ -108,47 +108,47 @@ archwayd query slashing signing-info $(archwayd tendermint show-validator)
 
 ### Send tokens
 ```
-archwayd tx bank send wallet <DEST_WALLET_ADDRESS> 100aarch --from <ARCHWAY_WALLET> --chain-id  --gas-prices 1000000000000aarch --gas-adjustment 1.5 --gas auto --yes
+archwayd tx bank send wallet <DEST_WALLET_ADDRESS> 100aarch --from <ARCHWAY_WALLET> --chain-id archway-1 --gas-prices 1000000000000aarch --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to your validator
 ```
-archwayd tx staking delegate $(archwayd keys show <ARCHWAY_WALLET> --bech val -a) 100aarch --from <ARCHWAY_WALLET> --chain-id  --gas-prices 1000000000000aarch --gas-adjustment 1.5 --gas auto --yes
+archwayd tx staking delegate $(archwayd keys show <ARCHWAY_WALLET> --bech val -a) 100aarch --from <ARCHWAY_WALLET> --chain-id archway-1 --gas-prices 1000000000000aarch --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to another validator
 ```
-archwayd tx staking delegate <VALOPER_ADDRESS> 100aarch --from <ARCHWAY_WALLET> --chain-id  --gas-prices 1000000000000aarch --gas-adjustment 1.5 --gas auto --yes
+archwayd tx staking delegate <VALOPER_ADDRESS> 100aarch --from <ARCHWAY_WALLET> --chain-id archway-1 --gas-prices 1000000000000aarch --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Redelegate tokens to another validator
 ```
-archwayd tx staking redelegate $(archwayd keys show <ARCHWAY_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100aarch --from <ARCHWAY_WALLET> --chain-id  --gas-prices 1000000000000aarch --gas-adjustment 1.5 --gas auto --yes
+archwayd tx staking redelegate $(archwayd keys show <ARCHWAY_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100aarch --from <ARCHWAY_WALLET> --chain-id archway-1 --gas-prices 1000000000000aarch --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Unbond tokens from staking
 ```
-archwayd tx staking unbond $(archwayd keys show <ARCHWAY_WALLET> --bech val -a) 100aarch --from <ARCHWAY_WALLET> --chain-id  --gas-prices 1000000000000aarch --gas-adjustment 1.5 --gas auto --yes
+archwayd tx staking unbond $(archwayd keys show <ARCHWAY_WALLET> --bech val -a) 100aarch --from <ARCHWAY_WALLET> --chain-id archway-1 --gas-prices 1000000000000aarch --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Withdraw all rewards from staking
 ```
-archwayd tx distribution withdraw-all-rewards --from <ARCHWAY_WALLET> --chain-id  --gas-prices 1000000000000aarch --gas-adjustment 1.5 --gas auto --yes
+archwayd tx distribution withdraw-all-rewards --from <ARCHWAY_WALLET> --chain-id archway-1 --gas-prices 1000000000000aarch --gas-adjustment 1.5 --gas auto --yes
 ```
 
 ### Withdraw validator rewards and comission
 ```
-archwayd tx distribution withdraw-rewards $(archwayd keys show <ARCHWAY_WALLET> --bech val -a) --commission --from wallet --chain-id  --gas-adjustment 1.5 --gas auto --gas-prices 1000000000000aarch -y
+archwayd tx distribution withdraw-rewards $(archwayd keys show <ARCHWAY_WALLET> --bech val -a) --commission --from wallet --chain-id archway-1 --gas-adjustment 1.5 --gas auto --gas-prices 1000000000000aarch -y
 
 ```
 
 ## Governance
 ### Vote "YES"
 ```
-archwayd tx gov vote <proposal_id> yes --from <ARCHWAY_WALLET> --chain-id  --gas-prices 1000000000000aarch --gas-adjustment 1.5 --gas auto --yes
+archwayd tx gov vote <proposal_id> yes --from <ARCHWAY_WALLET> --chain-id archway-1 --gas-prices 1000000000000aarch --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Vote "NO"
 ```
-archwayd tx gov vote <proposal_id> no --from <ARCHWAY_WALLET> --chain-id  --gas-prices 1000000000000aarch --gas-adjustment 1.5 --gas auto --yes
+archwayd tx gov vote <proposal_id> no --from <ARCHWAY_WALLET> --chain-id archway-1 --gas-prices 1000000000000aarch --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Abstain from voting
 ```
-archwayd tx gov vote <proposal_id> abstain --from <ARCHWAY_WALLET> --chain-id  --gas-adjustment 1.5 --gas auto --gas-prices 1000000000000aarch -y
+archwayd tx gov vote <proposal_id> abstain --from <ARCHWAY_WALLET> --chain-id archway-1 --gas-adjustment 1.5 --gas auto --gas-prices 1000000000000aarch -y
 ```
 
 
