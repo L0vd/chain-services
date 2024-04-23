@@ -18,7 +18,7 @@ s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"$SNAP_RPC,$SNAP_RPC\"| ; \
 s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT| ; \
 s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" $HOME/.union/config/config.toml
 
-peers="5759960e0bde8181d0556736cf6a2c959757eb9d@union-testnet.peers.l0vd.com:14656" \
+peers="@union-testnet.peers.l0vd.com:" \
 && sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/.union/config/config.toml 
 
 uniond tendermint unsafe-reset-all --home ~/.union && sudo systemctl restart uniond && journalctl -u uniond -f --output cat
