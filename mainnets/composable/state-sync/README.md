@@ -6,7 +6,7 @@
 
 ### Copy the entire command
 ```
-sudo systemctl stop 
+sudo systemctl stop centaurid
 SNAP_RPC="https://composable-mainnet.rpc.l0vd.com:443"; \
 LATEST_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height); \
 BLOCK_HEIGHT=$((LATEST_HEIGHT - 2000)); \
@@ -18,10 +18,10 @@ s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"$SNAP_RPC,$SNAP_RPC\"| ; \
 s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT| ; \
 s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" $HOME/.banksy/config/config.toml
 
-peers="@composable-mainnet.peers.l0vd.com:" \
+peers="253f190c96d14ce98da8b7596385c1593a7be982@composable-mainnet.peers.l0vd.com:23656" \
 && sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/.banksy/config/config.toml 
 
- tendermint unsafe-reset-all --home ~/.banksy && sudo systemctl restart  && journalctl -u  -f --output cat
+centaurid tendermint unsafe-reset-all --home ~/.banksy && sudo systemctl restart centaurid && journalctl -u centaurid -f --output cat
 ```
 
 ### Turn off State Sync Mode after synchronization
