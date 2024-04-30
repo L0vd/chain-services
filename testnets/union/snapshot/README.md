@@ -11,7 +11,7 @@ sudo apt install lz4 -y
 ## Sync from Snapshot  
 | Height  | Size | Pruning | Indexer | Creation Time (UTC+3) |
 | --------- | --------- | --------- | --------- | --------- |
-| 1084967  | 0.1 GB  | custom/100/0/10 | null | 2024-04-30_03:12:59 |
+| 1087152  | 0.1 GB  | custom/100/0/10 | null | 2024-04-30_07:12:55 |
 
 ```
 sudo systemctl stop uniond
@@ -21,7 +21,7 @@ uniond tendermint unsafe-reset-all --home $HOME/.union --keep-addr-book
 
 rm -rf $HOME/.union/data 
 
-SNAP_NAME=$(curl -s https://snapshots.l0vd.com/union-testnet/ | egrep -o ">union-testnet-6.*\.tar.lz4" | tr -d ">")
+SNAP_NAME=$(curl -s https://snapshots.l0vd.com/union-testnet/ | egrep -o ">union-testnet-8.*\.tar.lz4" | tr -d ">")
 curl https://snapshots.l0vd.com/union-testnet/${SNAP_NAME} | lz4 -dc - | tar -xf - -C $HOME/.union
 
 mv $HOME/.union/priv_validator_state.json.backup $HOME/.union/data/priv_validator_state.json
