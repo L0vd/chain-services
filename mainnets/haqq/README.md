@@ -13,8 +13,8 @@ Haqq Blockchain — Haqq (Arabic for truth) is a Proof of Stake blockchain netwo
 |  |  |
 | ------ | ------ |
 | Chain-id | haqq_11235-1 |
-| Binary name | haqqd |
-| Binary version | v1.7.4 |
+| Binary name | d |
+| Binary version | v |
 
 ##### Explorer
 [https://explorers.l0vd.com/haqq-mainnet](https://explorers.l0vd.com/haqq-mainnet)
