@@ -26,7 +26,7 @@ cd $HOME
 rm -rf entangle-blockchain
 git clone https://github.com/Entangle-Protocol/entangle-blockchain.git
 cd entangle-blockchain
-git checkout v
+git checkout v1.0.1
 make install
 ```
 
@@ -55,12 +55,12 @@ source $HOME/.bash_profile
 
 ### Configure your node
 ```
-d config chain-id ${ENTANGLE_CHAIN_ID}
+entangled config chain-id ${ENTANGLE_CHAIN_ID}
 ```
 
 ### Initialize your node
 ```
-d init ${ENTANGLE_NODENAME} --chain-id ${ENTANGLE_CHAIN_ID}
+entangled init ${ENTANGLE_NODENAME} --chain-id ${ENTANGLE_CHAIN_ID}
 ```
 
 ### Download genesis & addrbook
@@ -80,7 +80,7 @@ sed -i.bak -e "s%^proxy_app = \"tcp://127.0.0.1:26658\"%proxy_app = \"tcp://127.
 sed -i.bak -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:${ENTANGLE_PORT}317\"%; s%^address = \"tcp://localhost:1317\"%address = \"tcp://0.0.0.0:${ENTANGLE_PORT}317\"%; s%^address = \":8080\"%address = \":${ENTANGLE_PORT}080\"%; s%^address = \"0.0.0.0:9090\"%address = \"0.0.0.0:${ENTANGLE_PORT}090\"%; s%^address = \"localhost:9090\"%address = \"localhost:${ENTANGLE_PORT}090\"%; s%^address = \"0.0.0.0:9091\"%address = \"0.0.0.0:${ENTANGLE_PORT}091\"%; s%^address = \"localhost:9091\"%address = \"localhost:${ENTANGLE_PORT}091\"%; s%^address = \"0.0.0.0:8545\"%address = \"0.0.0.0:${ENTANGLE_PORT}545\"%; s%^ws-address = \"0.0.0.0:8546\"%ws-address = \"0.0.0.0:${ENTANGLE_PORT}546\"%" /$HOME/.entangled/config/app.toml
 ```
 ```
-d config node tcp://localhost:${ENTANGLE_PORT}657
+entangled config node tcp://localhost:${ENTANGLE_PORT}657
 ```
 
 ### Set seeds and peers
@@ -109,14 +109,14 @@ sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.entangled/config/config.t
 
 ### Create Service
 ```
-sudo tee /etc/systemd/system/d.service > /dev/null <<EOF
+sudo tee /etc/systemd/system/entangled.service > /dev/null <<EOF
 [Unit]
 Description=Entangle testnet
 After=network-online.target
 
 [Service]
 User=$USER
-ExecStart=$(which d) start
+ExecStart=$(which entangled) start
 Restart=on-failure
 RestartSec=3
 LimitNOFILE=65535
@@ -129,9 +129,9 @@ EOF
 ### Reset blockchain info and restart your node
 ```
 sudo systemctl daemon-reload
-sudo systemctl enable d
-d tendermint unsafe-reset-all --home $HOME/.entangled --keep-addr-book
-sudo systemctl restart d && sudo journalctl -u d -f -o cat
+sudo systemctl enable entangled
+entangled tendermint unsafe-reset-all --home $HOME/.entangled --keep-addr-book
+sudo systemctl restart entangled && sudo journalctl -u entangled -f -o cat
 ```
 
 ### (OPTIONAL) Use State Sync
@@ -143,17 +143,17 @@ sudo systemctl restart d && sudo journalctl -u d -f -o cat
 
 #### 1. Add a new key
 ```
-d keys add ${ENTANGLE_WALLET}
+entangled keys add ${ENTANGLE_WALLET}
 ```
 ##### (OR)
 
 #### 1. Recover your key
 ```
-d keys add ${ENTANGLE_WALLET} --recover
+entangled keys add ${ENTANGLE_WALLET} --recover
 ```
 
 ```
-ENTANGLE_WALLET_ADDR=$(d keys show ${ENTANGLE_WALLET} -a)
+ENTANGLE_WALLET_ADDR=$(entangled keys show ${ENTANGLE_WALLET} -a)
 echo "export ENTANGLE_WALLET_ADDR=${ENTANGLE_WALLET_ADDR}" >> $HOME/.bash_profile
 
 source $HOME/.bash_profile
@@ -167,14 +167,14 @@ Wait until the node is synchronized.
 {% endhint %}
 
 ```
-d tx staking create-validator \
+entangled tx staking create-validator \
 --amount 1000000aNGL \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
 --details "" \
---pubkey $(d tendermint show-validator) \
+--pubkey $(entangled tendermint show-validator) \
 --moniker ${ENTANGLE_NODENAME} \
 --chain-id ${ENTANGLE_CHAIN_ID} \
 --from ${ENTANGLE_WALLET_ADDR} \

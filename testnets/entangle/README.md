@@ -13,8 +13,8 @@ Entangle builds an interoperable cross-chain liquidity sub-layer with a custom o
 |  |  |
 | ------ | ------ |
 | Chain-id | entangle_33133-1 |
-| Binary name | d |
-| Binary version | v |
+| Binary name | entangled |
+| Binary version | v1.0.1 |
 
 ##### Explorer
 [https://explorers.l0vd.com/entangle-testnet](https://explorers.l0vd.com/entangle-testnet)

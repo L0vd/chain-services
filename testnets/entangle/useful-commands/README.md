@@ -6,19 +6,19 @@ Please note that the values in <> must be changed to your own values
 
 ### Add new key
 ```
-d keys add <key_name>
+entangled keys add <key_name>
 ```
 ### Recover keys from seed
 ```
-d keys add <key_name> --recover
+entangled keys add <key_name> --recover
 ```
 ### Show all keys
 ```
-d keys list
+entangled keys list
 ```
 ### Delete key
 ```
-d keys delete <key_name>
+entangled keys delete <key_name>
 ```
 
 ## Node configuration
@@ -58,13 +58,13 @@ sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"10aNGL\"/" $HOME/.e
 
 ### Create validator
 ```
-d tx staking create-validator \
+entangled tx staking create-validator \
 --amount 1000000aNGL \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
---pubkey $(d tendermint show-validator) \
+--pubkey $(entangled tendermint show-validator) \
 --moniker <ENTANGLE_NODENAME> \
 --chain-id entangle_33133-1 \
 --from <ENTANGLE_WALLET> \
@@ -78,7 +78,7 @@ d tx staking create-validator \
 ```
 ### Edit validator
 ```
-d tx staking edit-validator \
+entangled tx staking edit-validator \
 --new-moniker <ENTANGLE_NODENAME> \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
@@ -93,97 +93,97 @@ d tx staking edit-validator \
 ```
 ### View validator info
 ```
-d q staking validator $(d keys show <ENTANGLE_WALLET> --bech val -a)
+entangled q staking validator $(entangled keys show <ENTANGLE_WALLET> --bech val -a)
 ```
 ### Unjail validator
 ```
-d tx slashing unjail --from <ENTANGLE_WALLET> --chain-id entangle_33133-1 --gas-prices 10aNGL --gas-adjustment 1.5 --gas auto --yes 
+entangled tx slashing unjail --from <ENTANGLE_WALLET> --chain-id entangle_33133-1 --gas-prices 10aNGL --gas-adjustment 1.5 --gas auto --yes 
 ```
 ### Signing info
 ```
-d query slashing signing-info $(d tendermint show-validator)
+entangled query slashing signing-info $(entangled tendermint show-validator)
 ```
 
 ## Token operations
 
 ### Send tokens
 ```
-d tx bank send wallet <DEST_WALLET_ADDRESS> 100aNGL --from <ENTANGLE_WALLET> --chain-id entangle_33133-1 --gas-prices 10aNGL --gas-adjustment 1.5 --gas auto --yes
+entangled tx bank send wallet <DEST_WALLET_ADDRESS> 100aNGL --from <ENTANGLE_WALLET> --chain-id entangle_33133-1 --gas-prices 10aNGL --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to your validator
 ```
-d tx staking delegate $(d keys show <ENTANGLE_WALLET> --bech val -a) 100aNGL --from <ENTANGLE_WALLET> --chain-id entangle_33133-1 --gas-prices 10aNGL --gas-adjustment 1.5 --gas auto --yes
+entangled tx staking delegate $(entangled keys show <ENTANGLE_WALLET> --bech val -a) 100aNGL --from <ENTANGLE_WALLET> --chain-id entangle_33133-1 --gas-prices 10aNGL --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to another validator
 ```
-d tx staking delegate <VALOPER_ADDRESS> 100aNGL --from <ENTANGLE_WALLET> --chain-id entangle_33133-1 --gas-prices 10aNGL --gas-adjustment 1.5 --gas auto --yes
+entangled tx staking delegate <VALOPER_ADDRESS> 100aNGL --from <ENTANGLE_WALLET> --chain-id entangle_33133-1 --gas-prices 10aNGL --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Redelegate tokens to another validator
 ```
-d tx staking redelegate $(d keys show <ENTANGLE_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100aNGL --from <ENTANGLE_WALLET> --chain-id entangle_33133-1 --gas-prices 10aNGL --gas-adjustment 1.5 --gas auto --yes
+entangled tx staking redelegate $(entangled keys show <ENTANGLE_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100aNGL --from <ENTANGLE_WALLET> --chain-id entangle_33133-1 --gas-prices 10aNGL --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Unbond tokens from staking
 ```
-d tx staking unbond $(d keys show <ENTANGLE_WALLET> --bech val -a) 100aNGL --from <ENTANGLE_WALLET> --chain-id entangle_33133-1 --gas-prices 10aNGL --gas-adjustment 1.5 --gas auto --yes
+entangled tx staking unbond $(entangled keys show <ENTANGLE_WALLET> --bech val -a) 100aNGL --from <ENTANGLE_WALLET> --chain-id entangle_33133-1 --gas-prices 10aNGL --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Withdraw all rewards from staking
 ```
-d tx distribution withdraw-all-rewards --from <ENTANGLE_WALLET> --chain-id entangle_33133-1 --gas-prices 10aNGL --gas-adjustment 1.5 --gas auto --yes
+entangled tx distribution withdraw-all-rewards --from <ENTANGLE_WALLET> --chain-id entangle_33133-1 --gas-prices 10aNGL --gas-adjustment 1.5 --gas auto --yes
 ```
 
 ### Withdraw validator rewards and comission
 ```
-d tx distribution withdraw-rewards $(d keys show <ENTANGLE_WALLET> --bech val -a) --commission --from wallet --chain-id entangle_33133-1 --gas-adjustment 1.5 --gas auto --gas-prices 10aNGL -y
+entangled tx distribution withdraw-rewards $(entangled keys show <ENTANGLE_WALLET> --bech val -a) --commission --from wallet --chain-id entangle_33133-1 --gas-adjustment 1.5 --gas auto --gas-prices 10aNGL -y
 
 ```
 
 ## Governance
 ### Vote "YES"
 ```
-d tx gov vote <proposal_id> yes --from <ENTANGLE_WALLET> --chain-id entangle_33133-1 --gas-prices 10aNGL --gas-adjustment 1.5 --gas auto --yes
+entangled tx gov vote <proposal_id> yes --from <ENTANGLE_WALLET> --chain-id entangle_33133-1 --gas-prices 10aNGL --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Vote "NO"
 ```
-d tx gov vote <proposal_id> no --from <ENTANGLE_WALLET> --chain-id entangle_33133-1 --gas-prices 10aNGL --gas-adjustment 1.5 --gas auto --yes
+entangled tx gov vote <proposal_id> no --from <ENTANGLE_WALLET> --chain-id entangle_33133-1 --gas-prices 10aNGL --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Abstain from voting
 ```
-d tx gov vote <proposal_id> abstain --from <ENTANGLE_WALLET> --chain-id entangle_33133-1 --gas-adjustment 1.5 --gas auto --gas-prices 10aNGL -y
+entangled tx gov vote <proposal_id> abstain --from <ENTANGLE_WALLET> --chain-id entangle_33133-1 --gas-adjustment 1.5 --gas auto --gas-prices 10aNGL -y
 ```
 
 
 ## General commands
 ### Check node status
 ```
-d status | jq
+entangled status | jq
 ```
 ### Check service status
 ```
-sudo systemctl status d
+sudo systemctl status entangled
 ```
 ### Check logs
 ```
-sudo journalctl -u d -f --no-hostname -o cat
+sudo journalctl -u entangled -f --no-hostname -o cat
 ```
 ### Restart service
 ```
-sudo systemctl restart d
+sudo systemctl restart entangled
 ```
 ### Stop service
 ```
-sudo systemctl stop d
+sudo systemctl stop entangled
 ```
 ### Start service
 ```
-sudo systemctl start d
+sudo systemctl start entangled
 ```
 ### Disable service
 ```
-sudo systemctl disable d
+sudo systemctl disable entangled
 ```
 ### Enable service
 ```
-sudo systemctl enable d
+sudo systemctl enable entangled
 ```
 ### Reload service after changes
 ```
