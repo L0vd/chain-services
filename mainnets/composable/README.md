@@ -13,8 +13,8 @@ The complete infrastructure for cross-chain smart contracts, applications, and m
 |  |  |
 | ------ | ------ |
 | Chain-id | centauri-1 |
-| Binary name | centaurid |
-| Binary version | v6.5.4 |
+| Binary name | picad |
+| Binary version | v6.6.41 |
 
 ##### Explorer
 [https://explorers.l0vd.com/composable-mainnet](https://explorers.l0vd.com/composable-mainnet)
