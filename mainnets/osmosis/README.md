@@ -12,7 +12,7 @@ Osmosis (OSMO) is a decentralized exchange (DEX) for Cosmos, an ecosystem of sov
 
 |  |  |
 | ------ | ------ |
-| Chain-id | osmosis-1 |
+| Chain-id |  |
 | Binary name | d |
 | Binary version | v |
 
