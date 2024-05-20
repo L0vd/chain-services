@@ -26,7 +26,7 @@ cd $HOME
 rm -rf haqq
 git clone https://github.com/haqq-network/haqq.git
 cd haqq
-git checkout v1.7.4
+git checkout v1.7.5
 make install
 ```
 
