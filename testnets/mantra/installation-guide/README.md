@@ -41,7 +41,7 @@ You should replace values in <> <br />
 ```
 MANTRA_WALLET="<YOUR_WALLET_NAME>"
 MANTRA_NODENAME="<YOUR_MONIKER>"
-MANTRA_CHAIN_ID=""
+MANTRA_CHAIN_ID="mantrachain-testnet-1"
 ```
 
 ```
