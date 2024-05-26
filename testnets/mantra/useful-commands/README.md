@@ -66,7 +66,7 @@ mantrachaind tx staking create-validator \
 --min-self-delegation "1" \
 --pubkey $(mantrachaind tendermint show-validator) \
 --moniker <MANTRA_NODENAME> \
---chain-id mantrachain-testnet-1 \
+--chain-id  \
 --from <MANTRA_WALLET> \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
@@ -83,7 +83,7 @@ mantrachaind tx staking edit-validator \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
 --website <YOUR_WEBSITE> \
---chain-id mantrachain-testnet-1 \
+--chain-id  \
 --commission-rate 0.05 \
 --from <MANTRA_WALLET> \
 --gas-prices 0.0001uaum \
@@ -97,7 +97,7 @@ mantrachaind q staking validator $(mantrachaind keys show <MANTRA_WALLET> --bech
 ```
 ### Unjail validator
 ```
-mantrachaind tx slashing unjail --from <MANTRA_WALLET> --chain-id mantrachain-testnet-1 --gas-prices 0.0001uaum --gas-adjustment 1.5 --gas auto --yes 
+mantrachaind tx slashing unjail --from <MANTRA_WALLET> --chain-id  --gas-prices 0.0001uaum --gas-adjustment 1.5 --gas auto --yes 
 ```
 ### Signing info
 ```
@@ -108,47 +108,47 @@ mantrachaind query slashing signing-info $(mantrachaind tendermint show-validato
 
 ### Send tokens
 ```
-mantrachaind tx bank send wallet <DEST_WALLET_ADDRESS> 100uaum --from <MANTRA_WALLET> --chain-id mantrachain-testnet-1 --gas-prices 0.0001uaum --gas-adjustment 1.5 --gas auto --yes
+mantrachaind tx bank send wallet <DEST_WALLET_ADDRESS> 100uaum --from <MANTRA_WALLET> --chain-id  --gas-prices 0.0001uaum --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to your validator
 ```
-mantrachaind tx staking delegate $(mantrachaind keys show <MANTRA_WALLET> --bech val -a) 100uaum --from <MANTRA_WALLET> --chain-id mantrachain-testnet-1 --gas-prices 0.0001uaum --gas-adjustment 1.5 --gas auto --yes
+mantrachaind tx staking delegate $(mantrachaind keys show <MANTRA_WALLET> --bech val -a) 100uaum --from <MANTRA_WALLET> --chain-id  --gas-prices 0.0001uaum --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to another validator
 ```
-mantrachaind tx staking delegate <VALOPER_ADDRESS> 100uaum --from <MANTRA_WALLET> --chain-id mantrachain-testnet-1 --gas-prices 0.0001uaum --gas-adjustment 1.5 --gas auto --yes
+mantrachaind tx staking delegate <VALOPER_ADDRESS> 100uaum --from <MANTRA_WALLET> --chain-id  --gas-prices 0.0001uaum --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Redelegate tokens to another validator
 ```
-mantrachaind tx staking redelegate $(mantrachaind keys show <MANTRA_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100uaum --from <MANTRA_WALLET> --chain-id mantrachain-testnet-1 --gas-prices 0.0001uaum --gas-adjustment 1.5 --gas auto --yes
+mantrachaind tx staking redelegate $(mantrachaind keys show <MANTRA_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100uaum --from <MANTRA_WALLET> --chain-id  --gas-prices 0.0001uaum --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Unbond tokens from staking
 ```
-mantrachaind tx staking unbond $(mantrachaind keys show <MANTRA_WALLET> --bech val -a) 100uaum --from <MANTRA_WALLET> --chain-id mantrachain-testnet-1 --gas-prices 0.0001uaum --gas-adjustment 1.5 --gas auto --yes
+mantrachaind tx staking unbond $(mantrachaind keys show <MANTRA_WALLET> --bech val -a) 100uaum --from <MANTRA_WALLET> --chain-id  --gas-prices 0.0001uaum --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Withdraw all rewards from staking
 ```
-mantrachaind tx distribution withdraw-all-rewards --from <MANTRA_WALLET> --chain-id mantrachain-testnet-1 --gas-prices 0.0001uaum --gas-adjustment 1.5 --gas auto --yes
+mantrachaind tx distribution withdraw-all-rewards --from <MANTRA_WALLET> --chain-id  --gas-prices 0.0001uaum --gas-adjustment 1.5 --gas auto --yes
 ```
 
 ### Withdraw validator rewards and comission
 ```
-mantrachaind tx distribution withdraw-rewards $(mantrachaind keys show <MANTRA_WALLET> --bech val -a) --commission --from wallet --chain-id mantrachain-testnet-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.0001uaum -y
+mantrachaind tx distribution withdraw-rewards $(mantrachaind keys show <MANTRA_WALLET> --bech val -a) --commission --from wallet --chain-id  --gas-adjustment 1.5 --gas auto --gas-prices 0.0001uaum -y
 
 ```
 
 ## Governance
 ### Vote "YES"
 ```
-mantrachaind tx gov vote <proposal_id> yes --from <MANTRA_WALLET> --chain-id mantrachain-testnet-1 --gas-prices 0.0001uaum --gas-adjustment 1.5 --gas auto --yes
+mantrachaind tx gov vote <proposal_id> yes --from <MANTRA_WALLET> --chain-id  --gas-prices 0.0001uaum --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Vote "NO"
 ```
-mantrachaind tx gov vote <proposal_id> no --from <MANTRA_WALLET> --chain-id mantrachain-testnet-1 --gas-prices 0.0001uaum --gas-adjustment 1.5 --gas auto --yes
+mantrachaind tx gov vote <proposal_id> no --from <MANTRA_WALLET> --chain-id  --gas-prices 0.0001uaum --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Abstain from voting
 ```
-mantrachaind tx gov vote <proposal_id> abstain --from <MANTRA_WALLET> --chain-id mantrachain-testnet-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.0001uaum -y
+mantrachaind tx gov vote <proposal_id> abstain --from <MANTRA_WALLET> --chain-id  --gas-adjustment 1.5 --gas auto --gas-prices 0.0001uaum -y
 ```
 
 
