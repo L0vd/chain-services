@@ -14,7 +14,7 @@ The complete infrastructure for cross-chain smart contracts, applications, and m
 | ------ | ------ |
 | Chain-id | banksy-testnet-5 |
 | Binary name | picad |
-| Binary version | v6.6.3 |
+| Binary version | v7.0.1-devnet-rc1 |
 
 ##### Explorer
 [https://explorers.l0vd.com/composable-testnet](https://explorers.l0vd.com/composable-testnet)
