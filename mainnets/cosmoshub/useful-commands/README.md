@@ -6,19 +6,19 @@ Please note that the values in <> must be changed to your own values
 
 ### Add new key
 ```
-nulld keys add <key_name>
+d keys add <key_name>
 ```
 ### Recover keys from seed
 ```
-nulld keys add <key_name> --recover
+d keys add <key_name> --recover
 ```
 ### Show all keys
 ```
-nulld keys list
+d keys list
 ```
 ### Delete key
 ```
-nulld keys delete <key_name>
+d keys delete <key_name>
 ```
 
 ## Node configuration
@@ -58,15 +58,15 @@ sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0uatom\"/" $HOME/.g
 
 ### Create validator
 ```
-nulld tx staking create-validator \
+d tx staking create-validator \
 --amount 1000000uatom \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
---pubkey $(nulld tendermint show-validator) \
+--pubkey $(d tendermint show-validator) \
 --moniker <COSMOSHUB_NODENAME> \
---chain-id cosmoshub-4 \
+--chain-id  \
 --from <COSMOSHUB_WALLET> \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
@@ -78,12 +78,12 @@ nulld tx staking create-validator \
 ```
 ### Edit validator
 ```
-nulld tx staking edit-validator \
+d tx staking edit-validator \
 --new-moniker <COSMOSHUB_NODENAME> \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
 --website <YOUR_WEBSITE> \
---chain-id cosmoshub-4 \
+--chain-id  \
 --commission-rate 0.05 \
 --from <COSMOSHUB_WALLET> \
 --gas-prices 0uatom \
@@ -93,97 +93,97 @@ nulld tx staking edit-validator \
 ```
 ### View validator info
 ```
-nulld q staking validator $(nulld keys show <COSMOSHUB_WALLET> --bech val -a)
+d q staking validator $(d keys show <COSMOSHUB_WALLET> --bech val -a)
 ```
 ### Unjail validator
 ```
-nulld tx slashing unjail --from <COSMOSHUB_WALLET> --chain-id cosmoshub-4 --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes 
+d tx slashing unjail --from <COSMOSHUB_WALLET> --chain-id  --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes 
 ```
 ### Signing info
 ```
-nulld query slashing signing-info $(nulld tendermint show-validator)
+d query slashing signing-info $(d tendermint show-validator)
 ```
 
 ## Token operations
 
 ### Send tokens
 ```
-nulld tx bank send wallet <DEST_WALLET_ADDRESS> 100uatom --from <COSMOSHUB_WALLET> --chain-id cosmoshub-4 --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes
+d tx bank send wallet <DEST_WALLET_ADDRESS> 100uatom --from <COSMOSHUB_WALLET> --chain-id  --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to your validator
 ```
-nulld tx staking delegate $(nulld keys show <COSMOSHUB_WALLET> --bech val -a) 100uatom --from <COSMOSHUB_WALLET> --chain-id cosmoshub-4 --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes
+d tx staking delegate $(d keys show <COSMOSHUB_WALLET> --bech val -a) 100uatom --from <COSMOSHUB_WALLET> --chain-id  --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to another validator
 ```
-nulld tx staking delegate <VALOPER_ADDRESS> 100uatom --from <COSMOSHUB_WALLET> --chain-id cosmoshub-4 --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes
+d tx staking delegate <VALOPER_ADDRESS> 100uatom --from <COSMOSHUB_WALLET> --chain-id  --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Redelegate tokens to another validator
 ```
-nulld tx staking redelegate $(nulld keys show <COSMOSHUB_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100uatom --from <COSMOSHUB_WALLET> --chain-id cosmoshub-4 --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes
+d tx staking redelegate $(d keys show <COSMOSHUB_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100uatom --from <COSMOSHUB_WALLET> --chain-id  --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Unbond tokens from staking
 ```
-nulld tx staking unbond $(nulld keys show <COSMOSHUB_WALLET> --bech val -a) 100uatom --from <COSMOSHUB_WALLET> --chain-id cosmoshub-4 --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes
+d tx staking unbond $(d keys show <COSMOSHUB_WALLET> --bech val -a) 100uatom --from <COSMOSHUB_WALLET> --chain-id  --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Withdraw all rewards from staking
 ```
-nulld tx distribution withdraw-all-rewards --from <COSMOSHUB_WALLET> --chain-id cosmoshub-4 --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes
+d tx distribution withdraw-all-rewards --from <COSMOSHUB_WALLET> --chain-id  --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes
 ```
 
 ### Withdraw validator rewards and comission
 ```
-nulld tx distribution withdraw-rewards $(nulld keys show <COSMOSHUB_WALLET> --bech val -a) --commission --from wallet --chain-id cosmoshub-4 --gas-adjustment 1.5 --gas auto --gas-prices 0uatom -y
+d tx distribution withdraw-rewards $(d keys show <COSMOSHUB_WALLET> --bech val -a) --commission --from wallet --chain-id  --gas-adjustment 1.5 --gas auto --gas-prices 0uatom -y
 
 ```
 
 ## Governance
 ### Vote "YES"
 ```
-nulld tx gov vote <proposal_id> yes --from <COSMOSHUB_WALLET> --chain-id cosmoshub-4 --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes
+d tx gov vote <proposal_id> yes --from <COSMOSHUB_WALLET> --chain-id  --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Vote "NO"
 ```
-nulld tx gov vote <proposal_id> no --from <COSMOSHUB_WALLET> --chain-id cosmoshub-4 --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes
+d tx gov vote <proposal_id> no --from <COSMOSHUB_WALLET> --chain-id  --gas-prices 0uatom --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Abstain from voting
 ```
-nulld tx gov vote <proposal_id> abstain --from <COSMOSHUB_WALLET> --chain-id cosmoshub-4 --gas-adjustment 1.5 --gas auto --gas-prices 0uatom -y
+d tx gov vote <proposal_id> abstain --from <COSMOSHUB_WALLET> --chain-id  --gas-adjustment 1.5 --gas auto --gas-prices 0uatom -y
 ```
 
 
 ## General commands
 ### Check node status
 ```
-nulld status | jq
+d status | jq
 ```
 ### Check service status
 ```
-sudo systemctl status nulld
+sudo systemctl status d
 ```
 ### Check logs
 ```
-sudo journalctl -u nulld -f --no-hostname -o cat
+sudo journalctl -u d -f --no-hostname -o cat
 ```
 ### Restart service
 ```
-sudo systemctl restart nulld
+sudo systemctl restart d
 ```
 ### Stop service
 ```
-sudo systemctl stop nulld
+sudo systemctl stop d
 ```
 ### Start service
 ```
-sudo systemctl start nulld
+sudo systemctl start d
 ```
 ### Disable service
 ```
-sudo systemctl disable nulld
+sudo systemctl disable d
 ```
 ### Enable service
 ```
-sudo systemctl enable nulld
+sudo systemctl enable d
 ```
 ### Reload service after changes
 ```
