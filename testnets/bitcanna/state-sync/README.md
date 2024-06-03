@@ -6,7 +6,7 @@
 
 ### Copy the entire command
 ```
-sudo systemctl stop d
+sudo systemctl stop bcnad
 SNAP_RPC="https://bitcanna-testnet.rpc.l0vd.com:443"; \
 LATEST_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height); \
 BLOCK_HEIGHT=$((LATEST_HEIGHT - 2000)); \
@@ -18,10 +18,10 @@ s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"$SNAP_RPC,$SNAP_RPC\"| ; \
 s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT| ; \
 s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" $HOME/.bcna/config/config.toml
 
-peers="@bitcanna-testnet.peers.l0vd.com:" \
+peers="74b83fd6b6661cc9c910b5c0dd5842843a62a3e5@bitcanna-testnet.peers.l0vd.com:30656" \
 && sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/.bcna/config/config.toml 
 
-d tendermint unsafe-reset-all --home ~/.bcna && sudo systemctl restart d && journalctl -u d -f --output cat
+bcnad tendermint unsafe-reset-all --home ~/.bcna && sudo systemctl restart bcnad && journalctl -u bcnad -f --output cat
 ```
 
 ### Turn off State Sync Mode after synchronization
