@@ -6,7 +6,7 @@
 
 ### Copy the entire command
 ```
-sudo systemctl stop gaiad
+sudo systemctl stop d
 SNAP_RPC="https://cosmoshub.rpc.kjnodes.com:443"; \
 LATEST_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height); \
 BLOCK_HEIGHT=$((LATEST_HEIGHT - 2000)); \
@@ -18,10 +18,10 @@ s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"$SNAP_RPC,$SNAP_RPC\"| ; \
 s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT| ; \
 s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" $HOME/.gaia/config/config.toml
 
-peers="d9bfa29e0cf9c4ce0cc9c26d98e5d97228f93b0b@cosmoshub-mainnet.peers.l0vd.com:13456" \
+peers="@cosmoshub-mainnet.peers.l0vd.com:" \
 && sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/.gaia/config/config.toml 
 
-gaiad tendermint unsafe-reset-all --home ~/.gaia && sudo systemctl restart gaiad && journalctl -u gaiad -f --output cat
+d tendermint unsafe-reset-all --home ~/.gaia && sudo systemctl restart d && journalctl -u d -f --output cat
 ```
 
 ### Turn off State Sync Mode after synchronization
