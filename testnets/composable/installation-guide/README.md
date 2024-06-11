@@ -26,7 +26,7 @@ cd $HOME
 rm -rf composable-centauri
 git clone https://github.com/notional-labs/composable-centauri.git
 cd composable-centauri
-git checkout v7.0.2-devnet-rc2
+git checkout v7.0.2
 make install
 ```
 
