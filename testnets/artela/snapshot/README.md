@@ -11,7 +11,7 @@ sudo apt install lz4 -y
 ## Sync from Snapshot  
 | Height  | Size | Pruning | Indexer | Creation Time (UTC+3) |
 | --------- | --------- | --------- | --------- | --------- |
-| 8531015  | 6.0 GB  | custom/100/0/10 | null | 2024-06-14_21:10:21 |
+| 8537298  | 6.0 GB  | custom/100/0/10 | null | 2024-06-15_01:04:58 |
 
 ```
 sudo systemctl stop artelad
