@@ -6,19 +6,19 @@ Please note that the values in <> must be changed to your own values
 
 ### Add new key
 ```
-bcnad keys add <key_name>
+nulld keys add <key_name>
 ```
 ### Recover keys from seed
 ```
-bcnad keys add <key_name> --recover
+nulld keys add <key_name> --recover
 ```
 ### Show all keys
 ```
-bcnad keys list
+nulld keys list
 ```
 ### Delete key
 ```
-bcnad keys delete <key_name>
+nulld keys delete <key_name>
 ```
 
 ## Node configuration
@@ -58,13 +58,13 @@ sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0ubcna\"/" $HOME/.b
 
 ### Create validator
 ```
-bcnad tx staking create-validator \
+nulld tx staking create-validator \
 --amount 1000000ubcna \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
---pubkey $(bcnad tendermint show-validator) \
+--pubkey $(nulld tendermint show-validator) \
 --moniker <BITCANNA_NODENAME> \
 --chain-id bitcanna-dev-1 \
 --from <BITCANNA_WALLET> \
@@ -78,7 +78,7 @@ bcnad tx staking create-validator \
 ```
 ### Edit validator
 ```
-bcnad tx staking edit-validator \
+nulld tx staking edit-validator \
 --new-moniker <BITCANNA_NODENAME> \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
@@ -93,97 +93,97 @@ bcnad tx staking edit-validator \
 ```
 ### View validator info
 ```
-bcnad q staking validator $(bcnad keys show <BITCANNA_WALLET> --bech val -a)
+nulld q staking validator $(nulld keys show <BITCANNA_WALLET> --bech val -a)
 ```
 ### Unjail validator
 ```
-bcnad tx slashing unjail --from <BITCANNA_WALLET> --chain-id bitcanna-dev-1 --gas-prices 0ubcna --gas-adjustment 1.5 --gas auto --yes 
+nulld tx slashing unjail --from <BITCANNA_WALLET> --chain-id bitcanna-dev-1 --gas-prices 0ubcna --gas-adjustment 1.5 --gas auto --yes 
 ```
 ### Signing info
 ```
-bcnad query slashing signing-info $(bcnad tendermint show-validator)
+nulld query slashing signing-info $(nulld tendermint show-validator)
 ```
 
 ## Token operations
 
 ### Send tokens
 ```
-bcnad tx bank send wallet <DEST_WALLET_ADDRESS> 100ubcna --from <BITCANNA_WALLET> --chain-id bitcanna-dev-1 --gas-prices 0ubcna --gas-adjustment 1.5 --gas auto --yes
+nulld tx bank send wallet <DEST_WALLET_ADDRESS> 100ubcna --from <BITCANNA_WALLET> --chain-id bitcanna-dev-1 --gas-prices 0ubcna --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to your validator
 ```
-bcnad tx staking delegate $(bcnad keys show <BITCANNA_WALLET> --bech val -a) 100ubcna --from <BITCANNA_WALLET> --chain-id bitcanna-dev-1 --gas-prices 0ubcna --gas-adjustment 1.5 --gas auto --yes
+nulld tx staking delegate $(nulld keys show <BITCANNA_WALLET> --bech val -a) 100ubcna --from <BITCANNA_WALLET> --chain-id bitcanna-dev-1 --gas-prices 0ubcna --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to another validator
 ```
-bcnad tx staking delegate <VALOPER_ADDRESS> 100ubcna --from <BITCANNA_WALLET> --chain-id bitcanna-dev-1 --gas-prices 0ubcna --gas-adjustment 1.5 --gas auto --yes
+nulld tx staking delegate <VALOPER_ADDRESS> 100ubcna --from <BITCANNA_WALLET> --chain-id bitcanna-dev-1 --gas-prices 0ubcna --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Redelegate tokens to another validator
 ```
-bcnad tx staking redelegate $(bcnad keys show <BITCANNA_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100ubcna --from <BITCANNA_WALLET> --chain-id bitcanna-dev-1 --gas-prices 0ubcna --gas-adjustment 1.5 --gas auto --yes
+nulld tx staking redelegate $(nulld keys show <BITCANNA_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100ubcna --from <BITCANNA_WALLET> --chain-id bitcanna-dev-1 --gas-prices 0ubcna --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Unbond tokens from staking
 ```
-bcnad tx staking unbond $(bcnad keys show <BITCANNA_WALLET> --bech val -a) 100ubcna --from <BITCANNA_WALLET> --chain-id bitcanna-dev-1 --gas-prices 0ubcna --gas-adjustment 1.5 --gas auto --yes
+nulld tx staking unbond $(nulld keys show <BITCANNA_WALLET> --bech val -a) 100ubcna --from <BITCANNA_WALLET> --chain-id bitcanna-dev-1 --gas-prices 0ubcna --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Withdraw all rewards from staking
 ```
-bcnad tx distribution withdraw-all-rewards --from <BITCANNA_WALLET> --chain-id bitcanna-dev-1 --gas-prices 0ubcna --gas-adjustment 1.5 --gas auto --yes
+nulld tx distribution withdraw-all-rewards --from <BITCANNA_WALLET> --chain-id bitcanna-dev-1 --gas-prices 0ubcna --gas-adjustment 1.5 --gas auto --yes
 ```
 
 ### Withdraw validator rewards and comission
 ```
-bcnad tx distribution withdraw-rewards $(bcnad keys show <BITCANNA_WALLET> --bech val -a) --commission --from wallet --chain-id bitcanna-dev-1 --gas-adjustment 1.5 --gas auto --gas-prices 0ubcna -y
+nulld tx distribution withdraw-rewards $(nulld keys show <BITCANNA_WALLET> --bech val -a) --commission --from wallet --chain-id bitcanna-dev-1 --gas-adjustment 1.5 --gas auto --gas-prices 0ubcna -y
 
 ```
 
 ## Governance
 ### Vote "YES"
 ```
-bcnad tx gov vote <proposal_id> yes --from <BITCANNA_WALLET> --chain-id bitcanna-dev-1 --gas-prices 0ubcna --gas-adjustment 1.5 --gas auto --yes
+nulld tx gov vote <proposal_id> yes --from <BITCANNA_WALLET> --chain-id bitcanna-dev-1 --gas-prices 0ubcna --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Vote "NO"
 ```
-bcnad tx gov vote <proposal_id> no --from <BITCANNA_WALLET> --chain-id bitcanna-dev-1 --gas-prices 0ubcna --gas-adjustment 1.5 --gas auto --yes
+nulld tx gov vote <proposal_id> no --from <BITCANNA_WALLET> --chain-id bitcanna-dev-1 --gas-prices 0ubcna --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Abstain from voting
 ```
-bcnad tx gov vote <proposal_id> abstain --from <BITCANNA_WALLET> --chain-id bitcanna-dev-1 --gas-adjustment 1.5 --gas auto --gas-prices 0ubcna -y
+nulld tx gov vote <proposal_id> abstain --from <BITCANNA_WALLET> --chain-id bitcanna-dev-1 --gas-adjustment 1.5 --gas auto --gas-prices 0ubcna -y
 ```
 
 
 ## General commands
 ### Check node status
 ```
-bcnad status | jq
+nulld status | jq
 ```
 ### Check service status
 ```
-sudo systemctl status bcnad
+sudo systemctl status nulld
 ```
 ### Check logs
 ```
-sudo journalctl -u bcnad -f --no-hostname -o cat
+sudo journalctl -u nulld -f --no-hostname -o cat
 ```
 ### Restart service
 ```
-sudo systemctl restart bcnad
+sudo systemctl restart nulld
 ```
 ### Stop service
 ```
-sudo systemctl stop bcnad
+sudo systemctl stop nulld
 ```
 ### Start service
 ```
-sudo systemctl start bcnad
+sudo systemctl start nulld
 ```
 ### Disable service
 ```
-sudo systemctl disable bcnad
+sudo systemctl disable nulld
 ```
 ### Enable service
 ```
-sudo systemctl enable bcnad
+sudo systemctl enable nulld
 ```
 ### Reload service after changes
 ```
