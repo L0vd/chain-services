@@ -14,7 +14,7 @@ Berachain is a high-performance EVM-compatible blockchain built on Proof-of-Liqu
 | ------ | ------ |
 | Chain-id | bartio-beacon-80084 |
 | Binary name | beacond |
-| CL Binary version | v0.2.0-alpha.1 |
+| CL Binary version (beacond) | v0.2.0-alpha.1 |
 | EL Binary version (geth) | 1.14.5-stable-0dd173a7 | 
 
 ##### Explorer
