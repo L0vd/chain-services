@@ -43,6 +43,8 @@
 
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/babylon.png" alt="" data-size="line"> [Babylon](testnets/babylon/)
 
+<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/Berachain.png" alt="" data-size="line"> [Berachain_v2](testnets/berachain_v2/)
+
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/bitcanna.png" alt="" data-size="line"> [Bitcanna](mainnets/bitcanna/)
 
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/bonusblock.jpg" alt="" data-size="line"> [BonusBlock](testnets/bonusblock/)
