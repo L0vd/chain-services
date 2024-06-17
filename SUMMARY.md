@@ -119,6 +119,7 @@
   * [Wallet bot](testnets/babylon/wallet-bot/README.md)
 * [Berachain v2](testnets/berachain_v2/README.md)
   * [Snapshot](testnets/berachain_v2/snapshot/README.md)
+  * [Archive snapshot](testnets/berachain_v2/archive_snapshot/README.md)
 * [Bitcanna](testnets/bitcanna/README.md)
   * [Installation](testnets/bitcanna/installation-guide/README.md)
   * [Snapshot](testnets/bitcanna/snapshot/README.md)
