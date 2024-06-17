@@ -27,7 +27,7 @@ Execution layer RPC
 [https://berachain-testnet-v2-el-eu.rpc.l0vd.com/](https://berachain-testnet-v2-el-eu.rpc.l0vd.com/)
 
 Beacon API
-[https://berachain-testnet-v2-cl-eu.api.l0vd.com/)
+[https://berachain-testnet-v2-cl-eu.api.l0vd.com/](https://berachain-testnet-v2-cl-eu.api.l0vd.com/)
 
 Beacon GRPC
 ```
