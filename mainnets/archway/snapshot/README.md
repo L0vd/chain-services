@@ -8,10 +8,10 @@ sudo apt update
 sudo apt install lz4 -y
 ```
 
-## Sync from Snapshot ⚠️ (Pebbledb) 
+## Sync from Snapshot
 | Height  | Size | Pruning | Indexer | Creation Time (UTC+3) |
 | --------- | --------- | --------- | --------- | --------- |
-| 5108098  | 1.34GB  | custom/100/0/10 | null | 2024-06-18T23:50:54 |
+| 5108167  | 1.35GB  | custom/100/0/10 | null | 2024-06-18T23:57:47 |
 
 ```
 sudo systemctl stop archwayd
