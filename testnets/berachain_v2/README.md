@@ -35,6 +35,21 @@ Beacon GRPC
 berachain-testnet-v2-cl-eu.grpc.l0vd.com
 ```
 
+##### Archive Endpoints
+Archive Beacon RPC
+[https://berachain-testnet-v2-cl-archive.rpc.l0vd.com/](https://berachain-testnet-v2-cl-archive.rpc.l0vd.com/)
+
+Archive Execution layer RPC
+[https://berachain-testnet-v2-el-archive.rpc.l0vd.com/](https://berachain-testnet-v2-el-archive.rpc.l0vd.com/)
+
+Archive Beacon API
+[https://berachain-testnet-v2-cl-archive.api.l0vd.com/](https://berachain-testnet-v2-cl-archive.api.l0vd.com/)
+
+Archive Beacon GRPC
+```
+berachain-testnet-v2-cl-archive.grpc.l0vd.com
+```
+
 Beacon SEEDS
 ```
 6b5040a0e1b29a2cca224b64829d8f3d8796a3e3@berachain-testnet-v2-2.seed.l0vd.com:21656, 4f93da5553f0dfaafb620532901e082255ec3ad3@berachain-testnet-v2-1.seed.l0vd.com:61656
