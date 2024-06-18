@@ -45,6 +45,11 @@ Archive Execution layer RPC
 Archive Beacon API
 [https://berachain-testnet-v2-cl-archive.api.l0vd.com/](https://berachain-testnet-v2-cl-archive.api.l0vd.com/)
 
+Addrbook
+```
+curl -Ls https://berachain-pruned-snapshots.l0vd.com/testnets/berachain_v2/bartio-beacon-80084/addrbook.json > $HOME/.beacond/config/addrbook.json
+```
+
 Archive Beacon GRPC
 ```
 berachain-testnet-v2-cl-archive.grpc.l0vd.com:443
