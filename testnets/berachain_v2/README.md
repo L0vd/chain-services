@@ -32,7 +32,7 @@ Beacon API
 
 Beacon GRPC
 ```
-berachain-testnet-v2-cl-eu.grpc.l0vd.com
+berachain-testnet-v2-cl-eu.grpc.l0vd.com:443
 ```
 
 ##### Archive Endpoints
@@ -47,7 +47,7 @@ Archive Beacon API
 
 Archive Beacon GRPC
 ```
-berachain-testnet-v2-cl-archive.grpc.l0vd.com
+berachain-testnet-v2-cl-archive.grpc.l0vd.com:443
 ```
 
 Beacon SEEDS
