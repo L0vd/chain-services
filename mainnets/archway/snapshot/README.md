@@ -11,7 +11,7 @@ sudo apt install lz4 -y
 ## Sync from Snapshot
 | Height  | Size | Pruning | Indexer | Creation Time (UTC+3) |
 | --------- | --------- | --------- | --------- | --------- |
-| 5108167  | 1.35GB  | custom/100/0/10 | null | 2024-06-18T23:57:47 |
+| 5117777  | 1.43GB  | custom/100/0/10 | null | 2024-06-19T15:46:04 |
 
 ```
 sudo systemctl stop archwayd
@@ -28,4 +28,9 @@ mv $HOME/.archway/priv_validator_state.json.backup $HOME/.archway/data/priv_vali
 
 sudo systemctl restart archwayd
 sudo journalctl -u archwayd -f --no-hostname -o cat
+```
+
+## Wasm
+```
+curl https://snapshots.l0vd.com/mainnets/archway/archway-1/wasm.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.archway/wasm
 ```
