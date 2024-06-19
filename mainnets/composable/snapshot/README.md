@@ -8,23 +8,29 @@ sudo apt update
 sudo apt install lz4 -y
 ```
 
-## Sync from Snapshot  
+## Sync from Snapshot
 | Height  | Size | Pruning | Indexer | Creation Time (UTC+3) |
 | --------- | --------- | --------- | --------- | --------- |
-| 5076123  | 0.9 GB  | custom/100/0/10 | null | 2024-05-08_14:05:27 |
+| 5717033  | 0.0GB  | custom/100/0/10 | null | 2024-06-19T17:25:20 |
 
 ```
-sudo systemctl stop centaurid
+sudo systemctl stop picad
 
-cp $HOME/.banksy/data/priv_validator_state.json $HOME/.banksy/priv_validator_state.json.backup
-centaurid tendermint unsafe-reset-all --home $HOME/.banksy --keep-addr-book
+cp $HOME/.picad/data/priv_validator_state.json $HOME/.picad/priv_validator_state.json.backup
+${BINARY_NAME} tendermint unsafe-reset-all --home $HOME/.picad --keep-addr-book
 
-rm -rf $HOME/.banksy/data 
+rm -rf $HOME/.picad/data 
 
-SNAP_NAME=$(curl -s https://snapshots.l0vd.com/composable-mainnet/ | egrep -o ">centauri-1.*\.tar.lz4" | tr -d ">")
-curl https://snapshots.l0vd.com/composable-mainnet/${SNAP_NAME} | lz4 -dc - | tar -xf - -C $HOME/.banksy
+SNAP_NAME=$(curl -s https://snapshots.l0vd.com/mainnets/composable/centauri-1/ | egrep -o ">centauri-1.*\.tar.lz4" | tr -d ">")
+curl https://snapshots.l0vd.com/mainnets/composable/centauri-1/${SNAP_NAME} | lz4 -dc - | tar -xf - -C $HOME/.picad
 
-mv $HOME/.banksy/priv_validator_state.json.backup $HOME/.banksy/data/priv_validator_state.json
+mv $HOME/.picad/priv_validator_state.json.backup $HOME/.picad/data/priv_validator_state.json
 
-sudo systemctl restart centaurid
-sudo journalctl -u centaurid -f --no-hostname -o cat
+sudo systemctl restart picad
+sudo journalctl -u picad -f --no-hostname -o cat
+```
+
+## Wasm
+```
+curl https://snapshots.l0vd.com/mainnets/composable/centauri-1/wasm_client_data.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.picad/wasm_client_data
+```
