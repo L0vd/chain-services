@@ -8,23 +8,24 @@ sudo apt update
 sudo apt install lz4 -y
 ```
 
-## Sync from Snapshot  
+## Sync from Snapshot
 | Height  | Size | Pruning | Indexer | Creation Time (UTC+3) |
 | --------- | --------- | --------- | --------- | --------- |
-| 13844898  | 0.5 GB  | custom/100/0/10 | null | 2024-05-10_15:19:55 |
+| 14431927  | 0.56GB  | custom/100/0/10 | null | 2024-06-19T20:57:41 |
 
 ```
 sudo systemctl stop bcnad
 
 cp $HOME/.bcna/data/priv_validator_state.json $HOME/.bcna/priv_validator_state.json.backup
-bcnad tendermint unsafe-reset-all --home $HOME/.bcna --keep-addr-book
+${BINARY_NAME} tendermint unsafe-reset-all --home $HOME/.bcna --keep-addr-book
 
 rm -rf $HOME/.bcna/data 
 
-SNAP_NAME=$(curl -s https://snapshots.l0vd.com/bitcanna-mainnet/ | egrep -o ">bitcanna-1.*\.tar.lz4" | tr -d ">")
-curl https://snapshots.l0vd.com/bitcanna-mainnet/${SNAP_NAME} | lz4 -dc - | tar -xf - -C $HOME/.bcna
+SNAP_NAME=$(curl -s https://snapshots.l0vd.com/mainnets/bitcanna/bitcanna-1/ | egrep -o ">bitcanna-1.*\.tar.lz4" | tr -d ">")
+curl https://snapshots.l0vd.com/mainnets/bitcanna/bitcanna-1/${SNAP_NAME} | lz4 -dc - | tar -xf - -C $HOME/.bcna
 
 mv $HOME/.bcna/priv_validator_state.json.backup $HOME/.bcna/data/priv_validator_state.json
 
 sudo systemctl restart bcnad
 sudo journalctl -u bcnad -f --no-hostname -o cat
+```
