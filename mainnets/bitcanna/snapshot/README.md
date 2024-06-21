@@ -11,7 +11,7 @@ sudo apt install lz4 -y
 ## Sync from Snapshot
 | Height  | Size | Pruning | Indexer | Creation Time (UTC+3) |
 | --------- | --------- | --------- | --------- | --------- |
-| 14458416  | 0.54GB  | custom/100/0/10 | null | 2024-06-21T16:06:35 |
+| 14460952  | 0.62GB  | custom/100/0/10 | null | 2024-06-21T20:14:43 |
 
 ```
 sudo systemctl stop bcnad
