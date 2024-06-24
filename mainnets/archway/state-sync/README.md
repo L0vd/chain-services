@@ -6,7 +6,7 @@
 
 ### Copy the entire command
 ```
-sudo systemctl stop archwayd
+sudo systemctl stop archway
 SNAP_RPC="https://archway-mainnet.rpc.l0vd.com:443"; \
 LATEST_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height); \
 BLOCK_HEIGHT=$((LATEST_HEIGHT - 2000)); \
@@ -18,10 +18,10 @@ s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"$SNAP_RPC,$SNAP_RPC\"| ; \
 s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT| ; \
 s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" $HOME/.archway/config/config.toml
 
-peers="@archway-mainnet.peers.l0vd.com:" \
+peers="68cac650b02d5f62fa1365cff979da7977abea26@archway-mainnet.peers.l0vd.com:26656" \
 && sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/.archway/config/config.toml 
 
-archwayd tendermint unsafe-reset-all --home ~/.archway && sudo systemctl restart archwayd && journalctl -u archwayd -f --output cat
+archway tendermint unsafe-reset-all --home ~/.archway && sudo systemctl restart archway && journalctl -u archway -f --output cat
 ```
 
 ### Turn off State Sync Mode after synchronization
