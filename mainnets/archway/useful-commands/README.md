@@ -6,19 +6,19 @@ Please note that the values in <> must be changed to your own values
 
 ### Add new key
 ```
-archway keys add <key_name>
+archwayd keys add <key_name>
 ```
 ### Recover keys from seed
 ```
-archway keys add <key_name> --recover
+archwayd keys add <key_name> --recover
 ```
 ### Show all keys
 ```
-archway keys list
+archwayd keys list
 ```
 ### Delete key
 ```
-archway keys delete <key_name>
+archwayd keys delete <key_name>
 ```
 
 ## Node configuration
@@ -58,15 +58,15 @@ sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"1000000000000aarch\
 
 ### Create validator
 ```
-archway tx staking create-validator \
+archwayd tx staking create-validator \
 --amount 1000000aarch \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
---pubkey $(archway tendermint show-validator) \
+--pubkey $(archwayd tendermint show-validator) \
 --moniker <ARCHWAY_NODENAME> \
---chain-id archway-1 \
+--chain-id  \
 --from <ARCHWAY_WALLET> \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
@@ -78,12 +78,12 @@ archway tx staking create-validator \
 ```
 ### Edit validator
 ```
-archway tx staking edit-validator \
+archwayd tx staking edit-validator \
 --new-moniker <ARCHWAY_NODENAME> \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
 --website <YOUR_WEBSITE> \
---chain-id archway-1 \
+--chain-id  \
 --commission-rate 0.05 \
 --from <ARCHWAY_WALLET> \
 --gas-prices 1000000000000aarch \
@@ -93,97 +93,97 @@ archway tx staking edit-validator \
 ```
 ### View validator info
 ```
-archway q staking validator $(archway keys show <ARCHWAY_WALLET> --bech val -a)
+archwayd q staking validator $(archwayd keys show <ARCHWAY_WALLET> --bech val -a)
 ```
 ### Unjail validator
 ```
-archway tx slashing unjail --from <ARCHWAY_WALLET> --chain-id archway-1 --gas-prices 1000000000000aarch --gas-adjustment 1.5 --gas auto --yes 
+archwayd tx slashing unjail --from <ARCHWAY_WALLET> --chain-id  --gas-prices 1000000000000aarch --gas-adjustment 1.5 --gas auto --yes 
 ```
 ### Signing info
 ```
-archway query slashing signing-info $(archway tendermint show-validator)
+archwayd query slashing signing-info $(archwayd tendermint show-validator)
 ```
 
 ## Token operations
 
 ### Send tokens
 ```
-archway tx bank send wallet <DEST_WALLET_ADDRESS> 100aarch --from <ARCHWAY_WALLET> --chain-id archway-1 --gas-prices 1000000000000aarch --gas-adjustment 1.5 --gas auto --yes
+archwayd tx bank send wallet <DEST_WALLET_ADDRESS> 100aarch --from <ARCHWAY_WALLET> --chain-id  --gas-prices 1000000000000aarch --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to your validator
 ```
-archway tx staking delegate $(archway keys show <ARCHWAY_WALLET> --bech val -a) 100aarch --from <ARCHWAY_WALLET> --chain-id archway-1 --gas-prices 1000000000000aarch --gas-adjustment 1.5 --gas auto --yes
+archwayd tx staking delegate $(archwayd keys show <ARCHWAY_WALLET> --bech val -a) 100aarch --from <ARCHWAY_WALLET> --chain-id  --gas-prices 1000000000000aarch --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to another validator
 ```
-archway tx staking delegate <VALOPER_ADDRESS> 100aarch --from <ARCHWAY_WALLET> --chain-id archway-1 --gas-prices 1000000000000aarch --gas-adjustment 1.5 --gas auto --yes
+archwayd tx staking delegate <VALOPER_ADDRESS> 100aarch --from <ARCHWAY_WALLET> --chain-id  --gas-prices 1000000000000aarch --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Redelegate tokens to another validator
 ```
-archway tx staking redelegate $(archway keys show <ARCHWAY_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100aarch --from <ARCHWAY_WALLET> --chain-id archway-1 --gas-prices 1000000000000aarch --gas-adjustment 1.5 --gas auto --yes
+archwayd tx staking redelegate $(archwayd keys show <ARCHWAY_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100aarch --from <ARCHWAY_WALLET> --chain-id  --gas-prices 1000000000000aarch --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Unbond tokens from staking
 ```
-archway tx staking unbond $(archway keys show <ARCHWAY_WALLET> --bech val -a) 100aarch --from <ARCHWAY_WALLET> --chain-id archway-1 --gas-prices 1000000000000aarch --gas-adjustment 1.5 --gas auto --yes
+archwayd tx staking unbond $(archwayd keys show <ARCHWAY_WALLET> --bech val -a) 100aarch --from <ARCHWAY_WALLET> --chain-id  --gas-prices 1000000000000aarch --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Withdraw all rewards from staking
 ```
-archway tx distribution withdraw-all-rewards --from <ARCHWAY_WALLET> --chain-id archway-1 --gas-prices 1000000000000aarch --gas-adjustment 1.5 --gas auto --yes
+archwayd tx distribution withdraw-all-rewards --from <ARCHWAY_WALLET> --chain-id  --gas-prices 1000000000000aarch --gas-adjustment 1.5 --gas auto --yes
 ```
 
 ### Withdraw validator rewards and comission
 ```
-archway tx distribution withdraw-rewards $(archway keys show <ARCHWAY_WALLET> --bech val -a) --commission --from wallet --chain-id archway-1 --gas-adjustment 1.5 --gas auto --gas-prices 1000000000000aarch -y
+archwayd tx distribution withdraw-rewards $(archwayd keys show <ARCHWAY_WALLET> --bech val -a) --commission --from wallet --chain-id  --gas-adjustment 1.5 --gas auto --gas-prices 1000000000000aarch -y
 
 ```
 
 ## Governance
 ### Vote "YES"
 ```
-archway tx gov vote <proposal_id> yes --from <ARCHWAY_WALLET> --chain-id archway-1 --gas-prices 1000000000000aarch --gas-adjustment 1.5 --gas auto --yes
+archwayd tx gov vote <proposal_id> yes --from <ARCHWAY_WALLET> --chain-id  --gas-prices 1000000000000aarch --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Vote "NO"
 ```
-archway tx gov vote <proposal_id> no --from <ARCHWAY_WALLET> --chain-id archway-1 --gas-prices 1000000000000aarch --gas-adjustment 1.5 --gas auto --yes
+archwayd tx gov vote <proposal_id> no --from <ARCHWAY_WALLET> --chain-id  --gas-prices 1000000000000aarch --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Abstain from voting
 ```
-archway tx gov vote <proposal_id> abstain --from <ARCHWAY_WALLET> --chain-id archway-1 --gas-adjustment 1.5 --gas auto --gas-prices 1000000000000aarch -y
+archwayd tx gov vote <proposal_id> abstain --from <ARCHWAY_WALLET> --chain-id  --gas-adjustment 1.5 --gas auto --gas-prices 1000000000000aarch -y
 ```
 
 
 ## General commands
 ### Check node status
 ```
-archway status | jq
+archwayd status | jq
 ```
 ### Check service status
 ```
-sudo systemctl status archway
+sudo systemctl status archwayd
 ```
 ### Check logs
 ```
-sudo journalctl -u archway -f --no-hostname -o cat
+sudo journalctl -u archwayd -f --no-hostname -o cat
 ```
 ### Restart service
 ```
-sudo systemctl restart archway
+sudo systemctl restart archwayd
 ```
 ### Stop service
 ```
-sudo systemctl stop archway
+sudo systemctl stop archwayd
 ```
 ### Start service
 ```
-sudo systemctl start archway
+sudo systemctl start archwayd
 ```
 ### Disable service
 ```
-sudo systemctl disable archway
+sudo systemctl disable archwayd
 ```
 ### Enable service
 ```
-sudo systemctl enable archway
+sudo systemctl enable archwayd
 ```
 ### Reload service after changes
 ```

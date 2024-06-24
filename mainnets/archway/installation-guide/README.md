@@ -26,7 +26,7 @@ cd $HOME
 rm -rf archway
 git clone https://github.com/archway-network/archway.git
 cd archway
-git checkout vv7.0.0
+git checkout v
 make install
 ```
 
@@ -39,7 +39,7 @@ You should replace values in <> <br />
 ```
 ARCHWAY_WALLET="<YOUR_WALLET_NAME>"
 ARCHWAY_NODENAME="<YOUR_MONIKER>"
-ARCHWAY_CHAIN_ID="archway-1"
+ARCHWAY_CHAIN_ID=""
 ```
 
 ```
@@ -55,12 +55,12 @@ source $HOME/.bash_profile
 
 ### Configure your node
 ```
-archway config chain-id ${ARCHWAY_CHAIN_ID}
+archwayd config chain-id ${ARCHWAY_CHAIN_ID}
 ```
 
 ### Initialize your node
 ```
-archway init ${ARCHWAY_NODENAME} --chain-id ${ARCHWAY_CHAIN_ID}
+archwayd init ${ARCHWAY_NODENAME} --chain-id ${ARCHWAY_CHAIN_ID}
 ```
 
 ### Download genesis & addrbook
@@ -80,7 +80,7 @@ sed -i.bak -e "s%^proxy_app = \"tcp://127.0.0.1:26658\"%proxy_app = \"tcp://127.
 sed -i.bak -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:${ARCHWAY_PORT}317\"%; s%^address = \"tcp://localhost:1317\"%address = \"tcp://0.0.0.0:${ARCHWAY_PORT}317\"%; s%^address = \":8080\"%address = \":${ARCHWAY_PORT}080\"%; s%^address = \"0.0.0.0:9090\"%address = \"0.0.0.0:${ARCHWAY_PORT}090\"%; s%^address = \"localhost:9090\"%address = \"localhost:${ARCHWAY_PORT}090\"%; s%^address = \"0.0.0.0:9091\"%address = \"0.0.0.0:${ARCHWAY_PORT}091\"%; s%^address = \"localhost:9091\"%address = \"localhost:${ARCHWAY_PORT}091\"%; s%^address = \"0.0.0.0:8545\"%address = \"0.0.0.0:${ARCHWAY_PORT}545\"%; s%^ws-address = \"0.0.0.0:8546\"%ws-address = \"0.0.0.0:${ARCHWAY_PORT}546\"%" /$HOME/.archway/config/app.toml
 ```
 ```
-archway config node tcp://localhost:${ARCHWAY_PORT}657
+archwayd config node tcp://localhost:${ARCHWAY_PORT}657
 ```
 
 ### Set seeds and peers
@@ -109,14 +109,14 @@ sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.archway/config/config.tom
 
 ### Create Service
 ```
-sudo tee /etc/systemd/system/archway.service > /dev/null <<EOF
+sudo tee /etc/systemd/system/archwayd.service > /dev/null <<EOF
 [Unit]
 Description=Archway mainnet
 After=network-online.target
 
 [Service]
 User=$USER
-ExecStart=$(which archway) start
+ExecStart=$(which archwayd) start
 Restart=on-failure
 RestartSec=3
 LimitNOFILE=65535
@@ -129,9 +129,9 @@ EOF
 ### Reset blockchain info and restart your node
 ```
 sudo systemctl daemon-reload
-sudo systemctl enable archway
-archway tendermint unsafe-reset-all --home $HOME/.archway --keep-addr-book
-sudo systemctl restart archway && sudo journalctl -u archway -f -o cat
+sudo systemctl enable archwayd
+archwayd tendermint unsafe-reset-all --home $HOME/.archway --keep-addr-book
+sudo systemctl restart archwayd && sudo journalctl -u archwayd -f -o cat
 ```
 
 ### (OPTIONAL) Use State Sync
@@ -143,17 +143,17 @@ sudo systemctl restart archway && sudo journalctl -u archway -f -o cat
 
 #### 1. Add a new key
 ```
-archway keys add ${ARCHWAY_WALLET}
+archwayd keys add ${ARCHWAY_WALLET}
 ```
 ##### (OR)
 
 #### 1. Recover your key
 ```
-archway keys add ${ARCHWAY_WALLET} --recover
+archwayd keys add ${ARCHWAY_WALLET} --recover
 ```
 
 ```
-ARCHWAY_WALLET_ADDR=$(archway keys show ${ARCHWAY_WALLET} -a)
+ARCHWAY_WALLET_ADDR=$(archwayd keys show ${ARCHWAY_WALLET} -a)
 echo "export ARCHWAY_WALLET_ADDR=${ARCHWAY_WALLET_ADDR}" >> $HOME/.bash_profile
 
 source $HOME/.bash_profile
@@ -167,14 +167,14 @@ Wait until the node is synchronized.
 {% endhint %}
 
 ```
-archway tx staking create-validator \
+archwayd tx staking create-validator \
 --amount 1000000aarch \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
 --details "" \
---pubkey $(archway tendermint show-validator) \
+--pubkey $(archwayd tendermint show-validator) \
 --moniker ${ARCHWAY_NODENAME} \
 --chain-id ${ARCHWAY_CHAIN_ID} \
 --from ${ARCHWAY_WALLET_ADDR} \
