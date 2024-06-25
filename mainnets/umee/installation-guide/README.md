@@ -26,7 +26,7 @@ cd $HOME
 rm -rf umee
 git clone https://github.com/umee-network/umee.git
 cd umee
-git checkout v1.0.5
+git checkout v6.4.1
 make install
 ```
 
@@ -39,7 +39,7 @@ You should replace values in <> <br />
 ```
 UMEE_WALLET="<YOUR_WALLET_NAME>"
 UMEE_NODENAME="<YOUR_MONIKER>"
-UMEE_CHAIN_ID=""
+UMEE_CHAIN_ID="umee-1"
 ```
 
 ```
@@ -55,12 +55,12 @@ source $HOME/.bash_profile
 
 ### Configure your node
 ```
-noisd config chain-id ${UMEE_CHAIN_ID}
+umeed config chain-id ${UMEE_CHAIN_ID}
 ```
 
 ### Initialize your node
 ```
-noisd init ${UMEE_NODENAME} --chain-id ${UMEE_CHAIN_ID}
+umeed init ${UMEE_NODENAME} --chain-id ${UMEE_CHAIN_ID}
 ```
 
 ### Download genesis & addrbook
@@ -107,14 +107,14 @@ sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.umee/config/config.toml
 
 ### Create Service
 ```
-sudo tee /etc/systemd/system/noisd.service > /dev/null <<EOF
+sudo tee /etc/systemd/system/umeed.service > /dev/null <<EOF
 [Unit]
 Description=Umee mainnet
 After=network-online.target
 
 [Service]
 User=$USER
-ExecStart=$(which noisd) start
+ExecStart=$(which umeed) start
 Restart=on-failure
 RestartSec=3
 LimitNOFILE=65535
@@ -127,9 +127,9 @@ EOF
 ### Reset blockchain info and restart your node
 ```
 sudo systemctl daemon-reload
-sudo systemctl enable noisd
-noisd tendermint unsafe-reset-all --home $HOME/.umee --keep-addr-book
-sudo systemctl restart noisd && sudo journalctl -u noisd -f -o cat
+sudo systemctl enable umeed
+umeed tendermint unsafe-reset-all --home $HOME/.umee --keep-addr-book
+sudo systemctl restart umeed && sudo journalctl -u umeed -f -o cat
 ```
 
 ### (OPTIONAL) Use State Sync
@@ -141,17 +141,17 @@ sudo systemctl restart noisd && sudo journalctl -u noisd -f -o cat
 
 #### 1. Add a new key
 ```
-noisd keys add ${UMEE_WALLET}
+umeed keys add ${UMEE_WALLET}
 ```
 ##### (OR)
 
 #### 1. Recover your key
 ```
-noisd keys add ${UMEE_WALLET} --recover
+umeed keys add ${UMEE_WALLET} --recover
 ```
 
 ```
-UMEE_WALLET_ADDR=$(noisd keys show ${UMEE_WALLET} -a)
+UMEE_WALLET_ADDR=$(umeed keys show ${UMEE_WALLET} -a)
 echo "export UMEE_WALLET_ADDR=${UMEE_WALLET_ADDR}" >> $HOME/.bash_profile
 
 source $HOME/.bash_profile
@@ -165,14 +165,14 @@ Wait until the node is synchronized.
 {% endhint %}
 
 ```
-noisd tx staking create-validator \
+umeed tx staking create-validator \
 --amount 1000000uumee \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
 --details "" \
---pubkey $(noisd tendermint show-validator) \
+--pubkey $(umeed tendermint show-validator) \
 --moniker ${UMEE_NODENAME} \
 --chain-id ${UMEE_CHAIN_ID} \
 --from ${UMEE_WALLET_ADDR} \
@@ -248,7 +248,7 @@ source $HOME/.bash_profile
 ```
 sed -i "s/^listen_addr *=.*/listen_addr = \"0.0.0.0:7173\"/;\
 s/^address *=.*/address = \"$UMEE_PFD_WALLET\"/;\
-s/^chain_id *=.*/chain_id = \"\"/;\
+s/^chain_id *=.*/chain_id = \"umee-1\"/;\
 s/^validator *=.*/validator = \"$UMEE_VALOPER\"/;\
 s/^backend *=.*/backend = \"os\"/;\
 s|^dir *=.*|dir = \"${UMEE_HOME}\"|;\
