@@ -11,7 +11,7 @@ sudo apt install lz4 -y
 ## Sync from Snapshot
 | Height  | Size | Pruning | Indexer | Creation Time (UTC+3) |
 | --------- | --------- | --------- | --------- | --------- |
-| 12529319  | 1.68GB  | custom/100/0/10 | null | 2024-06-26T20:10:42 |
+| 12532305  | 1.87GB  | custom/100/0/10 | null | 2024-06-27T01:03:34 |
 
 ```
 sudo systemctl stop umeed
@@ -28,9 +28,4 @@ mv $HOME/.umee/priv_validator_state.json.backup $HOME/.umee/data/priv_validator_
 
 sudo systemctl restart umeed
 sudo journalctl -u umeed -f --no-hostname -o cat
-```
-
-## Wasm
-```
-curl https://snapshots.l0vd.com/mainnets/umee/umee-1/wasm.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.umee/wasm
 ```
