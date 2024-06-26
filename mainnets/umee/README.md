@@ -12,7 +12,7 @@ Umee is a layer-one blockchain built on Cosmos designed to create a universal cr
 
 |  |  |
 | ------ | ------ |
-| Chain-id | umee-1 |
+| Chain-id |  |
 | Binary name | umeed |
 | Binary version | v6.4.1 |
 

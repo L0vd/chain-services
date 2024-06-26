@@ -39,7 +39,7 @@ You should replace values in <> <br />
 ```
 UMEE_WALLET="<YOUR_WALLET_NAME>"
 UMEE_NODENAME="<YOUR_MONIKER>"
-UMEE_CHAIN_ID="umee-1"
+UMEE_CHAIN_ID=""
 ```
 
 ```
@@ -248,7 +248,7 @@ source $HOME/.bash_profile
 ```
 sed -i "s/^listen_addr *=.*/listen_addr = \"0.0.0.0:7173\"/;\
 s/^address *=.*/address = \"$UMEE_PFD_WALLET\"/;\
-s/^chain_id *=.*/chain_id = \"umee-1\"/;\
+s/^chain_id *=.*/chain_id = \"\"/;\
 s/^validator *=.*/validator = \"$UMEE_VALOPER\"/;\
 s/^backend *=.*/backend = \"os\"/;\
 s|^dir *=.*|dir = \"${UMEE_HOME}\"|;\
