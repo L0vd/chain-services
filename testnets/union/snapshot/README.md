@@ -11,7 +11,7 @@ sudo apt install lz4 -y
 ## Sync from Snapshot
 | Height  | Size | Pruning | Indexer | Creation Time (UTC+3) |
 | --------- | --------- | --------- | --------- | --------- |
-| 999701  | 0.26GB  | custom/100/0/10 | null | 2024-06-20T20:37:56 |
+| 1094075  | 0.15GB  | custom/100/0/10 | null | 2024-06-26T23:44:57 |
 
 ```
 sudo systemctl stop uniond
@@ -28,9 +28,4 @@ mv $HOME/.union/priv_validator_state.json.backup $HOME/.union/data/priv_validato
 
 sudo systemctl restart uniond
 sudo journalctl -u uniond -f --no-hostname -o cat
-```
-
-## Wasm
-```
-curl https://snapshots.l0vd.com/testnets/union/union-testnet-8/wasm.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.union/wasm
 ```
