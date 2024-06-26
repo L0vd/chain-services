@@ -18,7 +18,7 @@ s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"$SNAP_RPC,$SNAP_RPC\"| ; \
 s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT| ; \
 s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" $HOME/.bcna/config/config.toml
 
-peers="6ae1dfa46884560e13962d73462e5bda0bb8c019@bitcanna-mainnet.peers.l0vd.com:17656" \
+peers="858b5cf31f1cc5e6b4da25bb21d4b58b76460038@bitcanna-mainnet.peers.l0vd.com:12656" \
 && sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/.bcna/config/config.toml 
 
 bcnad tendermint unsafe-reset-all --home ~/.bcna && sudo systemctl restart bcnad && journalctl -u bcnad -f --output cat
