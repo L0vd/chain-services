@@ -6,19 +6,19 @@ Please note that the values in <> must be changed to your own values
 
 ### Add new key
 ```
-noisd keys add <key_name>
+umeed keys add <key_name>
 ```
 ### Recover keys from seed
 ```
-noisd keys add <key_name> --recover
+umeed keys add <key_name> --recover
 ```
 ### Show all keys
 ```
-noisd keys list
+umeed keys list
 ```
 ### Delete key
 ```
-noisd keys delete <key_name>
+umeed keys delete <key_name>
 ```
 
 ## Node configuration
@@ -58,13 +58,13 @@ sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.2uumee\"/" $HOME/
 
 ### Create validator
 ```
-noisd tx staking create-validator \
+umeed tx staking create-validator \
 --amount 1000000uumee \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
---pubkey $(noisd tendermint show-validator) \
+--pubkey $(umeed tendermint show-validator) \
 --moniker <UMEE_NODENAME> \
 --chain-id umee-1 \
 --from <UMEE_WALLET> \
@@ -78,7 +78,7 @@ noisd tx staking create-validator \
 ```
 ### Edit validator
 ```
-noisd tx staking edit-validator \
+umeed tx staking edit-validator \
 --new-moniker <UMEE_NODENAME> \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
@@ -93,62 +93,62 @@ noisd tx staking edit-validator \
 ```
 ### View validator info
 ```
-noisd q staking validator $(noisd keys show <UMEE_WALLET> --bech val -a)
+umeed q staking validator $(umeed keys show <UMEE_WALLET> --bech val -a)
 ```
 ### Unjail validator
 ```
-noisd tx slashing unjail --from <UMEE_WALLET> --chain-id umee-1 --gas-prices 0.2uumee --gas-adjustment 1.5 --gas auto --yes 
+umeed tx slashing unjail --from <UMEE_WALLET> --chain-id umee-1 --gas-prices 0.2uumee --gas-adjustment 1.5 --gas auto --yes 
 ```
 ### Signing info
 ```
-noisd query slashing signing-info $(noisd tendermint show-validator)
+umeed query slashing signing-info $(umeed tendermint show-validator)
 ```
 
 ## Token operations
 
 ### Send tokens
 ```
-noisd tx bank send wallet <DEST_WALLET_ADDRESS> 100uumee --from <UMEE_WALLET> --chain-id umee-1 --gas-prices 0.2uumee --gas-adjustment 1.5 --gas auto --yes
+umeed tx bank send wallet <DEST_WALLET_ADDRESS> 100uumee --from <UMEE_WALLET> --chain-id umee-1 --gas-prices 0.2uumee --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to your validator
 ```
-noisd tx staking delegate $(noisd keys show <UMEE_WALLET> --bech val -a) 100uumee --from <UMEE_WALLET> --chain-id umee-1 --gas-prices 0.2uumee --gas-adjustment 1.5 --gas auto --yes
+umeed tx staking delegate $(umeed keys show <UMEE_WALLET> --bech val -a) 100uumee --from <UMEE_WALLET> --chain-id umee-1 --gas-prices 0.2uumee --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to another validator
 ```
-noisd tx staking delegate <VALOPER_ADDRESS> 100uumee --from <UMEE_WALLET> --chain-id umee-1 --gas-prices 0.2uumee --gas-adjustment 1.5 --gas auto --yes
+umeed tx staking delegate <VALOPER_ADDRESS> 100uumee --from <UMEE_WALLET> --chain-id umee-1 --gas-prices 0.2uumee --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Redelegate tokens to another validator
 ```
-noisd tx staking redelegate $(noisd keys show <UMEE_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100uumee --from <UMEE_WALLET> --chain-id umee-1 --gas-prices 0.2uumee --gas-adjustment 1.5 --gas auto --yes
+umeed tx staking redelegate $(umeed keys show <UMEE_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100uumee --from <UMEE_WALLET> --chain-id umee-1 --gas-prices 0.2uumee --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Unbond tokens from staking
 ```
-noisd tx staking unbond $(noisd keys show <UMEE_WALLET> --bech val -a) 100uumee --from <UMEE_WALLET> --chain-id umee-1 --gas-prices 0.2uumee --gas-adjustment 1.5 --gas auto --yes
+umeed tx staking unbond $(umeed keys show <UMEE_WALLET> --bech val -a) 100uumee --from <UMEE_WALLET> --chain-id umee-1 --gas-prices 0.2uumee --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Withdraw all rewards from staking
 ```
-noisd tx distribution withdraw-all-rewards --from <UMEE_WALLET> --chain-id umee-1 --gas-prices 0.2uumee --gas-adjustment 1.5 --gas auto --yes
+umeed tx distribution withdraw-all-rewards --from <UMEE_WALLET> --chain-id umee-1 --gas-prices 0.2uumee --gas-adjustment 1.5 --gas auto --yes
 ```
 
 ### Withdraw validator rewards and comission
 ```
-noisd tx distribution withdraw-rewards $(noisd keys show <UMEE_WALLET> --bech val -a) --commission --from wallet --chain-id umee-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.2uumee -y
+umeed tx distribution withdraw-rewards $(umeed keys show <UMEE_WALLET> --bech val -a) --commission --from wallet --chain-id umee-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.2uumee -y
 
 ```
 
 ## Governance
 ### Vote "YES"
 ```
-noisd tx gov vote <proposal_id> yes --from <UMEE_WALLET> --chain-id umee-1 --gas-prices 0.2uumee --gas-adjustment 1.5 --gas auto --yes
+umeed tx gov vote <proposal_id> yes --from <UMEE_WALLET> --chain-id umee-1 --gas-prices 0.2uumee --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Vote "NO"
 ```
-noisd tx gov vote <proposal_id> no --from <UMEE_WALLET> --chain-id umee-1 --gas-prices 0.2uumee --gas-adjustment 1.5 --gas auto --yes
+umeed tx gov vote <proposal_id> no --from <UMEE_WALLET> --chain-id umee-1 --gas-prices 0.2uumee --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Abstain from voting
 ```
-noisd tx gov vote <proposal_id> abstain --from <UMEE_WALLET> --chain-id umee-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.2uumee -y
+umeed tx gov vote <proposal_id> abstain --from <UMEE_WALLET> --chain-id umee-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.2uumee -y
 ```
 
 ## Price-feeder commands
@@ -180,35 +180,35 @@ umeed q oracle miss-counter <VALOPER_ADDRESS>
 ## General commands
 ### Check node status
 ```
-noisd status | jq
+umeed status | jq
 ```
 ### Check service status
 ```
-sudo systemctl status noisd
+sudo systemctl status umeed
 ```
 ### Check logs
 ```
-sudo journalctl -u noisd -f --no-hostname -o cat
+sudo journalctl -u umeed -f --no-hostname -o cat
 ```
 ### Restart service
 ```
-sudo systemctl restart noisd
+sudo systemctl restart umeed
 ```
 ### Stop service
 ```
-sudo systemctl stop noisd
+sudo systemctl stop umeed
 ```
 ### Start service
 ```
-sudo systemctl start noisd
+sudo systemctl start umeed
 ```
 ### Disable service
 ```
-sudo systemctl disable noisd
+sudo systemctl disable umeed
 ```
 ### Enable service
 ```
-sudo systemctl enable noisd
+sudo systemctl enable umeed
 ```
 ### Reload service after changes
 ```
