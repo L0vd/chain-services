@@ -66,7 +66,7 @@ umeed tx staking create-validator \
 --min-self-delegation "1" \
 --pubkey $(umeed tendermint show-validator) \
 --moniker <UMEE_NODENAME> \
---chain-id  \
+--chain-id umee-1 \
 --from <UMEE_WALLET> \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
@@ -83,7 +83,7 @@ umeed tx staking edit-validator \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
 --website <YOUR_WEBSITE> \
---chain-id  \
+--chain-id umee-1 \
 --commission-rate 0.05 \
 --from <UMEE_WALLET> \
 --gas-prices 0.2uumee \
@@ -97,7 +97,7 @@ umeed q staking validator $(umeed keys show <UMEE_WALLET> --bech val -a)
 ```
 ### Unjail validator
 ```
-umeed tx slashing unjail --from <UMEE_WALLET> --chain-id  --gas-prices 0.2uumee --gas-adjustment 1.5 --gas auto --yes 
+umeed tx slashing unjail --from <UMEE_WALLET> --chain-id umee-1 --gas-prices 0.2uumee --gas-adjustment 1.5 --gas auto --yes 
 ```
 ### Signing info
 ```
@@ -108,47 +108,47 @@ umeed query slashing signing-info $(umeed tendermint show-validator)
 
 ### Send tokens
 ```
-umeed tx bank send wallet <DEST_WALLET_ADDRESS> 100uumee --from <UMEE_WALLET> --chain-id  --gas-prices 0.2uumee --gas-adjustment 1.5 --gas auto --yes
+umeed tx bank send wallet <DEST_WALLET_ADDRESS> 100uumee --from <UMEE_WALLET> --chain-id umee-1 --gas-prices 0.2uumee --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to your validator
 ```
-umeed tx staking delegate $(umeed keys show <UMEE_WALLET> --bech val -a) 100uumee --from <UMEE_WALLET> --chain-id  --gas-prices 0.2uumee --gas-adjustment 1.5 --gas auto --yes
+umeed tx staking delegate $(umeed keys show <UMEE_WALLET> --bech val -a) 100uumee --from <UMEE_WALLET> --chain-id umee-1 --gas-prices 0.2uumee --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to another validator
 ```
-umeed tx staking delegate <VALOPER_ADDRESS> 100uumee --from <UMEE_WALLET> --chain-id  --gas-prices 0.2uumee --gas-adjustment 1.5 --gas auto --yes
+umeed tx staking delegate <VALOPER_ADDRESS> 100uumee --from <UMEE_WALLET> --chain-id umee-1 --gas-prices 0.2uumee --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Redelegate tokens to another validator
 ```
-umeed tx staking redelegate $(umeed keys show <UMEE_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100uumee --from <UMEE_WALLET> --chain-id  --gas-prices 0.2uumee --gas-adjustment 1.5 --gas auto --yes
+umeed tx staking redelegate $(umeed keys show <UMEE_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100uumee --from <UMEE_WALLET> --chain-id umee-1 --gas-prices 0.2uumee --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Unbond tokens from staking
 ```
-umeed tx staking unbond $(umeed keys show <UMEE_WALLET> --bech val -a) 100uumee --from <UMEE_WALLET> --chain-id  --gas-prices 0.2uumee --gas-adjustment 1.5 --gas auto --yes
+umeed tx staking unbond $(umeed keys show <UMEE_WALLET> --bech val -a) 100uumee --from <UMEE_WALLET> --chain-id umee-1 --gas-prices 0.2uumee --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Withdraw all rewards from staking
 ```
-umeed tx distribution withdraw-all-rewards --from <UMEE_WALLET> --chain-id  --gas-prices 0.2uumee --gas-adjustment 1.5 --gas auto --yes
+umeed tx distribution withdraw-all-rewards --from <UMEE_WALLET> --chain-id umee-1 --gas-prices 0.2uumee --gas-adjustment 1.5 --gas auto --yes
 ```
 
 ### Withdraw validator rewards and comission
 ```
-umeed tx distribution withdraw-rewards $(umeed keys show <UMEE_WALLET> --bech val -a) --commission --from wallet --chain-id  --gas-adjustment 1.5 --gas auto --gas-prices 0.2uumee -y
+umeed tx distribution withdraw-rewards $(umeed keys show <UMEE_WALLET> --bech val -a) --commission --from wallet --chain-id umee-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.2uumee -y
 
 ```
 
 ## Governance
 ### Vote "YES"
 ```
-umeed tx gov vote <proposal_id> yes --from <UMEE_WALLET> --chain-id  --gas-prices 0.2uumee --gas-adjustment 1.5 --gas auto --yes
+umeed tx gov vote <proposal_id> yes --from <UMEE_WALLET> --chain-id umee-1 --gas-prices 0.2uumee --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Vote "NO"
 ```
-umeed tx gov vote <proposal_id> no --from <UMEE_WALLET> --chain-id  --gas-prices 0.2uumee --gas-adjustment 1.5 --gas auto --yes
+umeed tx gov vote <proposal_id> no --from <UMEE_WALLET> --chain-id umee-1 --gas-prices 0.2uumee --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Abstain from voting
 ```
-umeed tx gov vote <proposal_id> abstain --from <UMEE_WALLET> --chain-id  --gas-adjustment 1.5 --gas auto --gas-prices 0.2uumee -y
+umeed tx gov vote <proposal_id> abstain --from <UMEE_WALLET> --chain-id umee-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.2uumee -y
 ```
 
 ## Price-feeder commands
