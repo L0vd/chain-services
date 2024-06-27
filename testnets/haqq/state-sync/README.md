@@ -18,7 +18,7 @@ s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"$SNAP_RPC,$SNAP_RPC\"| ; \
 s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT| ; \
 s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" $HOME/.haqqd/config/config.toml
 
-peers="0d4c7d770d4ccdd2e68e4f84a2e0e65700942ef5@haqq-testnet.peers.l0vd.com:18656" \
+peers="@haqq-testnet.peers.l0vd.com:" \
 && sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/.haqqd/config/config.toml 
 
 haqqd tendermint unsafe-reset-all --home ~/.haqqd && sudo systemctl restart haqqd && journalctl -u haqqd -f --output cat
