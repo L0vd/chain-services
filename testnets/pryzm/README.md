@@ -12,9 +12,9 @@ The only layer-1 blockchain dedicated to tokenising and trading your future yiel
 
 |  |  |
 | ------ | ------ |
-| Chain-id | indigo-1 |
-| Binary name | pryzmd |
-| Binary version | v0.13.0 |
+| Chain-id |  |
+| Binary name | d |
+| Binary version | v |
 
 ##### Explorer
 [https://explorers.l0vd.com/pryzm-testnet](https://explorers.l0vd.com/pryzm-testnet)
