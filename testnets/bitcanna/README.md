@@ -33,5 +33,5 @@ bitcanna-testnet.grpc.l0vd.com:80
 
 PEER
 ```
-74b83fd6b6661cc9c910b5c0dd5842843a62a3e5@bitcanna-testnet.peers.l0vd.com:30656
+@bitcanna-testnet.peers.l0vd.com:
 ```
