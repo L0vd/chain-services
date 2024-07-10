@@ -51,9 +51,9 @@ nano variables.sh
 ```
 
 Insert your parameters to **variables.sh**:
-* full path to pryzm binary to COS_BIN_NAME ( check ```which pryzmd```)
+* full path to pryzm binary to COS_BIN_NAME ( check ```which d```)
 * node PRC port to COS_PORT_RPC ( check in file ```path_to_pryzm_node_config/config/config.toml```)
-* node validator address to COS_VALOPER ( like ```nullvaloper********```)
+* node validator address to COS_VALOPER ( like ```pryzmvaloper********```)
 
 Save changes in variables.sh and enable execution permissions:
 
@@ -138,7 +138,7 @@ Validator voting power. If the value of this parameter is zero, your node isn't 
 Number of delegated tokens
 
 ### Version
-Version of pryzmd binary
+Version of d binary
 
 ### Vali Rank
 Your node stake rank 
