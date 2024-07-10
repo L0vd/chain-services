@@ -33,5 +33,5 @@ pryzm-testnet.grpc.l0vd.com:80
 
 PEER
 ```
-84b9de17882dc6c9af824395a2072b321bc409ea@pryzm-testnet.peers.l0vd.com:36656
+@pryzm-testnet.peers.l0vd.com:
 ```

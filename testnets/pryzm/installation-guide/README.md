@@ -83,7 +83,7 @@ sed -i.bak -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:${P
 
 ### Set seeds and peers
 ```
-PEERS="84b9de17882dc6c9af824395a2072b321bc409ea@pryzm-testnet.peers.l0vd.com:36656"
+PEERS="@pryzm-testnet.peers.l0vd.com:"
 sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.pryzm/config/config.toml
 ```
 
