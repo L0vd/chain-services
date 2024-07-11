@@ -29,3 +29,24 @@ mv $HOME/.beacond_archive/priv_validator_state.json.backup $HOME/.beacond_archiv
 sudo systemctl restart beacond_archive
 sudo journalctl -u beacond_archive -f --no-hostname -o cat
 ```
+
+# Geth Archive Snapshot
+
+## Updates every 4 hours
+
+## Install dependencies, if needed
+```
+sudo apt update
+sudo apt install lz4 -y
+```
+
+## Sync from Snapshot  
+| Height  | Size | State | Txs | Creation Time (UTC+3) |
+| --------- | --------- | --------- | --------- | --------- |
+| 1274539  | 447.17GB  | all | all | 2024-07-11T05:29:11 |
+
+```
+mkdir $HOME/geth_snapshot
+SNAP_NAME=$(curl -s https://berachain-archive-snapshots.l0vd.com/testnets/berachain_v2/80084/ | egrep -o ">80084.*\.tar.lz4" | tr -d ">")
+curl https://berachain-archive-snapshots.l0vd.com/testnets/berachain_v2/80084/${SNAP_NAME} | lz4 -dc - | tar -xf - -C $HOME/geth_snapshot
+```
