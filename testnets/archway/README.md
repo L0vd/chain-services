@@ -33,5 +33,5 @@ archway-testnet.grpc.l0vd.com:80
 
 PEER
 ```
-8b96338b18c1e4a76a119fe0812c131a4e2cc96a@archway-testnet.peers.l0vd.com:20656
+@archway-testnet.peers.l0vd.com:
 ```
