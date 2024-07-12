@@ -108,7 +108,7 @@ cat > variables.sh <<EOL
 #${FIRST_CAP_NAME} monitoring variables template 
 COS_BIN_NAME=$COS_BIN_NAME             # example: /root/go/bin/archwayd or /home/user/go/bin/archwayd
 COS_PORT_RPC=$COS_PORT_RPC         # default: 26657
-COS_VALOPER=$COS_VALOPER           # example: nullvaloper1234545636767376535673
+COS_VALOPER=$COS_VALOPER           # example: archwayvaloper1234545636767376535673
 LOGENTRY=$LOGENTRY
 EOL
 

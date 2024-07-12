@@ -53,7 +53,7 @@ nano variables.sh
 Insert your parameters to **variables.sh**:
 * full path to archway binary to COS_BIN_NAME ( check ```which archwayd```)
 * node PRC port to COS_PORT_RPC ( check in file ```path_to_archway_node_config/config/config.toml```)
-* node validator address to COS_VALOPER ( like ```nullvaloper********```)
+* node validator address to COS_VALOPER ( like ```archwayvaloper********```)
 
 Save changes in variables.sh and enable execution permissions:
 
