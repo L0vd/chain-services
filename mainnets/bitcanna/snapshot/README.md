@@ -11,7 +11,7 @@ sudo apt install lz4 -y
 ## Sync from Snapshot
 | Height  | Size | Pruning | Indexer | Creation Time (UTC+3) |
 | --------- | --------- | --------- | --------- | --------- |
-| 14929047  | 0.54GB  | custom/100/0/10 | null | 2024-07-23T16:10:34 |
+| 14929425  | 0.56GB  | custom/100/0/10 | null | 2024-07-23T16:47:52 |
 
 ```
 sudo systemctl stop bcnad
@@ -22,7 +22,7 @@ ${BINARY_NAME} tendermint unsafe-reset-all --home $HOME/.bcna --keep-addr-book
 rm -rf $HOME/.bcna/data 
 
 SNAP_NAME=$(curl -s https://snapshots.l0vd.com/mainnets/bitcanna/bitcanna-1/ | egrep -o ">bitcanna-1.*\.tar.lz4" | tr -d ">")
-curl https://snapshots.l0vd.com/mainnets/bitcanna/bitcanna-1/${SNAP_NAME} | lz4 -dc - | tar -xf - -C $HOME/.bcna
+curl https://snapshots.l0vd.com/mainnets/bitcanna/bitcanna-1/${SNAP_NAME} | lz4 -dc - | tar -xf - -C $HOME/.bcna/data
 
 mv $HOME/.bcna/priv_validator_state.json.backup $HOME/.bcna/data/priv_validator_state.json
 
