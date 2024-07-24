@@ -3,13 +3,15 @@ If you want to setup Selfchain fullnode manually follow the steps below
 
 ### Update and upgrade
 ```
-sudo apt update && sudo apt upgrade -y
+sudo apt update -y
+sudo apt-get install -y git jq lz4 build-essential make gcc curl 
+sudo apt update -y
 ```
 
 ### Install GO
 ```
 if ! [ -x "$(command -v go)" ]; then
-  ver="1.20.5"
+  ver="1.20.3"
   cd $HOME
   wget "https://golang.org/dl/go$ver.linux-amd64.tar.gz"
   sudo rm -rf /usr/local/go
@@ -23,10 +25,9 @@ fi
 ### Install node
 ```
 cd $HOME
-wget https://snapshots.l0vd.com/selfchain-testnet/selfchaind
-chmod +x selfchaind
-mv arkeod /root/go/bin/
-selfchaind version
+wget https://storage.googleapis.com/pryzm-resources/pryzmd-v0.2.2-linux-amd64.tar.gz
+tar -xzvf pryzmd-v0.2.2-linux-amd64.tar.gz
+mv selfchaind /root/go/bin
 ```
 
 
@@ -82,7 +83,7 @@ sed -i.bak -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:${S
 
 ### Set seeds and peers
 ```
-PEERS="e14e92dc5b63b59964c7d4f9037684ecf012844c@selfchain-testnet.peers.l0vd.com:15656"
+PEERS="@selfchain-testnet.peers.l0vd.com:"
 sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.selfchain/config/config.toml
 ```
 
@@ -98,10 +99,10 @@ sed -i -e "s/^pruning-keep-every *=.*/pruning-keep-every = \"$pruning_keep_every
 sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"$pruning_interval\"/" $HOME/.selfchain/config/app.toml
 ```
 
-### Set minimum gas price and null indexer
+### Set minimum gas price and kv indexer
 ```
 sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0uself\"/" $HOME/.selfchain/config/app.toml
-sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.selfchain/config/config.toml
+sed -i -e "s/^indexer *=.*/indexer = \"kv\"/" $HOME/.selfchain/config/config.toml
 ```
 
 ### Create Service
@@ -176,8 +177,67 @@ selfchaind tx staking create-validator \
 --chain-id ${SELFCHAIN_CHAIN_ID} \
 --from ${SELFCHAIN_WALLET_ADDR} \
 --gas-prices 0uself \
---gas-adjustment 1.5 \
+--gas-adjustment 1.2 \
 --gas auto \
 --yes
 ```
+
+## Set up Price-feeder
+
+### Install docker compose
+
+[Docker install guide](https://docs.docker.com/compose/install/linux/#install-the-plugin-manually)
+
+### Get docker compose file
+```
+cd $HOME
+mkdir pryzm-feeder
+cd pryzm-feeder
+wget https://storage.googleapis.com/pryzm-zone/feeder/docker-compose.yml
+```
+
+### Get config and sql.init files
+```
+cd $HOME
+cd pryzm-feeder
+wget https://storage.googleapis.com/pryzm-zone/feeder/config.yaml
+wget https://storage.googleapis.com/pryzm-zone/feeder/init.sql
+```
+
+### Create and fund price-feeder wallet using [Faucet](https://testnet.pryzm.zone/faucet)
+```
+PRYZM_FEEDER_WALLET_NAME=<YOUR_FEEDER_WALLET_NAME>
+```
+
+```
+pryzmd keys add $PRYZM_FEEDER_WALLET_NAME
+```
+
+### Set manually these fields in config.yaml file 
+```
+feeder: "<YOUR FEEDER WALLET ADDRESS>"
+feederMnemonic: "<YOUR FEEDER WALLET ADDRESS SEED PHRASE>"
+validator: "<YOUR VALOPER (przymvaloper...)>"
+rpcUrl: "http://localhost:{YOUR_PORT}"
+lcdUrl: "http://localhost:{YOUR_PORT}"
+grpcWebUrl: "http://localhost:{YOUR_PORT}"
+wsUrl: "ws://localhost:{YOUR_PORT}"
+```
+
+### Delegate rights to feeder
+```
+pryzmd tx oracle delegate-feed-consent <YOUR FEEDER ADDRESS> --fees 2000factory/pryzm15k9s9p0ar0cx27nayrgk6vmhyec3lj7vkry7rx/uusdsim,3000upryzm --from <YOUR VALIDATOR WALLET ADDRESS>
+```
+
+### Run your feeder
+```
+cd $HOME/pryzm-feeder
+docker compose up -d
+```
+
+### Check logs
+```
+docker logs -f pryzm-feeder
+```
+
 

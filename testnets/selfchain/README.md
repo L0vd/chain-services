@@ -21,10 +21,10 @@ Layer 1 Blockchain Designed for Trustless, Next Generation Private Key Recovery.
 
 ##### Public Endpoints
 RPC
-[https://selfchain-testnet.rpc.l0vd.com](https://selfchain-testnet.rpc.l0vd.com)
+[https://rpc-t.selfchain.nodestake.org](https://rpc-t.selfchain.nodestake.org)
 
 API
-[https://selfchain-testnet.api.l0vd.com](https://selfchain-testnet.api.l0vd.com)
+[https://api-t.selfchain.nodestake.org](https://api-t.selfchain.nodestake.org)
 
 GRPC
 ```
@@ -33,5 +33,5 @@ selfchain-testnet.grpc.l0vd.com:80
 
 PEER
 ```
-e14e92dc5b63b59964c7d4f9037684ecf012844c@selfchain-testnet.peers.l0vd.com:15656
+@selfchain-testnet.peers.l0vd.com:
 ```

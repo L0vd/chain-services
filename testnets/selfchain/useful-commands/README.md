@@ -189,3 +189,18 @@ sudo systemctl enable selfchaind
 ```
 sudo systemctl daemon-reload
 ```
+
+## Feeder commands
+### Check logs
+```
+docker logs -f pryzm-feeder
+```
+### Stop feeder
+```
+docker stop pryzm-feeder
+```
+
+### Restart feeder
+```
+docker restart pryzm-feeder
+```
