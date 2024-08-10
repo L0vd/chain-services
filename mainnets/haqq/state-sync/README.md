@@ -6,7 +6,7 @@
 
 ### Copy the entire command
 ```
-sudo systemctl stop d
+sudo systemctl stop haqqd
 SNAP_RPC="https://haqq-mainnet.rpc.l0vd.com:443"; \
 LATEST_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height); \
 BLOCK_HEIGHT=$((LATEST_HEIGHT - 2000)); \
@@ -21,7 +21,7 @@ s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" $HOME/.haqqd/con
 peers="6778705eaebb5630fc91f63b9530498704b33139@haqq-mainnet.peers.l0vd.com:13656" \
 && sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/.haqqd/config/config.toml 
 
-d tendermint unsafe-reset-all --home ~/.haqqd && sudo systemctl restart d && journalctl -u d -f --output cat
+haqqd tendermint unsafe-reset-all --home ~/.haqqd && sudo systemctl restart haqqd && journalctl -u haqqd -f --output cat
 ```
 
 ### Turn off State Sync Mode after synchronization
