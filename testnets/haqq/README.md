@@ -33,5 +33,5 @@ haqq-testnet.grpc.l0vd.com:80
 
 PEER
 ```
-0d4c7d770d4ccdd2e68e4f84a2e0e65700942ef5@haqq-testnet.peers.l0vd.com:18656
+@haqq-testnet.peers.l0vd.com:
 ```
