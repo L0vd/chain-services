@@ -6,19 +6,19 @@ Please note that the values in <> must be changed to your own values
 
 ### Add new key
 ```
-haqqd keys add <key_name>
+d keys add <key_name>
 ```
 ### Recover keys from seed
 ```
-haqqd keys add <key_name> --recover
+d keys add <key_name> --recover
 ```
 ### Show all keys
 ```
-haqqd keys list
+d keys list
 ```
 ### Delete key
 ```
-haqqd keys delete <key_name>
+d keys delete <key_name>
 ```
 
 ## Node configuration
@@ -58,15 +58,15 @@ sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.25aISLM\"/" $HOME
 
 ### Create validator
 ```
-haqqd tx staking create-validator \
+d tx staking create-validator \
 --amount 1000000aISLM \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
---pubkey $(haqqd tendermint show-validator) \
+--pubkey $(d tendermint show-validator) \
 --moniker <HAQQ_NODENAME> \
---chain-id haqq_11235-1 \
+--chain-id  \
 --from <HAQQ_WALLET> \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
@@ -78,12 +78,12 @@ haqqd tx staking create-validator \
 ```
 ### Edit validator
 ```
-haqqd tx staking edit-validator \
+d tx staking edit-validator \
 --new-moniker <HAQQ_NODENAME> \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
 --website <YOUR_WEBSITE> \
---chain-id haqq_11235-1 \
+--chain-id  \
 --commission-rate 0.05 \
 --from <HAQQ_WALLET> \
 --gas-prices 0.25aISLM \
@@ -93,97 +93,97 @@ haqqd tx staking edit-validator \
 ```
 ### View validator info
 ```
-haqqd q staking validator $(haqqd keys show <HAQQ_WALLET> --bech val -a)
+d q staking validator $(d keys show <HAQQ_WALLET> --bech val -a)
 ```
 ### Unjail validator
 ```
-haqqd tx slashing unjail --from <HAQQ_WALLET> --chain-id haqq_11235-1 --gas-prices 0.25aISLM --gas-adjustment 1.5 --gas auto --yes 
+d tx slashing unjail --from <HAQQ_WALLET> --chain-id  --gas-prices 0.25aISLM --gas-adjustment 1.5 --gas auto --yes 
 ```
 ### Signing info
 ```
-haqqd query slashing signing-info $(haqqd tendermint show-validator)
+d query slashing signing-info $(d tendermint show-validator)
 ```
 
 ## Token operations
 
 ### Send tokens
 ```
-haqqd tx bank send wallet <DEST_WALLET_ADDRESS> 100aISLM --from <HAQQ_WALLET> --chain-id haqq_11235-1 --gas-prices 0.25aISLM --gas-adjustment 1.5 --gas auto --yes
+d tx bank send wallet <DEST_WALLET_ADDRESS> 100aISLM --from <HAQQ_WALLET> --chain-id  --gas-prices 0.25aISLM --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to your validator
 ```
-haqqd tx staking delegate $(haqqd keys show <HAQQ_WALLET> --bech val -a) 100aISLM --from <HAQQ_WALLET> --chain-id haqq_11235-1 --gas-prices 0.25aISLM --gas-adjustment 1.5 --gas auto --yes
+d tx staking delegate $(d keys show <HAQQ_WALLET> --bech val -a) 100aISLM --from <HAQQ_WALLET> --chain-id  --gas-prices 0.25aISLM --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to another validator
 ```
-haqqd tx staking delegate <VALOPER_ADDRESS> 100aISLM --from <HAQQ_WALLET> --chain-id haqq_11235-1 --gas-prices 0.25aISLM --gas-adjustment 1.5 --gas auto --yes
+d tx staking delegate <VALOPER_ADDRESS> 100aISLM --from <HAQQ_WALLET> --chain-id  --gas-prices 0.25aISLM --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Redelegate tokens to another validator
 ```
-haqqd tx staking redelegate $(haqqd keys show <HAQQ_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100aISLM --from <HAQQ_WALLET> --chain-id haqq_11235-1 --gas-prices 0.25aISLM --gas-adjustment 1.5 --gas auto --yes
+d tx staking redelegate $(d keys show <HAQQ_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100aISLM --from <HAQQ_WALLET> --chain-id  --gas-prices 0.25aISLM --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Unbond tokens from staking
 ```
-haqqd tx staking unbond $(haqqd keys show <HAQQ_WALLET> --bech val -a) 100aISLM --from <HAQQ_WALLET> --chain-id haqq_11235-1 --gas-prices 0.25aISLM --gas-adjustment 1.5 --gas auto --yes
+d tx staking unbond $(d keys show <HAQQ_WALLET> --bech val -a) 100aISLM --from <HAQQ_WALLET> --chain-id  --gas-prices 0.25aISLM --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Withdraw all rewards from staking
 ```
-haqqd tx distribution withdraw-all-rewards --from <HAQQ_WALLET> --chain-id haqq_11235-1 --gas-prices 0.25aISLM --gas-adjustment 1.5 --gas auto --yes
+d tx distribution withdraw-all-rewards --from <HAQQ_WALLET> --chain-id  --gas-prices 0.25aISLM --gas-adjustment 1.5 --gas auto --yes
 ```
 
 ### Withdraw validator rewards and comission
 ```
-haqqd tx distribution withdraw-rewards $(haqqd keys show <HAQQ_WALLET> --bech val -a) --commission --from wallet --chain-id haqq_11235-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.25aISLM -y
+d tx distribution withdraw-rewards $(d keys show <HAQQ_WALLET> --bech val -a) --commission --from wallet --chain-id  --gas-adjustment 1.5 --gas auto --gas-prices 0.25aISLM -y
 
 ```
 
 ## Governance
 ### Vote "YES"
 ```
-haqqd tx gov vote <proposal_id> yes --from <HAQQ_WALLET> --chain-id haqq_11235-1 --gas-prices 0.25aISLM --gas-adjustment 1.5 --gas auto --yes
+d tx gov vote <proposal_id> yes --from <HAQQ_WALLET> --chain-id  --gas-prices 0.25aISLM --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Vote "NO"
 ```
-haqqd tx gov vote <proposal_id> no --from <HAQQ_WALLET> --chain-id haqq_11235-1 --gas-prices 0.25aISLM --gas-adjustment 1.5 --gas auto --yes
+d tx gov vote <proposal_id> no --from <HAQQ_WALLET> --chain-id  --gas-prices 0.25aISLM --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Abstain from voting
 ```
-haqqd tx gov vote <proposal_id> abstain --from <HAQQ_WALLET> --chain-id haqq_11235-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.25aISLM -y
+d tx gov vote <proposal_id> abstain --from <HAQQ_WALLET> --chain-id  --gas-adjustment 1.5 --gas auto --gas-prices 0.25aISLM -y
 ```
 
 
 ## General commands
 ### Check node status
 ```
-haqqd status | jq
+d status | jq
 ```
 ### Check service status
 ```
-sudo systemctl status haqqd
+sudo systemctl status d
 ```
 ### Check logs
 ```
-sudo journalctl -u haqqd -f --no-hostname -o cat
+sudo journalctl -u d -f --no-hostname -o cat
 ```
 ### Restart service
 ```
-sudo systemctl restart haqqd
+sudo systemctl restart d
 ```
 ### Stop service
 ```
-sudo systemctl stop haqqd
+sudo systemctl stop d
 ```
 ### Start service
 ```
-sudo systemctl start haqqd
+sudo systemctl start d
 ```
 ### Disable service
 ```
-sudo systemctl disable haqqd
+sudo systemctl disable d
 ```
 ### Enable service
 ```
-sudo systemctl enable haqqd
+sudo systemctl enable d
 ```
 ### Reload service after changes
 ```
