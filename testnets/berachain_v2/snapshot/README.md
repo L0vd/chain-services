@@ -1,6 +1,6 @@
 # Snapshot
 
-## Updates every 4 hours
+## Updates every 6 hours
 
 ## Install dependencies, if needed
 ```
@@ -11,7 +11,7 @@ sudo apt install lz4 -y
 ## Sync from Snapshot ⚠️ (Pebbledb)
 | Height  | Size | Pruning | Indexer | Creation Time (UTC+3) |
 | --------- | --------- | --------- | --------- | --------- |
-| 4898776  | 81.4GB  | custom/100/0/10 | null | 2024-09-20T08:04:32 |
+| 4915050  | 82.26GB  | custom/100/0/10 | null | 2024-09-21T15:15:08 |
 
 ```
 sudo systemctl stop beacond
