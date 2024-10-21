@@ -33,5 +33,5 @@ union-testnet.grpc.l0vd.com:80
 
 PEER
 ```
-5759960e0bde8181d0556736cf6a2c959757eb9d@union-testnet.peers.l0vd.com:14656
+f425356a324e235d214fde9e4e395d4a969fc32d@union-testnet.peers.l0vd.com:18656
 ```
