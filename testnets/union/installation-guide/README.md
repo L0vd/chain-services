@@ -25,7 +25,7 @@ fi
 cd $HOME
 wget https://snapshots.l0vd.com/union-testnet/uniond
 chmod +x uniond
-mv arkeod /root/go/bin/
+mv uniond /root/go/bin/
 uniond version
 ```
 
@@ -82,7 +82,7 @@ sed -i.bak -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:${U
 
 ### Set seeds and peers
 ```
-PEERS="5759960e0bde8181d0556736cf6a2c959757eb9d@union-testnet.peers.l0vd.com:14656"
+PEERS="f425356a324e235d214fde9e4e395d4a969fc32d@union-testnet.peers.l0vd.com:18656"
 sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.union/config/config.toml
 ```
 
