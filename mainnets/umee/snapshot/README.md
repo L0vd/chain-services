@@ -11,7 +11,7 @@ sudo apt install lz4 -y
 ## Sync from Snapshot
 | Height  | Size | Pruning | Indexer | Creation Time (UTC+3) |
 | --------- | --------- | --------- | --------- | --------- |
-| 14595335  | 1.61GB  | custom/100/0/10 | null | 2024-11-06T04:08:20 |
+| 14598109  | 1.79GB  | custom/100/0/10 | null | 2024-11-06T08:18:24 |
 
 ```
 sudo systemctl stop umeed
