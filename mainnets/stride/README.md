@@ -33,5 +33,5 @@ stride-mainnet.grpc.l0vd.com:80
 
 PEER
 ```
-e4ef38aea46aed22c4241f691104e164df6fc15a@stride-mainnet.peers.l0vd.com:15656
+@stride-mainnet.peers.l0vd.com:
 ```
