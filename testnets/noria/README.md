@@ -33,5 +33,5 @@ noria-testnet.grpc.l0vd.com:80
 
 PEER
 ```
-4e119369ec024964daa81057f69577a90c63a7d5@noria-testnet.peers.l0vd.com:12656
+@noria-testnet.peers.l0vd.com:
 ```

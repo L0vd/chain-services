@@ -51,7 +51,7 @@ sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.noria/config/config.toml
 ```
 ### Set minimum gas prices
 ```
-sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.0025unoria\"/" $HOME/.noria/config/app.toml
+sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.0025\"/" $HOME/.noria/config/app.toml
 ```
 
 ## Validator configuration
@@ -59,7 +59,7 @@ sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.0025unoria\"/" $H
 ### Create validator
 ```
 d tx staking create-validator \
---amount 1000000unoria \
+--amount 1000000 \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
@@ -71,7 +71,7 @@ d tx staking create-validator \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
 --website <YOUR_WEBSITE> \
---gas-prices 0.0025unoria \
+--gas-prices 0.0025 \
 --gas-adjustment 1.5 \
 --gas auto \
 --yes
@@ -86,7 +86,7 @@ d tx staking edit-validator \
 --chain-id  \
 --commission-rate 0.05 \
 --from <NORIA_WALLET> \
---gas-prices 0.0025unoria \
+--gas-prices 0.0025 \
 --gas-adjustment 1.5 \
 --gas auto \
 --yes
@@ -97,7 +97,7 @@ d q staking validator $(d keys show <NORIA_WALLET> --bech val -a)
 ```
 ### Unjail validator
 ```
-d tx slashing unjail --from <NORIA_WALLET> --chain-id  --gas-prices 0.0025unoria --gas-adjustment 1.5 --gas auto --yes 
+d tx slashing unjail --from <NORIA_WALLET> --chain-id  --gas-prices 0.0025 --gas-adjustment 1.5 --gas auto --yes 
 ```
 ### Signing info
 ```
@@ -108,47 +108,47 @@ d query slashing signing-info $(d tendermint show-validator)
 
 ### Send tokens
 ```
-d tx bank send wallet <DEST_WALLET_ADDRESS> 100unoria --from <NORIA_WALLET> --chain-id  --gas-prices 0.0025unoria --gas-adjustment 1.5 --gas auto --yes
+d tx bank send wallet <DEST_WALLET_ADDRESS> 100 --from <NORIA_WALLET> --chain-id  --gas-prices 0.0025 --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to your validator
 ```
-d tx staking delegate $(d keys show <NORIA_WALLET> --bech val -a) 100unoria --from <NORIA_WALLET> --chain-id  --gas-prices 0.0025unoria --gas-adjustment 1.5 --gas auto --yes
+d tx staking delegate $(d keys show <NORIA_WALLET> --bech val -a) 100 --from <NORIA_WALLET> --chain-id  --gas-prices 0.0025 --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to another validator
 ```
-d tx staking delegate <VALOPER_ADDRESS> 100unoria --from <NORIA_WALLET> --chain-id  --gas-prices 0.0025unoria --gas-adjustment 1.5 --gas auto --yes
+d tx staking delegate <VALOPER_ADDRESS> 100 --from <NORIA_WALLET> --chain-id  --gas-prices 0.0025 --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Redelegate tokens to another validator
 ```
-d tx staking redelegate $(d keys show <NORIA_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100unoria --from <NORIA_WALLET> --chain-id  --gas-prices 0.0025unoria --gas-adjustment 1.5 --gas auto --yes
+d tx staking redelegate $(d keys show <NORIA_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100 --from <NORIA_WALLET> --chain-id  --gas-prices 0.0025 --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Unbond tokens from staking
 ```
-d tx staking unbond $(d keys show <NORIA_WALLET> --bech val -a) 100unoria --from <NORIA_WALLET> --chain-id  --gas-prices 0.0025unoria --gas-adjustment 1.5 --gas auto --yes
+d tx staking unbond $(d keys show <NORIA_WALLET> --bech val -a) 100 --from <NORIA_WALLET> --chain-id  --gas-prices 0.0025 --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Withdraw all rewards from staking
 ```
-d tx distribution withdraw-all-rewards --from <NORIA_WALLET> --chain-id  --gas-prices 0.0025unoria --gas-adjustment 1.5 --gas auto --yes
+d tx distribution withdraw-all-rewards --from <NORIA_WALLET> --chain-id  --gas-prices 0.0025 --gas-adjustment 1.5 --gas auto --yes
 ```
 
 ### Withdraw validator rewards and comission
 ```
-d tx distribution withdraw-rewards $(d keys show <NORIA_WALLET> --bech val -a) --commission --from wallet --chain-id  --gas-adjustment 1.5 --gas auto --gas-prices 0.0025unoria -y
+d tx distribution withdraw-rewards $(d keys show <NORIA_WALLET> --bech val -a) --commission --from wallet --chain-id  --gas-adjustment 1.5 --gas auto --gas-prices 0.0025 -y
 
 ```
 
 ## Governance
 ### Vote "YES"
 ```
-d tx gov vote <proposal_id> yes --from <NORIA_WALLET> --chain-id  --gas-prices 0.0025unoria --gas-adjustment 1.5 --gas auto --yes
+d tx gov vote <proposal_id> yes --from <NORIA_WALLET> --chain-id  --gas-prices 0.0025 --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Vote "NO"
 ```
-d tx gov vote <proposal_id> no --from <NORIA_WALLET> --chain-id  --gas-prices 0.0025unoria --gas-adjustment 1.5 --gas auto --yes
+d tx gov vote <proposal_id> no --from <NORIA_WALLET> --chain-id  --gas-prices 0.0025 --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Abstain from voting
 ```
-d tx gov vote <proposal_id> abstain --from <NORIA_WALLET> --chain-id  --gas-adjustment 1.5 --gas auto --gas-prices 0.0025unoria -y
+d tx gov vote <proposal_id> abstain --from <NORIA_WALLET> --chain-id  --gas-adjustment 1.5 --gas auto --gas-prices 0.0025 -y
 ```
 
 
