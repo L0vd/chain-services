@@ -79,11 +79,13 @@ GITOPIA_PORT=<SET_CUSTOM_PORT> #Example: GITOPIA_PORT=56 (numbers from 1 to 64)
 sed -i.bak -e "s%^proxy_app = \"tcp://127.0.0.1:26658\"%proxy_app = \"tcp://127.0.0.1:${GITOPIA_PORT}658\"%; s%^laddr = \"tcp://127.0.0.1:26657\"%laddr = \"tcp://127.0.0.1:${GITOPIA_PORT}657\"%; s%^pprof_laddr = \"localhost:6060\"%pprof_laddr = \"localhost:${GITOPIA_PORT}060\"%; s%^laddr = \"tcp://0.0.0.0:26656\"%laddr = \"tcp://0.0.0.0:${GITOPIA_PORT}656\"%; s%^prometheus_listen_addr = \":26660\"%prometheus_listen_addr = \":${GITOPIA_PORT}660\"%" /$HOME/.gitopia/config/config.toml
 sed -i.bak -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:${GITOPIA_PORT}317\"%; s%^address = \"tcp://localhost:1317\"%address = \"tcp://0.0.0.0:${GITOPIA_PORT}317\"%; s%^address = \":8080\"%address = \":${GITOPIA_PORT}080\"%; s%^address = \"0.0.0.0:9090\"%address = \"0.0.0.0:${GITOPIA_PORT}090\"%; s%^address = \"localhost:9090\"%address = \"localhost:${GITOPIA_PORT}090\"%; s%^address = \"0.0.0.0:9091\"%address = \"0.0.0.0:${GITOPIA_PORT}091\"%; s%^address = \"localhost:9091\"%address = \"localhost:${GITOPIA_PORT}091\"%; s%^address = \"0.0.0.0:8545\"%address = \"0.0.0.0:${GITOPIA_PORT}545\"%; s%^ws-address = \"0.0.0.0:8546\"%ws-address = \"0.0.0.0:${GITOPIA_PORT}546\"%" /$HOME/.gitopia/config/app.toml
 ```
-
+```
+d config node tcp://localhost:${GITOPIA_PORT}657
+```
 
 ### Set seeds and peers
 ```
-PEERS="aa26aa0baa5dfc41c126d16d4dc48bb45151d560@gitopia-mainnet.peers.l0vd.com:22656"
+PEERS="@gitopia-mainnet.peers.l0vd.com:"
 sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.gitopia/config/config.toml
 ```
 
@@ -101,7 +103,7 @@ sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"$pruning_interval\"/" $
 
 ### Set minimum gas price and null indexer
 ```
-sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.001ulore\"/" $HOME/.gitopia/config/app.toml
+sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.001\"/" $HOME/.gitopia/config/app.toml
 sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.gitopia/config/config.toml
 ```
 
@@ -166,7 +168,7 @@ Wait until the node is synchronized.
 
 ```
 d tx staking create-validator \
---amount 1000000ulore \
+--amount 1000000 \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
@@ -176,7 +178,7 @@ d tx staking create-validator \
 --moniker ${GITOPIA_NODENAME} \
 --chain-id ${GITOPIA_CHAIN_ID} \
 --from ${GITOPIA_WALLET_ADDR} \
---gas-prices 0.001ulore \
+--gas-prices 0.001 \
 --gas-adjustment 1.5 \
 --gas auto \
 --yes

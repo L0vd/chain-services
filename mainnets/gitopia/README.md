@@ -33,5 +33,5 @@ gitopia-mainnet.grpc.l0vd.com:80
 
 PEER
 ```
-aa26aa0baa5dfc41c126d16d4dc48bb45151d560@gitopia-mainnet.peers.l0vd.com:22656
+@gitopia-mainnet.peers.l0vd.com:
 ```
