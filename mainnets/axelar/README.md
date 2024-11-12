@@ -33,5 +33,5 @@ axelar-mainnet.grpc.l0vd.com:80
 
 PEER
 ```
-ba30dded0636b0e8bb3ed911c915cef9e76d8af7@axelar-mainnet.peers.l0vd.com:11656
+@axelar-mainnet.peers.l0vd.com:
 ```
