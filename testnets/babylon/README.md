@@ -33,5 +33,5 @@ babylon-testnet.grpc.l0vd.com:80
 
 PEER
 ```
-32fc90d65ffbb38299b7495db77a50d832cf9755@babylon-testnet.peers.l0vd.com:16656
+@babylon-testnet.peers.l0vd.com:
 ```
