@@ -51,7 +51,7 @@ sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.banksy/config/config.toml
 ```
 ### Set minimum gas prices
 ```
-sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0ppica\"/" $HOME/.banksy/config/app.toml
+sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0\"/" $HOME/.banksy/config/app.toml
 ```
 
 ## Validator configuration
@@ -59,7 +59,7 @@ sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0ppica\"/" $HOME/.b
 ### Create validator
 ```
  tx staking create-validator \
---amount 1000000ppica \
+--amount 1000000 \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
@@ -71,7 +71,7 @@ sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0ppica\"/" $HOME/.b
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
 --website <YOUR_WEBSITE> \
---gas-prices 0ppica \
+--gas-prices 0 \
 --gas-adjustment 1.5 \
 --gas auto \
 --yes
@@ -86,7 +86,7 @@ sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0ppica\"/" $HOME/.b
 --chain-id  \
 --commission-rate 0.05 \
 --from <COMPOSABLE_WALLET> \
---gas-prices 0ppica \
+--gas-prices 0 \
 --gas-adjustment 1.5 \
 --gas auto \
 --yes
@@ -97,7 +97,7 @@ sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0ppica\"/" $HOME/.b
 ```
 ### Unjail validator
 ```
- tx slashing unjail --from <COMPOSABLE_WALLET> --chain-id  --gas-prices 0ppica --gas-adjustment 1.5 --gas auto --yes 
+ tx slashing unjail --from <COMPOSABLE_WALLET> --chain-id  --gas-prices 0 --gas-adjustment 1.5 --gas auto --yes 
 ```
 ### Signing info
 ```
@@ -108,47 +108,47 @@ sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0ppica\"/" $HOME/.b
 
 ### Send tokens
 ```
- tx bank send wallet <DEST_WALLET_ADDRESS> 100ppica --from <COMPOSABLE_WALLET> --chain-id  --gas-prices 0ppica --gas-adjustment 1.5 --gas auto --yes
+ tx bank send wallet <DEST_WALLET_ADDRESS> 100 --from <COMPOSABLE_WALLET> --chain-id  --gas-prices 0 --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to your validator
 ```
- tx staking delegate $( keys show <COMPOSABLE_WALLET> --bech val -a) 100ppica --from <COMPOSABLE_WALLET> --chain-id  --gas-prices 0ppica --gas-adjustment 1.5 --gas auto --yes
+ tx staking delegate $( keys show <COMPOSABLE_WALLET> --bech val -a) 100 --from <COMPOSABLE_WALLET> --chain-id  --gas-prices 0 --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to another validator
 ```
- tx staking delegate <VALOPER_ADDRESS> 100ppica --from <COMPOSABLE_WALLET> --chain-id  --gas-prices 0ppica --gas-adjustment 1.5 --gas auto --yes
+ tx staking delegate <VALOPER_ADDRESS> 100 --from <COMPOSABLE_WALLET> --chain-id  --gas-prices 0 --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Redelegate tokens to another validator
 ```
- tx staking redelegate $( keys show <COMPOSABLE_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100ppica --from <COMPOSABLE_WALLET> --chain-id  --gas-prices 0ppica --gas-adjustment 1.5 --gas auto --yes
+ tx staking redelegate $( keys show <COMPOSABLE_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100 --from <COMPOSABLE_WALLET> --chain-id  --gas-prices 0 --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Unbond tokens from staking
 ```
- tx staking unbond $( keys show <COMPOSABLE_WALLET> --bech val -a) 100ppica --from <COMPOSABLE_WALLET> --chain-id  --gas-prices 0ppica --gas-adjustment 1.5 --gas auto --yes
+ tx staking unbond $( keys show <COMPOSABLE_WALLET> --bech val -a) 100 --from <COMPOSABLE_WALLET> --chain-id  --gas-prices 0 --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Withdraw all rewards from staking
 ```
- tx distribution withdraw-all-rewards --from <COMPOSABLE_WALLET> --chain-id  --gas-prices 0ppica --gas-adjustment 1.5 --gas auto --yes
+ tx distribution withdraw-all-rewards --from <COMPOSABLE_WALLET> --chain-id  --gas-prices 0 --gas-adjustment 1.5 --gas auto --yes
 ```
 
 ### Withdraw validator rewards and comission
 ```
- tx distribution withdraw-rewards $( keys show <COMPOSABLE_WALLET> --bech val -a) --commission --from wallet --chain-id  --gas-adjustment 1.5 --gas auto --gas-prices 0ppica -y
+ tx distribution withdraw-rewards $( keys show <COMPOSABLE_WALLET> --bech val -a) --commission --from wallet --chain-id  --gas-adjustment 1.5 --gas auto --gas-prices 0 -y
 
 ```
 
 ## Governance
 ### Vote "YES"
 ```
- tx gov vote <proposal_id> yes --from <COMPOSABLE_WALLET> --chain-id  --gas-prices 0ppica --gas-adjustment 1.5 --gas auto --yes
+ tx gov vote <proposal_id> yes --from <COMPOSABLE_WALLET> --chain-id  --gas-prices 0 --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Vote "NO"
 ```
- tx gov vote <proposal_id> no --from <COMPOSABLE_WALLET> --chain-id  --gas-prices 0ppica --gas-adjustment 1.5 --gas auto --yes
+ tx gov vote <proposal_id> no --from <COMPOSABLE_WALLET> --chain-id  --gas-prices 0 --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Abstain from voting
 ```
- tx gov vote <proposal_id> abstain --from <COMPOSABLE_WALLET> --chain-id  --gas-adjustment 1.5 --gas auto --gas-prices 0ppica -y
+ tx gov vote <proposal_id> abstain --from <COMPOSABLE_WALLET> --chain-id  --gas-adjustment 1.5 --gas auto --gas-prices 0 -y
 ```
 
 

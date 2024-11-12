@@ -33,5 +33,5 @@ composable-mainnet.grpc.l0vd.com:80
 
 PEER
 ```
-253f190c96d14ce98da8b7596385c1593a7be982@composable-mainnet.peers.l0vd.com:23656
+@composable-mainnet.peers.l0vd.com:
 ```
