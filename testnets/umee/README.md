@@ -33,5 +33,5 @@ umee-testnet.grpc.l0vd.com:80
 
 PEER
 ```
-c054701ade2bdbeb61c4a8800450da744e252506@umee-testnet.peers.l0vd.com:11656
+@umee-testnet.peers.l0vd.com:
 ```
