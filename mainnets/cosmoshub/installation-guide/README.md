@@ -79,11 +79,13 @@ COSMOSHUB_PORT=<SET_CUSTOM_PORT> #Example: COSMOSHUB_PORT=56 (numbers from 1 to 
 sed -i.bak -e "s%^proxy_app = \"tcp://127.0.0.1:26658\"%proxy_app = \"tcp://127.0.0.1:${COSMOSHUB_PORT}658\"%; s%^laddr = \"tcp://127.0.0.1:26657\"%laddr = \"tcp://127.0.0.1:${COSMOSHUB_PORT}657\"%; s%^pprof_laddr = \"localhost:6060\"%pprof_laddr = \"localhost:${COSMOSHUB_PORT}060\"%; s%^laddr = \"tcp://0.0.0.0:26656\"%laddr = \"tcp://0.0.0.0:${COSMOSHUB_PORT}656\"%; s%^prometheus_listen_addr = \":26660\"%prometheus_listen_addr = \":${COSMOSHUB_PORT}660\"%" /$HOME/.gaia/config/config.toml
 sed -i.bak -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:${COSMOSHUB_PORT}317\"%; s%^address = \"tcp://localhost:1317\"%address = \"tcp://0.0.0.0:${COSMOSHUB_PORT}317\"%; s%^address = \":8080\"%address = \":${COSMOSHUB_PORT}080\"%; s%^address = \"0.0.0.0:9090\"%address = \"0.0.0.0:${COSMOSHUB_PORT}090\"%; s%^address = \"localhost:9090\"%address = \"localhost:${COSMOSHUB_PORT}090\"%; s%^address = \"0.0.0.0:9091\"%address = \"0.0.0.0:${COSMOSHUB_PORT}091\"%; s%^address = \"localhost:9091\"%address = \"localhost:${COSMOSHUB_PORT}091\"%; s%^address = \"0.0.0.0:8545\"%address = \"0.0.0.0:${COSMOSHUB_PORT}545\"%; s%^ws-address = \"0.0.0.0:8546\"%ws-address = \"0.0.0.0:${COSMOSHUB_PORT}546\"%" /$HOME/.gaia/config/app.toml
 ```
-
+```
+gaiad config node tcp://localhost:${COSMOSHUB_PORT}657
+```
 
 ### Set seeds and peers
 ```
-PEERS="e25465e89f2466fdfc71294bee9565ea6b00b9fc@cosmoshub-mainnet.peers.l0vd.com:16656"
+PEERS="d9bfa29e0cf9c4ce0cc9c26d98e5d97228f93b0b@cosmoshub-mainnet.peers.l0vd.com:13456"
 sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.gaia/config/config.toml
 ```
 

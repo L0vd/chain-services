@@ -21,10 +21,10 @@ The Cosmos Hub is the first of thousands of interconnected blockchains that will
 
 ##### Public Endpoints
 RPC
-[https://cosmoshub-mainnet.rpc.l0vd.com](https://cosmoshub-mainnet.rpc.l0vd.com)
+[https://cosmoshub.rpc.kjnodes.com](https://cosmoshub.rpc.kjnodes.com)
 
 API
-[https://cosmoshub-mainnet.api.l0vd.com](https://cosmoshub-mainnet.api.l0vd.com)
+[https://cosmoshub.api.kjnodes.com](https://cosmoshub.api.kjnodes.com)
 
 GRPC
 ```
@@ -33,5 +33,5 @@ cosmoshub-mainnet.grpc.l0vd.com:80
 
 PEER
 ```
-e25465e89f2466fdfc71294bee9565ea6b00b9fc@cosmoshub-mainnet.peers.l0vd.com:16656
+d9bfa29e0cf9c4ce0cc9c26d98e5d97228f93b0b@cosmoshub-mainnet.peers.l0vd.com:13456
 ```
