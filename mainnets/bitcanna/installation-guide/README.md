@@ -103,7 +103,7 @@ sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"$pruning_interval\"/" $
 
 ### Set minimum gas price and null indexer
 ```
-sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0ubcna\"/" $HOME/.bcna/config/app.toml
+sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0\"/" $HOME/.bcna/config/app.toml
 sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.bcna/config/config.toml
 ```
 
@@ -168,7 +168,7 @@ Wait until the node is synchronized.
 
 ```
 d tx staking create-validator \
---amount 1000000ubcna \
+--amount 1000000 \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
@@ -178,7 +178,7 @@ d tx staking create-validator \
 --moniker ${BITCANNA_NODENAME} \
 --chain-id ${BITCANNA_CHAIN_ID} \
 --from ${BITCANNA_WALLET_ADDR} \
---gas-prices 0ubcna \
+--gas-prices 0 \
 --gas-adjustment 1.5 \
 --gas auto \
 --yes
