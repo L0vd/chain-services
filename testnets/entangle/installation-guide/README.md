@@ -85,7 +85,7 @@ d config node tcp://localhost:${ENTANGLE_PORT}657
 
 ### Set seeds and peers
 ```
-PEERS="d13f727f544d31c2b07c8d9a794109b24acf76b2@entangle-testnet.peers.l0vd.com:14656"
+PEERS="@entangle-testnet.peers.l0vd.com:"
 sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.entangled/config/config.toml
 ```
 

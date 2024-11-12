@@ -33,5 +33,5 @@ entangle-testnet.grpc.l0vd.com:80
 
 PEER
 ```
-d13f727f544d31c2b07c8d9a794109b24acf76b2@entangle-testnet.peers.l0vd.com:14656
+@entangle-testnet.peers.l0vd.com:
 ```
