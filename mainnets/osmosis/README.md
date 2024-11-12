@@ -21,10 +21,10 @@ Osmosis (OSMO) is a decentralized exchange (DEX) for Cosmos, an ecosystem of sov
 
 ##### Public Endpoints
 RPC
-[https://osmosis-mainnet.rpc.l0vd.com](https://osmosis-mainnet.rpc.l0vd.com)
+[https://osmosis.rpc.stakin-nodes.com](https://osmosis.rpc.stakin-nodes.com)
 
 API
-[https://osmosis-mainnet.api.l0vd.com](https://osmosis-mainnet.api.l0vd.com)
+[https://api-osmosis-ia.cosmosia.notional.ventures](https://api-osmosis-ia.cosmosia.notional.ventures)
 
 GRPC
 ```
@@ -33,5 +33,5 @@ osmosis-mainnet.grpc.l0vd.com:80
 
 PEER
 ```
-10539f7c0e3ab233cf0deec9930aa8b660aeeabf@osmosis-mainnet.peers.l0vd.com:12656
+c03f94c9546a12b3f5dcc33a0285035146f824f4@osmosis-mainnet.peers.l0vd.com:29656
 ```
