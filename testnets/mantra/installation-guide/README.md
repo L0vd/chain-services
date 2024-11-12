@@ -87,7 +87,7 @@ mantrachaind config node tcp://localhost:${MANTRA_PORT}657
 
 ### Set seeds and peers
 ```
-PEERS="2da725863e1eef9173c7dbadfc5f1c64207061c3@mantra-testnet.peers.l0vd.com:14656"
+PEERS="@mantra-testnet.peers.l0vd.com:"
 sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.mantrachain/config/config.toml
 ```
 

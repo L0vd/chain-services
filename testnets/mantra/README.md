@@ -33,5 +33,5 @@ mantra-testnet.grpc.l0vd.com:80
 
 PEER
 ```
-2da725863e1eef9173c7dbadfc5f1c64207061c3@mantra-testnet.peers.l0vd.com:14656
+@mantra-testnet.peers.l0vd.com:
 ```
