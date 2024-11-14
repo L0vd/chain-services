@@ -11,7 +11,7 @@ sudo apt install lz4 -y
 ## Sync from Snapshot
 | Height  | Size | Pruning | Indexer | Creation Time (UTC+3) |
 | --------- | --------- | --------- | --------- | --------- |
-| 4158531  | 0.94GB  | custom/100/0/10 | null | 2024-11-14T00:14:25 |
+| 4162239  | 0.92GB  | custom/100/0/10 | null | 2024-11-14T05:10:21 |
 
 ```
 sudo systemctl stop uniond
