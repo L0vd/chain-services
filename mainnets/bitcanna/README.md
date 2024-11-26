@@ -12,7 +12,7 @@ BitCanna provides a decentralized payment network and supply chain for the legal
 
 |  |  |
 | ------ | ------ |
-| Chain-id |  |
+| Chain-id | bitcanna-1 |
 | Binary name | d |
 | Binary version | v |
 
