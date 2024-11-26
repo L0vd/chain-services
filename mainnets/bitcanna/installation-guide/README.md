@@ -39,7 +39,7 @@ You should replace values in <> <br />
 ```
 BITCANNA_WALLET="<YOUR_WALLET_NAME>"
 BITCANNA_NODENAME="<YOUR_MONIKER>"
-BITCANNA_CHAIN_ID="bitcanna-1"
+BITCANNA_CHAIN_ID=""
 ```
 
 ```
