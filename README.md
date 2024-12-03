@@ -25,7 +25,7 @@
 
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/juno.svg" alt="" data-size="line"> [Juno](mainnets/juno/)
 
-<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/namada.svg" alt="" data-size="line"> [Nois](mainnets/namada/)
+<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/namada.svg" alt="" data-size="line"> [Namada](mainnets/namada/)
 
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/nois.svg" alt="" data-size="line"> [Nois](mainnets/nois/)
 
