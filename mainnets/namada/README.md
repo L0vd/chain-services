@@ -27,10 +27,10 @@ RPC\
 [https://namada-mainnet.rpc.l0vd.com/](https://namada-mainnet.rpc.l0vd.com/)
 
 Indexer\
-[https://namada-mainnet-indexer.l0vd.com/](https://namada-mainnet-indexer.l0vd.com/)
+[https://namada-mainnet-indexer.rpc.l0vd.com/](https://namada-mainnet-indexer.rpc.l0vd.com/)
 
 MASP-Indexer\
-[https://namada-mainnet-masp-indexer.l0vd.com/](https://namada-mainnet-masp-indexer.l0vd.com)
+[https://namada-mainnet-masp-indexer.rpc.l0vd.com/](https://namada-mainnet-masp-indexer.rpc.l0vd.com)
 
 Namadillo\
 [https://namadillo.l0vd.com/](https://namadillo.l0vd.com/)
