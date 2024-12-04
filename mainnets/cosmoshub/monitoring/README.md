@@ -53,7 +53,7 @@ nano variables.sh
 Insert your parameters to **variables.sh**:
 * full path to cosmoshub binary to COS_BIN_NAME ( check ```which gaiad```)
 * node PRC port to COS_PORT_RPC ( check in file ```path_to_cosmoshub_node_config/config/config.toml```)
-* node validator address to COS_VALOPER ( like ```nullvaloper********```)
+* node validator address to COS_VALOPER ( like ```cosmosvaloper********```)
 
 Save changes in variables.sh and enable execution permissions:
 
