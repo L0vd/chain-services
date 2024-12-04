@@ -29,7 +29,15 @@ RPC\
 Indexer\
 [https://namada-mainnet-indexer.l0vd.com/](https://namada-mainnet-indexer.l0vd.com/)
 
+MASP-Indexer\
+[https://namada-mainnet-masp-indexer.l0vd.com/](https://namada-mainnet-masp-indexer.l0vd.com)
+
+Namadillo\
+[https://namadillo.l0vd.com/](https://namadillo.l0vd.com/)
 
 **Other services**
 
+[Installation-guide](installation-guide/)\
 [Snapshot](snapshot/)\
+[Staking-guide](staking-guide)\
+[Useful commands](useful-commands/)
