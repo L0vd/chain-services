@@ -33,5 +33,5 @@ archway-mainnet.grpc.l0vd.com:80
 
 PEER
 ```
-68cac650b02d5f62fa1365cff979da7977abea26@archway-mainnet.peers.l0vd.com:26656
+@archway-mainnet.peers.l0vd.com:
 ```
