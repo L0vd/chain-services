@@ -85,7 +85,7 @@ archwayd config node tcp://localhost:${ARCHWAY_PORT}657
 
 ### Set seeds and peers
 ```
-PEERS="68cac650b02d5f62fa1365cff979da7977abea26@archway-mainnet.peers.l0vd.com:26656"
+PEERS="@archway-mainnet.peers.l0vd.com:"
 sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.archway/config/config.toml
 ```
 

@@ -51,7 +51,7 @@ nano variables.sh
 ```
 
 Insert your parameters to **variables.sh**:
-* full path to archway binary to COS_BIN_NAME ( check ```which archway```)
+* full path to archway binary to COS_BIN_NAME ( check ```which archwayd```)
 * node PRC port to COS_PORT_RPC ( check in file ```path_to_archway_node_config/config/config.toml```)
 * node validator address to COS_VALOPER ( like ```archwayvaloper********```)
 
@@ -138,7 +138,7 @@ Validator voting power. If the value of this parameter is zero, your node isn't 
 Number of delegated tokens
 
 ### Version
-Version of archway binary
+Version of archwayd binary
 
 ### Vali Rank
 Your node stake rank 
