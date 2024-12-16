@@ -11,7 +11,7 @@ sudo apt install lz4 -y
 ## Sync from Snapshot  
 | Height  | Size | Creation Time (UTC+3) |
 | --------- | --------- | --------- |
-| 159370  | 7.8 GB  | 2024-12-16_17:00:29 |
+| 161952  | 7.9 GB  | 2024-12-16_22:00:31 |
 
 ```
 sudo systemctl stop namadad
