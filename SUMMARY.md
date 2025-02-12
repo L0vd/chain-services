@@ -17,6 +17,8 @@
   * [State sync](mainnets/axelar/state-sync/README.md)
   * [Useful commands](mainnets/axelar/useful-commands/README.md)
   * [Monitoring](mainnets/axelar/monitoring/README.md)
+* [Berachain](mainnets/berachain/README.md)
+  * [Snapshot](mainnets/berachain/snapshot/README.md)
 * [Bitcanna](mainnets/bitcanna/README.md)
   * [Installation](mainnets/bitcanna/installation-guide/README.md)
   * [Snapshot](mainnets/bitcanna/snapshot/README.md)
