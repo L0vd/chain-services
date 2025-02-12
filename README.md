@@ -11,6 +11,8 @@
 
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/axelar.svg" alt="" data-size="line"> [Axelar](mainnets/axelar/)
 
+<img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/berachain.png" alt="" data-size="line"> [Berachain](mainnets/berachain)
+
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/bitcanna.png" alt="" data-size="line"> [Bitcanna](mainnets/bitcanna/)
 
 <img src="https://raw.githubusercontent.com/L0vd/image-content/main/gitbook-logos/composable.png" alt="" data-size="line"> [Composable](mainnets/composable/)
