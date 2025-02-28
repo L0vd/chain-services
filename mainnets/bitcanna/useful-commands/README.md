@@ -6,19 +6,19 @@ Please note that the values in <> must be changed to your own values
 
 ### Add new key
 ```
-bcnad keys add <key_name>
+d keys add <key_name>
 ```
 ### Recover keys from seed
 ```
-bcnad keys add <key_name> --recover
+d keys add <key_name> --recover
 ```
 ### Show all keys
 ```
-bcnad keys list
+d keys list
 ```
 ### Delete key
 ```
-bcnad keys delete <key_name>
+d keys delete <key_name>
 ```
 
 ## Node configuration
@@ -58,13 +58,13 @@ sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0\"/" $HOME/.bcna/c
 
 ### Create validator
 ```
-bcnad tx staking create-validator \
+d tx staking create-validator \
 --amount 1000000 \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
---pubkey $(bcnad tendermint show-validator) \
+--pubkey $(d tendermint show-validator) \
 --moniker <BITCANNA_NODENAME> \
 --chain-id bitcanna-1 \
 --from <BITCANNA_WALLET> \
@@ -78,7 +78,7 @@ bcnad tx staking create-validator \
 ```
 ### Edit validator
 ```
-bcnad tx staking edit-validator \
+d tx staking edit-validator \
 --new-moniker <BITCANNA_NODENAME> \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
@@ -93,97 +93,97 @@ bcnad tx staking edit-validator \
 ```
 ### View validator info
 ```
-bcnad q staking validator $(bcnad keys show <BITCANNA_WALLET> --bech val -a)
+d q staking validator $(d keys show <BITCANNA_WALLET> --bech val -a)
 ```
 ### Unjail validator
 ```
-bcnad tx slashing unjail --from <BITCANNA_WALLET> --chain-id bitcanna-1 --gas-prices 0 --gas-adjustment 1.5 --gas auto --yes 
+d tx slashing unjail --from <BITCANNA_WALLET> --chain-id bitcanna-1 --gas-prices 0 --gas-adjustment 1.5 --gas auto --yes 
 ```
 ### Signing info
 ```
-bcnad query slashing signing-info $(bcnad tendermint show-validator)
+d query slashing signing-info $(d tendermint show-validator)
 ```
 
 ## Token operations
 
 ### Send tokens
 ```
-bcnad tx bank send wallet <DEST_WALLET_ADDRESS> 100 --from <BITCANNA_WALLET> --chain-id bitcanna-1 --gas-prices 0 --gas-adjustment 1.5 --gas auto --yes
+d tx bank send wallet <DEST_WALLET_ADDRESS> 100 --from <BITCANNA_WALLET> --chain-id bitcanna-1 --gas-prices 0 --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to your validator
 ```
-bcnad tx staking delegate $(bcnad keys show <BITCANNA_WALLET> --bech val -a) 100 --from <BITCANNA_WALLET> --chain-id bitcanna-1 --gas-prices 0 --gas-adjustment 1.5 --gas auto --yes
+d tx staking delegate $(d keys show <BITCANNA_WALLET> --bech val -a) 100 --from <BITCANNA_WALLET> --chain-id bitcanna-1 --gas-prices 0 --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Delegate token to another validator
 ```
-bcnad tx staking delegate <VALOPER_ADDRESS> 100 --from <BITCANNA_WALLET> --chain-id bitcanna-1 --gas-prices 0 --gas-adjustment 1.5 --gas auto --yes
+d tx staking delegate <VALOPER_ADDRESS> 100 --from <BITCANNA_WALLET> --chain-id bitcanna-1 --gas-prices 0 --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Redelegate tokens to another validator
 ```
-bcnad tx staking redelegate $(bcnad keys show <BITCANNA_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100 --from <BITCANNA_WALLET> --chain-id bitcanna-1 --gas-prices 0 --gas-adjustment 1.5 --gas auto --yes
+d tx staking redelegate $(d keys show <BITCANNA_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100 --from <BITCANNA_WALLET> --chain-id bitcanna-1 --gas-prices 0 --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Unbond tokens from staking
 ```
-bcnad tx staking unbond $(bcnad keys show <BITCANNA_WALLET> --bech val -a) 100 --from <BITCANNA_WALLET> --chain-id bitcanna-1 --gas-prices 0 --gas-adjustment 1.5 --gas auto --yes
+d tx staking unbond $(d keys show <BITCANNA_WALLET> --bech val -a) 100 --from <BITCANNA_WALLET> --chain-id bitcanna-1 --gas-prices 0 --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Withdraw all rewards from staking
 ```
-bcnad tx distribution withdraw-all-rewards --from <BITCANNA_WALLET> --chain-id bitcanna-1 --gas-prices 0 --gas-adjustment 1.5 --gas auto --yes
+d tx distribution withdraw-all-rewards --from <BITCANNA_WALLET> --chain-id bitcanna-1 --gas-prices 0 --gas-adjustment 1.5 --gas auto --yes
 ```
 
 ### Withdraw validator rewards and comission
 ```
-bcnad tx distribution withdraw-rewards $(bcnad keys show <BITCANNA_WALLET> --bech val -a) --commission --from wallet --chain-id bitcanna-1 --gas-adjustment 1.5 --gas auto --gas-prices 0 -y
+d tx distribution withdraw-rewards $(d keys show <BITCANNA_WALLET> --bech val -a) --commission --from wallet --chain-id bitcanna-1 --gas-adjustment 1.5 --gas auto --gas-prices 0 -y
 
 ```
 
 ## Governance
 ### Vote "YES"
 ```
-bcnad tx gov vote <proposal_id> yes --from <BITCANNA_WALLET> --chain-id bitcanna-1 --gas-prices 0 --gas-adjustment 1.5 --gas auto --yes
+d tx gov vote <proposal_id> yes --from <BITCANNA_WALLET> --chain-id bitcanna-1 --gas-prices 0 --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Vote "NO"
 ```
-bcnad tx gov vote <proposal_id> no --from <BITCANNA_WALLET> --chain-id bitcanna-1 --gas-prices 0 --gas-adjustment 1.5 --gas auto --yes
+d tx gov vote <proposal_id> no --from <BITCANNA_WALLET> --chain-id bitcanna-1 --gas-prices 0 --gas-adjustment 1.5 --gas auto --yes
 ```
 ### Abstain from voting
 ```
-bcnad tx gov vote <proposal_id> abstain --from <BITCANNA_WALLET> --chain-id bitcanna-1 --gas-adjustment 1.5 --gas auto --gas-prices 0 -y
+d tx gov vote <proposal_id> abstain --from <BITCANNA_WALLET> --chain-id bitcanna-1 --gas-adjustment 1.5 --gas auto --gas-prices 0 -y
 ```
 
 
 ## General commands
 ### Check node status
 ```
-bcnad status | jq
+d status | jq
 ```
 ### Check service status
 ```
-sudo systemctl status bcnad
+sudo systemctl status d
 ```
 ### Check logs
 ```
-sudo journalctl -u bcnad -f --no-hostname -o cat
+sudo journalctl -u d -f --no-hostname -o cat
 ```
 ### Restart service
 ```
-sudo systemctl restart bcnad
+sudo systemctl restart d
 ```
 ### Stop service
 ```
-sudo systemctl stop bcnad
+sudo systemctl stop d
 ```
 ### Start service
 ```
-sudo systemctl start bcnad
+sudo systemctl start d
 ```
 ### Disable service
 ```
-sudo systemctl disable bcnad
+sudo systemctl disable d
 ```
 ### Enable service
 ```
-sudo systemctl enable bcnad
+sudo systemctl enable d
 ```
 ### Reload service after changes
 ```
