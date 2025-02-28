@@ -26,7 +26,7 @@ cd $HOME
 rm -rf umee
 git clone https://github.com/umee-network/umee.git
 cd umee
-git checkout v6.7.3
+git checkout v
 make install
 ```
 
@@ -55,12 +55,12 @@ source $HOME/.bash_profile
 
 ### Configure your node
 ```
-umeed config chain-id ${UMEE_CHAIN_ID}
+d config chain-id ${UMEE_CHAIN_ID}
 ```
 
 ### Initialize your node
 ```
-umeed init ${UMEE_NODENAME} --chain-id ${UMEE_CHAIN_ID}
+d init ${UMEE_NODENAME} --chain-id ${UMEE_CHAIN_ID}
 ```
 
 ### Download genesis & addrbook
@@ -107,14 +107,14 @@ sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.umee/config/config.toml
 
 ### Create Service
 ```
-sudo tee /etc/systemd/system/umeed.service > /dev/null <<EOF
+sudo tee /etc/systemd/system/d.service > /dev/null <<EOF
 [Unit]
 Description=Umee mainnet
 After=network-online.target
 
 [Service]
 User=$USER
-ExecStart=$(which umeed) start
+ExecStart=$(which d) start
 Restart=on-failure
 RestartSec=3
 LimitNOFILE=65535
@@ -127,9 +127,9 @@ EOF
 ### Reset blockchain info and restart your node
 ```
 sudo systemctl daemon-reload
-sudo systemctl enable umeed
-umeed tendermint unsafe-reset-all --home $HOME/.umee --keep-addr-book
-sudo systemctl restart umeed && sudo journalctl -u umeed -f -o cat
+sudo systemctl enable d
+d tendermint unsafe-reset-all --home $HOME/.umee --keep-addr-book
+sudo systemctl restart d && sudo journalctl -u d -f -o cat
 ```
 
 ### (OPTIONAL) Use State Sync
@@ -141,17 +141,17 @@ sudo systemctl restart umeed && sudo journalctl -u umeed -f -o cat
 
 #### 1. Add a new key
 ```
-umeed keys add ${UMEE_WALLET}
+d keys add ${UMEE_WALLET}
 ```
 ##### (OR)
 
 #### 1. Recover your key
 ```
-umeed keys add ${UMEE_WALLET} --recover
+d keys add ${UMEE_WALLET} --recover
 ```
 
 ```
-UMEE_WALLET_ADDR=$(umeed keys show ${UMEE_WALLET} -a)
+UMEE_WALLET_ADDR=$(d keys show ${UMEE_WALLET} -a)
 echo "export UMEE_WALLET_ADDR=${UMEE_WALLET_ADDR}" >> $HOME/.bash_profile
 
 source $HOME/.bash_profile
@@ -165,14 +165,14 @@ Wait until the node is synchronized.
 {% endhint %}
 
 ```
-umeed tx staking create-validator \
+d tx staking create-validator \
 --amount 1000000uumee \
 --commission-max-change-rate "0.01" \
 --commission-max-rate "0.20" \
 --commission-rate "0.1" \
 --min-self-delegation "1" \
 --details "" \
---pubkey $(umeed tendermint show-validator) \
+--pubkey $(d tendermint show-validator) \
 --moniker ${UMEE_NODENAME} \
 --chain-id ${UMEE_CHAIN_ID} \
 --from ${UMEE_WALLET_ADDR} \
