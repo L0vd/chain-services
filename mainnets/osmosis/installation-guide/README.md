@@ -85,7 +85,7 @@ d config node tcp://localhost:${OSMOSIS_PORT}657
 
 ### Set seeds and peers
 ```
-PEERS="@osmosis-mainnet.peers.l0vd.com:"
+PEERS="2b34890f069e93e1459870200e0e72623dca4ffe@osmosis-mainnet.peers.l0vd.com:26655"
 sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.osmosisd/config/config.toml
 ```
 

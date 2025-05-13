@@ -33,5 +33,5 @@ osmosis-mainnet.grpc.l0vd.com:80
 
 PEER
 ```
-@osmosis-mainnet.peers.l0vd.com:
+2b34890f069e93e1459870200e0e72623dca4ffe@osmosis-mainnet.peers.l0vd.com:26655
 ```
