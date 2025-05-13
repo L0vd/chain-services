@@ -33,5 +33,5 @@ umee-mainnet.grpc.l0vd.com:80
 
 PEER
 ```
-109443243e1f2dc873b38de11bcdd6195143179f@umee-mainnet.peers.l0vd.com:10656
+de1139e62ef9947a99972dd7d8b6690c93907f2a@umee-mainnet.peers.l0vd.com:10656
 ```

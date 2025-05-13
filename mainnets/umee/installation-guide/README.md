@@ -83,7 +83,7 @@ sed -i.bak -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:${U
 
 ### Set seeds and peers
 ```
-PEERS="109443243e1f2dc873b38de11bcdd6195143179f@umee-mainnet.peers.l0vd.com:10656"
+PEERS="de1139e62ef9947a99972dd7d8b6690c93907f2a@umee-mainnet.peers.l0vd.com:10656"
 sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.umee/config/config.toml
 ```
 
