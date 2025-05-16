@@ -11,7 +11,7 @@ sudo apt install lz4 -y
 ## Sync from Snapshot ⚠️ (Pebbledb)
 | Height  | Size | Pruning | Indexer | Creation Time (UTC+3) |
 | --------- | --------- | --------- | --------- | --------- |
-| 5095194  | 22.83GB  | 1000 | kv | 2025-05-16T16:01:43 |
+| 5102492  | 22.83GB  | 1000 | kv | 2025-05-16T20:01:43 |
 
 ```
 sudo systemctl stop beacond
