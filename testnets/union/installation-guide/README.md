@@ -9,7 +9,7 @@ sudo apt update && sudo apt upgrade -y
 ### Install GO
 ```
 if ! [ -x "$(command -v go)" ]; then
-  ver="1.24.2"
+  ver="1.19.3"
   cd $HOME
   wget "https://golang.org/dl/go$ver.linux-amd64.tar.gz"
   sudo rm -rf /usr/local/go
@@ -23,7 +23,7 @@ fi
 ### Install node
 ```
 cd $HOME
-wget https://github.com/unionlabs/union/releases/download/uniond%2Fv1.0.0-rc3.alpha1/uniond-release-x86_64-linux
+wget https://snapshots.l0vd.com/union-testnet/uniond
 chmod +x uniond
 mv uniond /root/go/bin/
 uniond version
@@ -82,7 +82,7 @@ sed -i.bak -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:${U
 
 ### Set seeds and peers
 ```
-PEERS="7805701fec85d4726502f25085932e8541e0a802@union-testnet.peers.l0vd.com:18656"
+PEERS="f425356a324e235d214fde9e4e395d4a969fc32d@union-testnet.peers.l0vd.com:18656"
 sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.union/config/config.toml
 ```
 
