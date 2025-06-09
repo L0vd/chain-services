@@ -14,7 +14,7 @@ The Union network is a hyper-efficient zero-knowledge infrastructure layer for g
 | ------ | ------ |
 | Chain-id | union-testnet-10 |
 | Binary name | uniond |
-| Binary version | v1.0.0 |
+| Binary version | v1.1.0 |
 
 ##### Explorer
 [https://explorers.l0vd.com/union-testnet](https://explorers.l0vd.com/union-testnet)
