@@ -26,7 +26,7 @@ cd $HOME
 rm -rf gaia
 git clone https://github.com/cosmos/gaia.git
 cd gaia
-git checkout v25.0.0
+git checkout v25.1.0
 make install
 ```
 
