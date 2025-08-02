@@ -51,7 +51,7 @@ nano variables.sh
 ```
 
 Insert your parameters to **variables.sh**:
-* full path to entangle binary to COS_BIN_NAME ( check ```which entangled```)
+* full path to entangle binary to COS_BIN_NAME ( check ```which d```)
 * node PRC port to COS_PORT_RPC ( check in file ```path_to_entangle_node_config/config/config.toml```)
 * node validator address to COS_VALOPER ( like ```ethmvaloper********```)
 
@@ -138,7 +138,7 @@ Validator voting power. If the value of this parameter is zero, your node isn't 
 Number of delegated tokens
 
 ### Version
-Version of entangled binary
+Version of d binary
 
 ### Vali Rank
 Your node stake rank 
