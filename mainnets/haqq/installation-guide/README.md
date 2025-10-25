@@ -85,7 +85,7 @@ d config node tcp://localhost:${HAQQ_PORT}657
 
 ### Set seeds and peers
 ```
-PEERS="6778705eaebb5630fc91f63b9530498704b33139@haqq-mainnet.peers.l0vd.com:13656"
+PEERS="dbd7fd3b114fae47a8754f2dbe920f7af585d733@haqq-mainnet.peers.l0vd.com:26656"
 sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.haqqd/config/config.toml
 ```
 
