@@ -21,7 +21,7 @@ Haqq Blockchain — Haqq (Arabic for truth) is a Proof of Stake blockchain netwo
 
 ##### Public Endpoints
 RPC
-[https://haqq-mainnet.rpc.l0vd.com](https://haqq-mainnet.rpc.l0vd.com)
+[https://rpc.tm.haqq.network:443](https://rpc.tm.haqq.network:443)
 
 API
 [https://haqq-mainnet.api.l0vd.com](https://haqq-mainnet.api.l0vd.com)
@@ -33,5 +33,5 @@ haqq-mainnet.grpc.l0vd.com:80
 
 PEER
 ```
-6778705eaebb5630fc91f63b9530498704b33139@haqq-mainnet.peers.l0vd.com:13656
+dbd7fd3b114fae47a8754f2dbe920f7af585d733@haqq-mainnet.peers.l0vd.com:26656
 ```
