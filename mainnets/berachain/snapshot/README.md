@@ -43,7 +43,7 @@ sudo apt install lz4 -y
 ## Sync from Snapshot  
 | Height  | Size | State | Txs | Creation Time (UTC+3) |
 | --------- | --------- | --------- | --------- | --------- |
-| 12221054  | 107.19GB  | all | all | 2025-10-26T04:07:47 |
+| 12221054  | 107.19GB  | all | all | 2025-10-26T08:07:43 |
 
 ```
 mkdir $HOME/geth_snapshot
