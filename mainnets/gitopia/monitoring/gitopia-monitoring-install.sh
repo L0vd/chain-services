@@ -52,7 +52,7 @@ fi
 
 # Defining variables
 
-COS_BIN=gitopiad
+COS_BIN=d
 COS_BIN_NAME=$(which $COS_BIN)
 COS_PORT_RPC=$($COS_BIN config | jq -r .node | cut -d : -f 3)
 COS_MONIKER=$(curl -s localhost:$COS_PORT_RPC/status | jq -r '.result.node_info.moniker')
@@ -106,9 +106,9 @@ wget https://raw.githubusercontent.com/L0vd/chain-services/main/mainnets/gitopia
 
 cat > variables.sh <<EOL
 #${FIRST_CAP_NAME} monitoring variables template 
-COS_BIN_NAME=$COS_BIN_NAME             # example: /root/go/bin/gitopiad or /home/user/go/bin/gitopiad
+COS_BIN_NAME=$COS_BIN_NAME             # example: /root/go/bin/d or /home/user/go/bin/d
 COS_PORT_RPC=$COS_PORT_RPC         # default: 26657
-COS_VALOPER=$COS_VALOPER           # example: gitopiavaloper1234545636767376535673
+COS_VALOPER=$COS_VALOPER           # example: valoper1234545636767376535673
 LOGENTRY=$LOGENTRY
 EOL
 
