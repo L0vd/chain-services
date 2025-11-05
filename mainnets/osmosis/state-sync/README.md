@@ -18,7 +18,7 @@ s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"$SNAP_RPC,$SNAP_RPC\"| ; \
 s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT| ; \
 s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" $HOME/.osmosisd/config/config.toml
 
-peers="2b34890f069e93e1459870200e0e72623dca4ffe@osmosis-mainnet.peers.l0vd.com:26655" \
+peers="@osmosis-mainnet.peers.l0vd.com:" \
 && sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/.osmosisd/config/config.toml 
 
 d tendermint unsafe-reset-all --home ~/.osmosisd && sudo systemctl restart d && journalctl -u d -f --output cat
