@@ -38,7 +38,7 @@ You should replace values in <> <br />
 ```
 UNION_WALLET="<YOUR_WALLET_NAME>"
 UNION_NODENAME="<YOUR_MONIKER>"
-UNION_CHAIN_ID=""
+UNION_CHAIN_ID="union-testnet-10"
 ```
 
 ```
