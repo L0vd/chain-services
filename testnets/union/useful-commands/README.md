@@ -66,7 +66,7 @@ uniond tx staking create-validator \
 --min-self-delegation "1" \
 --pubkey $(uniond tendermint show-validator --home $HOME/.union) \
 --moniker <UNION_NODENAME> \
---chain-id union-testnet-10 \
+--chain-id  \
 --from <UNION_WALLET> \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
@@ -84,7 +84,7 @@ uniond tx staking edit-validator \
 --identity <KEYBASE_ID> \
 --details <YOUR_TEXT> \
 --website <YOUR_WEBSITE> \
---chain-id union-testnet-10 \
+--chain-id  \
 --commission-rate 0.05 \
 --from <UNION_WALLET> \
 --gas-prices 0muno \
@@ -99,7 +99,7 @@ uniond q staking validator $(uniond keys show <UNION_WALLET> --bech val -a --hom
 ```
 ### Unjail validator
 ```
-uniond tx slashing unjail --from <UNION_WALLET> --chain-id union-testnet-10 --gas-prices 0muno --gas-adjustment 1.5 --gas auto --home $HOME/.union --yes 
+uniond tx slashing unjail --from <UNION_WALLET> --chain-id  --gas-prices 0muno --gas-adjustment 1.5 --gas auto --home $HOME/.union --yes 
 ```
 ### Signing info
 ```
@@ -110,47 +110,47 @@ uniond query slashing signing-info $(uniond tendermint show-validator --home $HO
 
 ### Send tokens
 ```
-uniond tx bank send wallet <DEST_WALLET_ADDRESS> 100muno --from <UNION_WALLET> --chain-id union-testnet-10 --gas-prices 0muno --gas-adjustment 1.5 --gas auto --home $HOME/.union --yes
+uniond tx bank send wallet <DEST_WALLET_ADDRESS> 100muno --from <UNION_WALLET> --chain-id  --gas-prices 0muno --gas-adjustment 1.5 --gas auto --home $HOME/.union --yes
 ```
 ### Delegate token to your validator
 ```
-uniond tx staking delegate $(uniond keys show <UNION_WALLET> --bech val -a) 100muno --from <UNION_WALLET> --chain-id union-testnet-10 --gas-prices 0muno --gas-adjustment 1.5 --gas auto --home $HOME/.union --yes
+uniond tx staking delegate $(uniond keys show <UNION_WALLET> --bech val -a) 100muno --from <UNION_WALLET> --chain-id  --gas-prices 0muno --gas-adjustment 1.5 --gas auto --home $HOME/.union --yes
 ```
 ### Delegate token to another validator
 ```
-uniond tx staking delegate <VALOPER_ADDRESS> 100muno --from <UNION_WALLET> --chain-id union-testnet-10 --gas-prices 0muno --gas-adjustment 1.5 --gas auto --home $HOME/.union --yes
+uniond tx staking delegate <VALOPER_ADDRESS> 100muno --from <UNION_WALLET> --chain-id  --gas-prices 0muno --gas-adjustment 1.5 --gas auto --home $HOME/.union --yes
 ```
 ### Redelegate tokens to another validator
 ```
-uniond tx staking redelegate $(uniond keys show <UNION_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100muno --from <UNION_WALLET> --chain-id union-testnet-10 --gas-prices 0muno --gas-adjustment 1.5 --gas auto --home $HOME/.union --yes
+uniond tx staking redelegate $(uniond keys show <UNION_WALLET> --bech val -a) <TO_VALOPER_ADDRESS> 100muno --from <UNION_WALLET> --chain-id  --gas-prices 0muno --gas-adjustment 1.5 --gas auto --home $HOME/.union --yes
 ```
 ### Unbond tokens from staking
 ```
-uniond tx staking unbond $(uniond keys show <UNION_WALLET> --bech val -a) 100muno --from <UNION_WALLET> --chain-id union-testnet-10 --gas-prices 0muno --gas-adjustment 1.5 --gas auto --home $HOME/.union --yes
+uniond tx staking unbond $(uniond keys show <UNION_WALLET> --bech val -a) 100muno --from <UNION_WALLET> --chain-id  --gas-prices 0muno --gas-adjustment 1.5 --gas auto --home $HOME/.union --yes
 ```
 ### Withdraw all rewards from staking
 ```
-uniond tx distribution withdraw-all-rewards --from <UNION_WALLET> --chain-id union-testnet-10 --gas-prices 0muno --gas-adjustment 1.5 --gas auto --home $HOME/.union --yes
+uniond tx distribution withdraw-all-rewards --from <UNION_WALLET> --chain-id  --gas-prices 0muno --gas-adjustment 1.5 --gas auto --home $HOME/.union --yes
 ```
 
 ### Withdraw validator rewards and comission
 ```
-uniond tx distribution withdraw-rewards $(uniond keys show <UNION_WALLET> --bech val -a) --commission --from wallet --chain-id union-testnet-10 --gas-adjustment 1.5 --gas auto --gas-prices 0muno --home $HOME/.union -y
+uniond tx distribution withdraw-rewards $(uniond keys show <UNION_WALLET> --bech val -a) --commission --from wallet --chain-id  --gas-adjustment 1.5 --gas auto --gas-prices 0muno --home $HOME/.union -y
 
 ```
 
 ## Governance
 ### Vote "YES"
 ```
-uniond tx gov vote <proposal_id> yes --from <UNION_WALLET> --chain-id union-testnet-10 --gas-prices 0muno --gas-adjustment 1.5 --gas auto --home $HOME/.union --yes
+uniond tx gov vote <proposal_id> yes --from <UNION_WALLET> --chain-id  --gas-prices 0muno --gas-adjustment 1.5 --gas auto --home $HOME/.union --yes
 ```
 ### Vote "NO"
 ```
-uniond tx gov vote <proposal_id> no --from <UNION_WALLET> --chain-id union-testnet-10 --gas-prices 0muno --gas-adjustment 1.5 --gas auto --home $HOME/.union --yes
+uniond tx gov vote <proposal_id> no --from <UNION_WALLET> --chain-id  --gas-prices 0muno --gas-adjustment 1.5 --gas auto --home $HOME/.union --yes
 ```
 ### Abstain from voting
 ```
-uniond tx gov vote <proposal_id> abstain --from <UNION_WALLET> --chain-id union-testnet-10 --gas-adjustment 1.5 --gas auto --gas-prices 0muno --home $HOME/.union -y
+uniond tx gov vote <proposal_id> abstain --from <UNION_WALLET> --chain-id  --gas-adjustment 1.5 --gas auto --gas-prices 0muno --home $HOME/.union -y
 ```
 
 
