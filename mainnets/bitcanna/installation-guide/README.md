@@ -85,7 +85,7 @@ d config node tcp://localhost:${BITCANNA_PORT}657
 
 ### Set seeds and peers
 ```
-PEERS="858b5cf31f1cc5e6b4da25bb21d4b58b76460038@bitcanna-mainnet.peers.l0vd.com:12656"
+PEERS="@bitcanna-mainnet.peers.l0vd.com:"
 sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.bcna/config/config.toml
 ```
 
