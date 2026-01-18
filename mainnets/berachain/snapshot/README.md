@@ -11,7 +11,7 @@ sudo apt install lz4 -y
 ## Sync from Snapshot ⚠️ (Pebbledb)
 | Height  | Size | Pruning | Indexer | Creation Time (UTC+3) |
 | --------- | --------- | --------- | --------- | --------- |
-| 15847397  | 220.2GB  | 1000 | kv | 2026-01-18T08:11:47 |
+| 15861442  | 220.39GB  | 1000 | kv | 2026-01-18T12:11:32 |
 
 ```
 sudo systemctl stop beacond
@@ -28,25 +28,4 @@ mv $HOME/.beacond_mainnet_public/priv_validator_state.json.backup $HOME/.beacond
 
 sudo systemctl restart beacond
 sudo journalctl -u beacond -f --no-hostname -o cat
-```
-
-# Reth Snapshot
-
-## Updates every 4 hours
-
-## Install dependencies, if needed
-```
-sudo apt update
-sudo apt install lz4 -y
-```
-
-## Sync from Snapshot  
-| Height  | Size | State | Txs | Creation Time (UTC+3) |
-| --------- | --------- | --------- | --------- | --------- |
-| 15852001  | 200.24GB  | all | all | 2026-01-18T08:24:40 |
-
-```
-mkdir $HOME/geth_snapshot
-SNAP_NAME=$(curl -s https://bera-snapshots.l0vd.com/mainnets/berachain/80094/ | egrep -o ">80094.*\.tar.lz4" | tr -d ">")
-curl https://bera-snapshots.l0vd.com/mainnets/berachain/80094/${SNAP_NAME} | lz4 -dc - | tar -xf - -C $HOME/reth_snapshot
 ```
