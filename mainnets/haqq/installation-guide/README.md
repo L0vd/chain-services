@@ -39,7 +39,7 @@ You should replace values in <> <br />
 ```
 HAQQ_WALLET="<YOUR_WALLET_NAME>"
 HAQQ_NODENAME="<YOUR_MONIKER>"
-HAQQ_CHAIN_ID="haqq_11235-1"
+HAQQ_CHAIN_ID=""
 ```
 
 ```
